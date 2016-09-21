@@ -24,14 +24,21 @@
 
 
 // This text will be stored with each diagram;  use it for notes.</help_text>
-  <zoom_level>12</zoom_level>
+  <zoom_level>6</zoom_level>
   <element>
     <id>UMLActor</id>
     <coordinates>
+<<<<<<< Updated upstream
       <x>84</x>
       <y>96</y>
       <w>120</w>
       <h>132</h>
+=======
+      <x>312</x>
+      <y>66</y>
+      <w>60</w>
+      <h>66</h>
+>>>>>>> Stashed changes
     </coordinates>
     <panel_attributes>网站营销人员</panel_attributes>
     <additional_attributes/>
@@ -39,10 +46,17 @@
   <element>
     <id>UMLUseCase</id>
     <coordinates>
+<<<<<<< Updated upstream
       <x>324</x>
       <y>48</y>
       <w>144</w>
       <h>48</h>
+=======
+      <x>432</x>
+      <y>24</y>
+      <w>72</w>
+      <h>24</h>
+>>>>>>> Stashed changes
     </coordinates>
     <panel_attributes>制定网站促销策略</panel_attributes>
     <additional_attributes/>
@@ -50,10 +64,17 @@
   <element>
     <id>Relation</id>
     <coordinates>
+<<<<<<< Updated upstream
       <x>168</x>
       <y>60</y>
       <w>180</w>
       <h>108</h>
+=======
+      <x>354</x>
+      <y>30</y>
+      <w>90</w>
+      <h>72</h>
+>>>>>>> Stashed changes
     </coordinates>
     <panel_attributes/>
     <additional_attributes>10.0;70.0;130.0;10.0</additional_attributes>
@@ -61,10 +82,17 @@
   <element>
     <id>UMLUseCase</id>
     <coordinates>
+<<<<<<< Updated upstream
       <x>324</x>
       <y>120</y>
       <w>144</w>
       <h>48</h>
+=======
+      <x>432</x>
+      <y>60</y>
+      <w>72</w>
+      <h>24</h>
+>>>>>>> Stashed changes
     </coordinates>
     <panel_attributes>浏览未执行订单</panel_attributes>
     <additional_attributes/>
@@ -72,10 +100,17 @@
   <element>
     <id>Relation</id>
     <coordinates>
+<<<<<<< Updated upstream
       <x>168</x>
       <y>120</y>
       <w>180</w>
       <h>48</h>
+=======
+      <x>354</x>
+      <y>66</y>
+      <w>90</w>
+      <h>36</h>
+>>>>>>> Stashed changes
     </coordinates>
     <panel_attributes/>
     <additional_attributes>10.0;20.0;130.0;20.0</additional_attributes>
@@ -83,10 +118,17 @@
   <element>
     <id>UMLUseCase</id>
     <coordinates>
+<<<<<<< Updated upstream
       <x>324</x>
       <y>192</y>
       <w>144</w>
       <h>48</h>
+=======
+      <x>432</x>
+      <y>96</y>
+      <w>72</w>
+      <h>24</h>
+>>>>>>> Stashed changes
     </coordinates>
     <panel_attributes>信用充值</panel_attributes>
     <additional_attributes/>
@@ -94,10 +136,17 @@
   <element>
     <id>Relation</id>
     <coordinates>
+<<<<<<< Updated upstream
       <x>168</x>
       <y>132</y>
       <w>180</w>
       <h>108</h>
+=======
+      <x>354</x>
+      <y>84</y>
+      <w>90</w>
+      <h>36</h>
+>>>>>>> Stashed changes
     </coordinates>
     <panel_attributes/>
     <additional_attributes>10.0;10.0;130.0;70.0</additional_attributes>
@@ -105,10 +154,17 @@
   <element>
     <id>UMLActor</id>
     <coordinates>
+<<<<<<< Updated upstream
       <x>108</x>
       <y>1392</y>
       <w>120</w>
       <h>132</h>
+=======
+      <x>324</x>
+      <y>696</y>
+      <w>60</w>
+      <h>66</h>
+>>>>>>> Stashed changes
     </coordinates>
     <panel_attributes>网站管理人员</panel_attributes>
     <additional_attributes/>
@@ -116,10 +172,17 @@
   <element>
     <id>Relation</id>
     <coordinates>
+<<<<<<< Updated upstream
       <x>192</x>
       <y>1308</y>
       <w>192</w>
       <h>144</h>
+=======
+      <x>366</x>
+      <y>654</y>
+      <w>96</w>
+      <h>72</h>
+>>>>>>> Stashed changes
     </coordinates>
     <panel_attributes/>
     <additional_attributes>10.0;100.0;140.0;10.0</additional_attributes>
@@ -127,10 +190,17 @@
   <element>
     <id>Relation</id>
     <coordinates>
+<<<<<<< Updated upstream
       <x>192</x>
       <y>1392</y>
       <w>180</w>
       <h>60</h>
+=======
+      <x>366</x>
+      <y>696</y>
+      <w>90</w>
+      <h>30</h>
+>>>>>>> Stashed changes
     </coordinates>
     <panel_attributes/>
     <additional_attributes>10.0;30.0;130.0;10.0</additional_attributes>
@@ -138,10 +208,17 @@
   <element>
     <id>UMLUseCase</id>
     <coordinates>
+<<<<<<< Updated upstream
       <x>348</x>
       <y>1380</y>
       <w>180</w>
       <h>48</h>
+=======
+      <x>444</x>
+      <y>690</y>
+      <w>90</w>
+      <h>24</h>
+>>>>>>> Stashed changes
     </coordinates>
     <panel_attributes>添加酒店及其工作人员</panel_attributes>
     <additional_attributes/>
@@ -149,10 +226,17 @@
   <element>
     <id>Relation</id>
     <coordinates>
+<<<<<<< Updated upstream
       <x>192</x>
       <y>1416</y>
       <w>204</w>
       <h>96</h>
+=======
+      <x>366</x>
+      <y>708</y>
+      <w>102</w>
+      <h>48</h>
+>>>>>>> Stashed changes
     </coordinates>
     <panel_attributes/>
     <additional_attributes>10.0;10.0;150.0;60.0</additional_attributes>
@@ -160,10 +244,17 @@
   <element>
     <id>UMLUseCase</id>
     <coordinates>
+<<<<<<< Updated upstream
       <x>372</x>
       <y>1464</y>
       <w>144</w>
       <h>48</h>
+=======
+      <x>456</x>
+      <y>732</y>
+      <w>72</w>
+      <h>24</h>
+>>>>>>> Stashed changes
     </coordinates>
     <panel_attributes>网站营销人员管理</panel_attributes>
     <additional_attributes/>
@@ -171,10 +262,17 @@
   <element>
     <id>UMLActor</id>
     <coordinates>
+<<<<<<< Updated upstream
       <x>120</x>
       <y>972</y>
       <w>72</w>
       <h>132</h>
+=======
+      <x>324</x>
+      <y>474</y>
+      <w>36</w>
+      <h>66</h>
+>>>>>>> Stashed changes
     </coordinates>
     <panel_attributes>客户</panel_attributes>
     <additional_attributes/>
@@ -182,10 +280,17 @@
   <element>
     <id>Relation</id>
     <coordinates>
+<<<<<<< Updated upstream
       <x>180</x>
       <y>792</y>
       <w>180</w>
       <h>240</h>
+=======
+      <x>354</x>
+      <y>396</y>
+      <w>96</w>
+      <h>108</h>
+>>>>>>> Stashed changes
     </coordinates>
     <panel_attributes/>
     <additional_attributes>10.0;180.0;130.0;10.0</additional_attributes>
@@ -193,10 +298,17 @@
   <element>
     <id>UMLUseCase</id>
     <coordinates>
+<<<<<<< Updated upstream
       <x>336</x>
       <y>780</y>
       <w>144</w>
       <h>48</h>
+=======
+      <x>438</x>
+      <y>390</y>
+      <w>72</w>
+      <h>24</h>
+>>>>>>> Stashed changes
     </coordinates>
     <panel_attributes>浏览自己的订单</panel_attributes>
     <additional_attributes/>
@@ -204,10 +316,17 @@
   <element>
     <id>Relation</id>
     <coordinates>
+<<<<<<< Updated upstream
       <x>180</x>
       <y>960</y>
       <w>192</w>
       <h>72</h>
+=======
+      <x>354</x>
+      <y>474</y>
+      <w>102</w>
+      <h>30</h>
+>>>>>>> Stashed changes
     </coordinates>
     <panel_attributes/>
     <additional_attributes>10.0;40.0;140.0;10.0</additional_attributes>
@@ -215,10 +334,17 @@
   <element>
     <id>UMLUseCase</id>
     <coordinates>
+<<<<<<< Updated upstream
       <x>348</x>
       <y>948</y>
       <w>144</w>
       <h>48</h>
+=======
+      <x>444</x>
+      <y>474</y>
+      <w>72</w>
+      <h>24</h>
+>>>>>>> Stashed changes
     </coordinates>
     <panel_attributes>搜索酒店信息</panel_attributes>
     <additional_attributes/>
@@ -226,10 +352,17 @@
   <element>
     <id>Relation</id>
     <coordinates>
+<<<<<<< Updated upstream
       <x>180</x>
       <y>876</y>
       <w>192</w>
       <h>156</h>
+=======
+      <x>354</x>
+      <y>438</y>
+      <w>102</w>
+      <h>66</h>
+>>>>>>> Stashed changes
     </coordinates>
     <panel_attributes/>
     <additional_attributes>10.0;110.0;140.0;10.0</additional_attributes>
@@ -237,10 +370,17 @@
   <element>
     <id>UMLUseCase</id>
     <coordinates>
+<<<<<<< Updated upstream
       <x>348</x>
       <y>864</y>
       <w>144</w>
       <h>48</h>
+=======
+      <x>444</x>
+      <y>432</y>
+      <w>72</w>
+      <h>24</h>
+>>>>>>> Stashed changes
     </coordinates>
     <panel_attributes>查看信用记录</panel_attributes>
     <additional_attributes/>
@@ -248,10 +388,17 @@
   <element>
     <id>Relation</id>
     <coordinates>
+<<<<<<< Updated upstream
       <x>180</x>
       <y>996</y>
       <w>204</w>
       <h>252</h>
+=======
+      <x>354</x>
+      <y>486</y>
+      <w>108</w>
+      <h>138</h>
+>>>>>>> Stashed changes
     </coordinates>
     <panel_attributes/>
     <additional_attributes>10.0;10.0;150.0;190.0</additional_attributes>
@@ -259,10 +406,17 @@
   <element>
     <id>UMLUseCase</id>
     <coordinates>
+<<<<<<< Updated upstream
       <x>360</x>
       <y>1200</y>
       <w>144</w>
       <h>48</h>
+=======
+      <x>450</x>
+      <y>600</y>
+      <w>72</w>
+      <h>24</h>
+>>>>>>> Stashed changes
     </coordinates>
     <panel_attributes>维护客户基本信息</panel_attributes>
     <additional_attributes/>
@@ -270,10 +424,17 @@
   <element>
     <id>UMLUseCase</id>
     <coordinates>
+<<<<<<< Updated upstream
       <x>636</x>
       <y>984</y>
       <w>144</w>
       <h>48</h>
+=======
+      <x>588</x>
+      <y>492</y>
+      <w>72</w>
+      <h>24</h>
+>>>>>>> Stashed changes
     </coordinates>
     <panel_attributes>生成订单</panel_attributes>
     <additional_attributes/>
@@ -281,10 +442,17 @@
   <element>
     <id>UMLUseCase</id>
     <coordinates>
+<<<<<<< Updated upstream
       <x>624</x>
       <y>732</y>
       <w>144</w>
       <h>48</h>
+=======
+      <x>582</x>
+      <y>366</y>
+      <w>72</w>
+      <h>24</h>
+>>>>>>> Stashed changes
     </coordinates>
     <panel_attributes>评价</panel_attributes>
     <additional_attributes/>
@@ -292,10 +460,17 @@
   <element>
     <id>UMLUseCase</id>
     <coordinates>
+<<<<<<< Updated upstream
       <x>336</x>
       <y>1032</y>
       <w>192</w>
       <h>48</h>
+=======
+      <x>438</x>
+      <y>516</y>
+      <w>96</w>
+      <h>24</h>
+>>>>>>> Stashed changes
     </coordinates>
     <panel_attributes>查看自己预订过的酒店</panel_attributes>
     <additional_attributes/>
@@ -303,10 +478,17 @@
   <element>
     <id>Relation</id>
     <coordinates>
+<<<<<<< Updated upstream
       <x>180</x>
       <y>996</y>
       <w>180</w>
       <h>84</h>
+=======
+      <x>354</x>
+      <y>486</y>
+      <w>96</w>
+      <h>54</h>
+>>>>>>> Stashed changes
     </coordinates>
     <panel_attributes/>
     <additional_attributes>10.0;10.0;130.0;50.0</additional_attributes>
@@ -314,10 +496,17 @@
   <element>
     <id>UMLUseCase</id>
     <coordinates>
+<<<<<<< Updated upstream
       <x>360</x>
       <y>1128</y>
       <w>144</w>
       <h>48</h>
+=======
+      <x>450</x>
+      <y>564</y>
+      <w>72</w>
+      <h>24</h>
+>>>>>>> Stashed changes
     </coordinates>
     <panel_attributes>注册会员</panel_attributes>
     <additional_attributes/>
@@ -325,10 +514,17 @@
   <element>
     <id>Relation</id>
     <coordinates>
+<<<<<<< Updated upstream
       <x>180</x>
       <y>996</y>
       <w>204</w>
       <h>180</h>
+=======
+      <x>354</x>
+      <y>486</y>
+      <w>108</w>
+      <h>102</h>
+>>>>>>> Stashed changes
     </coordinates>
     <panel_attributes/>
     <additional_attributes>10.0;10.0;150.0;130.0</additional_attributes>
@@ -336,10 +532,17 @@
   <element>
     <id>UMLActor</id>
     <coordinates>
+<<<<<<< Updated upstream
       <x>84</x>
       <y>444</y>
       <w>120</w>
       <h>132</h>
+=======
+      <x>312</x>
+      <y>222</y>
+      <w>60</w>
+      <h>66</h>
+>>>>>>> Stashed changes
     </coordinates>
     <panel_attributes>酒店工作人员</panel_attributes>
     <additional_attributes/>
@@ -347,10 +550,17 @@
   <element>
     <id>UMLUseCase</id>
     <coordinates>
+<<<<<<< Updated upstream
       <x>336</x>
       <y>288</y>
       <w>144</w>
       <h>48</h>
+=======
+      <x>438</x>
+      <y>144</y>
+      <w>72</w>
+      <h>24</h>
+>>>>>>> Stashed changes
     </coordinates>
     <panel_attributes>维护酒店基本信息</panel_attributes>
     <additional_attributes/>
@@ -358,10 +568,17 @@
   <element>
     <id>Relation</id>
     <coordinates>
+<<<<<<< Updated upstream
       <x>168</x>
       <y>300</y>
       <w>192</w>
       <h>204</h>
+=======
+      <x>354</x>
+      <y>150</y>
+      <w>96</w>
+      <h>102</h>
+>>>>>>> Stashed changes
     </coordinates>
     <panel_attributes/>
     <additional_attributes>140.0;10.0;10.0;150.0</additional_attributes>
@@ -369,10 +586,17 @@
   <element>
     <id>Relation</id>
     <coordinates>
+<<<<<<< Updated upstream
       <x>168</x>
       <y>372</y>
       <w>192</w>
       <h>132</h>
+=======
+      <x>354</x>
+      <y>186</y>
+      <w>96</w>
+      <h>66</h>
+>>>>>>> Stashed changes
     </coordinates>
     <panel_attributes/>
     <additional_attributes>140.0;10.0;10.0;90.0</additional_attributes>
@@ -380,10 +604,17 @@
   <element>
     <id>UMLUseCase</id>
     <coordinates>
+<<<<<<< Updated upstream
       <x>336</x>
       <y>360</y>
       <w>144</w>
       <h>48</h>
+=======
+      <x>438</x>
+      <y>180</y>
+      <w>72</w>
+      <h>24</h>
+>>>>>>> Stashed changes
     </coordinates>
     <panel_attributes>录入可用客房</panel_attributes>
     <additional_attributes/>
@@ -391,10 +622,17 @@
   <element>
     <id>UMLUseCase</id>
     <coordinates>
+<<<<<<< Updated upstream
       <x>336</x>
       <y>444</y>
       <w>144</w>
       <h>48</h>
+=======
+      <x>438</x>
+      <y>222</y>
+      <w>72</w>
+      <h>24</h>
+>>>>>>> Stashed changes
     </coordinates>
     <panel_attributes>制定酒店促销策略</panel_attributes>
     <additional_attributes/>
@@ -402,10 +640,17 @@
   <element>
     <id>Relation</id>
     <coordinates>
+<<<<<<< Updated upstream
       <x>168</x>
       <y>444</y>
       <w>192</w>
       <h>60</h>
+=======
+      <x>354</x>
+      <y>222</y>
+      <w>96</w>
+      <h>30</h>
+>>>>>>> Stashed changes
     </coordinates>
     <panel_attributes/>
     <additional_attributes>140.0;20.0;10.0;30.0</additional_attributes>
@@ -413,10 +658,17 @@
   <element>
     <id>Relation</id>
     <coordinates>
+<<<<<<< Updated upstream
       <x>168</x>
       <y>468</y>
       <w>180</w>
       <h>108</h>
+=======
+      <x>354</x>
+      <y>234</y>
+      <w>90</w>
+      <h>54</h>
+>>>>>>> Stashed changes
     </coordinates>
     <panel_attributes/>
     <additional_attributes>10.0;10.0;130.0;70.0</additional_attributes>
@@ -424,10 +676,17 @@
   <element>
     <id>UMLUseCase</id>
     <coordinates>
+<<<<<<< Updated upstream
       <x>324</x>
       <y>528</y>
       <w>168</w>
       <h>48</h>
+=======
+      <x>432</x>
+      <y>264</y>
+      <w>84</w>
+      <h>24</h>
+>>>>>>> Stashed changes
     </coordinates>
     <panel_attributes>更新入住和退房信息</panel_attributes>
     <additional_attributes/>
@@ -435,10 +694,17 @@
   <element>
     <id>UMLUseCase</id>
     <coordinates>
+<<<<<<< Updated upstream
       <x>336</x>
       <y>684</y>
       <w>144</w>
       <h>48</h>
+=======
+      <x>438</x>
+      <y>342</y>
+      <w>72</w>
+      <h>24</h>
+>>>>>>> Stashed changes
     </coordinates>
     <panel_attributes>浏览酒店订单</panel_attributes>
     <additional_attributes/>
@@ -446,10 +712,17 @@
   <element>
     <id>Relation</id>
     <coordinates>
+<<<<<<< Updated upstream
       <x>168</x>
       <y>468</y>
       <w>192</w>
       <h>264</h>
+=======
+      <x>354</x>
+      <y>234</y>
+      <w>96</w>
+      <h>132</h>
+>>>>>>> Stashed changes
     </coordinates>
     <panel_attributes/>
     <additional_attributes>140.0;200.0;10.0;10.0</additional_attributes>
@@ -457,10 +730,17 @@
   <element>
     <id>Relation</id>
     <coordinates>
+<<<<<<< Updated upstream
       <x>168</x>
       <y>468</y>
       <w>204</w>
       <h>180</h>
+=======
+      <x>354</x>
+      <y>234</y>
+      <w>102</w>
+      <h>90</h>
+>>>>>>> Stashed changes
     </coordinates>
     <panel_attributes/>
     <additional_attributes>10.0;10.0;150.0;130.0</additional_attributes>
@@ -468,10 +748,17 @@
   <element>
     <id>UMLUseCase</id>
     <coordinates>
+<<<<<<< Updated upstream
       <x>348</x>
       <y>600</y>
       <w>144</w>
       <h>48</h>
+=======
+      <x>444</x>
+      <y>300</y>
+      <w>72</w>
+      <h>24</h>
+>>>>>>> Stashed changes
     </coordinates>
     <panel_attributes>订单执行</panel_attributes>
     <additional_attributes/>
@@ -479,10 +766,14 @@
   <element>
     <id>UMLGeneric</id>
     <coordinates>
+<<<<<<< Updated upstream
       <x>288</x>
+=======
+      <x>414</x>
+>>>>>>> Stashed changes
       <y>0</y>
-      <w>516</w>
-      <h>1632</h>
+      <w>258</w>
+      <h>816</h>
     </coordinates>
     <panel_attributes>酒店管理系统
 halign=center</panel_attributes>
@@ -491,10 +782,17 @@ halign=center</panel_attributes>
   <element>
     <id>UMLUseCase</id>
     <coordinates>
+<<<<<<< Updated upstream
       <x>600</x>
       <y>816</y>
       <w>192</w>
       <h>48</h>
+=======
+      <x>570</x>
+      <y>408</y>
+      <w>96</w>
+      <h>24</h>
+>>>>>>> Stashed changes
     </coordinates>
     <panel_attributes>撤销未执行的正常订单</panel_attributes>
     <additional_attributes/>
@@ -502,10 +800,17 @@ halign=center</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
+<<<<<<< Updated upstream
       <x>468</x>
       <y>744</y>
       <w>180</w>
       <h>84</h>
+=======
+      <x>504</x>
+      <y>372</y>
+      <w>90</w>
+      <h>42</h>
+>>>>>>> Stashed changes
     </coordinates>
     <panel_attributes>lt=.&gt;
 &lt;&lt;extends&gt;&gt;</panel_attributes>
@@ -514,10 +819,17 @@ halign=center</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
+<<<<<<< Updated upstream
       <x>456</x>
       <y>804</y>
       <w>168</w>
       <h>60</h>
+=======
+      <x>498</x>
+      <y>402</y>
+      <w>84</w>
+      <h>30</h>
+>>>>>>> Stashed changes
     </coordinates>
     <panel_attributes>lt=.&gt;
 &lt;&lt;extends&gt;&gt;</panel_attributes>
@@ -526,10 +838,17 @@ halign=center</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
+<<<<<<< Updated upstream
       <x>480</x>
       <y>960</y>
       <w>192</w>
       <h>60</h>
+=======
+      <x>510</x>
+      <y>480</y>
+      <w>96</w>
+      <h>30</h>
+>>>>>>> Stashed changes
     </coordinates>
     <panel_attributes>lt=.&gt;
 &lt;&lt;extends&gt;&gt;</panel_attributes>
@@ -538,10 +857,17 @@ halign=center</panel_attributes>
   <element>
     <id>UMLUseCase</id>
     <coordinates>
+<<<<<<< Updated upstream
       <x>348</x>
       <y>1536</y>
       <w>204</w>
       <h>48</h>
+=======
+      <x>444</x>
+      <y>768</y>
+      <w>102</w>
+      <h>24</h>
+>>>>>>> Stashed changes
     </coordinates>
     <panel_attributes>维护酒店工作人员信息</panel_attributes>
     <additional_attributes/>
@@ -549,10 +875,17 @@ halign=center</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
+<<<<<<< Updated upstream
       <x>192</x>
       <y>1416</y>
       <w>180</w>
       <h>168</h>
+=======
+      <x>366</x>
+      <y>708</y>
+      <w>90</w>
+      <h>84</h>
+>>>>>>> Stashed changes
     </coordinates>
     <panel_attributes/>
     <additional_attributes>10.0;10.0;130.0;120.0</additional_attributes>
@@ -560,10 +893,17 @@ halign=center</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
+<<<<<<< Updated upstream
       <x>516</x>
       <y>1008</y>
       <w>156</w>
       <h>72</h>
+=======
+      <x>528</x>
+      <y>504</y>
+      <w>78</w>
+      <h>36</h>
+>>>>>>> Stashed changes
     </coordinates>
     <panel_attributes>lt=.&gt;
 &lt;&lt;extends&gt;&gt;</panel_attributes>
@@ -572,10 +912,17 @@ halign=center</panel_attributes>
   <element>
     <id>UMLUseCase</id>
     <coordinates>
+<<<<<<< Updated upstream
       <x>612</x>
       <y>120</y>
       <w>144</w>
       <h>48</h>
+=======
+      <x>576</x>
+      <y>60</y>
+      <w>72</w>
+      <h>24</h>
+>>>>>>> Stashed changes
     </coordinates>
     <panel_attributes>撤销异常订单</panel_attributes>
     <additional_attributes/>
@@ -583,10 +930,17 @@ halign=center</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
+<<<<<<< Updated upstream
       <x>456</x>
       <y>120</y>
       <w>180</w>
       <h>48</h>
+=======
+      <x>498</x>
+      <y>60</y>
+      <w>90</w>
+      <h>24</h>
+>>>>>>> Stashed changes
     </coordinates>
     <panel_attributes>lt=.&gt;
 &lt;&lt;extends&gt;&gt;</panel_attributes>
@@ -595,10 +949,17 @@ halign=center</panel_attributes>
   <element>
     <id>UMLUseCase</id>
     <coordinates>
+<<<<<<< Updated upstream
       <x>360</x>
       <y>1296</y>
       <w>144</w>
       <h>48</h>
+=======
+      <x>450</x>
+      <y>648</y>
+      <w>72</w>
+      <h>24</h>
+>>>>>>> Stashed changes
     </coordinates>
     <panel_attributes>查询更改客户信息</panel_attributes>
     <additional_attributes/>
