@@ -5,7 +5,7 @@
     <id>UMLClass</id>
     <coordinates>
       <x>120</x>
-      <y>310</y>
+      <y>220</y>
       <w>100</w>
       <h>100</h>
     </coordinates>
@@ -22,19 +22,21 @@
     <id>Relation</id>
     <coordinates>
       <x>210</x>
-      <y>340</y>
+      <y>250</y>
       <w>140</w>
-      <h>40</h>
+      <h>50</h>
     </coordinates>
     <panel_attributes>lt=-
-发起</panel_attributes>
+m1=1
+m2=*
+浏览</panel_attributes>
     <additional_attributes>10.0;20.0;120.0;20.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
       <x>330</x>
-      <y>260</y>
+      <y>170</y>
       <w>130</w>
       <h>230</h>
     </coordinates>
@@ -58,7 +60,7 @@
     <id>Relation</id>
     <coordinates>
       <x>450</x>
-      <y>350</y>
+      <y>260</y>
       <w>130</w>
       <h>30</h>
     </coordinates>
@@ -69,7 +71,7 @@
     <id>UMLClass</id>
     <coordinates>
       <x>560</x>
-      <y>320</y>
+      <y>230</y>
       <w>100</w>
       <h>80</h>
     </coordinates>

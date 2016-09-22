@@ -24,55 +24,60 @@
       <x>240</x>
       <y>290</y>
       <w>120</w>
-      <h>40</h>
+      <h>50</h>
     </coordinates>
     <panel_attributes>lt=-
-发起</panel_attributes>
+m1=1
+m2=*
+浏览</panel_attributes>
     <additional_attributes>10.0;20.0;100.0;20.0</additional_attributes>
-  </element>
-  <element>
-    <id>UMLClass</id>
-    <coordinates>
-      <x>340</x>
-      <y>260</y>
-      <w>120</w>
-      <h>100</h>
-    </coordinates>
-    <panel_attributes>查看预定过得酒店
---
-客户编号
-时间
-
-
-</panel_attributes>
-    <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>450</x>
-      <y>310</y>
-      <w>120</w>
+      <x>420</x>
+      <y>300</y>
+      <w>150</w>
       <h>30</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
-    <additional_attributes>10.0;10.0;100.0;10.0</additional_attributes>
+    <additional_attributes>130.0;10.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
       <x>550</x>
       <y>260</y>
-      <w>150</w>
+      <w>120</w>
       <h>100</h>
     </coordinates>
-    <panel_attributes>预定过得酒店列表列表
+    <panel_attributes>预定过的酒店列表
 --
-客户编号
-酒店信息
+酒店名称
 
 
 </panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>340</x>
+      <y>220</y>
+      <w>90</w>
+      <h>180</h>
+    </coordinates>
+    <panel_attributes>预定过的酒店
+--
+订单号
+订单时间
+订单状态
+地址
+所属商圈
+简介
+设施服务
+星级
+评价</panel_attributes>
     <additional_attributes/>
   </element>
 </diagram>
