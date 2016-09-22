@@ -4,9 +4,31 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>230</x>
+      <x>260</x>
       <y>130</y>
-      <w>190</w>
+      <w>100</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>网站营销人员</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>350</x>
+      <y>140</y>
+      <w>150</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes>10.0;10.0;130.0;40.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>480</x>
+      <y>180</y>
+      <w>140</w>
       <h>90</h>
     </coordinates>
     <panel_attributes>客户
@@ -14,37 +36,7 @@
 客户编号
 信用值
 姓名
-手机号
-
-</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>390</x>
-      <y>210</y>
-      <w>70</w>
-      <h>60</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>10.0;10.0;50.0;40.0</additional_attributes>
-  </element>
-  <element>
-    <id>UMLClass</id>
-    <coordinates>
-      <x>410</x>
-      <y>250</y>
-      <w>190</w>
-      <h>110</h>
-    </coordinates>
-    <panel_attributes>会员
---
-会员编号
-姓名
-手机号
-生日
-企业名称</panel_attributes>
+手机号</panel_attributes>
     <additional_attributes/>
   </element>
 </diagram>
