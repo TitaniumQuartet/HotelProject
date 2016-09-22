@@ -4,19 +4,21 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>240</x>
+      <x>270</x>
       <y>370</y>
       <w>170</w>
-      <h>40</h>
+      <h>50</h>
     </coordinates>
     <panel_attributes>lt=-
+m1=1
+m2=*
 更新</panel_attributes>
     <additional_attributes>10.0;20.0;150.0;20.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>440</x>
+      <x>470</x>
       <y>190</y>
       <w>30</w>
       <h>100</h>
@@ -27,7 +29,7 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>140</x>
+      <x>170</x>
       <y>360</y>
       <w>110</w>
       <h>70</h>
@@ -41,7 +43,7 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>390</x>
+      <x>420</x>
       <y>270</y>
       <w>130</w>
       <h>230</h>
@@ -58,14 +60,14 @@
 房间数量
 预计入住人数
 有无儿童
-客户
+客户基本信息
 订单状态</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>400</x>
+      <x>430</x>
       <y>120</y>
       <w>100</w>
       <h>80</h>

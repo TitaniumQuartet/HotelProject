@@ -4,8 +4,8 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>230</x>
-      <y>100</y>
+      <x>200</x>
+      <y>180</y>
       <w>100</w>
       <h>30</h>
     </coordinates>
@@ -15,19 +15,20 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>270</x>
-      <y>120</y>
+      <x>240</x>
+      <y>200</y>
       <w>30</w>
       <h>90</h>
     </coordinates>
-    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <panel_attributes>lt=&lt;&lt;-
+</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;70.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>230</x>
-      <y>190</y>
+      <x>200</x>
+      <y>270</y>
       <w>100</w>
       <h>30</h>
     </coordinates>
@@ -37,8 +38,8 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>390</x>
-      <y>190</y>
+      <x>360</x>
+      <y>270</y>
       <w>100</w>
       <h>30</h>
     </coordinates>
@@ -48,61 +49,47 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>230</x>
-      <y>270</y>
+      <x>200</x>
+      <y>350</y>
       <w>100</w>
       <h>30</h>
     </coordinates>
-    <panel_attributes>营销人员</panel_attributes>
+    <panel_attributes>网站营销人员</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>320</x>
-      <y>110</y>
+      <x>290</x>
+      <y>190</y>
       <w>100</w>
       <h>100</h>
     </coordinates>
     <panel_attributes>lt=-
-m1=
-m2=
+m1=1
+m2=*
 参与</panel_attributes>
     <additional_attributes>10.0;10.0;80.0;80.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>320</x>
-      <y>190</y>
-      <w>90</w>
-      <h>40</h>
-    </coordinates>
-    <panel_attributes>lt=-
-m1=
-m2=
-参与</panel_attributes>
-    <additional_attributes>10.0;20.0;70.0;20.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>320</x>
-      <y>210</y>
+      <x>290</x>
+      <y>290</y>
       <w>100</w>
       <h>100</h>
     </coordinates>
     <panel_attributes>lt=-
-m1=
-m2=
-发起</panel_attributes>
+m1=1
+m2=*
+制定</panel_attributes>
     <additional_attributes>10.0;80.0;80.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>480</x>
-      <y>200</y>
+      <x>450</x>
+      <y>280</y>
       <w>100</w>
       <h>30</h>
     </coordinates>
@@ -112,41 +99,41 @@ m2=
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>560</x>
-      <y>190</y>
-      <w>100</w>
+      <x>530</x>
+      <y>270</y>
+      <w>120</w>
       <h>30</h>
     </coordinates>
-    <panel_attributes>会员制度</panel_attributes>
+    <panel_attributes>会员特属商圈折扣</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>420</x>
-      <y>290</y>
+      <x>360</x>
+      <y>370</y>
       <w>100</w>
       <h>30</h>
     </coordinates>
-    <panel_attributes>会员促销策略</panel_attributes>
+    <panel_attributes>会员等级及折扣</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>420</x>
-      <y>90</y>
+      <x>370</x>
+      <y>170</y>
       <w>100</w>
       <h>30</h>
     </coordinates>
-    <panel_attributes>节假日促销策略</panel_attributes>
+    <panel_attributes>双11促销策略</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>430</x>
-      <y>110</y>
+      <x>400</x>
+      <y>190</y>
       <w>30</w>
       <h>100</h>
     </coordinates>
@@ -156,8 +143,8 @@ m2=
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>430</x>
-      <y>210</y>
+      <x>400</x>
+      <y>290</y>
       <w>30</w>
       <h>100</h>
     </coordinates>

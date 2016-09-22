@@ -4,8 +4,8 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>260</x>
-      <y>130</y>
+      <x>180</x>
+      <y>200</y>
       <w>100</w>
       <h>30</h>
     </coordinates>
@@ -15,25 +15,30 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>350</x>
-      <y>140</y>
-      <w>150</w>
-      <h>60</h>
+      <x>270</x>
+      <y>200</y>
+      <w>160</w>
+      <h>50</h>
     </coordinates>
-    <panel_attributes/>
-    <additional_attributes>10.0;10.0;130.0;40.0</additional_attributes>
+    <panel_attributes>lt=-
+m1=1
+m2=*
+修改信用值
+</panel_attributes>
+    <additional_attributes>10.0;20.0;140.0;20.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>480</x>
-      <y>180</y>
-      <w>210</w>
+      <x>410</x>
+      <y>190</y>
+      <w>120</w>
       <h>70</h>
     </coordinates>
     <panel_attributes>客户
 --
-信用值</panel_attributes>
+信用值
+身份</panel_attributes>
     <additional_attributes/>
   </element>
 </diagram>
