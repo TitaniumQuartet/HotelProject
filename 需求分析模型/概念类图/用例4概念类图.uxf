@@ -30,6 +30,7 @@ m2=*
   <element>
     <id>UMLClass</id>
     <coordinates>
+<<<<<<< HEAD
       <x>410</x>
       <y>190</y>
       <w>120</w>
@@ -39,6 +40,19 @@ m2=*
 --
 信用值
 身份</panel_attributes>
+=======
+      <x>480</x>
+      <y>180</y>
+      <w>140</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>客户
+--
+客户编号
+信用值
+姓名
+手机号</panel_attributes>
+>>>>>>> origin/master
     <additional_attributes/>
   </element>
 </diagram>
