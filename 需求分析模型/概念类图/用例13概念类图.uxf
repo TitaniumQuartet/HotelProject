@@ -4,28 +4,16 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>600</x>
-      <y>210</y>
-      <w>950</w>
-      <h>670</h>
-    </coordinates>
-    <panel_attributes>lw=2
-</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>UMLClass</id>
-    <coordinates>
-      <x>670</x>
-      <y>270</y>
+      <x>150</x>
+      <y>260</y>
       <w>100</w>
       <h>100</h>
     </coordinates>
     <panel_attributes>客户
 --
 客户编号
-姓名
-信用额度
+身份
+信用值
 
 </panel_attributes>
     <additional_attributes/>
@@ -33,20 +21,20 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>760</x>
-      <y>320</y>
-      <w>130</w>
-      <h>120</h>
+      <x>240</x>
+      <y>290</y>
+      <w>120</w>
+      <h>40</h>
     </coordinates>
     <panel_attributes>lt=-
 发起</panel_attributes>
-    <additional_attributes>10.0;10.0;110.0;100.0</additional_attributes>
+    <additional_attributes>10.0;20.0;100.0;20.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>870</x>
-      <y>390</y>
+      <x>340</x>
+      <y>260</y>
       <w>120</w>
       <h>100</h>
     </coordinates>
@@ -62,8 +50,8 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>980</x>
-      <y>440</y>
+      <x>450</x>
+      <y>310</y>
       <w>120</w>
       <h>30</h>
     </coordinates>
@@ -73,8 +61,8 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1080</x>
-      <y>390</y>
+      <x>550</x>
+      <y>260</y>
       <w>150</w>
       <h>100</h>
     </coordinates>
