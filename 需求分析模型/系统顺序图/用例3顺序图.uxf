@@ -21,7 +21,7 @@
       <h>30</h>
     </coordinates>
     <panel_attributes>酒店管理系统
-bg=red</panel_attributes>
+</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -55,7 +55,7 @@ bg=red</panel_attributes>
       <h>280</h>
     </coordinates>
     <panel_attributes>
-bg=yellow</panel_attributes>
+</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -67,7 +67,7 @@ bg=yellow</panel_attributes>
       <h>290</h>
     </coordinates>
     <panel_attributes>
-bg=red</panel_attributes>
+</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -78,7 +78,7 @@ bg=red</panel_attributes>
       <w>240</w>
       <h>40</h>
     </coordinates>
-    <panel_attributes>lt=&lt;-
+    <panel_attributes>lt=&lt;&lt;&lt;-
 营销人员身份信息</panel_attributes>
     <additional_attributes>220.0;20.0;10.0;20.0</additional_attributes>
   </element>
@@ -102,7 +102,7 @@ bg=red</panel_attributes>
       <w>240</w>
       <h>40</h>
     </coordinates>
-    <panel_attributes>lt=&lt;-
+    <panel_attributes>lt=&lt;&lt;&lt;-
 选择撤销订单</panel_attributes>
     <additional_attributes>220.0;20.0;10.0;20.0</additional_attributes>
   </element>
@@ -138,7 +138,7 @@ bg=red</panel_attributes>
       <w>240</w>
       <h>40</h>
     </coordinates>
-    <panel_attributes>lt=&lt;-
+    <panel_attributes>lt=&lt;&lt;&lt;-
 要恢复的信用值</panel_attributes>
     <additional_attributes>220.0;20.0;10.0;20.0</additional_attributes>
   </element>
@@ -159,12 +159,12 @@ bg=red</panel_attributes>
     <coordinates>
       <x>360</x>
       <y>430</y>
-      <w>240</w>
+      <w>230</w>
       <h>40</h>
     </coordinates>
-    <panel_attributes>lt=&lt;-
+    <panel_attributes>lt=&lt;&lt;&lt;-
 结束信用值恢复</panel_attributes>
-    <additional_attributes>220.0;20.0;10.0;20.0</additional_attributes>
+    <additional_attributes>210.0;20.0;10.0;20.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>

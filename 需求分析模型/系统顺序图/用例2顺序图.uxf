@@ -21,7 +21,7 @@
       <h>30</h>
     </coordinates>
     <panel_attributes>酒店管理系统
-bg=red</panel_attributes>
+</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -55,7 +55,7 @@ bg=red</panel_attributes>
       <h>250</h>
     </coordinates>
     <panel_attributes>
-bg=yellow</panel_attributes>
+</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -67,7 +67,7 @@ bg=yellow</panel_attributes>
       <h>260</h>
     </coordinates>
     <panel_attributes>
-bg=red</panel_attributes>
+</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -78,7 +78,7 @@ bg=red</panel_attributes>
       <w>190</w>
       <h>40</h>
     </coordinates>
-    <panel_attributes>lt=&lt;-
+    <panel_attributes>lt=&lt;&lt;&lt;-
 营销人员身份信息</panel_attributes>
     <additional_attributes>170.0;20.0;10.0;20.0</additional_attributes>
   </element>
@@ -102,7 +102,7 @@ bg=red</panel_attributes>
       <w>200</w>
       <h>40</h>
     </coordinates>
-    <panel_attributes>lt=&lt;-
+    <panel_attributes>lt=&lt;&lt;&lt;-
 选择具体订单项</panel_attributes>
     <additional_attributes>180.0;20.0;10.0;20.0</additional_attributes>
   </element>
@@ -114,7 +114,7 @@ bg=red</panel_attributes>
       <w>190</w>
       <h>40</h>
     </coordinates>
-    <panel_attributes>lt=&lt;-
+    <panel_attributes>lt=&lt;&lt;&lt;-
 结束浏览</panel_attributes>
     <additional_attributes>170.0;20.0;10.0;20.0</additional_attributes>
   </element>
@@ -159,7 +159,7 @@ bg=red</panel_attributes>
       <w>190</w>
       <h>40</h>
     </coordinates>
-    <panel_attributes>lt=&lt;-
+    <panel_attributes>lt=&lt;&lt;&lt;-
 选择查看订单</panel_attributes>
     <additional_attributes>170.0;20.0;10.0;20.0</additional_attributes>
   </element>

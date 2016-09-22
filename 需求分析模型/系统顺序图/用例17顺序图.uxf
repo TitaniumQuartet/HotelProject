@@ -21,7 +21,7 @@
       <h>30</h>
     </coordinates>
     <panel_attributes>酒店管理系统
-bg=red</panel_attributes>
+</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -44,7 +44,7 @@ bg=red</panel_attributes>
       <h>160</h>
     </coordinates>
     <panel_attributes>
-bg=yellow</panel_attributes>
+</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -56,7 +56,7 @@ bg=yellow</panel_attributes>
       <h>170</h>
     </coordinates>
     <panel_attributes>
-bg=red</panel_attributes>
+</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -65,10 +65,10 @@ bg=red</panel_attributes>
       <x>350</x>
       <y>370</y>
       <w>30</w>
-      <h>90</h>
+      <h>110</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;70.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;90.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
@@ -78,7 +78,7 @@ bg=red</panel_attributes>
       <w>220</w>
       <h>40</h>
     </coordinates>
-    <panel_attributes>lt=&lt;-
+    <panel_attributes>lt=&lt;&lt;&lt;-
 选择注册会员</panel_attributes>
     <additional_attributes>200.0;20.0;10.0;20.0</additional_attributes>
   </element>
@@ -87,30 +87,30 @@ bg=red</panel_attributes>
     <coordinates>
       <x>380</x>
       <y>290</y>
-      <w>190</w>
+      <w>210</w>
       <h>40</h>
     </coordinates>
-    <panel_attributes>lt=&lt;-
+    <panel_attributes>lt=&lt;&lt;&lt;-
 会员信息</panel_attributes>
-    <additional_attributes>170.0;20.0;10.0;20.0</additional_attributes>
+    <additional_attributes>190.0;20.0;10.0;20.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
       <x>380</x>
       <y>340</y>
-      <w>190</w>
+      <w>210</w>
       <h>40</h>
     </coordinates>
-    <panel_attributes>lt=&lt;-
+    <panel_attributes>lt=&lt;&lt;&lt;-
 结束注册会员</panel_attributes>
-    <additional_attributes>170.0;20.0;10.0;20.0</additional_attributes>
+    <additional_attributes>190.0;20.0;10.0;20.0</additional_attributes>
   </element>
   <element>
     <id>UMLFrame</id>
     <coordinates>
       <x>320</x>
-      <y>10</y>
+      <y>30</y>
       <w>320</w>
       <h>430</h>
     </coordinates>
@@ -123,10 +123,10 @@ bg=red</panel_attributes>
       <x>570</x>
       <y>370</y>
       <w>30</w>
-      <h>90</h>
+      <h>110</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;70.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;90.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>

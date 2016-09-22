@@ -21,7 +21,7 @@
       <h>30</h>
     </coordinates>
     <panel_attributes>酒店管理系统
-bg=red</panel_attributes>
+</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -55,7 +55,7 @@ bg=red</panel_attributes>
       <h>200</h>
     </coordinates>
     <panel_attributes>
-bg=yellow</panel_attributes>
+</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -67,7 +67,7 @@ bg=yellow</panel_attributes>
       <h>200</h>
     </coordinates>
     <panel_attributes>
-bg=red</panel_attributes>
+</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -111,7 +111,7 @@ bg=red</panel_attributes>
       <w>220</w>
       <h>40</h>
     </coordinates>
-    <panel_attributes>lt=&lt;-
+    <panel_attributes>lt=&lt;&lt;&lt;-
 vip制度</panel_attributes>
     <additional_attributes>200.0;20.0;10.0;20.0</additional_attributes>
   </element>
@@ -135,7 +135,7 @@ vip制度</panel_attributes>
       <w>220</w>
       <h>40</h>
     </coordinates>
-    <panel_attributes>lt=&lt;-
+    <panel_attributes>lt=&lt;&lt;&lt;-
 促销策略</panel_attributes>
     <additional_attributes>200.0;20.0;10.0;20.0</additional_attributes>
   </element>
@@ -159,7 +159,7 @@ vip制度</panel_attributes>
       <w>220</w>
       <h>40</h>
     </coordinates>
-    <panel_attributes>lt=&lt;-
+    <panel_attributes>lt=&lt;&lt;&lt;-
 结束制定促销策略</panel_attributes>
     <additional_attributes>200.0;20.0;10.0;20.0</additional_attributes>
   </element>
