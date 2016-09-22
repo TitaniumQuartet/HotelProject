@@ -4,30 +4,19 @@
   <element>
     <id>UMLFrame</id>
     <coordinates>
-      <x>160</x>
-      <y>30</y>
+      <x>140</x>
+      <y>90</y>
       <w>400</w>
-      <h>570</h>
+      <h>540</h>
     </coordinates>
-    <panel_attributes>sd room</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>UMLGeneric</id>
-    <coordinates>
-      <x>410</x>
-      <y>100</y>
-      <w>100</w>
-      <h>30</h>
-    </coordinates>
-    <panel_attributes>_系统_</panel_attributes>
+    <panel_attributes>sd RoomInfoInput</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLActor</id>
     <coordinates>
-      <x>220</x>
-      <y>70</y>
+      <x>200</x>
+      <y>130</y>
       <w>100</w>
       <h>110</h>
     </coordinates>
@@ -37,8 +26,8 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>260</x>
-      <y>160</y>
+      <x>240</x>
+      <y>220</y>
       <w>30</w>
       <h>80</h>
     </coordinates>
@@ -46,23 +35,12 @@
     <additional_attributes>10.0;10.0;10.0;60.0</additional_attributes>
   </element>
   <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>450</x>
-      <y>120</y>
-      <w>30</w>
-      <h>110</h>
-    </coordinates>
-    <panel_attributes>lt=.</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;90.0</additional_attributes>
-  </element>
-  <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>260</x>
-      <y>220</y>
+      <x>240</x>
+      <y>280</y>
       <w>20</w>
-      <h>350</h>
+      <h>270</h>
     </coordinates>
     <panel_attributes/>
     <additional_attributes/>
@@ -70,30 +48,19 @@
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>450</x>
-      <y>210</y>
+      <x>430</x>
+      <y>270</y>
       <w>20</w>
-      <h>360</h>
+      <h>280</h>
     </coordinates>
     <panel_attributes/>
     <additional_attributes/>
   </element>
   <element>
-    <id>UMLFrame</id>
-    <coordinates>
-      <x>670</x>
-      <y>160</y>
-      <w>180</w>
-      <h>70</h>
-    </coordinates>
-    <panel_attributes>interaction frame</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
     <id>Relation</id>
     <coordinates>
-      <x>270</x>
-      <y>220</y>
+      <x>250</x>
+      <y>280</y>
       <w>200</w>
       <h>40</h>
     </coordinates>
@@ -104,8 +71,8 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>270</x>
-      <y>250</y>
+      <x>250</x>
+      <y>310</y>
       <w>200</w>
       <h>40</h>
     </coordinates>
@@ -116,8 +83,8 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>270</x>
-      <y>300</y>
+      <x>250</x>
+      <y>380</y>
       <w>200</w>
       <h>40</h>
     </coordinates>
@@ -128,8 +95,8 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>270</x>
-      <y>330</y>
+      <x>250</x>
+      <y>410</y>
       <w>200</w>
       <h>40</h>
     </coordinates>
@@ -140,8 +107,8 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>270</x>
-      <y>380</y>
+      <x>250</x>
+      <y>460</y>
       <w>200</w>
       <h>40</h>
     </coordinates>
@@ -152,8 +119,8 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>270</x>
-      <y>410</y>
+      <x>250</x>
+      <y>490</y>
       <w>200</w>
       <h>40</h>
     </coordinates>
@@ -164,12 +131,62 @@
   <element>
     <id>UMLFrame</id>
     <coordinates>
-      <x>230</x>
-      <y>280</y>
-      <w>270</w>
-      <h>100</h>
+      <x>180</x>
+      <y>340</y>
+      <w>310</w>
+      <h>110</h>
     </coordinates>
-    <panel_attributes>opt</panel_attributes>
+    <panel_attributes>optional
+--
+[还有下一修改项]
+valign=top
+halign=left</panel_attributes>
     <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>240</x>
+      <y>540</y>
+      <w>30</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;50.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>430</x>
+      <y>540</y>
+      <w>30</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;50.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>380</x>
+      <y>140</y>
+      <w>110</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>酒店管理系统
+halign=center
+valign=center</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>430</x>
+      <y>200</y>
+      <w>30</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;70.0</additional_attributes>
   </element>
 </diagram>

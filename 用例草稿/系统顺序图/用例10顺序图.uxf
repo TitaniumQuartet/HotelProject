@@ -7,9 +7,9 @@
       <x>130</x>
       <y>50</y>
       <w>400</w>
-      <h>580</h>
+      <h>620</h>
     </coordinates>
-    <panel_attributes>sd browse</panel_attributes>
+    <panel_attributes>sd BrowseOrder</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -24,17 +24,6 @@
     <additional_attributes/>
   </element>
   <element>
-    <id>UMLGeneric</id>
-    <coordinates>
-      <x>360</x>
-      <y>120</y>
-      <w>100</w>
-      <h>30</h>
-    </coordinates>
-    <panel_attributes>_系统_</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
     <id>Relation</id>
     <coordinates>
       <x>230</x>
@@ -44,17 +33,6 @@
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;60.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>400</x>
-      <y>140</y>
-      <w>30</w>
-      <h>100</h>
-    </coordinates>
-    <panel_attributes>lt=.</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;80.0</additional_attributes>
   </element>
   <element>
     <id>UMLGeneric</id>
@@ -190,7 +168,7 @@
     <id>Relation</id>
     <coordinates>
       <x>240</x>
-      <y>530</y>
+      <y>550</y>
       <w>180</w>
       <h>40</h>
     </coordinates>
@@ -202,7 +180,7 @@
     <id>Relation</id>
     <coordinates>
       <x>240</x>
-      <y>510</y>
+      <y>520</y>
       <w>180</w>
       <h>40</h>
     </coordinates>
@@ -220,5 +198,51 @@
     </coordinates>
     <panel_attributes>loop [仍有要查看的订单]</panel_attributes>
     <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>350</x>
+      <y>90</y>
+      <w>110</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>酒店管理系统
+halign=center
+valign=center</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>400</x>
+      <y>150</y>
+      <w>30</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;70.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>230</x>
+      <y>600</y>
+      <w>30</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;50.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>400</x>
+      <y>600</y>
+      <w>30</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;50.0</additional_attributes>
   </element>
 </diagram>

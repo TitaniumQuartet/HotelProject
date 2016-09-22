@@ -4,8 +4,8 @@
   <element>
     <id>UMLActor</id>
     <coordinates>
-      <x>280</x>
-      <y>30</y>
+      <x>170</x>
+      <y>240</y>
       <w>100</w>
       <h>110</h>
     </coordinates>
@@ -13,22 +13,10 @@
     <additional_attributes/>
   </element>
   <element>
-    <id>UMLGeneric</id>
-    <coordinates>
-      <x>490</x>
-      <y>60</y>
-      <w>100</w>
-      <h>30</h>
-    </coordinates>
-    <panel_attributes>酒店管理系统
-bg=red</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
     <id>Relation</id>
     <coordinates>
-      <x>320</x>
-      <y>120</y>
+      <x>210</x>
+      <y>330</y>
       <w>30</w>
       <h>60</h>
     </coordinates>
@@ -36,45 +24,34 @@ bg=red</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;40.0</additional_attributes>
   </element>
   <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>530</x>
-      <y>90</y>
-      <w>30</w>
-      <h>90</h>
-    </coordinates>
-    <panel_attributes>lt=.</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;70.0</additional_attributes>
-  </element>
-  <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>320</x>
-      <y>160</y>
+      <x>210</x>
+      <y>370</y>
       <w>20</w>
       <h>200</h>
     </coordinates>
     <panel_attributes>
-bg=yellow</panel_attributes>
+</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>530</x>
-      <y>160</y>
+      <x>420</x>
+      <y>370</y>
       <w>20</w>
       <h>200</h>
     </coordinates>
     <panel_attributes>
-bg=red</panel_attributes>
+</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>330</x>
-      <y>230</y>
+      <x>220</x>
+      <y>440</y>
       <w>210</w>
       <h>40</h>
     </coordinates>
@@ -85,8 +62,8 @@ bg=red</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>340</x>
-      <y>290</y>
+      <x>230</x>
+      <y>500</y>
       <w>200</w>
       <h>40</h>
     </coordinates>
@@ -97,8 +74,8 @@ bg=red</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>530</x>
-      <y>350</y>
+      <x>420</x>
+      <y>560</y>
       <w>30</w>
       <h>80</h>
     </coordinates>
@@ -108,8 +85,8 @@ bg=red</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>320</x>
-      <y>350</y>
+      <x>210</x>
+      <y>560</y>
       <w>30</w>
       <h>80</h>
     </coordinates>
@@ -119,8 +96,8 @@ bg=red</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>340</x>
-      <y>160</y>
+      <x>230</x>
+      <y>370</y>
       <w>210</w>
       <h>40</h>
     </coordinates>
@@ -131,8 +108,8 @@ vip等级制度</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>340</x>
-      <y>190</y>
+      <x>230</x>
+      <y>400</y>
       <w>210</w>
       <h>40</h>
     </coordinates>
@@ -143,13 +120,48 @@ vip等级制度</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>340</x>
-      <y>260</y>
+      <x>230</x>
+      <y>470</y>
       <w>210</w>
       <h>40</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 节假日促销信息</panel_attributes>
     <additional_attributes>190.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLFrame</id>
+    <coordinates>
+      <x>140</x>
+      <y>190</y>
+      <w>370</w>
+      <h>460</h>
+    </coordinates>
+    <panel_attributes>sd WebsiteStrategy</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>370</x>
+      <y>240</y>
+      <w>110</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>酒店管理系统
+halign=center
+valign=center</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>420</x>
+      <y>300</y>
+      <w>30</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;70.0</additional_attributes>
   </element>
 </diagram>
