@@ -21,11 +21,10 @@
       <w>100</w>
       <h>100</h>
     </coordinates>
-    <panel_attributes>客户
+    <panel_attributes>网站管理人员
 --
-客户编号
-姓名
-信用额度
+工号
+身份
 
 </panel_attributes>
     <additional_attributes/>
@@ -35,24 +34,25 @@
     <coordinates>
       <x>760</x>
       <y>320</y>
-      <w>150</w>
+      <w>130</w>
       <h>120</h>
     </coordinates>
     <panel_attributes>lt=-
 发起</panel_attributes>
-    <additional_attributes>10.0;10.0;130.0;100.0</additional_attributes>
+    <additional_attributes>10.0;10.0;110.0;100.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>890</x>
+      <x>870</x>
       <y>390</y>
-      <w>100</w>
+      <w>120</w>
       <h>100</h>
     </coordinates>
-    <panel_attributes>编辑客户信息
+    <panel_attributes>查询更改客户信息
 --
 客户编号
+时间
 
 
 </panel_attributes>
@@ -64,21 +64,24 @@
       <x>980</x>
       <y>440</y>
       <w>120</w>
-      <h>40</h>
+      <h>30</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
-    <additional_attributes>10.0;10.0;100.0;20.0</additional_attributes>
+    <additional_attributes>10.0;10.0;100.0;10.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
       <x>1080</x>
-      <y>430</y>
+      <y>390</y>
       <w>100</w>
-      <h>60</h>
+      <h>100</h>
     </coordinates>
-    <panel_attributes>客户信息
-
+    <panel_attributes>客户
+--
+客户编号
+姓名
+积分
 
 </panel_attributes>
     <additional_attributes/>
@@ -87,13 +90,13 @@
     <id>Relation</id>
     <coordinates>
       <x>1170</x>
-      <y>450</y>
+      <y>440</y>
       <w>150</w>
-      <h>110</h>
+      <h>120</h>
     </coordinates>
     <panel_attributes>lt=-
 更新</panel_attributes>
-    <additional_attributes>10.0;10.0;130.0;90.0</additional_attributes>
+    <additional_attributes>10.0;10.0;130.0;100.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>

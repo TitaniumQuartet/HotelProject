@@ -4,22 +4,59 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>280</x>
-      <y>270</y>
-      <w>150</w>
+      <x>310</x>
+      <y>350</y>
+      <w>140</w>
       <h>50</h>
     </coordinates>
     <panel_attributes>lt=-
 m1=1
-m2=1
+m2=*
 更新</panel_attributes>
-    <additional_attributes>10.0;20.0;130.0;20.0</additional_attributes>
+    <additional_attributes>10.0;20.0;120.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>470</x>
+      <y>220</y>
+      <w>30</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;100.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>180</x>
-      <y>260</y>
+      <x>430</x>
+      <y>320</y>
+      <w>110</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>可用客房
+--
+类型
+数量
+原始价格</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>430</x>
+      <y>200</y>
+      <w>100</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>可用客房列表</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>210</x>
+      <y>340</y>
       <w>110</w>
       <h>70</h>
     </coordinates>
@@ -27,24 +64,6 @@ m2=1
 --
 工号
 身份</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>UMLClass</id>
-    <coordinates>
-      <x>410</x>
-      <y>230</y>
-      <w>90</w>
-      <h>130</h>
-    </coordinates>
-    <panel_attributes>酒店
---
-地址
-所属商圈
-简介
-设施服务
-星级
-评价</panel_attributes>
     <additional_attributes/>
   </element>
 </diagram>

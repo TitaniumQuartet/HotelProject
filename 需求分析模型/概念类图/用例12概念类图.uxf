@@ -4,8 +4,8 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>120</x>
-      <y>220</y>
+      <x>150</x>
+      <y>260</y>
       <w>100</w>
       <h>100</h>
     </coordinates>
@@ -21,65 +21,63 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>210</x>
-      <y>250</y>
-      <w>140</w>
+      <x>240</x>
+      <y>290</y>
+      <w>120</w>
       <h>50</h>
     </coordinates>
     <panel_attributes>lt=-
 m1=1
 m2=*
 浏览</panel_attributes>
-    <additional_attributes>10.0;20.0;120.0;20.0</additional_attributes>
-  </element>
-  <element>
-    <id>UMLClass</id>
-    <coordinates>
-      <x>330</x>
-      <y>170</y>
-      <w>130</w>
-      <h>230</h>
-    </coordinates>
-    <panel_attributes>订单
---
-订单号
-开始时间
-入住时间
-最晚订单执行时间
-实际入住时间
-房间类型
-房间号
-房间数量
-预计入住人数
-有无儿童
-客户基本信息
-订单状态</panel_attributes>
-    <additional_attributes/>
+    <additional_attributes>10.0;20.0;100.0;20.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>450</x>
-      <y>260</y>
-      <w>130</w>
+      <x>420</x>
+      <y>300</y>
+      <w>150</w>
       <h>30</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
-    <additional_attributes>110.0;10.0;10.0;10.0</additional_attributes>
+    <additional_attributes>130.0;10.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>560</x>
-      <y>230</y>
-      <w>100</w>
-      <h>80</h>
+      <x>550</x>
+      <y>260</y>
+      <w>120</w>
+      <h>100</h>
     </coordinates>
-    <panel_attributes>订单列表
+    <panel_attributes>预定过的酒店列表
+--
+酒店名称
+
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>340</x>
+      <y>220</y>
+      <w>90</w>
+      <h>180</h>
+    </coordinates>
+    <panel_attributes>预定过的酒店
 --
 订单号
-下单时间
-订单状态</panel_attributes>
+订单时间
+订单状态
+地址
+所属商圈
+简介
+设施服务
+星级
+评价</panel_attributes>
     <additional_attributes/>
   </element>
 </diagram>

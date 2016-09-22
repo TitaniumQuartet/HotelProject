@@ -2,44 +2,49 @@
 <diagram program="umlet" version="14.2">
   <zoom_level>10</zoom_level>
   <element>
-    <id>UMLClass</id>
-    <coordinates>
-      <x>180</x>
-      <y>200</y>
-      <w>100</w>
-      <h>30</h>
-    </coordinates>
-    <panel_attributes>网站营销人员</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
     <id>Relation</id>
     <coordinates>
-      <x>270</x>
-      <y>200</y>
-      <w>160</w>
+      <x>280</x>
+      <y>270</y>
+      <w>150</w>
       <h>50</h>
     </coordinates>
     <panel_attributes>lt=-
 m1=1
-m2=*
-修改信用值
-</panel_attributes>
-    <additional_attributes>10.0;20.0;140.0;20.0</additional_attributes>
+m2=1
+更新</panel_attributes>
+    <additional_attributes>10.0;20.0;130.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>180</x>
+      <y>260</y>
+      <w>110</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>酒店工作人员
+--
+工号
+身份</panel_attributes>
+    <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
       <x>410</x>
-      <y>190</y>
-      <w>100</w>
-      <h>70</h>
+      <y>230</y>
+      <w>90</w>
+      <h>130</h>
     </coordinates>
-    <panel_attributes>客户
+    <panel_attributes>酒店
 --
-身份
-信用值
-</panel_attributes>
+地址
+所属商圈
+简介
+设施服务
+星级
+评价</panel_attributes>
     <additional_attributes/>
   </element>
 </diagram>

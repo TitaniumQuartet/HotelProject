@@ -49,9 +49,9 @@
       <w>120</w>
       <h>100</h>
     </coordinates>
-    <panel_attributes>查询更改客户信息
+    <panel_attributes>添加酒店
 --
-客户编号
+网站管理人员
 时间
 
 
@@ -77,11 +77,12 @@
       <w>100</w>
       <h>100</h>
     </coordinates>
-    <panel_attributes>客户
+    <panel_attributes>酒店
 --
-客户编号
-姓名
-积分
+酒店编号
+工作人员
+地点
+房间
 
 </panel_attributes>
     <additional_attributes/>
@@ -108,8 +109,8 @@
     </coordinates>
     <panel_attributes>系统
 --
-客户编号
-客户信息
+酒店编号
+酒店信息
 
 </panel_attributes>
     <additional_attributes/>

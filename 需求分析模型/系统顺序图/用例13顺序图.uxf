@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <diagram program="umlet" version="14.2">
-  <zoom_level>10</zoom_level>
+  <zoom_level>9</zoom_level>
   <element>
     <id>UMLFrame</id>
     <coordinates>
-      <x>80</x>
-      <y>190</y>
-      <w>490</w>
-      <h>720</h>
+      <x>54</x>
+      <y>153</y>
+      <w>414</w>
+      <h>855</h>
     </coordinates>
-    <panel_attributes>sd BookedHotel</panel_attributes>
+    <panel_attributes>sd HotelSearch</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLActor</id>
     <coordinates>
-      <x>160</x>
-      <y>220</y>
-      <w>60</w>
-      <h>110</h>
+      <x>117</x>
+      <y>180</y>
+      <w>54</w>
+      <h>99</h>
     </coordinates>
     <panel_attributes>客户</panel_attributes>
     <additional_attributes/>
@@ -26,10 +26,10 @@
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>400</x>
-      <y>240</y>
-      <w>110</w>
-      <h>70</h>
+      <x>333</x>
+      <y>198</y>
+      <w>99</w>
+      <h>63</h>
     </coordinates>
     <panel_attributes>酒店管理系统
 halign=center
@@ -39,10 +39,10 @@ valign=center</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>180</x>
-      <y>280</y>
-      <w>30</w>
-      <h>100</h>
+      <x>135</x>
+      <y>234</y>
+      <w>27</w>
+      <h>90</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;80.0</additional_attributes>
@@ -50,10 +50,10 @@ valign=center</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>450</x>
-      <y>300</y>
-      <w>30</w>
-      <h>90</h>
+      <x>378</x>
+      <y>252</y>
+      <w>27</w>
+      <h>81</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;70.0</additional_attributes>
@@ -61,10 +61,10 @@ valign=center</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>180</x>
-      <y>360</y>
-      <w>20</w>
-      <h>500</h>
+      <x>135</x>
+      <y>306</y>
+      <w>18</w>
+      <h>648</h>
     </coordinates>
     <panel_attributes/>
     <additional_attributes/>
@@ -72,10 +72,10 @@ valign=center</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>450</x>
-      <y>370</y>
-      <w>20</w>
-      <h>490</h>
+      <x>378</x>
+      <y>315</y>
+      <w>18</w>
+      <h>639</h>
     </coordinates>
     <panel_attributes/>
     <additional_attributes/>
@@ -83,34 +83,34 @@ valign=center</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>190</x>
-      <y>370</y>
-      <w>280</w>
-      <h>40</h>
+      <x>144</x>
+      <y>315</y>
+      <w>252</w>
+      <h>36</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-
-点击“查看预定过的酒店”</panel_attributes>
+进入“查找酒店”页面</panel_attributes>
     <additional_attributes>260.0;20.0;10.0;20.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>190</x>
-      <y>400</y>
-      <w>280</w>
-      <h>40</h>
+      <x>144</x>
+      <y>342</y>
+      <w>252</w>
+      <h>36</h>
     </coordinates>
     <panel_attributes>lt=&lt;.
-显示客户预定过的酒店列表</panel_attributes>
+显示可选择的城市列表</panel_attributes>
     <additional_attributes>10.0;20.0;260.0;20.0</additional_attributes>
   </element>
   <element>
     <id>UMLFrame</id>
     <coordinates>
-      <x>120</x>
-      <y>440</y>
-      <w>390</w>
-      <h>110</h>
+      <x>81</x>
+      <y>594</y>
+      <w>351</w>
+      <h>108</h>
     </coordinates>
     <panel_attributes>loop
 --
@@ -122,10 +122,10 @@ halign=left</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>190</x>
-      <y>480</y>
-      <w>280</w>
-      <h>40</h>
+      <x>144</x>
+      <y>639</y>
+      <w>252</w>
+      <h>36</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-
 修改酒店筛选条件</panel_attributes>
@@ -134,10 +134,10 @@ halign=left</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>190</x>
-      <y>510</y>
-      <w>280</w>
-      <h>40</h>
+      <x>144</x>
+      <y>666</y>
+      <w>252</w>
+      <h>36</h>
     </coordinates>
     <panel_attributes>lt=&lt;.
 显示所有符合条件的酒店列表</panel_attributes>
@@ -146,10 +146,10 @@ halign=left</panel_attributes>
   <element>
     <id>UMLFrame</id>
     <coordinates>
-      <x>120</x>
-      <y>570</y>
-      <w>390</w>
-      <h>110</h>
+      <x>81</x>
+      <y>837</y>
+      <w>351</w>
+      <h>99</h>
     </coordinates>
     <panel_attributes>optional
 --
@@ -161,10 +161,10 @@ halign=left</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>190</x>
-      <y>610</y>
-      <w>280</w>
-      <h>40</h>
+      <x>153</x>
+      <y>873</y>
+      <w>252</w>
+      <h>36</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-
 点击“订房”</panel_attributes>
@@ -173,10 +173,10 @@ halign=left</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>190</x>
-      <y>640</y>
-      <w>280</w>
-      <h>40</h>
+      <x>153</x>
+      <y>900</y>
+      <w>252</w>
+      <h>36</h>
     </coordinates>
     <panel_attributes>lt=&lt;.
 进入“生成订单”用例</panel_attributes>
@@ -185,10 +185,10 @@ halign=left</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>180</x>
-      <y>850</y>
-      <w>30</w>
-      <h>70</h>
+      <x>135</x>
+      <y>945</y>
+      <w>27</w>
+      <h>63</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;50.0</additional_attributes>
@@ -196,10 +196,10 @@ halign=left</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>450</x>
-      <y>850</y>
-      <w>30</w>
-      <h>70</h>
+      <x>378</x>
+      <y>945</y>
+      <w>27</w>
+      <h>63</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;50.0</additional_attributes>
@@ -207,10 +207,10 @@ halign=left</panel_attributes>
   <element>
     <id>UMLFrame</id>
     <coordinates>
-      <x>120</x>
-      <y>700</y>
-      <w>390</w>
-      <h>110</h>
+      <x>81</x>
+      <y>720</y>
+      <w>351</w>
+      <h>99</h>
     </coordinates>
     <panel_attributes>optional
 --
@@ -222,10 +222,10 @@ halign=left</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>190</x>
-      <y>740</y>
-      <w>280</w>
-      <h>40</h>
+      <x>153</x>
+      <y>756</y>
+      <w>252</w>
+      <h>36</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-
 点击“查看酒店详情”</panel_attributes>
@@ -234,13 +234,100 @@ halign=left</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>190</x>
-      <y>770</y>
-      <w>280</w>
-      <h>40</h>
+      <x>153</x>
+      <y>783</y>
+      <w>252</w>
+      <h>36</h>
     </coordinates>
     <panel_attributes>lt=&lt;.
 进入“查看酒店详情”用例</panel_attributes>
+    <additional_attributes>10.0;20.0;260.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>144</x>
+      <y>369</y>
+      <w>252</w>
+      <h>36</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-
+选择一个城市</panel_attributes>
+    <additional_attributes>260.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>144</x>
+      <y>513</y>
+      <w>252</w>
+      <h>36</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+显示可选择的商圈列表</panel_attributes>
+    <additional_attributes>10.0;20.0;260.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>144</x>
+      <y>540</y>
+      <w>252</w>
+      <h>36</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-
+选择商圈</panel_attributes>
+    <additional_attributes>260.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLFrame</id>
+    <coordinates>
+      <x>81</x>
+      <y>396</y>
+      <w>351</w>
+      <h>108</h>
+    </coordinates>
+    <panel_attributes>loop
+--
+[客户填写的城市名称不可用]
+valign=top
+halign=left</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>144</x>
+      <y>468</y>
+      <w>252</w>
+      <h>36</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-
+重新填写城市名称或在列表中选择</panel_attributes>
+    <additional_attributes>260.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>144</x>
+      <y>441</y>
+      <w>252</w>
+      <h>36</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+提示城市名称在系统中不可用</panel_attributes>
+    <additional_attributes>10.0;20.0;260.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>144</x>
+      <y>567</y>
+      <w>252</w>
+      <h>36</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+显示该商圈的酒店列表</panel_attributes>
     <additional_attributes>10.0;20.0;260.0;20.0</additional_attributes>
   </element>
 </diagram>

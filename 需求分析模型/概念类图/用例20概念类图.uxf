@@ -34,22 +34,22 @@
     <coordinates>
       <x>760</x>
       <y>320</y>
-      <w>130</w>
+      <w>150</w>
       <h>120</h>
     </coordinates>
     <panel_attributes>lt=-
 发起</panel_attributes>
-    <additional_attributes>10.0;10.0;110.0;100.0</additional_attributes>
+    <additional_attributes>10.0;10.0;130.0;100.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>870</x>
+      <x>890</x>
       <y>390</y>
-      <w>120</w>
+      <w>100</w>
       <h>100</h>
     </coordinates>
-    <panel_attributes>添加酒店
+    <panel_attributes>修改网络营销人员信息
 --
 网站管理人员
 时间
@@ -64,25 +64,21 @@
       <x>980</x>
       <y>440</y>
       <w>120</w>
-      <h>30</h>
+      <h>40</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
-    <additional_attributes>10.0;10.0;100.0;10.0</additional_attributes>
+    <additional_attributes>10.0;10.0;100.0;20.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
       <x>1080</x>
-      <y>390</y>
+      <y>430</y>
       <w>100</w>
-      <h>100</h>
+      <h>60</h>
     </coordinates>
-    <panel_attributes>酒店
---
-酒店编号
-工作人员
-地点
-房间
+    <panel_attributes>网站营销人员信息
+
 
 </panel_attributes>
     <additional_attributes/>
@@ -91,13 +87,13 @@
     <id>Relation</id>
     <coordinates>
       <x>1170</x>
-      <y>440</y>
+      <y>450</y>
       <w>150</w>
-      <h>120</h>
+      <h>110</h>
     </coordinates>
     <panel_attributes>lt=-
 更新</panel_attributes>
-    <additional_attributes>10.0;10.0;130.0;100.0</additional_attributes>
+    <additional_attributes>10.0;10.0;130.0;90.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
@@ -109,10 +105,92 @@
     </coordinates>
     <panel_attributes>系统
 --
-酒店编号
-酒店信息
+客户编号
+客户信息
 
 </panel_attributes>
     <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>890</x>
+      <y>570</y>
+      <w>100</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>添加网络营销人员
+--
+网站管理人员
+时间
+
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>980</x>
+      <y>480</y>
+      <w>160</w>
+      <h>160</h>
+    </coordinates>
+    <panel_attributes>lt=-
+由..决定</panel_attributes>
+    <additional_attributes>10.0;140.0;140.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>760</x>
+      <y>320</y>
+      <w>150</w>
+      <h>300</h>
+    </coordinates>
+    <panel_attributes>lt=-
+发起</panel_attributes>
+    <additional_attributes>130.0;280.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>760</x>
+      <y>280</y>
+      <w>230</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>lt=-
+发起</panel_attributes>
+    <additional_attributes>10.0;50.0;210.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>970</x>
+      <y>260</y>
+      <w>100</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>删除网络营销人员
+--
+网站管理人员
+时间
+
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1060</x>
+      <y>290</y>
+      <w>260</w>
+      <h>270</h>
+    </coordinates>
+    <panel_attributes>lt=-
+更新</panel_attributes>
+    <additional_attributes>10.0;10.0;240.0;250.0</additional_attributes>
   </element>
 </diagram>

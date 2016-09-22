@@ -4,8 +4,8 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>310</x>
-      <y>350</y>
+      <x>260</x>
+      <y>270</y>
       <w>140</w>
       <h>50</h>
     </coordinates>
@@ -18,8 +18,8 @@ m2=*
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>470</x>
-      <y>220</y>
+      <x>420</x>
+      <y>150</y>
       <w>30</w>
       <h>120</h>
     </coordinates>
@@ -29,34 +29,33 @@ m2=*
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>430</x>
-      <y>320</y>
-      <w>110</w>
-      <h>80</h>
+      <x>380</x>
+      <y>250</y>
+      <w>100</w>
+      <h>70</h>
     </coordinates>
-    <panel_attributes>可用客房
+    <panel_attributes>促销策略
 --
 类型
-数量
-原始价格</panel_attributes>
+折扣比例</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>430</x>
-      <y>200</y>
+      <x>380</x>
+      <y>130</y>
       <w>100</w>
       <h>30</h>
     </coordinates>
-    <panel_attributes>可用客房列表</panel_attributes>
+    <panel_attributes>促销策略列表</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>210</x>
-      <y>340</y>
+      <x>160</x>
+      <y>250</y>
       <w>110</w>
       <h>70</h>
     </coordinates>
@@ -65,5 +64,93 @@ m2=*
 工号
 身份</panel_attributes>
     <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>380</x>
+      <y>380</y>
+      <w>100</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>生日特惠折扣</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>520</x>
+      <y>380</y>
+      <w>130</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>三件及以上预定特惠</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>220</x>
+      <y>380</y>
+      <w>120</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>合作企业客户折扣</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>420</x>
+      <y>310</y>
+      <w>30</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;70.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>470</x>
+      <y>290</y>
+      <w>110</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;90.0;10.0;90.0;90.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>330</x>
+      <y>310</y>
+      <w>100</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>80.0;10.0;80.0;50.0;40.0;50.0;40.0;80.0;10.0;80.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>580</x>
+      <y>270</y>
+      <w>100</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>双11折扣</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>470</x>
+      <y>270</y>
+      <w>130</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;110.0;10.0</additional_attributes>
   </element>
 </diagram>

@@ -4,16 +4,28 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>70</x>
-      <y>170</y>
+      <x>600</x>
+      <y>210</y>
+      <w>950</w>
+      <h>670</h>
+    </coordinates>
+    <panel_attributes>lw=2
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>670</x>
+      <y>270</y>
       <w>100</w>
       <h>100</h>
     </coordinates>
     <panel_attributes>客户
 --
 客户编号
-身份
-信用值
+姓名
+信用额度
 
 </panel_attributes>
     <additional_attributes/>
@@ -21,40 +33,27 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>160</x>
-      <y>210</y>
-      <w>140</w>
-      <h>50</h>
+      <x>760</x>
+      <y>320</y>
+      <w>150</w>
+      <h>130</h>
     </coordinates>
     <panel_attributes>lt=-
-m1=1
-m2=1..n
-搜索</panel_attributes>
-    <additional_attributes>10.0;20.0;120.0;20.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>360</x>
-      <y>210</y>
-      <w>150</w>
-      <h>30</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
-    <additional_attributes>10.0;10.0;130.0;10.0</additional_attributes>
+发起</panel_attributes>
+    <additional_attributes>10.0;10.0;130.0;110.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>670</x>
-      <y>170</y>
+      <x>890</x>
+      <y>400</y>
       <w>100</w>
       <h>100</h>
     </coordinates>
-    <panel_attributes>商圈列表
+    <panel_attributes>查看酒店
 --
-城市编号
-商圈
+客户编号
+时间
 
 
 </panel_attributes>
@@ -63,74 +62,93 @@ m2=1..n
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>580</x>
-      <y>220</y>
-      <w>110</w>
-      <h>30</h>
+      <x>980</x>
+      <y>440</y>
+      <w>120</w>
+      <h>40</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
-    <additional_attributes>10.0;10.0;90.0;10.0</additional_attributes>
+    <additional_attributes>10.0;20.0;100.0;10.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>490</x>
-      <y>170</y>
+      <x>1080</x>
+      <y>390</y>
       <w>100</w>
       <h>100</h>
-    </coordinates>
-    <panel_attributes>城市列表
---
-城市
-
-
-</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>UMLClass</id>
-    <coordinates>
-      <x>270</x>
-      <y>350</y>
-      <w>100</w>
-      <h>100</h>
-    </coordinates>
-    <panel_attributes>酒店列表
---
-商圈编号
-酒店
-
-
-</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>UMLClass</id>
-    <coordinates>
-      <x>280</x>
-      <y>160</y>
-      <w>90</w>
-      <h>130</h>
     </coordinates>
     <panel_attributes>酒店
 --
-地址
-所属商圈
+名称
+地点
 简介
-设施服务
-星级
-评价</panel_attributes>
+客房信息
+以往订单
+评价
+
+
+</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>300</x>
-      <y>280</y>
-      <w>30</w>
-      <h>90</h>
+      <x>930</x>
+      <y>490</y>
+      <w>80</w>
+      <h>120</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
-    <additional_attributes>10.0;70.0;10.0;10.0</additional_attributes>
+    <additional_attributes>10.0;10.0;60.0;100.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>990</x>
+      <y>550</y>
+      <w>100</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>订酒店
+--
+客户编号
+时间
+
+
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1080</x>
+      <y>600</y>
+      <w>140</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;120.0;40.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1200</x>
+      <y>590</y>
+      <w>90</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>订单
+--
+客户编号
+酒店名称
+地点
+入住时间
+退房时间
+
+
+</panel_attributes>
+    <additional_attributes/>
   </element>
 </diagram>
