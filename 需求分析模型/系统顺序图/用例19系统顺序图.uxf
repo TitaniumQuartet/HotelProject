@@ -166,18 +166,6 @@ bg=red</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>820</x>
-      <y>490</y>
-      <w>280</w>
-      <h>40</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;&lt;&lt;-
-修改信息</panel_attributes>
-    <additional_attributes>260.0;20.0;10.0;20.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>820</x>
       <y>530</y>
       <w>280</w>
       <h>40</h>
@@ -197,5 +185,28 @@ bg=red</panel_attributes>
     <panel_attributes>lt=&lt;&lt;&lt;-
 更新</panel_attributes>
     <additional_attributes>10.0;40.0;80.0;30.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>20</x>
+      <y>20</y>
+      <w>140</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;120.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>820</x>
+      <y>490</y>
+      <w>280</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+编辑信息</panel_attributes>
+    <additional_attributes>260.0;20.0;10.0;20.0</additional_attributes>
   </element>
 </diagram>
