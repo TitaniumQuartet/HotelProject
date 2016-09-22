@@ -28,12 +28,15 @@
     <coordinates>
       <x>480</x>
       <y>180</y>
-      <w>210</w>
-      <h>70</h>
+      <w>140</w>
+      <h>90</h>
     </coordinates>
     <panel_attributes>客户
 --
-信用值</panel_attributes>
+客户编号
+信用值
+姓名
+手机号</panel_attributes>
     <additional_attributes/>
   </element>
 </diagram>
