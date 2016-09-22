@@ -92,7 +92,7 @@
       <h>40</h>
     </coordinates>
     <panel_attributes>lt=&lt;.
-提示成功</panel_attributes>
+修改后的信息</panel_attributes>
     <additional_attributes>10.0;20.0;220.0;20.0</additional_attributes>
   </element>
   <element>
@@ -163,5 +163,29 @@ valign=center</panel_attributes>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;70.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>440</x>
+      <y>610</y>
+      <w>240</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-
+确定</panel_attributes>
+    <additional_attributes>220.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>440</x>
+      <y>640</y>
+      <w>240</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+提示成功</panel_attributes>
+    <additional_attributes>10.0;20.0;220.0;20.0</additional_attributes>
   </element>
 </diagram>
