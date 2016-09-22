@@ -156,7 +156,7 @@
     <id>Relation</id>
     <coordinates>
       <x>230</x>
-      <y>460</y>
+      <y>450</y>
       <w>180</w>
       <h>40</h>
     </coordinates>
@@ -192,7 +192,7 @@
     <id>UMLFrame</id>
     <coordinates>
       <x>170</x>
-      <y>350</y>
+      <y>360</y>
       <w>290</w>
       <h>130</h>
     </coordinates>
