@@ -620,79 +620,6 @@ m2=*
     <additional_attributes>80.0;10.0;10.0;10.0;10.0;490.0;360.0;490.0;360.0;420.0</additional_attributes>
   </element>
   <element>
-    <id>UMLClass</id>
-    <coordinates>
-      <x>236</x>
-      <y>272</y>
-      <w>36</w>
-      <h>72</h>
-    </coordinates>
-    <panel_attributes>预定过的酒店
---
-订单号
-订单时间
-订单状态
-地址
-所属商圈
-简介
-设施服务
-星级
-评价</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>268</x>
-      <y>148</y>
-      <w>108</w>
-      <h>144</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>20.0;10.0;250.0;10.0;250.0;340.0;10.0;340.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>192</x>
-      <y>304</y>
-      <w>52</w>
-      <h>20</h>
-    </coordinates>
-    <panel_attributes>lt=-
-m1=1
-m2=*
-查看</panel_attributes>
-    <additional_attributes>10.0;20.0;110.0;20.0</additional_attributes>
-  </element>
-  <element>
-    <id>UMLClass</id>
-    <coordinates>
-      <x>320</x>
-      <y>292</y>
-      <w>48</w>
-      <h>36</h>
-    </coordinates>
-    <panel_attributes>预定过的酒店列表
---
-酒店名称
-
-
-</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>268</x>
-      <y>308</y>
-      <w>60</w>
-      <h>12</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
-    <additional_attributes>130.0;10.0;10.0;10.0</additional_attributes>
-  </element>
-  <element>
     <id>Relation</id>
     <coordinates>
       <x>192</x>
@@ -791,39 +718,6 @@ m1=1
 m2=1
 生成</panel_attributes>
     <additional_attributes>10.0;10.0;60.0;10.0;60.0;110.0;220.0;110.0;220.0;150.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>272</x>
-      <y>136</y>
-      <w>108</w>
-      <h>272</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;-</panel_attributes>
-    <additional_attributes>10.0;10.0;250.0;10.0;250.0;660.0;80.0;660.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>268</x>
-      <y>284</y>
-      <w>160</w>
-      <h>112</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;-</panel_attributes>
-    <additional_attributes>10.0;10.0;380.0;10.0;380.0;260.0;90.0;260.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>300</x>
-      <y>160</y>
-      <w>108</w>
-      <h>244</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;-</panel_attributes>
-    <additional_attributes>250.0;10.0;250.0;590.0;10.0;590.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>

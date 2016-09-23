@@ -63,15 +63,12 @@ m2=*
     <id>UMLClass</id>
     <coordinates>
       <x>290</x>
-      <y>220</y>
+      <y>240</y>
       <w>90</w>
-      <h>180</h>
+      <h>130</h>
     </coordinates>
-    <panel_attributes>预定过的酒店
+    <panel_attributes>酒店
 --
-订单号
-订单时间
-订单状态
 地址
 所属商圈
 简介
