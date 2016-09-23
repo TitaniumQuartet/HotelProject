@@ -51,7 +51,7 @@
     <id>Relation</id>
     <coordinates>
       <x>330</x>
-      <y>250</y>
+      <y>230</y>
       <w>240</w>
       <h>40</h>
     </coordinates>
@@ -63,7 +63,7 @@
     <id>Relation</id>
     <coordinates>
       <x>330</x>
-      <y>310</y>
+      <y>320</y>
       <w>240</w>
       <h>40</h>
     </coordinates>
@@ -75,7 +75,7 @@
     <id>Relation</id>
     <coordinates>
       <x>330</x>
-      <y>280</y>
+      <y>300</y>
       <w>240</w>
       <h>40</h>
     </coordinates>
@@ -87,7 +87,7 @@
     <id>Relation</id>
     <coordinates>
       <x>330</x>
-      <y>410</y>
+      <y>440</y>
       <w>240</w>
       <h>40</h>
     </coordinates>
@@ -168,7 +168,7 @@ valign=center</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>330</x>
-      <y>540</y>
+      <y>580</y>
       <w>240</w>
       <h>40</h>
     </coordinates>
@@ -180,7 +180,7 @@ valign=center</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>330</x>
-      <y>590</y>
+      <y>630</y>
       <w>240</w>
       <h>40</h>
     </coordinates>
@@ -192,7 +192,7 @@ valign=center</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>330</x>
-      <y>370</y>
+      <y>420</y>
       <w>240</w>
       <h>40</h>
     </coordinates>
@@ -203,30 +203,36 @@ valign=center</panel_attributes>
   <element>
     <id>UMLFrame</id>
     <coordinates>
-      <x>260</x>
-      <y>370</y>
+      <x>270</x>
+      <y>380</y>
       <w>350</w>
-      <h>160</h>
+      <h>200</h>
     </coordinates>
-    <panel_attributes>optional</panel_attributes>
+    <panel_attributes>optional
+--
+[需要修改酒店工作人员信息]
+halign=left</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLFrame</id>
     <coordinates>
-      <x>280</x>
-      <y>440</y>
+      <x>290</x>
+      <y>470</y>
       <w>310</w>
-      <h>70</h>
+      <h>100</h>
     </coordinates>
-    <panel_attributes>loop</panel_attributes>
+    <panel_attributes>loop
+--
+[需要修改酒店工作人员信息]
+halign=left</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
       <x>330</x>
-      <y>440</y>
+      <y>510</y>
       <w>240</w>
       <h>40</h>
     </coordinates>
@@ -238,7 +244,7 @@ valign=center</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>330</x>
-      <y>470</y>
+      <y>530</y>
       <w>240</w>
       <h>50</h>
     </coordinates>
@@ -251,11 +257,14 @@ valign=center</panel_attributes>
     <id>UMLFrame</id>
     <coordinates>
       <x>240</x>
-      <y>280</y>
+      <y>260</y>
       <w>390</w>
-      <h>300</h>
+      <h>360</h>
     </coordinates>
-    <panel_attributes>loop</panel_attributes>
+    <panel_attributes>loop
+--
+[需要维护酒店工作人员信息]
+halign=left</panel_attributes>
     <additional_attributes/>
   </element>
 </diagram>
