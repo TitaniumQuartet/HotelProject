@@ -5,18 +5,21 @@
     <id>UMLClass</id>
     <coordinates>
       <x>180</x>
-      <y>200</y>
+      <y>240</y>
       <w>100</w>
-      <h>30</h>
+      <h>60</h>
     </coordinates>
-    <panel_attributes>网站营销人员</panel_attributes>
+    <panel_attributes>网站营销人员
+--
+用户编号
+身份</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
       <x>270</x>
-      <y>200</y>
+      <y>240</y>
       <w>160</w>
       <h>50</h>
     </coordinates>
@@ -31,12 +34,13 @@ m2=*
     <id>UMLClass</id>
     <coordinates>
       <x>410</x>
-      <y>190</y>
+      <y>230</y>
       <w>100</w>
       <h>70</h>
     </coordinates>
     <panel_attributes>客户
 --
+客户编号
 身份
 信用值
 </panel_attributes>

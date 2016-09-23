@@ -4,7 +4,7 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>310</x>
+      <x>280</x>
       <y>350</y>
       <w>140</w>
       <h>50</h>
@@ -18,7 +18,7 @@ m2=*
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>470</x>
+      <x>440</x>
       <y>220</y>
       <w>30</w>
       <h>120</h>
@@ -29,22 +29,23 @@ m2=*
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>430</x>
+      <x>400</x>
       <y>320</y>
       <w>110</w>
-      <h>80</h>
+      <h>90</h>
     </coordinates>
     <panel_attributes>可用客房
 --
 类型
 数量
-原始价格</panel_attributes>
+原始价格
+状态</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>430</x>
+      <x>400</x>
       <y>200</y>
       <w>100</w>
       <h>30</h>
@@ -55,14 +56,14 @@ m2=*
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>210</x>
+      <x>180</x>
       <y>340</y>
       <w>110</w>
       <h>70</h>
     </coordinates>
     <panel_attributes>酒店工作人员
 --
-工号
+用户编号
 身份</panel_attributes>
     <additional_attributes/>
   </element>

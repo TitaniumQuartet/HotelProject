@@ -4,18 +4,22 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>200</x>
-      <y>180</y>
+      <x>170</x>
+      <y>130</y>
       <w>100</w>
-      <h>30</h>
+      <h>80</h>
     </coordinates>
-    <panel_attributes>客户</panel_attributes>
+    <panel_attributes>客户
+--
+客户编号
+身份
+信用值</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>240</x>
+      <x>210</x>
       <y>200</y>
       <w>30</w>
       <h>90</h>
@@ -27,18 +31,21 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>200</x>
+      <x>170</x>
       <y>270</y>
       <w>100</w>
-      <h>30</h>
+      <h>60</h>
     </coordinates>
-    <panel_attributes>会员</panel_attributes>
+    <panel_attributes>会员
+--
+会员编号
+</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>360</x>
+      <x>330</x>
       <y>270</y>
       <w>100</w>
       <h>30</h>
@@ -49,32 +56,35 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>200</x>
+      <x>170</x>
       <y>350</y>
       <w>100</w>
-      <h>30</h>
+      <h>70</h>
     </coordinates>
-    <panel_attributes>网站营销人员</panel_attributes>
+    <panel_attributes>网站营销人员
+--
+用户编号
+身份</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>290</x>
-      <y>190</y>
+      <x>260</x>
+      <y>180</y>
       <w>100</w>
-      <h>100</h>
+      <h>110</h>
     </coordinates>
     <panel_attributes>lt=-
 m1=1
 m2=*
 参与</panel_attributes>
-    <additional_attributes>10.0;10.0;80.0;80.0</additional_attributes>
+    <additional_attributes>10.0;10.0;80.0;90.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>290</x>
+      <x>260</x>
       <y>290</y>
       <w>100</w>
       <h>100</h>
@@ -88,7 +98,7 @@ m2=*
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>530</x>
+      <x>500</x>
       <y>270</y>
       <w>120</w>
       <h>30</h>
@@ -99,7 +109,7 @@ m2=*
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>360</x>
+      <x>330</x>
       <y>370</y>
       <w>100</w>
       <h>30</h>
@@ -110,7 +120,7 @@ m2=*
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>370</x>
+      <x>340</x>
       <y>170</y>
       <w>100</w>
       <h>30</h>
@@ -121,7 +131,7 @@ m2=*
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>410</x>
+      <x>380</x>
       <y>190</y>
       <w>30</w>
       <h>100</h>
@@ -132,7 +142,7 @@ m2=*
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>450</x>
+      <x>420</x>
       <y>280</y>
       <w>100</w>
       <h>30</h>
@@ -143,12 +153,60 @@ m2=*
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>400</x>
+      <x>370</x>
       <y>290</y>
       <w>30</w>
       <h>100</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;80.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>30</x>
+      <y>240</y>
+      <w>100</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>普通会员
+--
+生日</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>30</x>
+      <y>310</y>
+      <w>100</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>企业会员
+--
+企业名</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>120</x>
+      <y>270</y>
+      <w>70</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>50.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>120</x>
+      <y>310</y>
+      <w>70</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>50.0;10.0;10.0;10.0</additional_attributes>
   </element>
 </diagram>
