@@ -4,8 +4,8 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>270</x>
-      <y>370</y>
+      <x>150</x>
+      <y>350</y>
       <w>170</w>
       <h>50</h>
     </coordinates>
@@ -18,8 +18,8 @@ m2=*
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>470</x>
-      <y>190</y>
+      <x>350</x>
+      <y>170</y>
       <w>30</w>
       <h>100</h>
     </coordinates>
@@ -29,8 +29,8 @@ m2=*
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>170</x>
-      <y>360</y>
+      <x>50</x>
+      <y>340</y>
       <w>110</w>
       <h>70</h>
     </coordinates>
@@ -43,8 +43,8 @@ m2=*
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>420</x>
-      <y>270</y>
+      <x>300</x>
+      <y>250</y>
       <w>130</w>
       <h>230</h>
     </coordinates>
@@ -67,8 +67,8 @@ m2=*
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>430</x>
-      <y>120</y>
+      <x>310</x>
+      <y>100</y>
       <w>100</w>
       <h>80</h>
     </coordinates>
@@ -78,5 +78,120 @@ m2=*
 下单时间
 订单状态</panel_attributes>
     <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>500</x>
+      <y>400</y>
+      <w>100</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>异常订单</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>420</x>
+      <y>410</y>
+      <w>100</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;80.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>420</x>
+      <y>350</y>
+      <w>100</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;80.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>500</x>
+      <y>340</y>
+      <w>100</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>未执行订单</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>60</x>
+      <y>490</y>
+      <w>100</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>客户
+--
+客户编号
+身份
+信用值</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>90</x>
+      <y>400</y>
+      <w>100</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1
+m2=1
+更改信用值</panel_attributes>
+    <additional_attributes>10.0;90.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>150</x>
+      <y>420</y>
+      <w>430</w>
+      <h>140</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>10.0;120.0;410.0;120.0;410.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>60</x>
+      <y>210</y>
+      <w>100</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>可用客房
+--
+类型
+数量
+原始价格
+状态
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>150</x>
+      <y>250</y>
+      <w>170</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1
+m2=1..n
+更新状态</panel_attributes>
+    <additional_attributes>150.0;20.0;10.0;20.0</additional_attributes>
   </element>
 </diagram>

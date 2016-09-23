@@ -4,22 +4,22 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>270</x>
-      <y>370</y>
-      <w>170</w>
+      <x>140</x>
+      <y>360</y>
+      <w>150</w>
       <h>50</h>
     </coordinates>
     <panel_attributes>lt=-
 m1=1
 m2=*
 更新</panel_attributes>
-    <additional_attributes>10.0;20.0;150.0;20.0</additional_attributes>
+    <additional_attributes>10.0;20.0;130.0;20.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>470</x>
-      <y>190</y>
+      <x>320</x>
+      <y>180</y>
       <w>30</w>
       <h>100</h>
     </coordinates>
@@ -29,8 +29,8 @@ m2=*
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>170</x>
-      <y>360</y>
+      <x>40</x>
+      <y>350</y>
       <w>110</w>
       <h>70</h>
     </coordinates>
@@ -43,8 +43,8 @@ m2=*
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>420</x>
-      <y>270</y>
+      <x>270</x>
+      <y>260</y>
       <w>130</w>
       <h>230</h>
     </coordinates>
@@ -67,8 +67,8 @@ m2=*
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>430</x>
-      <y>120</y>
+      <x>280</x>
+      <y>110</y>
       <w>100</w>
       <h>80</h>
     </coordinates>
@@ -78,5 +78,35 @@ m2=*
 下单时间
 订单状态</panel_attributes>
     <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>530</x>
+      <y>330</y>
+      <w>100</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>可用客房
+--
+类型
+数量
+原始价格
+状态</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>390</x>
+      <y>360</y>
+      <w>160</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1
+m2=1..n
+更新状态</panel_attributes>
+    <additional_attributes>10.0;20.0;140.0;20.0</additional_attributes>
   </element>
 </diagram>
