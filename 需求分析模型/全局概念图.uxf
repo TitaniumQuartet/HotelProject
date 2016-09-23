@@ -951,14 +951,14 @@ m2=1..n
     <id>Relation</id>
     <coordinates>
       <x>212</x>
-      <y>140</y>
+      <y>144</y>
       <w>364</w>
-      <h>440</h>
+      <h>436</h>
     </coordinates>
     <panel_attributes>lt=-
 m1=1
 m2=*
 添加/修改</panel_attributes>
-    <additional_attributes>20.0;1070.0;830.0;1070.0;830.0;230.0;10.0;230.0;10.0;10.0</additional_attributes>
+    <additional_attributes>20.0;1060.0;830.0;1060.0;830.0;220.0;10.0;220.0;10.0;10.0</additional_attributes>
   </element>
 </diagram>
