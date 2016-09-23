@@ -4,111 +4,31 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>600</x>
-      <y>210</y>
-      <w>950</w>
-      <h>670</h>
-    </coordinates>
-    <panel_attributes>lw=2
-</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>UMLClass</id>
-    <coordinates>
-      <x>670</x>
-      <y>270</y>
+      <x>290</x>
+      <y>290</y>
       <w>100</w>
       <h>100</h>
     </coordinates>
     <panel_attributes>客户
 --
 客户编号
-姓名
-信用额度
-
+身份
+信用值
 </panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>760</x>
-      <y>320</y>
-      <w>150</w>
-      <h>120</h>
+      <x>250</x>
+      <y>220</y>
+      <w>100</w>
+      <h>160</h>
     </coordinates>
     <panel_attributes>lt=-
-发起</panel_attributes>
-    <additional_attributes>10.0;10.0;130.0;100.0</additional_attributes>
-  </element>
-  <element>
-    <id>UMLClass</id>
-    <coordinates>
-      <x>890</x>
-      <y>390</y>
-      <w>100</w>
-      <h>100</h>
-    </coordinates>
-    <panel_attributes>编辑客户信息
---
-客户编号
-
-
-</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>980</x>
-      <y>440</y>
-      <w>120</w>
-      <h>40</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
-    <additional_attributes>10.0;10.0;100.0;20.0</additional_attributes>
-  </element>
-  <element>
-    <id>UMLClass</id>
-    <coordinates>
-      <x>1080</x>
-      <y>430</y>
-      <w>100</w>
-      <h>60</h>
-    </coordinates>
-    <panel_attributes>客户信息
-
-
-</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>1170</x>
-      <y>450</y>
-      <w>150</w>
-      <h>110</h>
-    </coordinates>
-    <panel_attributes>lt=-
-更新</panel_attributes>
-    <additional_attributes>10.0;10.0;130.0;90.0</additional_attributes>
-  </element>
-  <element>
-    <id>UMLClass</id>
-    <coordinates>
-      <x>1300</x>
-      <y>490</y>
-      <w>100</w>
-      <h>100</h>
-    </coordinates>
-    <panel_attributes>系统
---
-客户编号
-客户信息
-
-</panel_attributes>
-    <additional_attributes/>
+m1=1
+m2=1
+维护信息</panel_attributes>
+    <additional_attributes>80.0;70.0;80.0;20.0;10.0;20.0;10.0;130.0;40.0;130.0</additional_attributes>
   </element>
 </diagram>

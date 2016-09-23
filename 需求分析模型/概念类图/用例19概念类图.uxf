@@ -4,22 +4,10 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>600</x>
-      <y>210</y>
-      <w>950</w>
-      <h>670</h>
-    </coordinates>
-    <panel_attributes>lw=2
-</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>UMLClass</id>
-    <coordinates>
-      <x>670</x>
-      <y>270</y>
+      <x>120</x>
+      <y>340</y>
       <w>100</w>
-      <h>100</h>
+      <h>80</h>
     </coordinates>
     <panel_attributes>网站管理人员
 --
@@ -32,87 +20,72 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>760</x>
-      <y>320</y>
+      <x>210</x>
+      <y>360</y>
       <w>130</w>
-      <h>120</h>
+      <h>50</h>
     </coordinates>
     <panel_attributes>lt=-
-发起</panel_attributes>
-    <additional_attributes>10.0;10.0;110.0;100.0</additional_attributes>
+m1=1
+m2=1
+添加</panel_attributes>
+    <additional_attributes>10.0;20.0;110.0;20.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>870</x>
-      <y>390</y>
-      <w>120</w>
-      <h>100</h>
-    </coordinates>
-    <panel_attributes>添加酒店
---
-网站管理人员
-时间
-
-
-</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>980</x>
-      <y>440</y>
-      <w>120</w>
-      <h>30</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
-    <additional_attributes>10.0;10.0;100.0;10.0</additional_attributes>
-  </element>
-  <element>
-    <id>UMLClass</id>
-    <coordinates>
-      <x>1080</x>
-      <y>390</y>
-      <w>100</w>
-      <h>100</h>
+      <x>320</x>
+      <y>320</y>
+      <w>90</w>
+      <h>130</h>
     </coordinates>
     <panel_attributes>酒店
 --
-酒店编号
-工作人员
-地点
-房间
-
-</panel_attributes>
+地址
+所属商圈
+简介
+设施服务
+星级
+评价</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>310</x>
+      <y>180</y>
+      <w>110</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>酒店工作人员
+--
+工号
+身份</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1170</x>
-      <y>440</y>
-      <w>150</w>
-      <h>120</h>
-    </coordinates>
-    <panel_attributes>lt=-
-更新</panel_attributes>
-    <additional_attributes>10.0;10.0;130.0;100.0</additional_attributes>
-  </element>
-  <element>
-    <id>UMLClass</id>
-    <coordinates>
-      <x>1300</x>
-      <y>490</y>
-      <w>100</w>
+      <x>360</x>
+      <y>240</y>
+      <w>30</w>
       <h>100</h>
     </coordinates>
-    <panel_attributes>系统
---
-酒店编号
-酒店信息
-
-</panel_attributes>
-    <additional_attributes/>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>10.0;80.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>160</x>
+      <y>210</y>
+      <w>170</w>
+      <h>150</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1
+m2=1
+添加</panel_attributes>
+    <additional_attributes>10.0;130.0;150.0;10.0</additional_attributes>
   </element>
 </diagram>
