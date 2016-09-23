@@ -4,7 +4,7 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>120</x>
+      <x>50</x>
       <y>220</y>
       <w>100</w>
       <h>100</h>
@@ -21,7 +21,7 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>210</x>
+      <x>140</x>
       <y>250</y>
       <w>140</w>
       <h>50</h>
@@ -35,7 +35,7 @@ m2=*
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>330</x>
+      <x>260</x>
       <y>170</y>
       <w>130</w>
       <h>230</h>
@@ -59,7 +59,7 @@ m2=*
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>450</x>
+      <x>380</x>
       <y>260</y>
       <w>130</w>
       <h>30</h>
@@ -70,7 +70,7 @@ m2=*
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>560</x>
+      <x>490</x>
       <y>230</y>
       <w>100</w>
       <h>80</h>
