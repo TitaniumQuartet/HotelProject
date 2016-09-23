@@ -961,4 +961,15 @@ m2=*
 添加/修改</panel_attributes>
     <additional_attributes>20.0;1060.0;830.0;1060.0;830.0;220.0;10.0;220.0;10.0;10.0</additional_attributes>
   </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>300</x>
+      <y>120</y>
+      <w>120</w>
+      <h>12</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>280.0;10.0;10.0;10.0</additional_attributes>
+  </element>
 </diagram>
