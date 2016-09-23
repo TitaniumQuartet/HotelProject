@@ -51,7 +51,7 @@
     <id>Relation</id>
     <coordinates>
       <x>540</x>
-      <y>220</y>
+      <y>210</y>
       <w>230</w>
       <h>50</h>
     </coordinates>
@@ -298,12 +298,12 @@ halign=left
   <element>
     <id>UMLFrame</id>
     <coordinates>
-      <x>470</x>
-      <y>680</y>
-      <w>320</w>
-      <h>100</h>
+      <x>430</x>
+      <y>240</y>
+      <w>370</w>
+      <h>540</h>
     </coordinates>
-    <panel_attributes>optional</panel_attributes>
+    <panel_attributes>loop</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
