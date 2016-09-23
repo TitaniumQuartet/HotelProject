@@ -63,13 +63,13 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>540</x>
-      <y>780</y>
+      <x>530</x>
+      <y>650</y>
       <w>230</w>
       <h>40</h>
     </coordinates>
     <panel_attributes>lt=&lt;.
-提示成功并返回之前的界面</panel_attributes>
+提示成功</panel_attributes>
     <additional_attributes>10.0;20.0;210.0;20.0</additional_attributes>
   </element>
   <element>
@@ -299,7 +299,7 @@ halign=left
     <id>UMLFrame</id>
     <coordinates>
       <x>470</x>
-      <y>670</y>
+      <y>680</y>
       <w>320</w>
       <h>100</h>
     </coordinates>
@@ -310,7 +310,7 @@ halign=left
     <id>Relation</id>
     <coordinates>
       <x>540</x>
-      <y>680</y>
+      <y>690</y>
       <w>230</w>
       <h>50</h>
     </coordinates>
