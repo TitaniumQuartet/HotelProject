@@ -1,0 +1,964 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.2">
+  <zoom_level>4</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>80</x>
+      <y>296</y>
+      <w>28</w>
+      <h>20</h>
+    </coordinates>
+    <panel_attributes>用户
+--
+身份</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>104</x>
+      <y>144</y>
+      <w>108</w>
+      <h>164</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>250.0;10.0;250.0;250.0;110.0;250.0;110.0;390.0;10.0;390.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>180</x>
+      <y>120</y>
+      <w>44</w>
+      <h>28</h>
+    </coordinates>
+    <panel_attributes>酒店工作人员
+--
+工号
+身份</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>104</x>
+      <y>300</y>
+      <w>88</w>
+      <h>12</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>200.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>184</x>
+      <y>284</y>
+      <w>40</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>客户
+--
+客户编号
+身份
+信用值
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>104</x>
+      <y>304</y>
+      <w>88</w>
+      <h>140</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>200.0;330.0;160.0;330.0;160.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>184</x>
+      <y>428</y>
+      <w>44</w>
+      <h>28</h>
+    </coordinates>
+    <panel_attributes>网站营销人员
+--
+工号
+身份</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>104</x>
+      <y>308</y>
+      <w>84</w>
+      <h>252</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>190.0;610.0;110.0;610.0;110.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>180</x>
+      <y>536</y>
+      <w>40</w>
+      <h>36</h>
+    </coordinates>
+    <panel_attributes>网站管理人员
+--
+工号
+身份
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>268</x>
+      <y>104</y>
+      <w>36</w>
+      <h>52</h>
+    </coordinates>
+    <panel_attributes>酒店
+--
+地址
+所属商圈
+简介
+设施服务
+星级
+评价</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>220</x>
+      <y>124</y>
+      <w>56</w>
+      <h>20</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1
+m2=1
+维护信息</panel_attributes>
+    <additional_attributes>10.0;20.0;120.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>264</x>
+      <y>176</y>
+      <w>44</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>可用客房
+--
+类型
+数量
+原始价格</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>220</x>
+      <y>136</y>
+      <w>52</w>
+      <h>64</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1
+m2=*
+更新</panel_attributes>
+    <additional_attributes>10.0;10.0;20.0;10.0;20.0;130.0;110.0;130.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>332</x>
+      <y>184</y>
+      <w>40</w>
+      <h>12</h>
+    </coordinates>
+    <panel_attributes>可用客房列表</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>304</x>
+      <y>184</y>
+      <w>36</w>
+      <h>12</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>70.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>268</x>
+      <y>56</y>
+      <w>40</w>
+      <h>28</h>
+    </coordinates>
+    <panel_attributes>促销策略
+--
+类型
+折扣比例</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>200</x>
+      <y>68</y>
+      <w>76</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1
+m2=*
+更新</panel_attributes>
+    <additional_attributes>10.0;130.0;10.0;10.0;170.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>324</x>
+      <y>88</y>
+      <w>48</w>
+      <h>12</h>
+    </coordinates>
+    <panel_attributes>合作企业客户折扣</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>284</x>
+      <y>80</y>
+      <w>48</w>
+      <h>24</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;40.0;100.0;40.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>324</x>
+      <y>72</y>
+      <w>40</w>
+      <h>12</h>
+    </coordinates>
+    <panel_attributes>生日特惠折扣</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>304</x>
+      <y>72</y>
+      <w>28</w>
+      <h>12</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;50.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>324</x>
+      <y>56</y>
+      <w>52</w>
+      <h>12</h>
+    </coordinates>
+    <panel_attributes>三件及以上预定特惠</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>304</x>
+      <y>60</y>
+      <w>28</w>
+      <h>12</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;50.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>324</x>
+      <y>40</y>
+      <w>40</w>
+      <h>12</h>
+    </coordinates>
+    <panel_attributes>双11折扣</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>284</x>
+      <y>40</y>
+      <w>48</w>
+      <h>24</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;40.0;10.0;10.0;100.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>156</x>
+      <y>64</y>
+      <w>40</w>
+      <h>12</h>
+    </coordinates>
+    <panel_attributes>促销策略列表</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>192</x>
+      <y>64</y>
+      <w>84</w>
+      <h>12</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;190.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>280</x>
+      <y>368</y>
+      <w>52</w>
+      <h>92</h>
+    </coordinates>
+    <panel_attributes>订单
+--
+订单号
+开始时间
+入住时间
+最晚订单执行时间
+实际入住时间
+房间类型
+房间号
+房间数量
+预计入住人数
+有无儿童
+客户基本信息
+订单状态</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>208</x>
+      <y>100</y>
+      <w>80</w>
+      <h>320</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1
+m2=*
+更新/浏览</panel_attributes>
+    <additional_attributes>10.0;50.0;10.0;20.0;110.0;20.0;120.0;770.0;180.0;770.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>384</x>
+      <y>396</y>
+      <w>40</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>订单列表
+--
+订单号
+下单时间
+订单状态</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>328</x>
+      <y>412</y>
+      <w>64</w>
+      <h>12</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>140.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>476</x>
+      <y>444</y>
+      <w>40</w>
+      <h>12</h>
+    </coordinates>
+    <panel_attributes>未执行订单</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>476</x>
+      <y>488</y>
+      <w>40</w>
+      <h>12</h>
+    </coordinates>
+    <panel_attributes>已执行订单</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>476</x>
+      <y>468</y>
+      <w>40</w>
+      <h>12</h>
+    </coordinates>
+    <panel_attributes>异常订单</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>476</x>
+      <y>424</y>
+      <w>40</w>
+      <h>12</h>
+    </coordinates>
+    <panel_attributes>已撤销订单</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>324</x>
+      <y>108</y>
+      <w>40</w>
+      <h>12</h>
+    </coordinates>
+    <panel_attributes>会员等级及折扣</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>324</x>
+      <y>20</y>
+      <w>48</w>
+      <h>12</h>
+    </coordinates>
+    <panel_attributes>会员特属商圈折扣</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>296</x>
+      <y>80</y>
+      <w>36</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;50.0;50.0;50.0;50.0;80.0;70.0;80.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>292</x>
+      <y>24</y>
+      <w>40</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;80.0;10.0;30.0;70.0;30.0;70.0;10.0;80.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>184</x>
+      <y>352</y>
+      <w>40</w>
+      <h>36</h>
+    </coordinates>
+    <panel_attributes>会员
+--
+会员号
+生日
+企业名称</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>196</x>
+      <y>312</y>
+      <w>12</w>
+      <h>48</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;100.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>128</x>
+      <y>56</y>
+      <w>148</w>
+      <h>404</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1
+m2=*
+制定</panel_attributes>
+    <additional_attributes>140.0;980.0;10.0;980.0;10.0;10.0;350.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>192</x>
+      <y>452</y>
+      <w>292</w>
+      <h>56</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1
+m2=*
+浏览</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;110.0;710.0;110.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>204</x>
+      <y>452</y>
+      <w>280</w>
+      <h>36</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1
+m2=*
+浏览/修改</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;60.0;680.0;60.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>168</x>
+      <y>304</y>
+      <w>40</w>
+      <h>140</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1
+m2=1
+
+
+
+
+
+
+
+修改信用值</panel_attributes>
+    <additional_attributes>40.0;10.0;10.0;10.0;10.0;320.0;40.0;320.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>184</x>
+      <y>248</y>
+      <w>40</w>
+      <h>12</h>
+    </coordinates>
+    <panel_attributes>信用记录</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>200</x>
+      <y>256</y>
+      <w>24</w>
+      <h>36</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1
+m2=*
+查看</panel_attributes>
+    <additional_attributes>10.0;70.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>152</x>
+      <y>292</y>
+      <w>152</w>
+      <h>204</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1
+m2=*
+浏览</panel_attributes>
+    <additional_attributes>80.0;10.0;10.0;10.0;10.0;490.0;360.0;490.0;360.0;420.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>264</x>
+      <y>264</y>
+      <w>36</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>预定过的酒店
+--
+订单号
+订单时间
+订单状态
+地址
+所属商圈
+简介
+设施服务
+星级
+评价</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>296</x>
+      <y>140</y>
+      <w>108</w>
+      <h>144</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>20.0;10.0;250.0;10.0;250.0;340.0;10.0;340.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>220</x>
+      <y>296</y>
+      <w>52</w>
+      <h>20</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1
+m2=*
+查看</panel_attributes>
+    <additional_attributes>10.0;20.0;110.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>348</x>
+      <y>284</y>
+      <w>48</w>
+      <h>36</h>
+    </coordinates>
+    <panel_attributes>预定过的酒店列表
+--
+酒店名称
+
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>296</x>
+      <y>300</y>
+      <w>60</w>
+      <h>12</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>130.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>220</x>
+      <y>136</y>
+      <w>196</w>
+      <h>168</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1
+m2=1..n
+搜索</panel_attributes>
+    <additional_attributes>10.0;390.0;60.0;390.0;60.0;290.0;470.0;290.0;470.0;10.0;210.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>412</x>
+      <y>116</y>
+      <w>40</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>酒店列表
+--
+商圈编号
+酒店
+
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>488</x>
+      <y>116</y>
+      <w>40</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>商圈列表
+--
+城市编号
+商圈
+
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>564</x>
+      <y>116</y>
+      <w>40</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>城市列表
+--
+城市
+
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>448</x>
+      <y>136</y>
+      <w>48</w>
+      <h>12</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>100.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>524</x>
+      <y>136</y>
+      <w>48</w>
+      <h>12</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>100.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>220</x>
+      <y>308</y>
+      <w>96</w>
+      <h>68</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1
+m2=1
+生成</panel_attributes>
+    <additional_attributes>10.0;10.0;60.0;10.0;60.0;110.0;220.0;110.0;220.0;150.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>300</x>
+      <y>128</y>
+      <w>108</w>
+      <h>272</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;250.0;10.0;250.0;660.0;80.0;660.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>296</x>
+      <y>276</y>
+      <w>160</w>
+      <h>112</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;380.0;10.0;380.0;260.0;90.0;260.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>328</x>
+      <y>152</y>
+      <w>108</w>
+      <h>244</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>250.0;10.0;250.0;590.0;10.0;590.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>204</x>
+      <y>312</y>
+      <w>24</w>
+      <h>48</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1
+m2=1
+注册</panel_attributes>
+    <additional_attributes>10.0;100.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>164</x>
+      <y>268</y>
+      <w>40</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1
+m2=1
+维护信息</panel_attributes>
+    <additional_attributes>50.0;50.0;10.0;50.0;10.0;10.0;80.0;10.0;80.0;40.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>216</x>
+      <y>312</y>
+      <w>56</w>
+      <h>252</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1
+m2=1
+
+
+
+
+
+查询/更改</panel_attributes>
+    <additional_attributes>10.0;600.0;60.0;600.0;60.0;70.0;10.0;70.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>216</x>
+      <y>152</y>
+      <w>324</w>
+      <h>404</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1
+m2=1
+添加</panel_attributes>
+    <additional_attributes>10.0;980.0;770.0;980.0;770.0;20.0;170.0;20.0;170.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>328</x>
+      <y>448</y>
+      <w>156</w>
+      <h>12</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;370.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>328</x>
+      <y>428</y>
+      <w>156</w>
+      <h>12</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;370.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>320</x>
+      <y>456</y>
+      <w>164</w>
+      <h>24</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;40.0;390.0;40.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>312</x>
+      <y>456</y>
+      <w>172</w>
+      <h>44</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;90.0;410.0;90.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>216</x>
+      <y>436</y>
+      <w>88</w>
+      <h>136</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1
+m2=1..n
+
+
+
+添加/删除/查询</panel_attributes>
+    <additional_attributes>10.0;310.0;100.0;310.0;100.0;10.0;30.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>212</x>
+      <y>140</y>
+      <w>364</w>
+      <h>440</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1
+m2=*
+添加/修改</panel_attributes>
+    <additional_attributes>20.0;1070.0;830.0;1070.0;830.0;230.0;10.0;230.0;10.0;10.0</additional_attributes>
+  </element>
+</diagram>
