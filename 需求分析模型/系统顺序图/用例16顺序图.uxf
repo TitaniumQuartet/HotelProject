@@ -4,8 +4,8 @@
   <element>
     <id>UMLActor</id>
     <coordinates>
-      <x>330</x>
-      <y>90</y>
+      <x>360</x>
+      <y>60</y>
       <w>60</w>
       <h>110</h>
     </coordinates>
@@ -15,8 +15,8 @@
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>530</x>
-      <y>120</y>
+      <x>560</x>
+      <y>90</y>
       <w>100</w>
       <h>30</h>
     </coordinates>
@@ -27,8 +27,8 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>350</x>
-      <y>180</y>
+      <x>380</x>
+      <y>150</y>
       <w>30</w>
       <h>60</h>
     </coordinates>
@@ -38,10 +38,10 @@
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>350</x>
-      <y>220</y>
+      <x>380</x>
+      <y>190</y>
       <w>20</w>
-      <h>160</h>
+      <h>860</h>
     </coordinates>
     <panel_attributes>
 </panel_attributes>
@@ -50,10 +50,10 @@
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>570</x>
-      <y>210</y>
+      <x>600</x>
+      <y>180</y>
       <w>20</w>
-      <h>170</h>
+      <h>860</h>
     </coordinates>
     <panel_attributes>
 </panel_attributes>
@@ -62,8 +62,8 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>350</x>
-      <y>370</y>
+      <x>380</x>
+      <y>1040</y>
       <w>30</w>
       <h>110</h>
     </coordinates>
@@ -73,46 +73,34 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>370</x>
-      <y>220</y>
-      <w>220</w>
+      <x>390</x>
+      <y>190</y>
+      <w>230</w>
       <h>40</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-
-选择注册会员</panel_attributes>
-    <additional_attributes>200.0;20.0;10.0;20.0</additional_attributes>
+点击注册会员</panel_attributes>
+    <additional_attributes>210.0;20.0;10.0;20.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>380</x>
-      <y>290</y>
-      <w>210</w>
+      <x>390</x>
+      <y>300</y>
+      <w>230</w>
       <h>40</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-
-会员信息</panel_attributes>
-    <additional_attributes>190.0;20.0;10.0;20.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>380</x>
-      <y>340</y>
-      <w>210</w>
-      <h>40</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;&lt;&lt;-
-结束注册会员</panel_attributes>
-    <additional_attributes>190.0;20.0;10.0;20.0</additional_attributes>
+点击注册普通会员</panel_attributes>
+    <additional_attributes>210.0;20.0;10.0;20.0</additional_attributes>
   </element>
   <element>
     <id>UMLFrame</id>
     <coordinates>
-      <x>320</x>
-      <y>30</y>
-      <w>320</w>
-      <h>430</h>
+      <x>260</x>
+      <y>0</y>
+      <w>570</w>
+      <h>1130</h>
     </coordinates>
     <panel_attributes>sd vip</panel_attributes>
     <additional_attributes/>
@@ -120,59 +108,175 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>570</x>
-      <y>370</y>
+      <x>600</x>
+      <y>1030</y>
       <w>30</w>
-      <h>110</h>
+      <h>120</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;90.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;100.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>370</x>
-      <y>250</y>
-      <w>210</w>
+      <x>390</x>
+      <y>220</y>
+      <w>220</w>
       <h>40</h>
     </coordinates>
     <panel_attributes>lt=&lt;.
-注册界面</panel_attributes>
-    <additional_attributes>10.0;20.0;190.0;20.0</additional_attributes>
+询问注册普通会员还是企业会员</panel_attributes>
+    <additional_attributes>10.0;20.0;200.0;20.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>370</x>
-      <y>320</y>
-      <w>210</w>
+      <x>390</x>
+      <y>340</y>
+      <w>220</w>
       <h>40</h>
     </coordinates>
     <panel_attributes>lt=&lt;.
-注册成功返回消息</panel_attributes>
-    <additional_attributes>10.0;20.0;190.0;20.0</additional_attributes>
+提示客户填写生日</panel_attributes>
+    <additional_attributes>10.0;20.0;200.0;20.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>370</x>
-      <y>360</y>
-      <w>210</w>
-      <h>40</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;.
-结束返回消息</panel_attributes>
-    <additional_attributes>10.0;20.0;190.0;20.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>570</x>
-      <y>140</y>
+      <x>600</x>
+      <y>110</y>
       <w>30</w>
       <h>90</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;70.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLFrame</id>
+    <coordinates>
+      <x>310</x>
+      <y>260</y>
+      <w>350</w>
+      <h>170</h>
+    </coordinates>
+    <panel_attributes>optional
+--
+[如果客户点击注册普通会员]
+halign=left
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLFrame</id>
+    <coordinates>
+      <x>310</x>
+      <y>450</y>
+      <w>350</w>
+      <h>140</h>
+    </coordinates>
+    <panel_attributes>optional
+--
+[如果客户点击注册普通会员]
+halign=left
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>390</x>
+      <y>490</y>
+      <w>230</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-
+点击注册企业会员</panel_attributes>
+    <additional_attributes>210.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>390</x>
+      <y>380</y>
+      <w>230</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-
+填写生日并确定</panel_attributes>
+    <additional_attributes>210.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>390</x>
+      <y>520</y>
+      <w>230</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+提示客户填写企业名称</panel_attributes>
+    <additional_attributes>10.0;20.0;210.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>390</x>
+      <y>550</y>
+      <w>230</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-
+填写企业名称并确定</panel_attributes>
+    <additional_attributes>210.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLFrame</id>
+    <coordinates>
+      <x>310</x>
+      <y>610</y>
+      <w>350</w>
+      <h>130</h>
+    </coordinates>
+    <panel_attributes>loop
+--
+[如果信息未填写完整]
+halign=left</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>390</x>
+      <y>650</y>
+      <w>220</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+显示相应信息表单</panel_attributes>
+    <additional_attributes>10.0;20.0;200.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>390</x>
+      <y>690</y>
+      <w>230</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-
+填写相应信息并确定</panel_attributes>
+    <additional_attributes>210.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>390</x>
+      <y>800</y>
+      <w>230</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+提示成功并返回之前的界面</panel_attributes>
+    <additional_attributes>10.0;20.0;210.0;20.0</additional_attributes>
   </element>
 </diagram>

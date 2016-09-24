@@ -56,7 +56,7 @@
       <h>40</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-
-查看信用记录</panel_attributes>
+点击查看信用记录</panel_attributes>
     <additional_attributes>220.0;20.0;10.0;20.0</additional_attributes>
   </element>
   <element>
@@ -68,7 +68,7 @@
       <h>40</h>
     </coordinates>
     <panel_attributes>lt=&lt;.
-信用记录</panel_attributes>
+显示用户信用记录</panel_attributes>
     <additional_attributes>10.0;20.0;220.0;20.0</additional_attributes>
   </element>
   <element>
@@ -80,7 +80,7 @@
       <h>40</h>
     </coordinates>
     <panel_attributes>lt=&lt;.
-提示成功</panel_attributes>
+提示成功并返回之前的页面</panel_attributes>
     <additional_attributes>10.0;20.0;220.0;20.0</additional_attributes>
   </element>
   <element>
@@ -114,7 +114,7 @@
       <h>40</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-
-关闭</panel_attributes>
+确认返回</panel_attributes>
     <additional_attributes>220.0;20.0;10.0;20.0</additional_attributes>
   </element>
   <element>
