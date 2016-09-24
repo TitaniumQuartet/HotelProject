@@ -18,7 +18,7 @@
       <x>510</x>
       <y>150</y>
       <w>20</w>
-      <h>750</h>
+      <h>690</h>
     </coordinates>
     <panel_attributes>
 </panel_attributes>
@@ -30,7 +30,7 @@
       <x>740</x>
       <y>170</y>
       <w>20</w>
-      <h>660</h>
+      <h>670</h>
     </coordinates>
     <panel_attributes>
 </panel_attributes>
@@ -75,19 +75,8 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>510</x>
-      <y>890</y>
-      <w>30</w>
-      <h>90</h>
-    </coordinates>
-    <panel_attributes>lt=.</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;70.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
       <x>740</x>
-      <y>880</y>
+      <y>830</y>
       <w>30</w>
       <h>100</h>
     </coordinates>
@@ -111,7 +100,7 @@
       <x>340</x>
       <y>0</y>
       <w>530</w>
-      <h>1000</h>
+      <h>940</h>
     </coordinates>
     <panel_attributes>sd ManageMarketer</panel_attributes>
     <additional_attributes/>
@@ -329,5 +318,16 @@ valign=center</panel_attributes>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;60.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>510</x>
+      <y>830</y>
+      <w>30</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;80.0</additional_attributes>
   </element>
 </diagram>
