@@ -252,7 +252,7 @@ halign=left</panel_attributes>
       <h>40</h>
     </coordinates>
     <panel_attributes>lt=&lt;.
-返回填写促销策略之前的页面</panel_attributes>
+返回撤销异常订单之前的页面</panel_attributes>
     <additional_attributes>10.0;20.0;260.0;20.0</additional_attributes>
   </element>
   <element>
