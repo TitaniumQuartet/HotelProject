@@ -1132,7 +1132,7 @@ style=wordwrap
     </coordinates>
     <panel_attributes>
 --
-personalblservice
+personalbl
 style=wordwrap
 </panel_attributes>
     <additional_attributes/>
@@ -1195,7 +1195,7 @@ style=wordwrap
     </coordinates>
     <panel_attributes>
 --
-usermainblservice
+usermainbl
 style=wordwrap
 </panel_attributes>
     <additional_attributes/>
@@ -1234,7 +1234,7 @@ style=wordwrap
     </coordinates>
     <panel_attributes>
 --
-manageroomblservice
+manageroombl
 style=wordwrap
 </panel_attributes>
     <additional_attributes/>
@@ -1285,7 +1285,7 @@ style=wordwrap
     </coordinates>
     <panel_attributes>
 --
-manageorderblservice
+manageorderbl
 style=wordwrap
 </panel_attributes>
     <additional_attributes/>
@@ -1348,7 +1348,7 @@ style=wordwrap
     </coordinates>
     <panel_attributes>
 --
-managehotelblservice
+managehotelbl
 style=wordwrap
 </panel_attributes>
     <additional_attributes/>
@@ -1399,7 +1399,7 @@ style=wordwrap
     </coordinates>
     <panel_attributes>
 --
-manageuserblservice
+manageuserbl
 style=wordwrap
 </panel_attributes>
     <additional_attributes/>
