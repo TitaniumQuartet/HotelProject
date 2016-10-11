@@ -4,9 +4,9 @@
   <element>
     <id>UMLPackage</id>
     <coordinates>
-      <x>120</x>
-      <y>380</y>
-      <w>1440</w>
+      <x>60</x>
+      <y>300</y>
+      <w>1290</w>
       <h>330</h>
     </coordinates>
     <panel_attributes>
@@ -18,20 +18,20 @@ valign=top</panel_attributes>
   <element>
     <id>UMLFrame</id>
     <coordinates>
-      <x>60</x>
-      <y>70</y>
-      <w>1570</w>
-      <h>1000</h>
+      <x>20</x>
+      <y>30</y>
+      <w>1370</w>
+      <h>870</h>
     </coordinates>
-    <panel_attributes>HotelProject</panel_attributes>
+    <panel_attributes>pkg</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLPackage</id>
     <coordinates>
-      <x>120</x>
-      <y>150</y>
-      <w>1440</w>
+      <x>60</x>
+      <y>70</y>
+      <w>1290</w>
       <h>160</h>
     </coordinates>
     <panel_attributes>
@@ -43,10 +43,10 @@ valign=top</panel_attributes>
   <element>
     <id>UMLPackage</id>
     <coordinates>
-      <x>120</x>
-      <y>770</y>
-      <w>1440</w>
-      <h>250</h>
+      <x>60</x>
+      <y>690</y>
+      <w>1290</w>
+      <h>170</h>
     </coordinates>
     <panel_attributes>
 --
@@ -57,8 +57,8 @@ valign=top</panel_attributes>
   <element>
     <id>UMLPackage</id>
     <coordinates>
-      <x>240</x>
-      <y>210</y>
+      <x>140</x>
+      <y>130</y>
       <w>100</w>
       <h>70</h>
     </coordinates>
@@ -71,8 +71,8 @@ usermainui
   <element>
     <id>UMLPackage</id>
     <coordinates>
-      <x>520</x>
-      <y>210</y>
+      <x>420</x>
+      <y>130</y>
       <w>100</w>
       <h>70</h>
     </coordinates>
@@ -85,8 +85,8 @@ createorderui
   <element>
     <id>UMLPackage</id>
     <coordinates>
-      <x>410</x>
-      <y>210</y>
+      <x>310</x>
+      <y>130</y>
       <w>100</w>
       <h>70</h>
     </coordinates>
@@ -99,8 +99,8 @@ personalui
   <element>
     <id>UMLPackage</id>
     <coordinates>
-      <x>630</x>
-      <y>210</y>
+      <x>530</x>
+      <y>130</y>
       <w>100</w>
       <h>70</h>
     </coordinates>
@@ -113,8 +113,8 @@ strategyui
   <element>
     <id>UMLPackage</id>
     <coordinates>
-      <x>740</x>
-      <y>210</y>
+      <x>640</x>
+      <y>130</y>
       <w>100</w>
       <h>70</h>
     </coordinates>
@@ -127,8 +127,8 @@ hotelinfoui
   <element>
     <id>UMLPackage</id>
     <coordinates>
-      <x>850</x>
-      <y>210</y>
+      <x>750</x>
+      <y>130</y>
       <w>100</w>
       <h>70</h>
     </coordinates>
@@ -141,8 +141,8 @@ searchhotelui
   <element>
     <id>UMLPackage</id>
     <coordinates>
-      <x>960</x>
-      <y>210</y>
+      <x>860</x>
+      <y>130</y>
       <w>100</w>
       <h>70</h>
     </coordinates>
@@ -155,8 +155,8 @@ manageroomui
   <element>
     <id>UMLPackage</id>
     <coordinates>
-      <x>1070</x>
-      <y>210</y>
+      <x>970</x>
+      <y>130</y>
       <w>100</w>
       <h>70</h>
     </coordinates>
@@ -169,8 +169,8 @@ manageorderui
   <element>
     <id>UMLPackage</id>
     <coordinates>
-      <x>1180</x>
-      <y>210</y>
+      <x>1080</x>
+      <y>130</y>
       <w>100</w>
       <h>70</h>
     </coordinates>
@@ -183,8 +183,8 @@ managehotelui
   <element>
     <id>UMLPackage</id>
     <coordinates>
-      <x>1290</x>
-      <y>210</y>
+      <x>1190</x>
+      <y>130</y>
       <w>100</w>
       <h>70</h>
     </coordinates>
@@ -197,8 +197,8 @@ manageuserui
   <element>
     <id>UMLPackage</id>
     <coordinates>
-      <x>210</x>
-      <y>510</y>
+      <x>110</x>
+      <y>430</y>
       <w>160</w>
       <h>130</h>
     </coordinates>
@@ -212,8 +212,8 @@ valign=top
   <element>
     <id>UMLPackage</id>
     <coordinates>
-      <x>490</x>
-      <y>480</y>
+      <x>390</x>
+      <y>400</y>
       <w>100</w>
       <h>70</h>
     </coordinates>
@@ -226,8 +226,8 @@ createorderbl
   <element>
     <id>UMLPackage</id>
     <coordinates>
-      <x>410</x>
-      <y>550</y>
+      <x>310</x>
+      <y>470</y>
       <w>100</w>
       <h>70</h>
     </coordinates>
@@ -240,8 +240,8 @@ personalbl
   <element>
     <id>UMLPackage</id>
     <coordinates>
-      <x>660</x>
-      <y>570</y>
+      <x>560</x>
+      <y>490</y>
       <w>100</w>
       <h>70</h>
     </coordinates>
@@ -254,8 +254,8 @@ strategybl
   <element>
     <id>UMLPackage</id>
     <coordinates>
-      <x>740</x>
-      <y>510</y>
+      <x>640</x>
+      <y>430</y>
       <w>100</w>
       <h>70</h>
     </coordinates>
@@ -268,8 +268,8 @@ hotelinfobl
   <element>
     <id>UMLPackage</id>
     <coordinates>
-      <x>890</x>
-      <y>430</y>
+      <x>790</x>
+      <y>350</y>
       <w>100</w>
       <h>70</h>
     </coordinates>
@@ -282,8 +282,8 @@ searchhotelbl
   <element>
     <id>UMLPackage</id>
     <coordinates>
-      <x>960</x>
-      <y>620</y>
+      <x>860</x>
+      <y>540</y>
       <w>100</w>
       <h>70</h>
     </coordinates>
@@ -296,8 +296,8 @@ manageroombl
   <element>
     <id>UMLPackage</id>
     <coordinates>
-      <x>1070</x>
-      <y>550</y>
+      <x>970</x>
+      <y>470</y>
       <w>100</w>
       <h>70</h>
     </coordinates>
@@ -310,8 +310,8 @@ manageorderbl
   <element>
     <id>UMLPackage</id>
     <coordinates>
-      <x>1180</x>
-      <y>440</y>
+      <x>1080</x>
+      <y>360</y>
       <w>100</w>
       <h>70</h>
     </coordinates>
@@ -324,8 +324,8 @@ managehotelbl
   <element>
     <id>UMLPackage</id>
     <coordinates>
-      <x>1290</x>
-      <y>550</y>
+      <x>1190</x>
+      <y>470</y>
       <w>100</w>
       <h>70</h>
     </coordinates>
@@ -338,8 +338,8 @@ manageuserbl
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>280</x>
-      <y>270</y>
+      <x>180</x>
+      <y>190</y>
       <w>40</w>
       <h>280</h>
     </coordinates>
@@ -350,8 +350,8 @@ manageuserbl
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>450</x>
-      <y>270</y>
+      <x>350</x>
+      <y>190</y>
       <w>30</w>
       <h>320</h>
     </coordinates>
@@ -362,8 +362,8 @@ manageuserbl
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>530</x>
-      <y>270</y>
+      <x>430</x>
+      <y>190</y>
       <w>60</w>
       <h>250</h>
     </coordinates>
@@ -374,8 +374,8 @@ manageuserbl
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>670</x>
-      <y>270</y>
+      <x>570</x>
+      <y>190</y>
       <w>60</w>
       <h>340</h>
     </coordinates>
@@ -386,8 +386,8 @@ manageuserbl
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>780</x>
-      <y>270</y>
+      <x>680</x>
+      <y>190</y>
       <w>30</w>
       <h>280</h>
     </coordinates>
@@ -398,8 +398,8 @@ manageuserbl
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>890</x>
-      <y>270</y>
+      <x>790</x>
+      <y>190</y>
       <w>70</w>
       <h>200</h>
     </coordinates>
@@ -410,8 +410,8 @@ manageuserbl
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1000</x>
-      <y>270</y>
+      <x>900</x>
+      <y>190</y>
       <w>30</w>
       <h>390</h>
     </coordinates>
@@ -422,8 +422,8 @@ manageuserbl
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1110</x>
-      <y>270</y>
+      <x>1010</x>
+      <y>190</y>
       <w>30</w>
       <h>320</h>
     </coordinates>
@@ -434,8 +434,8 @@ manageuserbl
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1220</x>
-      <y>270</y>
+      <x>1120</x>
+      <y>190</y>
       <w>30</w>
       <h>210</h>
     </coordinates>
@@ -446,8 +446,8 @@ manageuserbl
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1330</x>
-      <y>270</y>
+      <x>1230</x>
+      <y>190</y>
       <w>30</w>
       <h>320</h>
     </coordinates>
@@ -458,8 +458,8 @@ manageuserbl
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>580</x>
-      <y>510</y>
+      <x>480</x>
+      <y>430</y>
       <w>100</w>
       <h>120</h>
     </coordinates>
@@ -470,8 +470,8 @@ manageuserbl
   <element>
     <id>UMLPackage</id>
     <coordinates>
-      <x>240</x>
-      <y>830</y>
+      <x>140</x>
+      <y>750</y>
       <w>100</w>
       <h>70</h>
     </coordinates>
@@ -484,8 +484,8 @@ usermaindata
   <element>
     <id>UMLPackage</id>
     <coordinates>
-      <x>520</x>
-      <y>830</y>
+      <x>420</x>
+      <y>750</y>
       <w>100</w>
       <h>70</h>
     </coordinates>
@@ -498,8 +498,8 @@ createorderdata
   <element>
     <id>UMLPackage</id>
     <coordinates>
-      <x>410</x>
-      <y>830</y>
+      <x>310</x>
+      <y>750</y>
       <w>100</w>
       <h>70</h>
     </coordinates>
@@ -512,8 +512,8 @@ personaldata
   <element>
     <id>UMLPackage</id>
     <coordinates>
-      <x>630</x>
-      <y>830</y>
+      <x>530</x>
+      <y>750</y>
       <w>100</w>
       <h>70</h>
     </coordinates>
@@ -526,8 +526,8 @@ strategydata
   <element>
     <id>UMLPackage</id>
     <coordinates>
-      <x>740</x>
-      <y>830</y>
+      <x>640</x>
+      <y>750</y>
       <w>100</w>
       <h>70</h>
     </coordinates>
@@ -540,8 +540,8 @@ hotelinfodata
   <element>
     <id>UMLPackage</id>
     <coordinates>
-      <x>850</x>
-      <y>830</y>
+      <x>750</x>
+      <y>750</y>
       <w>100</w>
       <h>70</h>
     </coordinates>
@@ -554,8 +554,8 @@ searchhoteldata
   <element>
     <id>UMLPackage</id>
     <coordinates>
-      <x>960</x>
-      <y>830</y>
+      <x>860</x>
+      <y>750</y>
       <w>100</w>
       <h>70</h>
     </coordinates>
@@ -568,8 +568,8 @@ manageroomdata
   <element>
     <id>UMLPackage</id>
     <coordinates>
-      <x>1070</x>
-      <y>830</y>
+      <x>970</x>
+      <y>750</y>
       <w>100</w>
       <h>70</h>
     </coordinates>
@@ -582,8 +582,8 @@ manageorderdata
   <element>
     <id>UMLPackage</id>
     <coordinates>
-      <x>1180</x>
-      <y>830</y>
+      <x>1080</x>
+      <y>750</y>
       <w>100</w>
       <h>70</h>
     </coordinates>
@@ -596,8 +596,8 @@ managehoteldata
   <element>
     <id>UMLPackage</id>
     <coordinates>
-      <x>1290</x>
-      <y>830</y>
+      <x>1190</x>
+      <y>750</y>
       <w>100</w>
       <h>70</h>
     </coordinates>
@@ -610,8 +610,8 @@ manageuserdata
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>280</x>
-      <y>630</y>
+      <x>180</x>
+      <y>550</y>
       <w>50</w>
       <h>240</h>
     </coordinates>
@@ -622,8 +622,8 @@ RMI</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>450</x>
-      <y>610</y>
+      <x>350</x>
+      <y>530</y>
       <w>50</w>
       <h>260</h>
     </coordinates>
@@ -634,8 +634,8 @@ RMI</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>530</x>
-      <y>540</y>
+      <x>430</x>
+      <y>460</y>
       <w>70</w>
       <h>330</h>
     </coordinates>
@@ -646,8 +646,8 @@ RMI</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>670</x>
-      <y>630</y>
+      <x>570</x>
+      <y>550</y>
       <w>70</w>
       <h>240</h>
     </coordinates>
@@ -658,8 +658,8 @@ RMI</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>780</x>
-      <y>570</y>
+      <x>680</x>
+      <y>490</y>
       <w>50</w>
       <h>300</h>
     </coordinates>
@@ -670,8 +670,8 @@ RMI</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>890</x>
-      <y>490</y>
+      <x>790</x>
+      <y>410</y>
       <w>70</w>
       <h>380</h>
     </coordinates>
@@ -682,8 +682,8 @@ RMI</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1000</x>
-      <y>680</y>
+      <x>900</x>
+      <y>600</y>
       <w>50</w>
       <h>190</h>
     </coordinates>
@@ -694,8 +694,8 @@ RMI</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1110</x>
-      <y>610</y>
+      <x>1010</x>
+      <y>530</y>
       <w>50</w>
       <h>260</h>
     </coordinates>
@@ -706,8 +706,8 @@ RMI</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1220</x>
-      <y>500</y>
+      <x>1120</x>
+      <y>420</y>
       <w>50</w>
       <h>370</h>
     </coordinates>
@@ -718,8 +718,8 @@ RMI</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1330</x>
-      <y>610</y>
+      <x>1230</x>
+      <y>530</y>
       <w>50</w>
       <h>260</h>
     </coordinates>
@@ -730,8 +730,8 @@ RMI</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>830</x>
-      <y>540</y>
+      <x>730</x>
+      <y>460</y>
       <w>260</w>
       <h>70</h>
     </coordinates>
@@ -742,8 +742,8 @@ RMI</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>830</x>
-      <y>460</y>
+      <x>730</x>
+      <y>380</y>
       <w>80</w>
       <h>110</h>
     </coordinates>
@@ -754,8 +754,8 @@ RMI</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>980</x>
-      <y>460</y>
+      <x>880</x>
+      <y>380</y>
       <w>110</w>
       <h>150</h>
     </coordinates>
@@ -766,8 +766,8 @@ RMI</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>230</x>
-      <y>560</y>
+      <x>130</x>
+      <y>480</y>
       <w>120</w>
       <h>60</h>
     </coordinates>
