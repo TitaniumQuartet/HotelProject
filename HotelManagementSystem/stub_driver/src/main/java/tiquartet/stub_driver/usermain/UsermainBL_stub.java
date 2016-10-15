@@ -9,7 +9,7 @@ public class UsermainBL_stub implements UsermainBLService{
 	    public  ResultMessage logout(long userID){
 	    	return ResultMessage.SUCCEED;
 	    }
-	    public ResultMessage signUp(long userID,String password){
+	    public ResultMessage signUp(String username,String password){
 	    	return ResultMessage.SUCCEED;
 	    }
 }
