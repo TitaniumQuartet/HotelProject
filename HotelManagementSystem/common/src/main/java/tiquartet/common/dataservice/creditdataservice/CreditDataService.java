@@ -1,6 +1,6 @@
 package tiquartet.common.dataservice.creditdataservice;
 
-public class CreditDataService {
+public interface CreditDataService {
 	public CreditRecordPO getRecord(long userID);
 
 }

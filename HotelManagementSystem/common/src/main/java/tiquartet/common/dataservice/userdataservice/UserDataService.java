@@ -1,6 +1,6 @@
 package tiquartet.common.dataservice.userdataservice;
 
-public class UserDataService {
+public interface UserDataService {
 	public ResultMessage insert(UserPO user);
 	public PersonalPO getUserInfo(long userID);
 	public ResultMessage update(PersonalPO personal);
