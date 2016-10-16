@@ -2,8 +2,8 @@ package tiquartet.common.dataservice.orderdataservice;
 
 import java.util.List;
 import tiquartet.common.po.orderpo.OrderPO;
+import tiquartet.common.util.ResultMessage;
 import tiquartet.common.po.orderfilterpo.OrderFilterPO;
-import tiquartet.common.util.resultmessage.ResultMessage;
 
 public interface OrderDataService {
 	public List<OrderPO> getHotelList(long userID);
