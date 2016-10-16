@@ -52,7 +52,7 @@ public class UserPO implements Serializable{
 		return userType;
 	}
 	
-	public void setuserTypr(String userType){
+	public void setuserType(String userType){
 		this.userType=userType;
 	}
 }

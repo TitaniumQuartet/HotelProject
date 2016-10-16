@@ -1,6 +1,8 @@
 package tiquartet.common.dataservice.roomdataservice;
 
 import java.util.Calendar;
+import tiquartet.common.po.roompo.RoomPO;
+import tiquartet.common.util.resultmessage.ResultMessage;
 
 public interface RoomDataService {
 	public ResultMessage update(RoomPO room);
