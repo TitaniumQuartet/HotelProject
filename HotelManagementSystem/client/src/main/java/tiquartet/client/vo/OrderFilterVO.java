@@ -1,6 +1,6 @@
 package tiquartet.client.vo;
 
-public class OtherFilterVO {
+public class OrderFilterVO {
 	 public int orderID;
 	    public String name;
 	    public int orderState;

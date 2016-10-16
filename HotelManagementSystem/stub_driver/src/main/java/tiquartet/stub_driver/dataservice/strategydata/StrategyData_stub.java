@@ -1,11 +1,15 @@
 package tiquartet.stub_driver.dataservice.strategydata;
 
-import tiquartet.common.dataservice.strategydataservice;
-import java.util.List;
-public class StrategyData_stub implements StrategyDtaService{
+import java.util.*;
+import tiquartet.common.dataservice.strategydataservice.*;
+import tiquartet.common.po.*;
+import tiquartet.common.util.ResultMessage;
+
+
+public class StrategyData_stub implements StrategyDataService{
 	public List<StrategyPO> searchByHotel(long hotelID){
 		System.out.println("yes");
-		return new List<Strategy>();
+		return new ArrayList<StrategyPO>();
 	}
 	public ResultMessage insert(StrategyPO strategy){
 		System.out.println("yes");

@@ -1,8 +1,9 @@
 package tiquartet.stub_driver.dataservice.userdata;
 
-import java.util.List;
-
-import tiquartet.common.dataservice.userdataservice;
+import java.util.*;
+import tiquartet.common.dataservice.userdataservice.*;
+import tiquartet.common.po.*;
+import tiquartet.common.util.ResultMessage;
 
 
 public class UserData_stub implements UserDataService{
@@ -34,7 +35,7 @@ public class UserData_stub implements UserDataService{
 	
 	public List<UserPO> searchClient(String username, String realName){
 		System.out.println("yes");
-		return new List<UerPO>();
+		return new ArrayList<UserPO>();
 	}
 
 }

@@ -2,41 +2,41 @@ package tiquartet.stub_driver.blservice.manageuser;
 
 import java.util.ArrayList;
 
-import tiquartet.client.blservice.HotelStaffPO;
-import tiquartet.client.blservice.ResultMessage;
-import tiquartet.client.blservice.UserPO;
+import tiquartet.client.blservice.manageuserblservice.*;
+import tiquartet.client.vo.*;
+import tiquartet.common.util.ResultMessage;
 
-public class ManageUserBL_stub {
+public class ManageUserBL_stub implements ManageUserBLService{
 
-	public ArrayList<UserPO> searchUser(String name, int userId){
-		return new ArrayList<UserPO>();
+	public ArrayList<UserVO> searchUser(String name, int userId){
+		return new ArrayList<UserVO>();
 	}
 	
-	public ArrayList<HotelStaffPO> searchHotelStaff(String city, String area){
-		return new ArrayList<HotelStaffPO>();
+	public ArrayList<HotelStaffVO> searchHotelStaff(String city, String area){
+		return new ArrayList<HotelStaffVO>();
 	}
 	
-	public HotelStaffPO searchStaff(int staffId){
-		return new HotelStaffPO();
+	public HotelStaffVO searchStaff(int staffId){
+		return new HotelStaffVO();
 	}
 	
-	public ArrayList<UserPO> getUserList(){
-		return new ArrayList<UserPO>();
+	public ArrayList<UserVO> getUserList(){
+		return new ArrayList<UserVO>();
 	}
 	
-	public ArrayList<UserPO> sortUserList(String way){
-		return new ArrayList<UserPO>();
+	public ArrayList<UserVO> sortUserList(String way){
+		return new ArrayList<UserVO>();
 	}
 	
 	public ResultMessage credit(double money, int userId){
-		return ResultMessage.succeed;
+		return ResultMessage.SUCCEED;
 	}
 	
 	public ResultMessage addHotel(String hotelName){
-		return ResultMessage.succeed;
+		return ResultMessage.SUCCEED;
 	}
 	
 	public ResultMessage add(int hotelId, int staffId){
-		return ResultMessage.succeed;
+		return ResultMessage.SUCCEED;
 	}
 }

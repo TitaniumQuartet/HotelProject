@@ -1,14 +1,19 @@
 package tiquartet.stub_driver.blservice.searchhotel;
 
+import java.util.List;
+
+import tiquartet.client.blservice.searchhotelblservice.*;
+import tiquartet.client.vo.*;
+
 public class SearchHotelbl_driver {
 
-public void drive(SearchHotelbl stub){
+public void drive(SearchHotelBLService stub){
 		
-		HotelVO hotelvo = stub.getHotelList();
-		System.out.println(hotelvo.list);
+		List<HotelVO> hotelvo = stub.getHotelList(2,34);
+		System.out.println("Retrieving hotel list...");
 		
-		hotelvo = stub.filter();
-		System.out.println(hotelvo.hotel);
+		hotelvo = stub.filter(new HotelFilterVO());
+		System.out.println("Applying Hotel Filter...");
 	}
 	
 	public static void main(String[] args){

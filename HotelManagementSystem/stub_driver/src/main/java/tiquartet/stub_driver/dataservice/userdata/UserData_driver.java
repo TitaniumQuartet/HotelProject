@@ -1,7 +1,8 @@
 package tiquartet.stub_driver.dataservice.userdata;
 
 import java.rmi.RemoteException;
-import tiquartet.common.dataservice.userdataservice;
+import tiquartet.common.dataservice.userdataservice.*;
+import tiquartet.common.po.*;
 
 public class UserData_driver {
 	public void drive(UserDataService stub) throws RemoteException{
@@ -10,7 +11,7 @@ public class UserData_driver {
 		stub.insert(new PersonalPO());
 		stub.getUserInfo(0000011111);
 		stub.getCreditBalance(0000011111);
-		stub.search("s","s");
+		stub.searchClient("s","s");
 	}
 	
 	public static void main(String[] args){

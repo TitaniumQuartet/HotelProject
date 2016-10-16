@@ -1,7 +1,8 @@
 package tiquartet.common.dataservice.strategydataservice;
 
 import java.util.List;
-import tiquartet.common.po.strategypo.StrategyPO;
+
+import tiquartet.common.po.StrategyPO;
 import tiquartet.common.util.ResultMessage;
 
 public interface StrategyDataService {

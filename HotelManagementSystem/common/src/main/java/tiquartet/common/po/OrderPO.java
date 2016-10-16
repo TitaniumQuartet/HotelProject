@@ -1,4 +1,4 @@
-package tiquartet.common.po.orderpo;
+package tiquartet.common.po;
 
 import java.io.Serializable;
 import java.util.Calendar;

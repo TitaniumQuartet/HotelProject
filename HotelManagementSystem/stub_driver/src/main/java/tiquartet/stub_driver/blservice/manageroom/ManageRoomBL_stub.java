@@ -1,22 +1,26 @@
 package tiquartet.stub_driver.blservice.manageroom;
 
-import java.util.List;
+import java.util.*;
+import tiquartet.client.blservice.manageroomblservice.*;
+import tiquartet.client.vo.*;
+import tiquartet.common.util.ResultMessage;
 
-public class ManageRoomBL_stub implements ManageRoombl{
+
+public class ManageRoomBL_stub implements ManageRoomBLService{
 
 	public List<RoomVO> getRoomList (long hotelID){
-		return new List<RoomVO>();
+		return new ArrayList<RoomVO>();
 	}
 	
 	public ResultMessage modifyRoomStatus (RoomVO room){
-		return RessultMessage.succeed;
+		return ResultMessage.SUCCEED;
 	}
 	
 	public ResultMessage addRoom (RoomVO room){
-		return RessultMessage.succeed;
+		return ResultMessage.SUCCEED;
 	}
 	
 	public ResultMessage deleteRoom (int roomID){
-		return RessultMessage.succeed;
+		return ResultMessage.SUCCEED;
 	}
 }

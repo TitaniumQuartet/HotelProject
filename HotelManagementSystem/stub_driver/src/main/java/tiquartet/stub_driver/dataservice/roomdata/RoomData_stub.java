@@ -1,8 +1,10 @@
 package tiquartet.stub_driver.dataservice.roomdata;
 
-import java.util.Calendar;
+import java.util.*;
+import tiquartet.common.dataservice.roomdataservice.*;
+import tiquartet.common.po.*;
+import tiquartet.common.util.ResultMessage;
 
-import tiquartet.common.dataservice.roomdataservice;
 
 public class RoomData_stub implements RoomDataService{
 	public ResultMessage update(RoomPO room){

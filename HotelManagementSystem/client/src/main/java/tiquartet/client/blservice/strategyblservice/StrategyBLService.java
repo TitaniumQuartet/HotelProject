@@ -1,6 +1,8 @@
 package tiquartet.client.blservice.strategyblservice;
 
 import java.util.List;
+import tiquartet.common.util.ResultMessage;
+
 
 import tiquartet.client.vo.StrategyVO;
 

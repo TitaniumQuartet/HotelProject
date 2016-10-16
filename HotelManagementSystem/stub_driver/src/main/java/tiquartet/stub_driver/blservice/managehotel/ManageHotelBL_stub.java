@@ -1,16 +1,17 @@
 package tiquartet.stub_driver.blservice.managehotel;
 
-import tiquartet.client.blservice.HotelInfoVO;
-import tiquartet.client.blservice.ResultMessage;
+import tiquartet.client.vo.*;
+import tiquartet.client.blservice.managehotelblservice.*;
+import tiquartet.common.util.ResultMessage;
 
-public class ManageHotelBL_stub {
+public class ManageHotelBL_stub implements ManageHotelBLService{
 
-	public HotelInfoVO getHotelInfo(long userID);
+	public HotelInfoVO getHotelInfo(long userID)
 	{
 		return new HotelInfoVO();
 	}
 	
 	public ResultMessage modifyHotelInfo(HotelInfoVO hotelInfo){
-		return ResultMessage.succeed;
+		return ResultMessage.SUCCEED;
 	}
 }

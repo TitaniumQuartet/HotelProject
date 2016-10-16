@@ -1,15 +1,17 @@
 package tiquartet.stub_driver.dataservice.orderdata;
 
 import java.rmi.RemoteException;
-import tiquartet.common.dataservice.orderdataservice;
+import tiquartet.common.dataservice.orderdataservice.*;
+import tiquartet.common.po.*;
+import tiquartet.common.util.ResultMessage;
 
 public class OrderData_driver {
 	public void drive(OrderDataService stub) throws RemoteException{
 		stub.getHotelList(0000011111);
 		stub.insert(new OrderPO());
 		stub.update(new OrderPO());
-		stub.hasbeenordered(0000011111,0000011111);
-		stub.getOrderPage(0000011111,new OrderFilterPO,1);
+		stub.hasBeenOrdered(0000011111,0000011111);
+		stub.getOrderPage(0000011111,new OrderFilterPO(),1);
 	}
 	
 	public static void main(String[] args){

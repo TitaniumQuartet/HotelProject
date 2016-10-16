@@ -1,19 +1,26 @@
 package tiquartet.stub_driver.blservice.manageroom;
 
+import java.util.List;
+
+import tiquartet.client.blservice.manageroomblservice.*;
+import tiquartet.client.vo.*;
+import tiquartet.common.util.ResultMessage;
+
 public class ManageRoomBL_driver {
 
-	public void drive(ManageRoombl stub){
-		RoomVO roomvo = stub.getRoomList();
-		System.out.println(roomvo.list);
+	public void drive(ManageRoomBLService stub){
+		List<RoomVO> roomvo = stub.getRoomList(2423);
+		System.out.println("Getting room list");
+		ResultMessage message;
 		
-		roomvo = stub.modifyRoomStatus();
-		System.out.println(roomvo.status);
+		message = stub.modifyRoomStatus(new RoomVO());
+		System.out.println(message);
 		
-		roomvo = stub.addRoom();
-		System.out.println(roomvo.result);
+		message = stub.addRoom(new RoomVO());
+		System.out.println(message);
 		
-		roomvo = stub.deleteRoom();
-		System.out.println(roomvo.result);
+		message = stub.deleteRoom(3);
+		System.out.println("Deleting room..."+message);
 		
 	}
 	

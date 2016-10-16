@@ -1,4 +1,4 @@
-package tiquartet.common.po.creditpo;
+package tiquartet.common.po;
 
 import java.io.Serializable;
 

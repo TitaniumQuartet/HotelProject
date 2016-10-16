@@ -1,4 +1,4 @@
-package tiquartet.common.po.reviewpo;
+package tiquartet.common.po;
 
 import java.io.Serializable;
 import java.util.Calendar;

@@ -1,10 +1,11 @@
 package tiquartet.common.dataservice.userdataservice;
 
 import java.util.List;
-import tiquartet.common.po.userpo.UserPO;
+
 import tiquartet.common.util.ResultMessage;
-import tiquartet.common.po.personalpo.PersonalPO;
-import tiquartet.common.po.creditpo.CreditPO;
+import tiquartet.common.po.CreditPO;
+import tiquartet.common.po.PersonalPO;
+import tiquartet.common.po.UserPO;
 
 public interface UserDataService {
 	public ResultMessage insert(UserPO user);

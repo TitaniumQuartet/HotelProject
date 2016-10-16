@@ -1,9 +1,13 @@
 package tiquartet.stub_driver.dataservice.hotelinfodata;
 
 
-import tiquartet.common.dataservice.hotelinfodataservice;
-import java.util.List;
-public class HotelInfoData_stub implements HotelInfoDtaService{
+import tiquartet.common.dataservice.hotelinfodataservice.*;
+import java.util.*;
+import tiquartet.common.po.*;
+import tiquartet.common.util.ResultMessage;
+
+
+public class HotelInfoData_stub implements HotelInfoDataService{
 	public HotelPO getHotelInfo(long hotelID){
 		System.out.println("yes");
 		return new HotelPO();
@@ -30,11 +34,19 @@ public class HotelInfoData_stub implements HotelInfoDtaService{
 	}
 	public List<RoomTypePO> getRoomTypes(long HotelID){
 		System.out.println("yes");
-		return new List<RoomTypePO>();
+		return new ArrayList<RoomTypePO>();
 	}
 	public HotelPO getHotelList(int cityID, int districtID){
 		System.out.println("yes");
 		return new HotelPO();
+	}
+	public HotelPO briefHotelInfo(long hotelID){
+		System.out.println("Getting brief info...");
+		return new HotelPO();
+	}
+	public HotelDetailsPO searchHotelDetails(long hotelID){
+		System.out.println("Getting detailed info...");
+		return new HotelDetailsPO();
 	}
 
 }

@@ -1,14 +1,14 @@
 package tiquartet.common.dataservice.hotelinfodataservice;
 
-import tiquartet.common.po.hotelpo.HotelPO;
-import tiquartet.common.po.hoteldetailspo.HotelDetailsPO;
-import tiquartet.common.po.hotelinfopo.HotelInfoPO;
-import tiquartet.common.po.roomtypepo.RoomTypePO;
+import tiquartet.common.po.HotelDetailsPO;
+import tiquartet.common.po.HotelInfoPO;
+import tiquartet.common.po.HotelPO;
+import tiquartet.common.po.RoomTypePO;
 import tiquartet.common.util.ResultMessage;
 
 import java.util.List;
 
-public interface HotelInfoData {
+public interface HotelInfoDataService {
 	public HotelPO briefHotelInfo(long hotelID);
 	public HotelDetailsPO searchHotelDetails(long hotelID);
 	public HotelInfoPO updateRate(long HotelID, int newRate);

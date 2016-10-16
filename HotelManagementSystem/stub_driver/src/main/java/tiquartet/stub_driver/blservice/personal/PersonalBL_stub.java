@@ -1,8 +1,13 @@
 package tiquartet.stub_driver.blservice.personal;
 
+import java.util.*;
+import tiquartet.client.blservice.personalblservice.*;
+import tiquartet.client.vo.*;
+import tiquartet.common.util.ResultMessage;
+
 public class PersonalBL_stub implements PersonalBLService{
 	public List<CreditVO> getCreditRecord(long userID){
-		return new list<CreditVO>;
+		return new ArrayList<CreditVO>();
 	}
     public ResultMessage memberSignUp(PersonalVO personal){
     	return ResultMessage.SUCCEED;
@@ -11,12 +16,12 @@ public class PersonalBL_stub implements PersonalBLService{
     	return ResultMessage.SUCCEED;
     }
     public PersonalVO getPersonal(long userID){
-    	return new PersonalVO;
+    	return new PersonalVO();
     }
     public ResultMessage modifyPersonal(PersonalVO personal){
     	return ResultMessage.SUCCEED;
     }
     public List<HotelVO> getHotelList(long userID){
-    	return new List<HotelVO>;
+    	return new ArrayList<HotelVO>();
     }
 }

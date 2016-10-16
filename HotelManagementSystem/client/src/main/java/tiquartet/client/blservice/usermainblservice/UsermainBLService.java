@@ -1,6 +1,7 @@
 package tiquartet.client.blservice.usermainblservice;
 
 import tiquartet.client.vo.UserVO;
+import tiquartet.common.util.ResultMessage;
 
 public interface UsermainBLService {
     public UserVO login(long userID,String password);

@@ -1,8 +1,9 @@
-package tiquartet.common.po.hotelpo;
+package tiquartet.common.po;
 
 import java.io.Serializable;
+import java.util.List;
 
-public class HotelPO implements Serializable{
+public class HotelDetailsPO implements Serializable{
 	//酒店编号
 	private long hotelId;
 	//酒店名称
@@ -15,14 +16,20 @@ public class HotelPO implements Serializable{
 	private String cityName;
 	//商圈名称
 	private String businessDistrict;
-	//最低价格
-	private int lowestPrice;
+	//酒店地址
+	private String address;
+	//酒店介绍
+	private String introduction;
+	//服务设施介绍
+	private String service;
+	//评价列表
+	private List<ReviewPO> reviewList;
 	
-	public HotelPO(){
+	public HotelDetailsPO(){
 		
 	}
 	
-	public HotelPO(long hotelId,String hotelName,int star,int average,String cityName,String businessDistrict,int lowestPrice){
+	public HotelDetailsPO(long hotelId,String hotelName,int star,int average,String cityName,String businessDistrict,String address,String introduction,String service,List<ReviewPO> reviewList){
 		super();
 		this.hotelId=hotelId;
 		this.hotelName=hotelName;
@@ -30,7 +37,10 @@ public class HotelPO implements Serializable{
 		this.average=average;
 		this.cityName=cityName;
 		this.businessDistrict=businessDistrict;
-		this.lowestPrice=lowestPrice;
+		this.address=address;
+		this.introduction=introduction;
+		this.service=service;
+		this.reviewList=reviewList;
 	}
 	
 	public long gethotelId(){
@@ -81,11 +91,35 @@ public class HotelPO implements Serializable{
 		this.businessDistrict=businessDistrict;
 	}
 	
-	public int getlowestPrice(){
-		return lowestPrice;
+	public String getaddress(){
+		return address;
 	}
 	
-	public void setlowestPrice(int lowestPrice){
-		this.lowestPrice=lowestPrice;
+	public void setaddress(String address){
+		this.address=address;
+	}
+	
+	public String getintroduction(){
+		return introduction;
+	}
+	
+	public void setintroduction(String introduction){
+		this.introduction=introduction;
+	}
+	
+	public String getservice(){
+		return service;
+	}
+	
+	public void setservice(String service){
+		this.service=service;
+	}
+	
+	public List<ReviewPO> getreviewList(){
+		return reviewList;
+	}
+	
+	public void setreviewList(List<ReviewPO> reviewList){
+		this.reviewList=reviewList;
 	}
 }

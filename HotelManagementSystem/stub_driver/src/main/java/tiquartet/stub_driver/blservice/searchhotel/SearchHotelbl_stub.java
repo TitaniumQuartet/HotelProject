@@ -1,18 +1,17 @@
 package tiquartet.stub_driver.blservice.searchhotel;
 
-import java.util.List;
+import java.util.*;
+import tiquartet.client.blservice.searchhotelblservice.*;
+import tiquartet.client.vo.*;
 
-import tiquartet.client.blservice.HotelFilterVO;
-import tiquartet.client.blservice.HotelVO;
 
-
-public class SearchHotelbl_stub {
+public class SearchHotelbl_stub implements SearchHotelBLService{
 
 	public List<HotelVO> getHotelList (int cityID, int district){
-		return new List<HotelVO>();
+		return new ArrayList<HotelVO>();
 	}
 	
 	public List<HotelVO> filter (HotelFilterVO filter){
-		return new List<HotelVO>();
+		return new ArrayList<HotelVO>();
 	}
 }

@@ -1,4 +1,4 @@
-package tiquartet.common.po.userpo;
+package tiquartet.common.po;
 
 import java.io.Serializable;
 

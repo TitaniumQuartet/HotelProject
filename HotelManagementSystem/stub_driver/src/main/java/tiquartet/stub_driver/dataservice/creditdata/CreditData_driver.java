@@ -1,9 +1,10 @@
 package tiquartet.stub_driver.dataservice.creditdata;
 
+import tiquartet.common.dataservice.creditdataservice.*;
 import java.rmi.RemoteException;
-import tiquartet.common.dataservice.creditdataservice;
+import tiquartet.common.util.ResultMessage;
 
-public class CreditData_driver {
+public class CreditData_driver{
 	public void drive(CreditDataService stub) throws RemoteException{
 		stub.getRecord(0000011111);
 	}

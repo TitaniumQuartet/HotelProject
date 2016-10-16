@@ -1,10 +1,12 @@
 package tiquartet.stub_driver.dataservice.strategydata;
 
 import java.rmi.RemoteException;
-import tiquartet.common.dataservice.strategydataservice;
+import java.util.*;
+import tiquartet.common.dataservice.strategydataservice.*;
+import tiquartet.common.po.*;
 
 public class StrategyData_driver {
-	public void drive(StrategyataService stub) throws RemoteException{
+	public void drive(StrategyDataService stub) throws RemoteException{
 		stub.insert(new StrategyPO());
 		stub.update(new StrategyPO());
 		stub.delete(00010);

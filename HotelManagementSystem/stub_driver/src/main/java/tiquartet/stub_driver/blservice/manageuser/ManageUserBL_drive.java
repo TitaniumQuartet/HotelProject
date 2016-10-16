@@ -1,26 +1,32 @@
 package tiquartet.stub_driver.blservice.manageuser;
 
+import java.util.List;
+
+import tiquartet.client.blservice.manageuserblservice.ManageUserBLService;
+import tiquartet.client.vo.*;
+
+
 public class ManageUserBL_drive {
 
-	public void drive(ManageUserbl stub){
+	public void drive(ManageUserBLService stub){
 		
-		UserPO userpo = stub.searchUser();
-		System.out.println(userpo.user);
+		List<UserVO> userlist = stub.searchUser("ane",0);
+		System.out.println("Searching for users...");
 		
-		HotelStaffPO staffpo = stub.searchHotelStaff();
-		System.out.println(staffpo.staff);
+		List<HotelStaffVO> staffpo = stub.searchHotelStaff("","");
+		System.out.println("Searching for hotel staff...");
 		
-		staffpo = stub.searchStaff();
-		System.out.println(staffpo.staff);
+		HotelStaffVO staff = stub.searchStaff(5);
+		System.out.println("Searching for hotel staff...");
 		
-		userpo = stub.getUserList();
-		System.out.println(userpo.list);
+		userlist = stub.getUserList();
+		System.out.println("Getting user list...");
 		
-		System.out.println(stub.credit().credit);
+		System.out.println(stub.credit(200, 33425));
 		
-		System.out.println(stub.addHotel().hotel);
+		System.out.println(stub.addHotel("Big hotel"));
 		
-		System.out.println(stub.add().staff);
+		System.out.println(stub.add(25235,23423));
 	}
 	
 	public static void main(String[] args){

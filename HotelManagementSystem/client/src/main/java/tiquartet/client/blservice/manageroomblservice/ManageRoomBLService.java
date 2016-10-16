@@ -1,6 +1,8 @@
 package tiquartet.client.blservice.manageroomblservice;
 
-import tiquartet.client.vo.*;
+import tiquartet.client.vo.RoomVO;
+import tiquartet.common.util.ResultMessage;
+import java.util.List;
 
 public interface ManageRoomBLService {
 

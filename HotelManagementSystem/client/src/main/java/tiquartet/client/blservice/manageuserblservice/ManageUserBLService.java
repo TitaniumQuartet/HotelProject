@@ -1,19 +1,21 @@
 package tiquartet.client.blservice.manageuserblservice;
 
 import java.util.List;
+import tiquartet.common.util.ResultMessage;
+
 import tiquartet.client.vo.*;
 
 public interface ManageUserBLService {
 
-	public List<UserPO> searchUser(String name, int userId);
+	public List<UserVO> searchUser(String name, int userId);
 	
-	public List<HotelStaffPO> searchHotelStaff(String city, String area);
+	public List<HotelStaffVO> searchHotelStaff(String city, String area);
 	
-	public HotelStaffPO searchStaff(int staffId);
+	public HotelStaffVO searchStaff(int staffId);
 	
-	public List<UserPO> getUserList();
+	public List<UserVO> getUserList();
 	
-	public List<UserPO> sortUserList(String way);
+	public List<UserVO> sortUserList(String way);
 	
 	public ResultMessage credit(double money, int userId);
 	

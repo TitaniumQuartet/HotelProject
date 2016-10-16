@@ -1,4 +1,4 @@
-package tiquartet.common.po.roompo;
+package tiquartet.common.po;
 
 import java.io.Serializable;
 

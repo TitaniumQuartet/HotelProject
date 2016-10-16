@@ -1,6 +1,10 @@
 package tiquartet.stub_driver.blservice.createorder;
 
-
+import java.util.List;
+import java.util.ArrayList;
+import tiquartet.client.blservice.createorderblservice.*;
+import tiquartet.client.vo.*;
+import tiquartet.common.util.ResultMessage;
 
 public class CreateOrderBL_stub implements CreateOrderBLService{
 	public ResultMessage orderInfo(OrderInfoVO orderInfo){
@@ -10,10 +14,10 @@ public class CreateOrderBL_stub implements CreateOrderBLService{
 		
 	}
 	public OrderStrategyVO getOptimal(){
-		return new OrderStrategyVO;
+		return new OrderStrategyVO();
 	}
 	public List<OrderStrategyVO> otherStrategy(){
-		return new List<OrderStrategyVO>;
+		return new ArrayList<OrderStrategyVO>();
 	}
 	public ResultMessage selectStrategy(long strategyID){
 		return ResultMessage.SUCCEED;
