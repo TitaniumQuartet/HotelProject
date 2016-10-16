@@ -3,7 +3,7 @@ package tiquartet.stub_driver.hotelinfodata;
 
 import tiquartet.common.dataservice.hotelinfodataservice;
 import java.util.List;
-public class HotelInfoData_stub {
+public class HotelInfoData_stub implements HotelInfoDtaService{
 	public HotelPO getHotelInfo(long hotelID){
 		System.out.println("yes");
 		return new HotelPO();

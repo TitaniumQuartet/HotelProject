@@ -5,7 +5,8 @@ import java.util.List;
 import tiquartet.common.dataservice.userdataservice;
 
 
-public class UserData_stub {
+public class UserData_stub implements UserDataService{
+	
 	public ResultMessage insert(UserPO user){
 		System.out.println("yes");
 		return ResultMessage.SUCCEED;

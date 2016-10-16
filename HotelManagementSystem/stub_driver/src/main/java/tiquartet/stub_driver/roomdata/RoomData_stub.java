@@ -4,7 +4,7 @@ import java.util.Calendar;
 
 import tiquartet.common.dataservice.roomdataservice;
 
-public class RoomData_stub {
+public class RoomData_stub implements RoomDataService{
 	public ResultMessage update(RoomPO room){
 		System.out.println("yes");
 		return ResultMessage.SUCCEED;

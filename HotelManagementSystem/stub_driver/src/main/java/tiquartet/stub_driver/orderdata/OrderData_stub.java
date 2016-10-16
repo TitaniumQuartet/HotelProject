@@ -1,11 +1,11 @@
 package tiquartet.stub_driver.orderdata;
 
-import tiquartet.common.dataservice.orderdataservice;
+import tiquartet.common.dataservice.orderdataservice.OrderDataService;
 import java.util.List;
 
 public class OrderData_stub implements OrderDataService{
 	
-	public List<Order> getHotelList(long userID){
+	public List<OrderPO> getHotelList(long userID){
 		System.out.println("yes");
 		return new List<Order>();
 	}
