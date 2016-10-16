@@ -9,7 +9,10 @@ public class HotelInfoData_driver {
 		stub.getHotelInfo(0000011111);
 		stub.updateRate(0000011111, 3);
 		stub.insert(new HotelDetailsPO());
-		stub.update(new HotelDetailsPO())
+		stub.update(new HotelInfoPO());
+		stub.getRoomType(111,222);
+		stub.getRoomTypes(111);
+		stub.getHotelList(00011);
 	}
 	
 	public static void main(String[] args){

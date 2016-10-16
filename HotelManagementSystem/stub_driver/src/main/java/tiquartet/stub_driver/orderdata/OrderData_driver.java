@@ -8,6 +8,8 @@ public class OrderData_driver {
 		stub.getHotelList(0000011111);
 		stub.insert(new OrderPO());
 		stub.update(new OrderPO());
+		stub.hasbeenordered(0000011111,0000011111);
+		stub.getOrderPage(0000011111,new OrderFilterPO,1);
 	}
 	
 	public static void main(String[] args){

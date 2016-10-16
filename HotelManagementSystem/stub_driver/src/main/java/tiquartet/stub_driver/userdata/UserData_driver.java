@@ -10,6 +10,7 @@ public class UserData_driver {
 		stub.insert(new PersonalPO());
 		stub.getUserInfo(0000011111);
 		stub.getCreditBalance(0000011111);
+		stub.search("s","s");
 	}
 	
 	public static void main(String[] args){

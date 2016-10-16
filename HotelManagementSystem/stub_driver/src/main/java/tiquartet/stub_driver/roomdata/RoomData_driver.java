@@ -1,6 +1,8 @@
 package tiquartet.stub_driver.roomdata;
 
 import java.rmi.RemoteException;
+import java.util.Calendar;
+
 import tiquartet.common.dataservice.roomdataservice;
 
 
@@ -9,6 +11,9 @@ public class RoomData_driver {
 		stub.insert(new RoomPO());
 		stub.update(new RoomPO());
 		stub.delete(00010);
+		stub.isAvailable(new Calendar(),new Calendar(),010,00010);		
+		stub.checkIn(00010);
+		stub.checkOut(00010);
 	}
 	
 	public static void main(String[] args){
