@@ -1,18 +1,18 @@
 package tiquartet.server;
 
-import java.util.ArrayList;
+import java.util.List;
 
 public interface ManageUserbl {
 
-	public ArrayList<UserPO> searchUser(String name, int userId);
+	public List<UserPO> searchUser(String name, int userId);
 	
-	public ArrayList<HotelStaffPO> searchHotelStaff(String city, String area);
+	public List<HotelStaffPO> searchHotelStaff(String city, String area);
 	
 	public HotelStaffPO searchStaff(int staffId);
 	
-	public ArrayList<UserPO> getUserList();
+	public List<UserPO> getUserList();
 	
-	public ArrayList<UserPO> sortUserList(String way);
+	public List<UserPO> sortUserList(String way);
 	
 	public ResultMessage credit(double money, int userId);
 	

@@ -1,6 +1,7 @@
 package tiquartet.client.blservice;
 
 import java.util.List;
+import tiquartet.client.vo.*;
 
 public interface SearchHotelbl {
 

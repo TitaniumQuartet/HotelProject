@@ -1,9 +1,9 @@
 package tiquartet.client.blservice;
 
 import java.sql.Time;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import tiquartet.client.vo.*;
 
 public interface ManageOrderbl {
 
@@ -21,6 +21,6 @@ public interface ManageOrderbl {
 	
 	public ResultMessage checkOut(int orderID);
 	
-	public ArrayList<OrderPO> getOrderList(String city, String area, Date date, int userId, int hotelId, char orderState);
+	public List<OrderPO> getOrderList(String city, String area, Date date, int userId, int hotelId, char orderState);
 	
 }

@@ -1,5 +1,7 @@
 package tiquartet.server;
 
+import java.util.List;
+
 public interface ManageRoombl {
 
 	public List<RoomVO> getRoomList (long hotelID); 

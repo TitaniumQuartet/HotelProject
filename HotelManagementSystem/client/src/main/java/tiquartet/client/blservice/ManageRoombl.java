@@ -1,5 +1,7 @@
 package tiquartet.client.blservice;
 
+import tiquartet.client.vo.*;
+
 public interface ManageRoombl {
 
 	public List<RoomVO> getRoomList (long hotelID); 
