@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.2">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>60</x>
+      <y>70</y>
+      <w>1140</w>
+      <h>770</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>60</x>
+      <y>70</y>
+      <w>240</w>
+      <h>200</h>
+    </coordinates>
+    <panel_attributes>用户信息
+valign=center</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>300</x>
+      <y>70</y>
+      <w>900</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>退出登录及常用设置
+valign=center</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>60</x>
+      <y>270</y>
+      <w>240</w>
+      <h>540</h>
+    </coordinates>
+    <panel_attributes>导航
+valign=center</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>60</x>
+      <y>810</y>
+      <w>1140</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>导航栏</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>300</x>
+      <y>120</y>
+      <w>900</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>酒店名称 星级 地址
+valign=center</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>300</x>
+      <y>220</y>
+      <w>900</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>选择入住和退房日期
+valign=center</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>300</x>
+      <y>270</y>
+      <w>900</w>
+      <h>490</h>
+    </coordinates>
+    <panel_attributes>供选择的客房类型列表
+valign=center</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>670</x>
+      <y>760</y>
+      <w>530</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>确认或取消
+valign=center</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>300</x>
+      <y>760</y>
+      <w>370</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>房间数量
+valign=center</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>

@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.2">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>40</x>
+      <y>50</y>
+      <w>1140</w>
+      <h>770</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>40</x>
+      <y>50</y>
+      <w>240</w>
+      <h>200</h>
+    </coordinates>
+    <panel_attributes>用户信息
+valign=center</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>280</x>
+      <y>50</y>
+      <w>900</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>退出登录及常用设置
+valign=center</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>40</x>
+      <y>250</y>
+      <w>240</w>
+      <h>540</h>
+    </coordinates>
+    <panel_attributes>导航
+valign=center</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>40</x>
+      <y>790</y>
+      <w>1140</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>导航栏</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>280</x>
+      <y>100</y>
+      <w>900</w>
+      <h>150</h>
+    </coordinates>
+    <panel_attributes>筛选条件和排序方式
+valign=center</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>280</x>
+      <y>760</y>
+      <w>900</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>选择酒店列表页码</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>280</x>
+      <y>250</y>
+      <w>900</w>
+      <h>510</h>
+    </coordinates>
+    <panel_attributes>酒店简介及订单标记
+
+
+酒店简介及订单标记
+
+
+酒店简介及订单标记
+
+
+......
+valign=center</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>

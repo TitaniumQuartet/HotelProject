@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.2">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>20</x>
+      <y>20</y>
+      <w>1140</w>
+      <h>770</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>20</x>
+      <y>20</y>
+      <w>240</w>
+      <h>200</h>
+    </coordinates>
+    <panel_attributes>用户信息
+valign=center</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>260</x>
+      <y>20</y>
+      <w>900</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>退出登录及常用设置
+valign=center</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>20</x>
+      <y>220</y>
+      <w>240</w>
+      <h>540</h>
+    </coordinates>
+    <panel_attributes>导航
+valign=center</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>20</x>
+      <y>760</y>
+      <w>1140</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>导航栏</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>260</x>
+      <y>70</y>
+      <w>900</w>
+      <h>150</h>
+    </coordinates>
+    <panel_attributes>酒店名称
+
+已选择的客房类型及数量
+valign=center</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>260</x>
+      <y>710</y>
+      <w>900</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>确认或返回修改订单信息
+valign=center</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>260</x>
+      <y>220</y>
+      <w>900</w>
+      <h>150</h>
+    </coordinates>
+    <panel_attributes>补充的订单信息显示
+valign=center</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>260</x>
+      <y>370</y>
+      <w>900</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>最优折扣策略及价格
+valign=center</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1060</x>
+      <y>340</y>
+      <w>100</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>确认</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>260</x>
+      <y>460</y>
+      <w>900</w>
+      <h>250</h>
+    </coordinates>
+    <panel_attributes>其他折扣策略及价格
+valign=center</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>
