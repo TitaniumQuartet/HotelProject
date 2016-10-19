@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.2">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>120</x>
+      <y>100</y>
+      <w>720</w>
+      <h>440</h>
+    </coordinates>
+    <panel_attributes>valign=center
+halign=center
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>130</x>
+      <y>110</y>
+      <w>700</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>halign=left
+菜单：个人信息；退出登录
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>130</x>
+      <y>150</y>
+      <w>140</w>
+      <h>340</h>
+    </coordinates>
+    <panel_attributes>valign=center
+halign=center
+导航栏</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>130</x>
+      <y>500</y>
+      <w>700</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>valign=center
+halign=center
+状态栏</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>280</x>
+      <y>450</y>
+      <w>550</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>valign=center
+halign=center
+按钮区域</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>280</x>
+      <y>150</y>
+      <w>550</w>
+      <h>290</h>
+    </coordinates>
+    <panel_attributes>valign=center
+halign=center
+会员信息填写</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>
