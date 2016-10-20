@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.shape.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1440.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <ToolBar layoutX="219.0" layoutY="6.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="52.0" prefWidth="1101.0" AnchorPane.leftAnchor="226.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <items>
+            <Hyperlink text="设置" />
+            <Hyperlink text="退出登录" />
+         </items>
+      </ToolBar>
+      <VBox prefHeight="924.0" prefWidth="219.0" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <AnchorPane prefHeight="1192.0" prefWidth="226.0" style="-fx-background-color: lightcyan; -fx-border-color: steelblue;">
+               <children>
+                  <ImageView fitHeight="183.0" fitWidth="154.0" layoutX="35.0" layoutY="52.0" pickOnBounds="true" preserveRatio="true" />
+                  <Label layoutX="47.0" layoutY="228.0" text="TitaniumQuartet" AnchorPane.leftAnchor="47.0" AnchorPane.rightAnchor="47.0">
+                     <font>
+                        <Font name="Helvetica" size="18.0" />
+                     </font></Label>
+                  <Hyperlink alignment="CENTER" layoutY="642.0" prefHeight="78.0" prefWidth="144.0" style="-fx-background-color: lightsteelblue; -fx-border-color: steelblue;" text="个人信息" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                     <font>
+                        <Font name="Microsoft YaHei Bold" size="37.0" />
+                     </font>
+                  </Hyperlink>
+                  <Hyperlink alignment="CENTER" layoutY="486.0" prefHeight="78.0" prefWidth="224.0" style="-fx-background-color: lightsteelblue; -fx-border-color: steelblue;" text="订房记录" AnchorPane.rightAnchor="0.0">
+                     <font>
+                        <Font name="Microsoft YaHei Bold" size="37.0" />
+                     </font>
+                  </Hyperlink>
+                  <Hyperlink alignment="CENTER" layoutY="408.0" prefHeight="78.0" prefWidth="224.0" style="-fx-background-color: lightsteelblue; -fx-border-color: steelblue;" text="查找酒店" AnchorPane.rightAnchor="0.0">
+                     <font>
+                        <Font name="Microsoft YaHei Bold" size="37.0" />
+                     </font>
+                  </Hyperlink>
+                  <Hyperlink alignment="CENTER" layoutY="564.0" prefHeight="78.0" prefWidth="224.0" style="-fx-background-color: lightsteelblue; -fx-border-color: steelblue;" text="常用酒店" AnchorPane.rightAnchor="0.0">
+                     <font>
+                        <Font name="Microsoft YaHei Bold" size="37.0" />
+                     </font>
+                  </Hyperlink>
+                  <Label layoutX="83.0" layoutY="260.0" text="非会员">
+                     <font>
+                        <Font name="Microsoft YaHei" size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+         </children>
+      </VBox>
+      <Separator layoutX="351.0" layoutY="362.0" prefHeight="0.0" prefWidth="1037.0" AnchorPane.leftAnchor="226.0" AnchorPane.rightAnchor="0.0" />
+      <ToolBar layoutX="226.0" layoutY="872.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="30.0" prefWidth="1101.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="226.0" AnchorPane.rightAnchor="0.0">
+         <items>
+            <Label text="在线">
+               <font>
+                  <Font name="Microsoft YaHei" size="18.0" />
+               </font>
+            </Label>
+         </items>
+      </ToolBar>
+   </children>
+</AnchorPane>
