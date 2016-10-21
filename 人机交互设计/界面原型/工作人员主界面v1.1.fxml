@@ -43,7 +43,7 @@
                         <Font name="Microsoft YaHei" size="30.0" />
                      </font>
                   </Hyperlink>
-                  <Hyperlink alignment="CENTER" layoutX="68.0" layoutY="479.0" prefHeight="60.0" prefWidth="235.0" style="-fx-background-color: lightsteelblue;" text="     酒店信息        &gt;" textFill="#000000fc" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                  <Hyperlink alignment="CENTER" layoutX="68.0" layoutY="479.0" prefHeight="60.0" prefWidth="235.0" style="-fx-background-color: lightsteelblue;" text="     酒店信息        &gt;" textFill="#000000fc" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="480.0">
                      <font>
                         <Font name="Microsoft YaHei" size="30.0" />
                      </font>
@@ -63,9 +63,24 @@
                         <Font size="24.0" />
                      </font>
                   </Label>
-                  <ImageView fitHeight="28.0" fitWidth="42.0" layoutX="26.0" layoutY="434.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="33.0" fitWidth="33.0" layoutX="26.0" layoutY="434.0" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="243.0" AnchorPane.topAnchor="430.0">
                      <image>
                         <Image url="@../../../未标题-1.gif" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="33.0" fitWidth="33.0" layoutX="21.0" layoutY="479.0" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="242.0" AnchorPane.topAnchor="488.0">
+                     <image>
+                        <Image url="@../../../未标题-2.gif" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="27.0" fitWidth="27.0" layoutX="26.0" layoutY="564.0" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="245.0" AnchorPane.topAnchor="560.0">
+                     <image>
+                        <Image url="@../../../未标题-3.gif" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="33.0" fitWidth="33.0" layoutX="18.0" layoutY="623.0" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="240.0" AnchorPane.topAnchor="620.0">
+                     <image>
+                        <Image url="@../../../未标题-4.gif" />
                      </image>
                   </ImageView>
                </children>
