@@ -14,10 +14,9 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1440.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <AnchorPane layoutX="-3.0" layoutY="17.0" minWidth="300.0" prefHeight="1080.0" prefWidth="300.0" style="-fx-background-color: lightsteelblue; -fx-border-color: steelblue;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <AnchorPane layoutX="-3.0" layoutY="17.0" minWidth="300.0" prefHeight="1080.0" prefWidth="300.0" style="-fx-background-color: lightsteelblue; -fx-border-color: steelblue;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="1140.0" AnchorPane.topAnchor="0.0">
          <children>
             <ImageView fitHeight="183.0" fitWidth="154.0" layoutX="102.0" layoutY="56.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="80.0" AnchorPane.topAnchor="60.0">
                <image>
@@ -61,22 +60,22 @@
             </Label>
             <ImageView fitHeight="33.0" fitWidth="33.0" layoutX="26.0" layoutY="434.0" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="243.0" AnchorPane.topAnchor="430.0">
                <image>
-                  <Image url="@../../../未标题-1.gif" />
+                  <Image url="@小按钮/未标题-1.gif" />
                </image>
             </ImageView>
-            <ImageView fitHeight="70.0" fitWidth="40.0" layoutX="21.0" layoutY="490.0" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="243.0" AnchorPane.topAnchor="489.0">
+            <ImageView fitHeight="70.0" fitWidth="40.0" layoutX="21.0" layoutY="490.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="240.0" AnchorPane.topAnchor="490.0">
                <image>
-                  <Image url="@../../../未标题-5.gif" />
+                  <Image url="@小按钮/未标题-5.gif" />
                </image>
             </ImageView>
             <ImageView fitHeight="27.0" fitWidth="27.0" layoutX="26.0" layoutY="564.0" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="245.0" AnchorPane.topAnchor="560.0">
                <image>
-                  <Image url="@../../../未标题-3.gif" />
+                  <Image url="@小按钮/未标题-3.gif" />
                </image>
             </ImageView>
             <ImageView fitHeight="33.0" fitWidth="33.0" layoutX="18.0" layoutY="623.0" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="240.0" AnchorPane.topAnchor="620.0">
                <image>
-                  <Image url="@../../../未标题-4.gif" />
+                  <Image url="@小按钮/未标题-4.gif" />
                </image>
             </ImageView>
          </children>
@@ -107,7 +106,7 @@
       </ToolBar>
       <ImageView fitHeight="46.0" fitWidth="48.0" layoutX="326.0" layoutY="75.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../未标题-6.gif" />
+            <Image url="@小按钮/未标题-6.gif" />
          </image>
       </ImageView>
       <ChoiceBox layoutX="1151.0" layoutY="100.0" prefHeight="45.0" prefWidth="180.0" AnchorPane.bottomAnchor="960.0" AnchorPane.leftAnchor="1000.0" AnchorPane.topAnchor="75.0" />
@@ -142,7 +141,7 @@
       </Label>
       <Separator layoutX="447.0" layoutY="191.0" prefHeight="54.0" prefWidth="957.0" AnchorPane.leftAnchor="300.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="260.0" />
       <Separator layoutX="455.0" layoutY="293.0" prefHeight="54.0" prefWidth="957.0" AnchorPane.leftAnchor="300.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="190.0" />
-      <Separator layoutX="457.0" layoutY="201.0" prefHeight="54.0" prefWidth="957.0" AnchorPane.leftAnchor="300.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="330.0" />
+      <Separator layoutX="308.0" layoutY="327.0" prefHeight="54.0" prefWidth="957.0" AnchorPane.leftAnchor="300.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="330.0" />
       <Label layoutX="550.0" layoutY="220.0" prefHeight="48.0" prefWidth="199.0" text="2016.10.20" AnchorPane.leftAnchor="570.0" AnchorPane.topAnchor="226.0">
          <font>
             <Font name="Microsoft YaHei" size="30.0" />
