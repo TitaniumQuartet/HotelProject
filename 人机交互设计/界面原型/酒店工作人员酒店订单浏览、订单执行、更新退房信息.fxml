@@ -1,8 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Hyperlink?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollBar?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToolBar?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -11,7 +17,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1440.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <AnchorPane layoutX="-1.0" layoutY="-7.0" minWidth="300.0" prefHeight="1089.0" prefWidth="300.0" style="-fx-background-color: lightsteelblue; -fx-border-color: steelblue;">
+      <AnchorPane layoutX="-3.0" layoutY="17.0" minWidth="300.0" prefHeight="1080.0" prefWidth="300.0" style="-fx-background-color: lightsteelblue; -fx-border-color: steelblue;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <ImageView fitHeight="183.0" fitWidth="154.0" layoutX="102.0" layoutY="56.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="80.0" AnchorPane.topAnchor="60.0">
                <image>
@@ -33,12 +39,12 @@
                   <Font name="Microsoft YaHei" size="30.0" />
                </font>
             </Hyperlink>
-            <Hyperlink alignment="CENTER" layoutX="1.0" layoutY="481.0" prefHeight="60.0" prefWidth="235.0" style="-fx-background-color: steelblue;" text="     酒店信息        &gt;" textFill="#000000fc" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+            <Hyperlink alignment="CENTER" layoutX="1.0" layoutY="481.0" prefHeight="60.0" prefWidth="235.0" style="-fx-background-color: lightsteelblue;" text="     酒店信息        &gt;" textFill="#000000fc" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
                <font>
                   <Font name="Microsoft YaHei" size="30.0" />
                </font>
             </Hyperlink>
-            <Hyperlink alignment="CENTER" layoutX="1.0" layoutY="543.0" prefHeight="60.0" prefWidth="235.0" style="-fx-background-color: lightsteelblue;" text="     酒店订单        &gt;" textFill="#000000fc" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+            <Hyperlink alignment="CENTER" layoutX="1.0" layoutY="543.0" prefHeight="60.0" prefWidth="235.0" style="-fx-background-color: steelblue;" text="     酒店订单        &gt;" textFill="#000000fc" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
                <font>
                   <Font name="Microsoft YaHei" size="30.0" />
                </font>
@@ -78,5 +84,109 @@
             <Insets />
          </opaqueInsets>
       </AnchorPane>
+      <Label layoutX="374.0" layoutY="69.0" prefHeight="54.0" prefWidth="101.0" text="搜索:">
+         <font>
+            <Font name="Microsoft YaHei" size="30.0" />
+         </font>
+      </Label>
+      <TextField layoutX="456.0" layoutY="72.0" prefHeight="52.0" prefWidth="291.0" AnchorPane.leftAnchor="456.0" AnchorPane.topAnchor="72.0" />
+      <ToolBar layoutX="317.0" layoutY="-16.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="52.0" prefWidth="1143.0" AnchorPane.bottomAnchor="1028.0" AnchorPane.leftAnchor="300.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <items>
+            <Hyperlink text="设置" />
+            <Hyperlink text="退出登录" />
+         </items>
+      </ToolBar>
+      <ToolBar layoutX="312.0" layoutY="1049.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="36.0" prefWidth="1147.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="300.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="1044.0">
+         <items>
+            <Label text="在线">
+               <font>
+                  <Font name="Microsoft YaHei" size="18.0" />
+               </font>
+            </Label>
+         </items>
+      </ToolBar>
+      <ImageView fitHeight="46.0" fitWidth="48.0" layoutX="326.0" layoutY="75.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../未标题-6.gif" />
+         </image>
+      </ImageView>
+      <ChoiceBox layoutX="1151.0" layoutY="100.0" prefHeight="45.0" prefWidth="180.0" AnchorPane.bottomAnchor="960.0" AnchorPane.leftAnchor="1000.0" AnchorPane.topAnchor="75.0" />
+      <ChoiceBox layoutX="796.0" layoutY="71.0" prefHeight="45.0" prefWidth="189.0" AnchorPane.bottomAnchor="960.0" AnchorPane.leftAnchor="796.0" AnchorPane.topAnchor="75.0" />
+      <Separator layoutX="464.0" layoutY="142.0" prefHeight="54.0" prefWidth="797.0" AnchorPane.leftAnchor="300.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="120.0" />
+      <ScrollBar layoutX="1372.0" layoutY="223.0" orientation="VERTICAL" prefHeight="811.0" prefWidth="29.0" AnchorPane.bottomAnchor="40.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="150.0" />
+      <DatePicker layoutX="1159.0" layoutY="70.0" prefHeight="52.0" prefWidth="190.0" AnchorPane.bottomAnchor="960.0" AnchorPane.leftAnchor="1200.0" AnchorPane.topAnchor="75.0" />
+      <Label layoutX="380.0" layoutY="149.0" prefHeight="52.0" prefWidth="116.0" text="订单号" AnchorPane.leftAnchor="380.0" AnchorPane.topAnchor="150.0">
+         <font>
+            <Font name="Microsoft YaHei" size="30.0" />
+         </font>
+      </Label>
+      <Label layoutX="327.0" layoutY="226.0" prefHeight="48.0" prefWidth="199.0" text="0000000002" AnchorPane.leftAnchor="330.0" AnchorPane.topAnchor="226.0">
+         <font>
+            <Font name="Microsoft YaHei" size="30.0" />
+         </font>
+      </Label>
+      <Label layoutX="586.0" layoutY="142.0" prefHeight="54.0" prefWidth="162.0" text="下单时间" AnchorPane.topAnchor="150.0">
+         <font>
+            <Font name="Microsoft YaHei" size="30.0" />
+         </font>
+      </Label>
+      <Label layoutX="810.0" layoutY="142.0" prefHeight="54.0" prefWidth="162.0" text="客户编号" AnchorPane.topAnchor="150.0">
+         <font>
+            <Font name="Microsoft YaHei" size="30.0" />
+         </font>
+      </Label>
+      <Label layoutX="1026.0" layoutY="152.0" prefHeight="54.0" prefWidth="162.0" text="用户名" AnchorPane.topAnchor="150.0">
+         <font>
+            <Font name="Microsoft YaHei" size="30.0" />
+         </font>
+      </Label>
+      <Separator layoutX="447.0" layoutY="191.0" prefHeight="54.0" prefWidth="957.0" AnchorPane.leftAnchor="300.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="260.0" />
+      <Separator layoutX="455.0" layoutY="293.0" prefHeight="54.0" prefWidth="957.0" AnchorPane.leftAnchor="300.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="190.0" />
+      <Separator layoutX="457.0" layoutY="201.0" prefHeight="54.0" prefWidth="957.0" AnchorPane.leftAnchor="300.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="330.0" />
+      <Label layoutX="550.0" layoutY="220.0" prefHeight="48.0" prefWidth="199.0" text="2016.10.20" AnchorPane.leftAnchor="570.0" AnchorPane.topAnchor="226.0">
+         <font>
+            <Font name="Microsoft YaHei" size="30.0" />
+         </font>
+      </Label>
+      <Label layoutX="335.0" layoutY="301.0" prefHeight="48.0" prefWidth="199.0" text="0000000001" AnchorPane.leftAnchor="330.0" AnchorPane.topAnchor="300.0">
+         <font>
+            <Font name="Microsoft YaHei" size="30.0" />
+         </font>
+      </Label>
+      <Label layoutX="789.0" layoutY="226.0" prefHeight="48.0" prefWidth="199.0" text="0000000001" AnchorPane.leftAnchor="785.0" AnchorPane.topAnchor="226.0">
+         <font>
+            <Font name="Microsoft YaHei" size="30.0" />
+         </font>
+      </Label>
+      <Label layoutX="972.0" layoutY="235.0" prefHeight="48.0" prefWidth="199.0" text="Taka" AnchorPane.leftAnchor="1010.0" AnchorPane.topAnchor="226.0">
+         <font>
+            <Font name="Microsoft YaHei" size="30.0" />
+         </font>
+      </Label>
+      <Label layoutX="791.0" layoutY="293.0" prefHeight="48.0" prefWidth="199.0" text="0000000002" AnchorPane.leftAnchor="785.0" AnchorPane.topAnchor="300.0">
+         <font>
+            <Font name="Microsoft YaHei" size="30.0" />
+         </font>
+      </Label>
+      <Label layoutX="585.0" layoutY="294.0" prefHeight="48.0" prefWidth="199.0" text="2016.10.10" AnchorPane.leftAnchor="570.0" AnchorPane.topAnchor="300.0">
+         <font>
+            <Font name="Microsoft YaHei" size="30.0" />
+         </font>
+      </Label>
+      <Label layoutX="951.0" layoutY="281.0" prefHeight="48.0" prefWidth="199.0" text="business" AnchorPane.leftAnchor="1010.0" AnchorPane.topAnchor="300.0">
+         <font>
+            <Font name="Microsoft YaHei" size="30.0" />
+         </font>
+      </Label>
+      <Label layoutX="1295.0" layoutY="242.0" prefHeight="50.0" prefWidth="114.0" text="查看" AnchorPane.leftAnchor="1250.0" AnchorPane.topAnchor="226.0">
+         <font>
+            <Font name="Microsoft YaHei" size="30.0" />
+         </font>
+      </Label>
+      <Label layoutX="1305.0" layoutY="291.0" prefHeight="59.0" prefWidth="114.0" text="查看" AnchorPane.leftAnchor="1250.0" AnchorPane.topAnchor="291.0">
+         <font>
+            <Font name="Microsoft YaHei" size="30.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>
