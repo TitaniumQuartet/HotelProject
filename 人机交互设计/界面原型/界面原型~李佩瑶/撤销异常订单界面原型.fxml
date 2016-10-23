@@ -1,0 +1,412 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.shape.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1440.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <ToolBar layoutX="233.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="52.0" prefWidth="1208.0" AnchorPane.leftAnchor="233.0" AnchorPane.rightAnchor="-1.0" AnchorPane.topAnchor="0.0">
+         <items>
+            <Hyperlink text="设置" />
+            <Hyperlink text="退出登录" />
+         </items>
+      </ToolBar>
+      <VBox prefHeight="924.0" prefWidth="226.0" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <AnchorPane prefHeight="1080.0" prefWidth="203.0" style="-fx-background-color: lightsteelblue; -fx-border-color: steelblue;">
+               <children>
+                  <ImageView fitHeight="174.0" fitWidth="154.0" layoutX="35.0" layoutY="52.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@touxiang.jpg" />
+                     </image></ImageView>
+                  <Label layoutX="27.0" layoutY="235.0" prefHeight="24.0" prefWidth="175.0" text="身份：网站营销人员" AnchorPane.leftAnchor="27.0" AnchorPane.rightAnchor="26.0">
+                     <font>
+                        <Font name="Helvetica" size="18.0" />
+                     </font></Label>
+                  <AnchorPane layoutX="1.0" layoutY="486.0" />
+                  <AnchorPane layoutX="1.0" layoutY="408.0" />
+                  <Label contentDisplay="CENTER" layoutX="49.0" layoutY="273.0" text="ID：151250080">
+                     <font>
+                        <Font name="Microsoft YaHei" size="18.0" />
+                     </font>
+                  </Label>
+                  <AnchorPane layoutX="1.0" layoutY="564.0" />
+                  <Hyperlink alignment="CENTER" layoutY="434.0" prefHeight="78.0" prefWidth="237.0" text=" 促销策略     &gt;" textFill="#000000ea" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="2.0">
+                     <font>
+                        <Font name="DengXian Bold" size="32.0" />
+                     </font>
+                  </Hyperlink>
+                  <Hyperlink alignment="CENTER" layoutX="5.0" layoutY="356.0" prefHeight="78.0" prefWidth="232.0" text=" 个人主页     &gt;" textFill="#000000ea">
+                     <font>
+                        <Font name="DengXian Bold" size="32.0" />
+                     </font>
+                  </Hyperlink>
+                  <Hyperlink alignment="CENTER" layoutX="2.0" layoutY="512.0" prefHeight="78.0" prefWidth="235.0" text=" 查找客户     &gt;" textFill="#000000ea">
+                     <font>
+                        <Font name="DengXian Bold" size="32.0" />
+                     </font>
+                  </Hyperlink>
+                  <Hyperlink alignment="CENTER" layoutX="-2.0" layoutY="585.0" prefHeight="78.0" prefWidth="239.0" style="-fx-background-color: steelblue;" text="未执行订单  &gt;" textFill="#000000ea">
+                     <font>
+                        <Font name="DengXian Bold" size="32.0" />
+                     </font>
+                  </Hyperlink>
+               </children>
+            </AnchorPane>
+         </children>
+      </VBox>
+      <ToolBar layoutX="239.0" layoutY="1039.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="41.0" prefWidth="1202.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="239.0" AnchorPane.rightAnchor="-1.0">
+         <items>
+            <Label prefHeight="29.0" prefWidth="50.0" text="在线">
+               <font>
+                  <Font name="Microsoft YaHei" size="18.0" />
+               </font>
+            </Label>
+         </items>
+      </ToolBar>
+      <AnchorPane layoutX="239.0" layoutY="118.0" prefHeight="1080.0" prefWidth="1440.0" AnchorPane.bottomAnchor="-118.0" AnchorPane.leftAnchor="239.0" AnchorPane.rightAnchor="-239.0" AnchorPane.topAnchor="118.0">
+         <children>
+            <Label layoutX="14.0" layoutY="28.0" text="客户">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <TextField layoutX="52.0" layoutY="26.0" prefHeight="23.0" prefWidth="81.0" text="韩梅梅" />
+            <Label layoutX="160.0" layoutY="27.0" text="下单时间">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <TextField layoutX="227.0" layoutY="25.0" prefHeight="23.0" prefWidth="95.0" text="2016-10-3" />
+            <Label layoutX="359.0" layoutY="29.0" text="预计生效时间">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <TextField layoutX="460.0" layoutY="27.0" prefHeight="23.0" prefWidth="95.0" text="2016-12-25" />
+            <Label layoutX="583.0" layoutY="29.0" text="详细信息">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <TextField layoutX="653.0" layoutY="27.0" prefHeight="23.0" prefWidth="261.0" />
+            <Label layoutX="944.0" layoutY="27.0" text="类别">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <TextField layoutX="987.0" layoutY="26.0" prefHeight="23.0" prefWidth="56.0" text="正常" />
+            <Label layoutX="14.0" layoutY="77.0" text="客户">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="14.0" layoutY="130.0" text="客户">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="14.0" layoutY="183.0" text="客户">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="14.0" layoutY="238.0" text="客户">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="14.0" layoutY="390.0" text="客户">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="14.0" layoutY="289.0" text="客户">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="14.0" layoutY="337.0" text="客户">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="14.0" layoutY="441.0" text="客户">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="14.0" layoutY="491.0" text="客户">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <TextField layoutX="52.0" layoutY="75.0" prefHeight="23.0" prefWidth="81.0" text="李雷" />
+            <TextField layoutX="52.0" layoutY="128.0" prefHeight="23.0" prefWidth="81.0" text="李华" />
+            <TextField layoutX="52.0" layoutY="181.0" prefHeight="23.0" prefWidth="81.0" text="波杰克" />
+            <TextField layoutX="52.0" layoutY="236.0" prefHeight="23.0" prefWidth="81.0" text="张伟" />
+            <TextField layoutX="52.0" layoutY="287.0" prefHeight="23.0" prefWidth="81.0" text="王小明" />
+            <TextField layoutX="52.0" layoutY="335.0" prefHeight="23.0" prefWidth="81.0" text="韩梅梅" />
+            <TextField layoutX="52.0" layoutY="388.0" prefHeight="23.0" prefWidth="81.0" text="韩梅梅" />
+            <TextField layoutX="52.0" layoutY="439.0" prefHeight="23.0" prefWidth="81.0" text="李华" />
+            <TextField layoutX="52.0" layoutY="488.0" prefHeight="23.0" prefWidth="81.0" text="连倩倩" />
+            <Label layoutX="160.0" layoutY="77.0" text="下单时间">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="160.0" layoutY="130.0" text="下单时间">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="160.0" layoutY="183.0" text="下单时间">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="160.0" layoutY="238.0" text="下单时间">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="160.0" layoutY="289.0" text="下单时间">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="160.0" layoutY="337.0" text="下单时间">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="160.0" layoutY="390.0" text="下单时间">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="160.0" layoutY="441.0" text="下单时间">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="160.0" layoutY="490.0" text="下单时间">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <TextField layoutX="227.0" layoutY="75.0" prefHeight="23.0" prefWidth="95.0" text="2016-10-3" />
+            <TextField layoutX="227.0" layoutY="128.0" prefHeight="23.0" prefWidth="95.0" text="2016-10-12" />
+            <TextField layoutX="227.0" layoutY="181.0" prefHeight="23.0" prefWidth="95.0" text="2016-10-3" />
+            <TextField layoutX="227.0" layoutY="236.0" prefHeight="23.0" prefWidth="95.0" text="2016-10-23" />
+            <TextField layoutX="227.0" layoutY="287.0" prefHeight="23.0" prefWidth="95.0" text="2016-10-3" />
+            <TextField layoutX="227.0" layoutY="335.0" prefHeight="23.0" prefWidth="95.0" text="2016-10-4" />
+            <TextField layoutX="227.0" layoutY="388.0" prefHeight="23.0" prefWidth="95.0" text="2016-10-3" />
+            <TextField layoutX="227.0" layoutY="439.0" prefHeight="23.0" prefWidth="95.0" text="2016-10-3" />
+            <TextField layoutX="227.0" layoutY="489.0" prefHeight="23.0" prefWidth="95.0" text="2016-10-3" />
+            <Label layoutX="359.0" layoutY="77.0" text="预计生效时间">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="359.0" layoutY="130.0" text="预计生效时间">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="359.0" layoutY="183.0" text="预计生效时间">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="359.0" layoutY="238.0" text="预计生效时间">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="359.0" layoutY="289.0" text="预计生效时间">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="359.0" layoutY="337.0" text="预计生效时间">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="359.0" layoutY="390.0" text="预计生效时间">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="359.0" layoutY="441.0" text="预计生效时间">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="359.0" layoutY="491.0" text="预计生效时间">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <TextField layoutX="460.0" layoutY="75.0" prefHeight="23.0" prefWidth="95.0" text="2016-10-20" />
+            <TextField layoutX="460.0" layoutY="128.0" prefHeight="23.0" prefWidth="95.0" text="2016-12-25" />
+            <TextField layoutX="460.0" layoutY="181.0" prefHeight="23.0" prefWidth="95.0" text="2016-12-25" />
+            <TextField layoutX="460.0" layoutY="236.0" prefHeight="23.0" prefWidth="95.0" text="2016-10-8" />
+            <TextField layoutX="460.0" layoutY="287.0" prefHeight="23.0" prefWidth="95.0" text="2016-12-25" />
+            <TextField layoutX="460.0" layoutY="335.0" prefHeight="23.0" prefWidth="95.0" text="2016-12-25" />
+            <TextField layoutX="460.0" layoutY="388.0" prefHeight="23.0" prefWidth="95.0" text="2016-10-22" />
+            <TextField layoutX="460.0" layoutY="439.0" prefHeight="23.0" prefWidth="95.0" text="2016-12-25" />
+            <TextField layoutX="460.0" layoutY="489.0" prefHeight="23.0" prefWidth="95.0" text="2016-12-25" />
+            <Label layoutX="583.0" layoutY="77.0" text="详细信息">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="583.0" layoutY="130.0" text="详细信息">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="583.0" layoutY="183.0" text="详细信息">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="583.0" layoutY="238.0" text="详细信息">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="583.0" layoutY="289.0" text="详细信息">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="583.0" layoutY="337.0" text="详细信息">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="583.0" layoutY="390.0" text="详细信息">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="583.0" layoutY="441.0" text="详细信息">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="583.0" layoutY="490.0" text="详细信息">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <TextField layoutX="653.0" layoutY="75.0" prefHeight="23.0" prefWidth="261.0" />
+            <TextField layoutX="653.0" layoutY="128.0" prefHeight="23.0" prefWidth="261.0" />
+            <TextField layoutX="653.0" layoutY="181.0" prefHeight="23.0" prefWidth="261.0" />
+            <TextField layoutX="653.0" layoutY="236.0" prefHeight="23.0" prefWidth="261.0" />
+            <TextField layoutX="653.0" layoutY="287.0" prefHeight="23.0" prefWidth="261.0" />
+            <TextField layoutX="653.0" layoutY="335.0" prefHeight="23.0" prefWidth="261.0" />
+            <TextField layoutX="653.0" layoutY="388.0" prefHeight="23.0" prefWidth="261.0" />
+            <TextField layoutX="653.0" layoutY="439.0" prefHeight="23.0" prefWidth="261.0" />
+            <TextField layoutX="653.0" layoutY="488.0" prefHeight="23.0" prefWidth="261.0" />
+            <Label layoutX="944.0" layoutY="77.0" text="类别">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="944.0" layoutY="130.0" text="类别">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="944.0" layoutY="183.0" text="类别">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="944.0" layoutY="238.0" text="类别">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="944.0" layoutY="289.0" text="类别">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="944.0" layoutY="337.0" text="类别">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="944.0" layoutY="390.0" text="类别">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="944.0" layoutY="441.0" text="类别">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="944.0" layoutY="491.0" text="类别">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <TextField layoutX="987.0" layoutY="75.0" prefHeight="23.0" prefWidth="56.0" text="异常" />
+            <TextField layoutX="987.0" layoutY="128.0" prefHeight="23.0" prefWidth="56.0" text="正常" />
+            <TextField layoutX="987.0" layoutY="181.0" prefHeight="23.0" prefWidth="56.0" text="正常" />
+            <TextField layoutX="987.0" layoutY="236.0" prefHeight="23.0" prefWidth="56.0" text="异常" />
+            <TextField layoutX="987.0" layoutY="287.0" prefHeight="23.0" prefWidth="56.0" text="正常" />
+            <TextField layoutX="986.0" layoutY="333.0" prefHeight="23.0" prefWidth="56.0" text="正常" />
+            <TextField layoutX="986.0" layoutY="388.0" prefHeight="23.0" prefWidth="56.0" text="异常" />
+            <TextField layoutX="987.0" layoutY="439.0" prefHeight="23.0" prefWidth="56.0" text="正常" />
+            <TextField layoutX="987.0" layoutY="488.0" prefHeight="23.0" prefWidth="56.0" text="正常" />
+            <Hyperlink layoutX="369.0" layoutY="649.0" prefHeight="35.0" prefWidth="32.0" style="-fx-background-color: ;" text="  1" textFill="#413dc9" />
+            <Hyperlink layoutX="411.0" layoutY="649.0" prefHeight="35.0" prefWidth="32.0" style="-fx-background-color: lightblue;" text="  2" textFill="#413dc9" />
+            <Hyperlink layoutX="454.0" layoutY="649.0" prefHeight="35.0" prefWidth="32.0" style="-fx-background-color: lightblue;" text="  3" textFill="#413dc9" />
+            <Hyperlink layoutX="501.0" layoutY="649.0" prefHeight="35.0" prefWidth="32.0" style="-fx-background-color: lightblue;" text="  4" textFill="#413dc9" />
+            <Hyperlink layoutX="551.0" layoutY="649.0" prefHeight="35.0" prefWidth="32.0" style="-fx-background-color: lightblue;" text="  5" textFill="#413dc9" />
+            <Hyperlink layoutX="595.0" layoutY="649.0" prefHeight="35.0" prefWidth="32.0" style="-fx-background-color: lightblue;" text="  6" textFill="#413dc9" />
+            <Hyperlink layoutX="639.0" layoutY="649.0" prefHeight="35.0" prefWidth="32.0" style="-fx-background-color: lightblue;" text="  7" textFill="#413dc9" />
+            <Hyperlink layoutX="682.0" layoutY="649.0" prefHeight="35.0" prefWidth="32.0" style="-fx-background-color: lightblue;" text="  8" textFill="#413dc9" />
+            <Hyperlink layoutX="731.0" layoutY="649.0" prefHeight="35.0" prefWidth="32.0" style="-fx-background-color: lightblue;" text="  9" textFill="#413dc9" />
+            <Button layoutX="384.0" layoutY="777.0" mnemonicParsing="false" prefHeight="78.0" prefWidth="172.0" text="确 认">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Button>
+            <Hyperlink layoutX="285.0" layoutY="656.0" text="上一页" />
+            <Hyperlink layoutX="849.0" layoutY="656.0" text="下一页" />
+            <Hyperlink layoutX="776.0" layoutY="649.0" prefHeight="35.0" prefWidth="32.0" style="-fx-background-color: lightblue;" text=" 10" textFill="#413dc9" />
+            <Button layoutX="653.0" layoutY="777.0" mnemonicParsing="false" prefHeight="78.0" prefWidth="172.0" text="取 消">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Button>
+            <Hyperlink layoutX="1058.0" layoutY="76.0" text="撤销" />
+            <Hyperlink layoutX="1058.0" layoutY="237.0" text="撤销" />
+            <Hyperlink layoutX="1058.0" layoutY="389.0" text="撤销" />
+         </children>
+      </AnchorPane>
+      <Label layoutX="281.0" layoutY="75.0" text="未执行订单列表：">
+         <font>
+            <Font name="Microsoft YaHei" size="18.0" />
+         </font>
+      </Label>
+      <Hyperlink layoutX="1331.0" layoutY="89.0" text="仅显示正常订单" />
+      <Hyperlink layoutX="1214.0" layoutY="89.0" text="仅显示异常订单" />
+   </children>
+</AnchorPane>

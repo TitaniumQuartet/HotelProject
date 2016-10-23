@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.shape.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1053.0" prefWidth="1443.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <VBox prefHeight="924.0" prefWidth="226.0" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <AnchorPane prefHeight="1080.0" prefWidth="203.0" style="-fx-background-color: lightsteelblue; -fx-border-color: steelblue;">
+               <children>
+                  <Label layoutX="27.0" layoutY="235.0" prefHeight="24.0" prefWidth="175.0" text="        您尚未登录" AnchorPane.leftAnchor="27.0" AnchorPane.rightAnchor="26.0">
+                     <font>
+                        <Font name="Helvetica" size="18.0" />
+                     </font></Label>
+                  <AnchorPane layoutX="1.0" layoutY="486.0" />
+                  <AnchorPane layoutX="1.0" layoutY="408.0" />
+                  <Label contentDisplay="CENTER" layoutX="49.0" layoutY="273.0" text="请先登录或注册">
+                     <font>
+                        <Font name="Microsoft YaHei" size="18.0" />
+                     </font>
+                  </Label>
+                  <AnchorPane layoutX="1.0" layoutY="564.0" />
+               </children>
+            </AnchorPane>
+         </children>
+      </VBox>
+      <Separator layoutX="226.0" layoutY="371.0" prefHeight="0.0" prefWidth="1037.0" AnchorPane.leftAnchor="226.0" AnchorPane.rightAnchor="0.0" />
+      <ToolBar layoutX="226.0" layoutY="1013.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="40.0" prefWidth="1217.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="226.0" AnchorPane.rightAnchor="0.0">
+         <items>
+            <Label prefHeight="29.0" prefWidth="59.0" text="离线">
+               <font>
+                  <Font name="Microsoft YaHei" size="18.0" />
+               </font>
+            </Label>
+         </items>
+      </ToolBar>
+      <AnchorPane layoutX="229.0" layoutY="373.0" prefHeight="603.0" prefWidth="1173.0">
+         <children>
+            <ImageView fitHeight="601.0" fitWidth="1239.0" layoutX="-2.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@捕获.PNG" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+      <ToolBar layoutX="226.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="50.0" prefWidth="1217.0">
+         <items>
+            <Hyperlink text="注册" />
+            <Hyperlink text="登录" />
+         </items>
+      </ToolBar>
+   </children>
+</AnchorPane>
