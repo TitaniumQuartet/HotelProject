@@ -4,10 +4,10 @@
   <element>
     <id>UMLFrame</id>
     <coordinates>
-      <x>40</x>
-      <y>50</y>
+      <x>30</x>
+      <y>30</y>
       <w>460</w>
-      <h>500</h>
+      <h>540</h>
     </coordinates>
     <panel_attributes>pkg</panel_attributes>
     <additional_attributes/>
@@ -15,8 +15,8 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>130</x>
-      <y>80</y>
+      <x>120</x>
+      <y>60</y>
       <w>180</w>
       <h>70</h>
     </coordinates>
@@ -29,8 +29,8 @@ StrategyBLService
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>130</x>
-      <y>190</y>
+      <x>120</x>
+      <y>210</y>
       <w>170</w>
       <h>50</h>
     </coordinates>
@@ -42,8 +42,8 @@ StrategyBLService
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>170</x>
-      <y>280</y>
+      <x>160</x>
+      <y>300</y>
       <w>100</w>
       <h>60</h>
     </coordinates>
@@ -55,8 +55,8 @@ StrategyBLService
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>70</x>
-      <y>400</y>
+      <x>60</x>
+      <y>420</y>
       <w>140</w>
       <h>70</h>
     </coordinates>
@@ -69,8 +69,8 @@ StrategyDataService
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>230</x>
-      <y>400</y>
+      <x>220</x>
+      <y>420</y>
       <w>140</w>
       <h>70</h>
     </coordinates>
@@ -83,19 +83,19 @@ LocationDataService
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>210</x>
-      <y>140</y>
+      <x>200</x>
+      <y>120</y>
       <w>30</w>
-      <h>70</h>
+      <h>110</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;.</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;50.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;90.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>210</x>
-      <y>230</y>
+      <x>200</x>
+      <y>250</y>
       <w>30</w>
       <h>70</h>
     </coordinates>
@@ -105,8 +105,8 @@ LocationDataService
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>180</x>
-      <y>330</y>
+      <x>170</x>
+      <y>350</y>
       <w>30</w>
       <h>90</h>
     </coordinates>
@@ -116,8 +116,8 @@ LocationDataService
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>240</x>
-      <y>330</y>
+      <x>230</x>
+      <y>350</y>
       <w>30</w>
       <h>90</h>
     </coordinates>
@@ -127,8 +127,8 @@ LocationDataService
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>330</x>
-      <y>280</y>
+      <x>360</x>
+      <y>300</y>
       <w>100</w>
       <h>60</h>
     </coordinates>
@@ -140,12 +140,35 @@ LocationDataService
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>260</x>
-      <y>300</y>
-      <w>90</w>
+      <x>250</x>
+      <y>320</y>
+      <w>130</w>
       <h>30</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-</panel_attributes>
-    <additional_attributes>10.0;10.0;70.0;10.0</additional_attributes>
+    <additional_attributes>10.0;10.0;110.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>90</x>
+      <y>170</y>
+      <w>240</w>
+      <h>210</h>
+    </coordinates>
+    <panel_attributes>lt=.
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>240</x>
+      <y>170</y>
+      <w>90</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>strategy包</panel_attributes>
+    <additional_attributes/>
   </element>
 </diagram>
