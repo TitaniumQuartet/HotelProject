@@ -4,10 +4,10 @@
   <element>
     <id>UMLFrame</id>
     <coordinates>
-      <x>60</x>
-      <y>40</y>
-      <w>730</w>
-      <h>530</h>
+      <x>30</x>
+      <y>50</y>
+      <w>720</w>
+      <h>520</h>
     </coordinates>
     <panel_attributes>interaction frame</panel_attributes>
     <additional_attributes/>
@@ -78,8 +78,8 @@ HotelInfoController
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>530</x>
-      <y>250</y>
+      <x>600</x>
+      <y>240</y>
       <w>110</w>
       <h>50</h>
     </coordinates>
@@ -91,7 +91,7 @@ HotelInfoController
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>530</x>
+      <x>600</x>
       <y>330</y>
       <w>110</w>
       <h>50</h>
@@ -104,8 +104,8 @@ HotelInfoController
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>530</x>
-      <y>410</y>
+      <x>600</x>
+      <y>420</y>
       <w>110</w>
       <h>50</h>
     </coordinates>
@@ -118,40 +118,40 @@ HotelInfoController
     <id>Relation</id>
     <coordinates>
       <x>380</x>
-      <y>260</y>
-      <w>170</w>
-      <h>100</h>
+      <y>250</y>
+      <w>240</w>
+      <h>110</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-</panel_attributes>
-    <additional_attributes>10.0;80.0;150.0;10.0</additional_attributes>
+    <additional_attributes>10.0;90.0;220.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
       <x>380</x>
       <y>340</y>
-      <w>170</w>
+      <w>240</w>
       <h>30</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-</panel_attributes>
-    <additional_attributes>10.0;10.0;150.0;10.0</additional_attributes>
+    <additional_attributes>10.0;10.0;220.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
       <x>380</x>
       <y>350</y>
-      <w>170</w>
-      <h>110</h>
+      <w>240</w>
+      <h>120</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-</panel_attributes>
-    <additional_attributes>10.0;10.0;150.0;90.0</additional_attributes>
+    <additional_attributes>10.0;10.0;220.0;100.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
       <x>190</x>
-      <y>460</y>
+      <y>490</y>
       <w>140</w>
       <h>60</h>
     </coordinates>
@@ -165,7 +165,7 @@ HotelInfoDataService
     <id>UMLClass</id>
     <coordinates>
       <x>370</x>
-      <y>460</y>
+      <y>490</y>
       <w>140</w>
       <h>60</h>
     </coordinates>
@@ -181,10 +181,10 @@ ReviewDataService
       <x>300</x>
       <y>370</y>
       <w>30</w>
-      <h>110</h>
+      <h>140</h>
     </coordinates>
     <panel_attributes>lt=&lt;.</panel_attributes>
-    <additional_attributes>10.0;90.0;10.0;10.0</additional_attributes>
+    <additional_attributes>10.0;120.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
@@ -192,9 +192,56 @@ ReviewDataService
       <x>370</x>
       <y>370</y>
       <w>30</w>
-      <h>110</h>
+      <h>140</h>
     </coordinates>
     <panel_attributes>lt=&lt;.</panel_attributes>
-    <additional_attributes>10.0;90.0;10.0;10.0</additional_attributes>
+    <additional_attributes>10.0;120.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>70</x>
+      <y>330</y>
+      <w>110</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>RoomPO
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>170</x>
+      <y>350</y>
+      <w>150</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>130.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>190</x>
+      <y>200</y>
+      <w>390</w>
+      <h>250</h>
+    </coordinates>
+    <panel_attributes>lt=.
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>470</x>
+      <y>210</y>
+      <w>90</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>hotelInfobl包</panel_attributes>
+    <additional_attributes/>
   </element>
 </diagram>
