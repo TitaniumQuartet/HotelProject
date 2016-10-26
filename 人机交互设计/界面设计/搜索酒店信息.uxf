@@ -15,10 +15,10 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>90</x>
-      <y>90</y>
-      <w>240</w>
-      <h>200</h>
+      <x>100</x>
+      <y>100</y>
+      <w>220</w>
+      <h>180</h>
     </coordinates>
     <panel_attributes>用户信息
 valign=center</panel_attributes>
@@ -30,7 +30,7 @@ valign=center</panel_attributes>
       <x>330</x>
       <y>90</y>
       <w>900</w>
-      <h>50</h>
+      <h>40</h>
     </coordinates>
     <panel_attributes>退出登录及常用设置
 valign=center</panel_attributes>
@@ -39,10 +39,10 @@ valign=center</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>90</x>
+      <x>100</x>
       <y>290</y>
-      <w>240</w>
-      <h>540</h>
+      <w>220</w>
+      <h>530</h>
     </coordinates>
     <panel_attributes>导航
 valign=center</panel_attributes>
@@ -64,22 +64,10 @@ valign=center</panel_attributes>
     <coordinates>
       <x>330</x>
       <y>140</y>
-      <w>900</w>
-      <h>80</h>
+      <w>890</w>
+      <h>180</h>
     </coordinates>
-    <panel_attributes>选择城市、商圈
-valign=center</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>UMLClass</id>
-    <coordinates>
-      <x>330</x>
-      <y>220</y>
-      <w>900</w>
-      <h>110</h>
-    </coordinates>
-    <panel_attributes>筛选条件 排序方式
+    <panel_attributes>筛选及排序条件
 valign=center</panel_attributes>
     <additional_attributes/>
   </element>
@@ -88,16 +76,10 @@ valign=center</panel_attributes>
     <coordinates>
       <x>330</x>
       <y>330</y>
-      <w>900</w>
-      <h>470</h>
+      <w>890</w>
+      <h>400</h>
     </coordinates>
-    <panel_attributes>酒店简介
-
-酒店简介
-
-酒店简介
-
-......
+    <panel_attributes>酒店简介列表
 valign=center</panel_attributes>
     <additional_attributes/>
   </element>
@@ -105,11 +87,12 @@ valign=center</panel_attributes>
     <id>UMLClass</id>
     <coordinates>
       <x>330</x>
-      <y>800</y>
-      <w>900</w>
-      <h>30</h>
+      <y>740</y>
+      <w>890</w>
+      <h>80</h>
     </coordinates>
-    <panel_attributes>选择搜索结果页码</panel_attributes>
+    <panel_attributes>按钮区
+valign=center</panel_attributes>
     <additional_attributes/>
   </element>
 </diagram>

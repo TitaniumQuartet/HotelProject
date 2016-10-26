@@ -44,18 +44,43 @@
       </ToolBar>
       <AnchorPane layoutX="229.0" layoutY="373.0" prefHeight="603.0" prefWidth="1173.0">
          <children>
-            <ImageView fitHeight="601.0" fitWidth="1239.0" layoutX="-2.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="527.0" fitWidth="1091.0" layoutX="48.0" layoutY="38.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@捕获.PNG" />
+                  <Image url="@登录界面配图.PNG" />
                </image>
             </ImageView>
          </children>
       </AnchorPane>
       <ToolBar layoutX="226.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="50.0" prefWidth="1217.0">
          <items>
-            <Hyperlink text="注册" />
-            <Hyperlink text="登录" />
+            <Hyperlink text="设置" />
          </items>
       </ToolBar>
+      <Label layoutX="445.0" layoutY="170.0" text="用户名">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="469.0" layoutY="230.0" text="密码">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <TextField layoutX="563.0" layoutY="168.0" />
+      <PasswordField layoutX="563.0" layoutY="228.0" />
+      <Button layoutX="885.0" layoutY="221.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="126.0" style="-fx-background-color: white; -fx-border-color: steelblue;" text="登录" textFill="CORNFLOWERBLUE">
+         <effect>
+            <InnerShadow choke="0.32" color="LIGHTSTEELBLUE" height="39.56" radius="22.3" width="51.64" />
+         </effect>
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Button>
+      <CheckBox layoutX="563.0" layoutY="298.0" mnemonicParsing="false" text="记住用户名和密码" />
+      <Button layoutX="1047.0" layoutY="221.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="126.0" style="-fx-background-color: skyblue;" text="注册" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

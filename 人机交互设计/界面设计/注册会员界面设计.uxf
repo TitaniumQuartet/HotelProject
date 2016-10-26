@@ -4,80 +4,83 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>120</x>
-      <y>100</y>
-      <w>720</w>
-      <h>440</h>
+      <x>20</x>
+      <y>20</y>
+      <w>1140</w>
+      <h>770</h>
     </coordinates>
-    <panel_attributes>valign=center
-halign=center
-</panel_attributes>
+    <panel_attributes/>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>130</x>
-      <y>110</y>
-      <w>700</w>
-      <h>30</h>
+      <x>30</x>
+      <y>40</y>
+      <w>220</w>
+      <h>170</h>
     </coordinates>
-    <panel_attributes>halign=left
-菜单：个人信息；退出登录
-
-</panel_attributes>
+    <panel_attributes>用户信息
+valign=center</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>130</x>
-      <y>150</y>
-      <w>140</w>
-      <h>340</h>
-    </coordinates>
-    <panel_attributes>valign=center
-halign=center
-导航栏</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>UMLClass</id>
-    <coordinates>
-      <x>130</x>
-      <y>500</y>
-      <w>700</w>
-      <h>30</h>
-    </coordinates>
-    <panel_attributes>valign=center
-halign=center
-状态栏</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>UMLClass</id>
-    <coordinates>
-      <x>280</x>
-      <y>450</y>
-      <w>550</w>
+      <x>260</x>
+      <y>20</y>
+      <w>900</w>
       <h>40</h>
     </coordinates>
-    <panel_attributes>valign=center
-halign=center
-按钮区域</panel_attributes>
+    <panel_attributes>退出登录及常用设置
+valign=center</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>280</x>
-      <y>150</y>
-      <w>550</w>
-      <h>290</h>
+      <x>30</x>
+      <y>230</y>
+      <w>220</w>
+      <h>520</h>
     </coordinates>
-    <panel_attributes>valign=center
-halign=center
-会员信息填写</panel_attributes>
+    <panel_attributes>导航
+valign=center</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>20</x>
+      <y>760</y>
+      <w>1140</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>导航栏</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>260</x>
+      <y>670</y>
+      <w>890</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>按钮区
+valign=center</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>260</x>
+      <y>80</y>
+      <w>890</w>
+      <h>570</h>
+    </coordinates>
+    <panel_attributes>注册会员信息填写
+valign=center</panel_attributes>
     <additional_attributes/>
   </element>
 </diagram>

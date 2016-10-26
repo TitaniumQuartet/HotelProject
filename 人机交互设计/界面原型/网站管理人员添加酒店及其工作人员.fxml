@@ -31,7 +31,7 @@
                <children>
                   <ImageView fitHeight="183.0" fitWidth="154.0" layoutX="102.0" layoutY="56.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="80.0" AnchorPane.topAnchor="60.0">
                      <image>
-                        <Image url="@../../../../Pictures/照片图库.photoslibrary/Masters/2016/05/23/20160523-093011/IMG_0016.JPG" />
+                        <Image url="@界面原型~李佩瑶/头像.PNG" />
                      </image>
                   </ImageView>
                   <Label layoutX="57.0" layoutY="238.0" prefHeight="47.0" prefWidth="176.0" text="用户名:king" AnchorPane.leftAnchor="57.0" AnchorPane.rightAnchor="5.0">
@@ -119,7 +119,7 @@
       <TextField layoutX="462.0" layoutY="68.0" prefHeight="34.0" prefWidth="202.0" />
       <ImageView fitHeight="46.0" fitWidth="48.0" layoutX="338.0" layoutY="65.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../Documents/GitHub/HotelProject/人机交互设计/界面原型/小按钮/未标题-6.gif" />
+            <Image url="@小按钮/未标题-6.gif" />
          </image>
       </ImageView>
       <ChoiceBox layoutX="773.0" layoutY="72.0" prefWidth="150.0" />
@@ -149,7 +149,6 @@
             <Font size="32.0" />
          </font>
       </Label>
-      <Label text="Label" />
       <Label layoutX="1033.0" layoutY="196.0" prefHeight="42.0" prefWidth="94.0" text="查看">
          <font>
             <Font size="32.0" />

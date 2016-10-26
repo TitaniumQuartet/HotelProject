@@ -60,7 +60,7 @@
     <id>UMLSpecialState</id>
     <coordinates>
       <x>380</x>
-      <y>220</y>
+      <y>140</y>
       <w>20</w>
       <h>20</h>
     </coordinates>
@@ -71,7 +71,7 @@
     <id>Relation</id>
     <coordinates>
       <x>300</x>
-      <y>220</y>
+      <y>140</y>
       <w>100</w>
       <h>30</h>
     </coordinates>
@@ -160,6 +160,39 @@
     <coordinates>
       <x>260</x>
       <y>240</y>
+      <w>30</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;</panel_attributes>
+    <additional_attributes>10.0;50.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>290</x>
+      <y>240</y>
+      <w>90</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;</panel_attributes>
+    <additional_attributes>10.0;10.0;70.0;50.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLState</id>
+    <coordinates>
+      <x>340</x>
+      <y>290</y>
+      <w>90</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>生成订单</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>280</x>
+      <y>160</y>
       <w>30</w>
       <h>70</h>
     </coordinates>

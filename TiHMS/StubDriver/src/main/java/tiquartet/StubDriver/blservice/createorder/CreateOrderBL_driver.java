@@ -2,6 +2,7 @@ package tiquartet.StubDriver.blservice.createorder;
 
 import java.util.List;
 import tiquartet.ClientModule.vo.*;
+import tiquartet.StubDriver.blservice.createorder.CreateOrderBL_stub;
 
 public class CreateOrderBL_driver {
     public void drive(CreateOrderBL_stub stub){

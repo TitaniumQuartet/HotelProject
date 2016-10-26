@@ -27,6 +27,6 @@
     <module>ServerModule</module>
     <module>ClientModule</module>
     <module>CommonModule</module>
-    <module>StubDriver</module>
+    
   </modules>
 </project>
