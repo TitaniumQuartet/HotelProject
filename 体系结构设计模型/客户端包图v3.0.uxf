@@ -6,7 +6,7 @@
     <coordinates>
       <x>22</x>
       <y>33</y>
-      <w>1496</w>
+      <w>1408</w>
       <h>715</h>
     </coordinates>
     <panel_attributes>pkg</panel_attributes>
@@ -17,7 +17,7 @@
     <coordinates>
       <x>66</x>
       <y>66</y>
-      <w>1243</w>
+      <w>1111</w>
       <h>286</h>
     </coordinates>
     <panel_attributes>
@@ -31,7 +31,7 @@ valign=top</panel_attributes>
     <coordinates>
       <x>66</x>
       <y>374</y>
-      <w>1243</w>
+      <w>1111</w>
       <h>198</h>
     </coordinates>
     <panel_attributes>
@@ -43,7 +43,7 @@ valign=top</panel_attributes>
   <element>
     <id>UMLPackage</id>
     <coordinates>
-      <x>1364</x>
+      <x>1254</x>
       <y>286</y>
       <w>110</w>
       <h>77</h>
@@ -167,20 +167,6 @@ manageorderui
     <additional_attributes/>
   </element>
   <element>
-    <id>UMLPackage</id>
-    <coordinates>
-      <x>1111</x>
-      <y>253</y>
-      <w>110</w>
-      <h>77</h>
-    </coordinates>
-    <panel_attributes>
---
-managehotelui
-</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
     <id>Relation</id>
     <coordinates>
       <x>308</x>
@@ -265,18 +251,6 @@ managehotelui
     <additional_attributes>120.0;10.0;10.0;80.0</additional_attributes>
   </element>
   <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>671</x>
-      <y>187</y>
-      <w>517</w>
-      <h>110</h>
-    </coordinates>
-    <panel_attributes>lt=.&gt;
-</panel_attributes>
-    <additional_attributes>10.0;10.0;450.0;80.0</additional_attributes>
-  </element>
-  <element>
     <id>UMLPackage</id>
     <coordinates>
       <x>627</x>
@@ -293,26 +267,26 @@ Java RMI
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1298</x>
+      <x>1166</x>
       <y>297</y>
-      <w>88</w>
+      <w>110</w>
       <h>55</h>
     </coordinates>
     <panel_attributes>lt=.&gt;
 </panel_attributes>
-    <additional_attributes>10.0;20.0;60.0;30.0</additional_attributes>
+    <additional_attributes>10.0;20.0;80.0;30.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1298</x>
+      <x>1166</x>
       <y>319</y>
-      <w>88</w>
+      <w>110</w>
       <h>132</h>
     </coordinates>
     <panel_attributes>lt=.&gt;
 </panel_attributes>
-    <additional_attributes>10.0;100.0;60.0;10.0</additional_attributes>
+    <additional_attributes>10.0;100.0;80.0;10.0</additional_attributes>
   </element>
   <element>
     <id>UMLPackage</id>
@@ -421,21 +395,6 @@ style=wordwrap
     <additional_attributes/>
   </element>
   <element>
-    <id>UMLPackage</id>
-    <coordinates>
-      <x>1111</x>
-      <y>451</y>
-      <w>110</w>
-      <h>77</h>
-    </coordinates>
-    <panel_attributes>
---
-managehotelblservice
-style=wordwrap
-</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
     <id>Relation</id>
     <coordinates>
       <x>308</x>
@@ -522,18 +481,6 @@ style=wordwrap
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1155</x>
-      <y>319</y>
-      <w>33</w>
-      <h>176</h>
-    </coordinates>
-    <panel_attributes>lt=.&gt;
-</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;140.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
       <x>671</x>
       <y>561</y>
       <w>33</w>
@@ -599,7 +546,7 @@ style=wordwrap
   <element>
     <id>UMLPackage</id>
     <coordinates>
-      <x>1364</x>
+      <x>1254</x>
       <y>385</y>
       <w>110</w>
       <h>77</h>
@@ -612,25 +559,25 @@ utility</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1298</x>
+      <x>1166</x>
       <y>308</y>
-      <w>88</w>
+      <w>110</w>
       <h>132</h>
     </coordinates>
     <panel_attributes>lt=.&gt;
 </panel_attributes>
-    <additional_attributes>10.0;10.0;60.0;100.0</additional_attributes>
+    <additional_attributes>10.0;10.0;80.0;100.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1298</x>
+      <x>1166</x>
       <y>396</y>
-      <w>88</w>
+      <w>110</w>
       <h>55</h>
     </coordinates>
     <panel_attributes>lt=.&gt;
 </panel_attributes>
-    <additional_attributes>10.0;30.0;60.0;20.0</additional_attributes>
+    <additional_attributes>10.0;30.0;80.0;20.0</additional_attributes>
   </element>
 </diagram>
