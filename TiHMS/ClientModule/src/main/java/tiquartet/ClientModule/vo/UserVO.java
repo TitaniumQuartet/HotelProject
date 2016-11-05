@@ -1,7 +1,8 @@
 package tiquartet.ClientModule.vo;
 
 public class UserVO {
-    public long userID;
+    public int userID;
     public String userName;
     public int userType;
+    public String password;
 }
