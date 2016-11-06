@@ -1,9 +1,10 @@
 package tiquartet.ServerModule.data.roomdata;
 
 import java.util.*;
-import tiquartet.CommonModule.dataservice.roomdataservice.*;
-import tiquartet.CommonModule.po.*;
+
 import tiquartet.CommonModule.util.ResultMessage;
+import tiquartet.ServerModule.dataservice.roomdataservice.*;
+import tiquartet.ServerModule.po.*;
 
 
 public class RoomData_stub implements RoomDataService{

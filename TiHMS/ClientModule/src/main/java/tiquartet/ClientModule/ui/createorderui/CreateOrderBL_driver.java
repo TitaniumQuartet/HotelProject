@@ -1,8 +1,9 @@
 package tiquartet.ClientModule.ui.createorderui;
 
 import java.util.List;
-import tiquartet.ClientModule.vo.*;
-import tiquartet.ClientModule.bl.createorderbl.CreateOrderBL_stub;
+
+import tiquartet.CommonModule.vo.*;
+import tiquartet.ServerModule.bl.createorderbl.CreateOrderBL_stub;
 
 public class CreateOrderBL_driver {
     public void drive(CreateOrderBL_stub stub){

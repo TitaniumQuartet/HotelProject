@@ -1,9 +1,10 @@
 package tiquartet.ServerModule.data.userdata;
 
 import java.util.*;
-import tiquartet.CommonModule.dataservice.userdataservice.*;
-import tiquartet.CommonModule.po.*;
+
 import tiquartet.CommonModule.util.ResultMessage;
+import tiquartet.ServerModule.dataservice.userdataservice.*;
+import tiquartet.ServerModule.po.*;
 
 
 public class UserData_stub implements UserDataService{

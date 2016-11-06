@@ -1,9 +1,10 @@
 package tiquartet.ClientModule.ui.strategyui;
 
 import java.util.*;
-import tiquartet.ClientModule.blservice.strategyblservice.*;
-import tiquartet.ClientModule.vo.*;
-import tiquartet.ClientModule.bl.strategybl.*;
+
+import tiquartet.CommonModule.vo.*;
+import tiquartet.ServerModule.bl.strategybl.*;
+import tiquartet.ServerModule.blservice.strategyblservice.*;
 
 public class StrategyBL_driver {
     public void drive(StrategyBLService stub){

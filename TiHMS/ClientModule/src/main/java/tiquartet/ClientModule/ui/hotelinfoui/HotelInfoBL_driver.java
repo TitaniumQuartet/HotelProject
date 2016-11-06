@@ -1,9 +1,11 @@
 package tiquartet.ClientModule.ui.hotelinfoui;
 
 import java.util.*;
-import tiquartet.ClientModule.vo.*;
-import tiquartet.ClientModule.blservice.hotelinfoblservice.*;
-import tiquartet.ClientModule.bl.hotelinfobl.*;
+
+import tiquartet.CommonModule.blservice.hotelinfoblservice.*;
+import tiquartet.CommonModule.blservice.hotelinfoblservice.HotelInfoBLService;
+import tiquartet.CommonModule.vo.*;
+import tiquartet.ServerModule.bl.hotelinfobl.*;
 
 public class HotelInfoBL_driver {
    public void drive(HotelInfoBLService stub){

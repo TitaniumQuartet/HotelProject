@@ -3,8 +3,9 @@ package tiquartet.ClientModule.ui.searchhotelui;
 import java.util.List;
 
 import tiquartet.ClientModule.blservice.searchhotelblservice.*;
-import tiquartet.ClientModule.vo.*;
-import tiquartet.ClientModule.bl.searchhotelbl.*;
+import tiquartet.CommonModule.blservice.searchhotelblservice.SearchHotelBLService;
+import tiquartet.CommonModule.vo.*;
+import tiquartet.ServerModule.bl.searchhotelbl.*;
 
 public class SearchHotelbl_driver {
 

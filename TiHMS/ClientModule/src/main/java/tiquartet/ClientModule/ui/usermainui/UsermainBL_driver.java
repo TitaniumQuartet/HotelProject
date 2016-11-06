@@ -1,8 +1,9 @@
 package tiquartet.ClientModule.ui.usermainui;
 
 import tiquartet.ClientModule.blservice.usermainblservice.*;
-import tiquartet.ClientModule.vo.*;
-import tiquartet.ClientModule.bl.usermainbl.*;
+import tiquartet.CommonModule.blservice.usermainblservice.UsermainBLService;
+import tiquartet.CommonModule.vo.*;
+import tiquartet.ServerModule.bl.usermainbl.*;
 
 public class UsermainBL_driver {
     public void drive(UsermainBLService stub){

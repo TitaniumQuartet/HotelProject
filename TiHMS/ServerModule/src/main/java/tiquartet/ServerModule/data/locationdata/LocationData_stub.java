@@ -1,6 +1,6 @@
 package tiquartet.ServerModule.data.locationdata;
 
-import tiquartet.CommonModule.dataservice.locationdataservice.*;
+import tiquartet.ServerModule.dataservice.locationdataservice.*;
 
 public class LocationData_stub implements LocationDataService{
 

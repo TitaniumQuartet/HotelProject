@@ -1,9 +1,10 @@
 package tiquartet.ServerModule.data.strategydata;
 
 import java.util.*;
-import tiquartet.CommonModule.dataservice.strategydataservice.*;
-import tiquartet.CommonModule.po.*;
+
 import tiquartet.CommonModule.util.ResultMessage;
+import tiquartet.ServerModule.dataservice.strategydataservice.*;
+import tiquartet.ServerModule.po.*;
 
 
 public class StrategyData_stub implements StrategyDataService{

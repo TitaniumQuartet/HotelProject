@@ -1,10 +1,11 @@
 package tiquartet.ServerModule.data.hotelinfodata;
 
 
-import tiquartet.CommonModule.dataservice.hotelinfodataservice.*;
 import java.util.*;
-import tiquartet.CommonModule.po.*;
+
 import tiquartet.CommonModule.util.ResultMessage;
+import tiquartet.ServerModule.dataservice.hotelinfodataservice.*;
+import tiquartet.ServerModule.po.*;
 
 
 public class HotelInfoData_stub implements HotelInfoDataService{

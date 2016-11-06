@@ -2,9 +2,9 @@ package tiquartet.ClientModule.ui.manageuserui;
 
 import java.util.List;
 
-import tiquartet.ClientModule.blservice.manageuserblservice.ManageUserBLService;
-import tiquartet.ClientModule.bl.manageuserbl.*;
-import tiquartet.ClientModule.vo.*;
+import tiquartet.CommonModule.vo.*;
+import tiquartet.ServerModule.bl.manageuserbl.*;
+import tiquartet.ServerModule.blservice.manageuserblservice.ManageUserBLService;
 
 
 public class ManageUserBL_drive {

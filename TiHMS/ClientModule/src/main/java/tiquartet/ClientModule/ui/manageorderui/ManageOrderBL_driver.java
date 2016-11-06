@@ -1,12 +1,13 @@
 package tiquartet.ClientModule.ui.manageorderui;
 
-import tiquartet.ClientModule.vo.*;
 import tiquartet.CommonModule.util.CreditRestore;
 import tiquartet.CommonModule.util.ResultMessage;
+import tiquartet.CommonModule.vo.*;
+import tiquartet.ServerModule.bl.manageorderbl.*;
+import tiquartet.ServerModule.blservice.manageorderblservice.*;
+
 import java.sql.Time;
 import java.util.*;
-import tiquartet.ClientModule.blservice.manageorderblservice.*;
-import tiquartet.ClientModule.bl.manageorderbl.*;
 
 public class ManageOrderBL_driver {
 
@@ -16,13 +17,13 @@ public class ManageOrderBL_driver {
 		System.out.println(ordervo);
 		ResultMessage message;
 		
-		ordervo = stub.hotelOrderList(245,new OrderFilterVO(),3);
+		ordervo = stub.hotelOrders(245,new OrderFilterVO(),3);
 		System.out.println("Searching for order list...");
 		
-		message = stub.clientCancelOrder("353452");
+		message = stub.clientCancel("353452");
 		System.out.println(message);
 		
-		message = stub.marketerCancelOrder("8976986",CreditRestore.FULL);
+		message = stub.marketerCancel("8976986",CreditRestore.FULL);
 		System.out.println(message);
 		
 		message = stub.checkIn("302",new Time(System.nanoTime()),"54245");
