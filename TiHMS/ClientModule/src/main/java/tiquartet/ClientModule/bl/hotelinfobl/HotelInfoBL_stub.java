@@ -6,13 +6,20 @@ import tiquartet.ClientModule.blservice.hotelinfoblservice.*;
 import tiquartet.CommonModule.util.ResultMessage;
 
 public class HotelInfoBL_stub implements HotelInfoBLService{
-	public HotelDetailsVO getHotelDetails(long hotelID){
+	
+	public HotelBriefVO getHotelBrief (int hotelID){
+		return new HotelBriefVO();
+	}
+	public HotelDetailsVO getHotelDetails (int hotelID){
 		return new HotelDetailsVO();
 	}
-	public List<RoomTypeVO> availableRoomType(Calendar start, Calendar end, long hotelID){
+	public List<RoomTypeVO> availableRoomType(Calendar start, Calendar end,long hotelID){
 		return new ArrayList<RoomTypeVO>();
 	}
 	public ResultMessage reviewHotel(ReviewVO review){
+		return ResultMessage.SUCCEED;
+	}
+	public ResultMessage modifyHotelInfo (HotelInfoVO hotelInfo){
 		return ResultMessage.SUCCEED;
 	}
 }

@@ -5,8 +5,8 @@ import tiquartet.ClientModule.vo.*;
 
 public interface SearchHotelBLService {
 
-	public List<HotelVO> getHotelList (int cityID, int district);
-	
-	public List<HotelVO> filter (HotelFilterVO filter);
+	public List<DistrictVO> renewDistrict ();
+	public List<HotelVO> recommend ();
+	public List<HotelBriefVO> getHotelList (HotelFilterVO filter, SortHotelVO sort, int rank1, int rank2);
 	
 }

@@ -7,11 +7,13 @@ import tiquartet.ClientModule.vo.*;
 
 public class SearchHotelbl_stub implements SearchHotelBLService{
 
-	public List<HotelVO> getHotelList (int cityID, int district){
+	public List<DistrictVO> renewDistrict (){
+		return new ArrayList<DistrictVO>();
+	}
+	public List<HotelVO> recommend (){
 		return new ArrayList<HotelVO>();
 	}
-	
-	public List<HotelVO> filter (HotelFilterVO filter){
-		return new ArrayList<HotelVO>();
+	public List<HotelBriefVO> getHotelList (HotelFilterVO filter, SortHotelVO sort, int rank1, int rank2){
+		return new ArrayList<HotelBriefVO>();
 	}
 }
