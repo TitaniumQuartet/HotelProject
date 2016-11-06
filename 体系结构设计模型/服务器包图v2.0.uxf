@@ -341,18 +341,6 @@ Java RMI
     <additional_attributes>340.0;190.0;10.0;10.0</additional_attributes>
   </element>
   <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>600</x>
-      <y>90</y>
-      <w>470</w>
-      <h>210</h>
-    </coordinates>
-    <panel_attributes>lt=.&gt;
-</panel_attributes>
-    <additional_attributes>450.0;190.0;10.0;10.0</additional_attributes>
-  </element>
-  <element>
     <id>UMLPackage</id>
     <coordinates>
       <x>570</x>
@@ -465,8 +453,8 @@ databaseutility
   <element>
     <id>UMLPackage</id>
     <coordinates>
-      <x>1280</x>
-      <y>670</y>
+      <x>1290</x>
+      <y>930</y>
       <w>100</w>
       <h>70</h>
     </coordinates>
@@ -480,31 +468,31 @@ po
     <id>Relation</id>
     <coordinates>
       <x>1170</x>
-      <y>700</y>
-      <w>130</w>
-      <h>70</h>
+      <y>740</y>
+      <w>140</w>
+      <h>250</h>
     </coordinates>
     <panel_attributes>lt=.&gt;
 </panel_attributes>
-    <additional_attributes>10.0;50.0;110.0;10.0</additional_attributes>
+    <additional_attributes>10.0;10.0;120.0;230.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
       <x>1170</x>
-      <y>700</y>
-      <w>130</w>
-      <h>470</h>
+      <y>960</y>
+      <w>140</w>
+      <h>210</h>
     </coordinates>
     <panel_attributes>lt=.&gt;
 </panel_attributes>
-    <additional_attributes>10.0;450.0;110.0;10.0</additional_attributes>
+    <additional_attributes>10.0;190.0;120.0;10.0</additional_attributes>
   </element>
   <element>
     <id>UMLPackage</id>
     <coordinates>
-      <x>1280</x>
-      <y>820</y>
+      <x>1290</x>
+      <y>830</y>
       <w>100</w>
       <h>70</h>
     </coordinates>
@@ -518,24 +506,24 @@ utility</panel_attributes>
     <coordinates>
       <x>1170</x>
       <y>740</y>
-      <w>130</w>
-      <h>130</h>
+      <w>140</w>
+      <h>140</h>
     </coordinates>
     <panel_attributes>lt=.&gt;
 </panel_attributes>
-    <additional_attributes>10.0;10.0;110.0;110.0</additional_attributes>
+    <additional_attributes>10.0;10.0;120.0;120.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
       <x>1170</x>
-      <y>840</y>
-      <w>130</w>
-      <h>330</h>
+      <y>850</y>
+      <w>140</w>
+      <h>320</h>
     </coordinates>
     <panel_attributes>lt=.&gt;
 </panel_attributes>
-    <additional_attributes>10.0;310.0;110.0;10.0</additional_attributes>
+    <additional_attributes>10.0;300.0;120.0;10.0</additional_attributes>
   </element>
   <element>
     <id>UMLPackage</id>
@@ -681,21 +669,6 @@ style=wordwrap
     <panel_attributes>
 --
 manageorderblservice
-style=wordwrap
-</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>UMLPackage</id>
-    <coordinates>
-      <x>1000</x>
-      <y>260</y>
-      <w>100</w>
-      <h>70</h>
-    </coordinates>
-    <panel_attributes>
---
-managehotelblservice
 style=wordwrap
 </panel_attributes>
     <additional_attributes/>
@@ -1042,18 +1015,6 @@ style=wordwrap
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>380</x>
-      <y>550</y>
-      <w>310</w>
-      <h>430</h>
-    </coordinates>
-    <panel_attributes>lt=.&gt;
-</panel_attributes>
-    <additional_attributes>10.0;10.0;290.0;410.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
       <x>330</x>
       <y>550</y>
       <w>80</w>
@@ -1246,81 +1207,6 @@ style=wordwrap
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>330</x>
-      <y>550</y>
-      <w>190</w>
-      <h>430</h>
-    </coordinates>
-    <panel_attributes>lt=.&gt;
-</panel_attributes>
-    <additional_attributes>170.0;10.0;10.0;410.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>490</x>
-      <y>550</y>
-      <w>90</w>
-      <h>430</h>
-    </coordinates>
-    <panel_attributes>lt=.&gt;
-</panel_attributes>
-    <additional_attributes>10.0;10.0;70.0;410.0</additional_attributes>
-  </element>
-  <element>
-    <id>UMLPackage</id>
-    <coordinates>
-      <x>1000</x>
-      <y>490</y>
-      <w>100</w>
-      <h>70</h>
-    </coordinates>
-    <panel_attributes>
---
-managehotelbl
-style=wordwrap
-</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>1040</x>
-      <y>320</y>
-      <w>30</w>
-      <h>210</h>
-    </coordinates>
-    <panel_attributes>lt=.&gt;
-</panel_attributes>
-    <additional_attributes>10.0;190.0;10.0;10.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>770</x>
-      <y>550</y>
-      <w>300</w>
-      <h>430</h>
-    </coordinates>
-    <panel_attributes>lt=.&gt;
-</panel_attributes>
-    <additional_attributes>280.0;10.0;10.0;410.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>440</x>
-      <y>550</y>
-      <w>630</w>
-      <h>430</h>
-    </coordinates>
-    <panel_attributes>lt=.&gt;
-</panel_attributes>
-    <additional_attributes>610.0;10.0;10.0;410.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
       <x>160</x>
       <y>550</y>
       <w>140</w>
@@ -1367,18 +1253,6 @@ style=wordwrap
     <additional_attributes>780.0;10.0;10.0;190.0</additional_attributes>
   </element>
   <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>160</x>
-      <y>550</y>
-      <w>910</w>
-      <h>210</h>
-    </coordinates>
-    <panel_attributes>lt=.&gt;
-</panel_attributes>
-    <additional_attributes>890.0;10.0;10.0;190.0</additional_attributes>
-  </element>
-  <element>
     <id>UMLPackage</id>
     <coordinates>
       <x>1000</x>
@@ -1391,18 +1265,6 @@ style=wordwrap
 utility
 </panel_attributes>
     <additional_attributes/>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>1040</x>
-      <y>550</y>
-      <w>30</w>
-      <h>210</h>
-    </coordinates>
-    <panel_attributes>lt=.&gt;
-</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;190.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
@@ -1503,38 +1365,26 @@ utility
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>490</x>
-      <y>550</y>
-      <w>310</w>
-      <h>430</h>
+      <x>1170</x>
+      <y>950</y>
+      <w>140</w>
+      <h>40</h>
     </coordinates>
     <panel_attributes>lt=.&gt;
 </panel_attributes>
-    <additional_attributes>10.0;10.0;290.0;410.0</additional_attributes>
+    <additional_attributes>10.0;20.0;120.0;20.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
       <x>1170</x>
-      <y>700</y>
-      <w>130</w>
-      <h>290</h>
+      <y>850</y>
+      <w>140</w>
+      <h>140</h>
     </coordinates>
     <panel_attributes>lt=.&gt;
 </panel_attributes>
-    <additional_attributes>10.0;270.0;110.0;10.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>1170</x>
-      <y>840</y>
-      <w>130</w>
-      <h>150</h>
-    </coordinates>
-    <panel_attributes>lt=.&gt;
-</panel_attributes>
-    <additional_attributes>10.0;130.0;110.0;10.0</additional_attributes>
+    <additional_attributes>10.0;120.0;120.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
@@ -1547,30 +1397,6 @@ utility
     <panel_attributes>lt=.&gt;
 </panel_attributes>
     <additional_attributes>10.0;190.0;450.0;10.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>1170</x>
-      <y>360</y>
-      <w>130</w>
-      <h>370</h>
-    </coordinates>
-    <panel_attributes>lt=.&gt;
-</panel_attributes>
-    <additional_attributes>10.0;10.0;110.0;350.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>1170</x>
-      <y>360</y>
-      <w>130</w>
-      <h>510</h>
-    </coordinates>
-    <panel_attributes>lt=.&gt;
-</panel_attributes>
-    <additional_attributes>10.0;10.0;110.0;490.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
@@ -1589,36 +1415,12 @@ utility
     <coordinates>
       <x>380</x>
       <y>550</y>
-      <w>420</w>
-      <h>430</h>
-    </coordinates>
-    <panel_attributes>lt=.&gt;
-</panel_attributes>
-    <additional_attributes>10.0;10.0;400.0;410.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>380</x>
-      <y>550</y>
       <w>90</w>
       <h>430</h>
     </coordinates>
     <panel_attributes>lt=.&gt;
 </panel_attributes>
     <additional_attributes>10.0;10.0;70.0;410.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>220</x>
-      <y>550</y>
-      <w>410</w>
-      <h>430</h>
-    </coordinates>
-    <panel_attributes>lt=.&gt;
-</panel_attributes>
-    <additional_attributes>390.0;10.0;10.0;410.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
@@ -1635,13 +1437,50 @@ utility
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>600</x>
+      <x>1170</x>
+      <y>350</y>
+      <w>140</w>
+      <h>530</h>
+    </coordinates>
+    <panel_attributes>lt=.&gt;
+</panel_attributes>
+    <additional_attributes>10.0;10.0;120.0;510.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLPackage</id>
+    <coordinates>
+      <x>1270</x>
+      <y>320</y>
+      <w>100</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>
+--
+vo</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1170</x>
+      <y>340</y>
+      <w>120</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=.&gt;
+</panel_attributes>
+    <additional_attributes>10.0;20.0;100.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>270</x>
       <y>550</y>
-      <w>90</w>
+      <w>530</w>
       <h>430</h>
     </coordinates>
     <panel_attributes>lt=.&gt;
 </panel_attributes>
-    <additional_attributes>10.0;10.0;70.0;410.0</additional_attributes>
+    <additional_attributes>10.0;10.0;510.0;410.0</additional_attributes>
   </element>
 </diagram>
