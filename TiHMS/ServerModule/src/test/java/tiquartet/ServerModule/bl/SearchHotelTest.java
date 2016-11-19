@@ -22,18 +22,6 @@ public class SearchHotelTest {
 		
 	}	
 
-	@Test
-	public void testrenewDistrict() {
-       hotelList=new SearchHotel();
-       DistrictVO district1=new DistrictVO();
-	   district1.districtID=00001;
-	   DistrictVO district2=new DistrictVO();
-	   district1.districtID=00002;
-       List<DistrictVO> district=hotelList.renewDistrict();
-       district.add(district1);
-	   district.add(district2);
-       assertEquals(district.get(0).districtID,00001);
-	}
 	
 	@Test
 	public void testrecommend(){

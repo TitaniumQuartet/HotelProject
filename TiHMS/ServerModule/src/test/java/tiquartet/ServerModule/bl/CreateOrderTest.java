@@ -18,7 +18,7 @@ public class CreateOrderTest{
 	public void testgetStrategyByID(){
 		order = new CreateOrder();
 		StrategyListItem strategy = order.getStrategyByID(123456, 666666);
-		assertEquals(strategy, "20% dicount");
+		assertEquals(strategy.intro, "20% dicount");
 	}
 	
 	@Test

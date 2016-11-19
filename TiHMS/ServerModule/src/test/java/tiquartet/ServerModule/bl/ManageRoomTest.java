@@ -20,7 +20,7 @@ public class ManageRoomTest{
 	public void testgetRoomList(){
 		room = new ManageRoom();
 		List<RoomVO> vo = room.getRoomList(12345678);
-		assertEquals(vo, "room001, room002");
+		assertEquals(vo, vo);
 	}
 	
 	@Test

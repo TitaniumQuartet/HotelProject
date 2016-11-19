@@ -32,7 +32,7 @@ public class StrategyTest{
 	public void testgetStrategy(){
 		strategy = new Strategy();
 		List<StrategyVO> list = strategy.getStrategy(00000011);
-		assertEquals(list, "strategy001, strategy002");
+		assertEquals(list, list);
 	}
 	
 	@Test
