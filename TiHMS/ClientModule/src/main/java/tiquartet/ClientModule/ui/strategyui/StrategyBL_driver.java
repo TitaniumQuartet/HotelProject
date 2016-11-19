@@ -4,7 +4,7 @@ import java.util.*;
 
 import tiquartet.CommonModule.vo.*;
 import tiquartet.ServerModule.bl.strategybl.*;
-import tiquartet.ServerModule.blservice.strategyblservice.*;
+import tiquartet.CommonModule.blservice.strategyblservice.*;
 
 public class StrategyBL_driver {
     public void drive(StrategyBLService stub){

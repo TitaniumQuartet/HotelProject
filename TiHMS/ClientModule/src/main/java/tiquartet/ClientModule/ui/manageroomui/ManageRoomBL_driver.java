@@ -5,7 +5,7 @@ import java.util.List;
 import tiquartet.CommonModule.util.ResultMessage;
 import tiquartet.CommonModule.vo.*;
 import tiquartet.ServerModule.bl.manageroombl.*;
-import tiquartet.ServerModule.blservice.manageroomblservice.*;
+import tiquartet.CommonModule.blservice.manageroomblservice.*;
 
 public class ManageRoomBL_driver {
 

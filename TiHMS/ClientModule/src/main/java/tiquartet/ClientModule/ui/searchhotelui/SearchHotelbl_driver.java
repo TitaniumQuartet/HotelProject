@@ -2,7 +2,6 @@ package tiquartet.ClientModule.ui.searchhotelui;
 
 import java.util.List;
 
-import tiquartet.ClientModule.blservice.searchhotelblservice.*;
 import tiquartet.CommonModule.blservice.searchhotelblservice.SearchHotelBLService;
 import tiquartet.CommonModule.vo.*;
 import tiquartet.ServerModule.bl.searchhotelbl.*;
@@ -11,11 +10,11 @@ public class SearchHotelbl_driver {
 
 public void drive(SearchHotelBLService stub){
 		
-		List<HotelVO> hotelvo = stub.getHotelList(2,34);
+		List<HotelBriefVO> searchResult = stub.getHotelList(new HotelFilterVO(), new SortHotelVO(), 1, 20);
 		System.out.println("Retrieving hotel list...");
 		
-		hotelvo = stub.filter(new HotelFilterVO());
-		System.out.println("Applying Hotel Filter...");
+		List<HotelVO> recommended = stub.recommend();
+		System.out.println("Retrieving hotel recommendation");
 	}
 	
 	public static void main(String[] args){
