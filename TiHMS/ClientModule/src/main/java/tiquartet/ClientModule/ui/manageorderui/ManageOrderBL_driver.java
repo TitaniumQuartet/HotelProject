@@ -37,6 +37,6 @@ public class ManageOrderBL_driver {
 	
 	public static void main(String[] args){
 		
-		new ManageOrderBL_driver().drive(new ManageOrderBL_stub());
+		new ManageOrderBL_driver().drive(new ManageOrder());
 	}
 }
