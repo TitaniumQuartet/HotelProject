@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import tiquartet.ServerModule.bl.usermainbl.MockUserMain;
-import tiquartet.ServerModule.bl.manageorderbl.MockManageOrder;
+import tiquartet.ServerModule.bl.manageorderbl.ManageOrder;
 import tiquartet.CommonModule.vo.*;
 import tiquartet.CommonModule.util.ResultMessage;
 
@@ -21,7 +21,7 @@ public class HotelInfo {
 	}
 	
 	public HotelDetailsVO getHotelDetails (int hotelID){
-	    MockManageOrder order=new MockManageOrder();
+	    ManageOrder order=new ManageOrder();
 	    order.clientAtHotel (hotelID);
 	    HotelDetailsVO hoteldetails=new HotelDetailsVO();
 	    hoteldetails.hotelID=hotelID;
