@@ -6,9 +6,10 @@ import tiquartet.CommonModule.util.ResultMessage;
 import tiquartet.ServerModule.po.StrategyPO;
 
 public interface StrategyDataService {
-	public List<StrategyPO> searchByHotel(long hotelID);
-	public ResultMessage insert(StrategyPO strategy);
-	public ResultMessage delete(long strategyID);
-	public ResultMessage update(StrategyPO strategy);
+	
+	public List <StrategyPO > searchByHotel (int hotelID);
+	public ResultMessage insert (StrategyPO strategy);
+	public ResultMessage delete (int strategyID);
+	public ResultMessage update (StrategyPO strategy);
 
 }

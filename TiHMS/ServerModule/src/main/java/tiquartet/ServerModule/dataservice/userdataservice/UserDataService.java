@@ -8,11 +8,14 @@ import tiquartet.ServerModule.po.PersonalPO;
 import tiquartet.ServerModule.po.UserPO;
 
 public interface UserDataService {
-	public ResultMessage insert(UserPO user);
-	public PersonalPO getUserInfo(long userID);
-	public ResultMessage update(PersonalPO personal);
-	public ResultMessage insert(PersonalPO personal);
-	public CreditPO getCreditBalance(long userID);
-	public List<UserPO> searchClient(String username, String realName);
+	
+	public ResultMessage userExist (String username);
+	public ResultMessage checkPassword (String username, String password);
+	public ResultMessage insert (UserPO user);
+	public UserPO getUser (int userID);
+	public ResultMessage update (UserPO user);
+	public List<UserPO> searchUser (String username, String realName);
+	public ResultMessage getCreditBalance (int userID);
+	public ResultMessage addCredit (int userID, double addition);
 
 }
