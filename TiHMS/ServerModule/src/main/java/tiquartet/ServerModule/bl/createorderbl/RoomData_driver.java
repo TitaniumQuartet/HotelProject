@@ -11,7 +11,7 @@ public class RoomData_driver {
 		stub.insert(new RoomPO());
 		stub.update(new RoomPO());
 		stub.delete(00010);
-		stub.isAvailable(Calendar.getInstance(),Calendar.getInstance(),010,00010);		
+		stub.availableRoomType(0000011111, "2016/5/13", "2016/5/15", 3);		
 		stub.checkIn(00010);
 		stub.checkOut(00010);
 	}

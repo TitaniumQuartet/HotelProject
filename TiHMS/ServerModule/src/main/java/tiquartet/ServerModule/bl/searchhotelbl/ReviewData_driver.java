@@ -8,7 +8,7 @@ import tiquartet.ServerModule.data.reviewdata.*;
 public class ReviewData_driver {
 	public void drive(ReviewDataService stub) throws RemoteException{
 		stub.insert(new ReviewPO());
-		stub.search(0000011111);
+		stub.searchByHotel(0000011111);
 	}
 	
 	public static void main(String[] args){

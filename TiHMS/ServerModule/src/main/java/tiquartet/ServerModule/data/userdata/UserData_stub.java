@@ -39,4 +39,39 @@ public class UserData_stub implements UserDataService{
 		return new ArrayList<UserPO>();
 	}
 
+	public ResultMessage userExist(String username) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public ResultMessage checkPassword(String username, String password) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public UserPO getUser(int userID) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public ResultMessage update(UserPO user) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public List<UserPO> searchUser(String username, String realName) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public ResultMessage getCreditBalance(int userID) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public ResultMessage addCredit(int userID, double addition) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

@@ -32,6 +32,27 @@ public class RoomData_stub implements RoomDataService{
 		System.out.println("yes");
 		return ResultMessage.SUCCEED;
 	}
+	public ResultMessage preOrder(OrderPO preOrder) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	public ResultMessage cancelPreOrder(OrderPO preOrder) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	public List<RoomTypePO> availableRoomType(int hotelID, String startDate,
+			String endDate, int numOfRoom) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	public ResultMessage insertType(int hotelID, RoomTypePO room) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	public ResultMessage updateType(int hotelID, RoomTypePO room) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
 
 }

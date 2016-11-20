@@ -2,6 +2,7 @@ package tiquartet.ServerModule.dataservice.creditdataservice;
 
 import java.util.List;
 
+import tiquartet.CommonModule.util.ResultMessage;
 import tiquartet.ServerModule.po.CreditPO;
 
 public interface CreditDataService {

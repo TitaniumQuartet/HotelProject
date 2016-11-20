@@ -4,6 +4,7 @@ package tiquartet.ServerModule.data.hotelinfodata;
 import java.util.*;
 
 import tiquartet.CommonModule.util.ResultMessage;
+import tiquartet.CommonModule.vo.PreOrderVO;
 import tiquartet.ServerModule.dataservice.hotelinfodataservice.*;
 import tiquartet.ServerModule.po.*;
 
@@ -48,6 +49,30 @@ public class HotelInfoData_stub implements HotelInfoDataService{
 	public HotelDetailsPO searchHotelDetails(long hotelID){
 		System.out.println("Getting detailed info...");
 		return new HotelDetailsPO();
+	}
+	public HotelInfoPO getHotelInfo(int hotelID) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	public ResultMessage updateRate(int HotelID, double newRate) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	public ResultMessage insert(HotelInfoPO hotelInfo) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	public List<RoomTypePO> getRoomTypes(int hotelID) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	public List<RoomTypePO> availableRoomType(PreOrderVO preOrder) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	public List<HotelInfoPO> getHotelList(int districtID) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

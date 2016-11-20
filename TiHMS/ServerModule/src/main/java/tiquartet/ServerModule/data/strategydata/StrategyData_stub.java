@@ -24,5 +24,13 @@ public class StrategyData_stub implements StrategyDataService{
 		System.out.println("yes");
 		return ResultMessage.SUCCEED;
 	}
+	public List<StrategyPO> searchByHotel(int hotelID) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	public ResultMessage delete(int strategyID) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
 }

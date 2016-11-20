@@ -1,5 +1,7 @@
 package tiquartet.ServerModule.datahelper;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -37,7 +39,7 @@ public class UserDataSqlHelper implements UserDataHelper{
 	 * @return	从数据文件中读取用户数据
 	 */
 	public Map<Integer, UserPO> getUser(int userID){
-		return new Map<0, new UserPO>;
+		return new HashMap<Integer, UserPO>();
 	}
 	
 	/**
@@ -53,7 +55,7 @@ public class UserDataSqlHelper implements UserDataHelper{
 	 * @param 
 	 */
 	public List<UserPO> searchUser (String username, String realName){
-		return new List<UserPO>();
+		return new ArrayList<UserPO>();
 
 	}
 	
