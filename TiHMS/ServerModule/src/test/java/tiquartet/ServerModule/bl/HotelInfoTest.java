@@ -40,7 +40,7 @@ public class HotelInfoTest {
 		hotel=new HotelInfo();
 		ReviewVO review=new ReviewVO();
 		ResultMessage result=hotel.reviewHotel(review);
-		assertEquals(result,ResultMessage.SUCCEED);
+		assertEquals(result.result,true);
 	}
 	
 	@Test
@@ -48,7 +48,7 @@ public class HotelInfoTest {
 		hotel=new HotelInfo();
 		HotelInfoVO hotelInfo=new HotelInfoVO();
 		ResultMessage result=hotel.modifyHotelInfo(hotelInfo);
-		assertEquals(result,ResultMessage.SUCCEED);
+		assertEquals(result.result,true);
 	}
 
 }

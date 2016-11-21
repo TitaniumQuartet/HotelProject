@@ -9,11 +9,11 @@ public class Strategy{
 	
 	
 	public ResultMessage addStrategy(int hotelID, StrategyVO vo){
-		return ResultMessage.SUCCEED;
+		return new ResultMessage(true);
 	}
 	
 	public ResultMessage deleteStrategy(long strategyID){
-		return ResultMessage.SUCCEED;
+		return new ResultMessage(true);
 	}
 	
 	public List<StrategyVO> getStrategy(long userID){
@@ -21,7 +21,7 @@ public class Strategy{
 	}
 	
 	public ResultMessage changeStrategy(StrategyVO vo){
-		return ResultMessage.SUCCEED;
+		return new ResultMessage(true);
 	}
 	
 }

@@ -13,11 +13,11 @@ public class UserMain {
     	return user;
     }
 	public ResultMessage logout (int userID){
-		return ResultMessage.SUCCEED;
+		return new ResultMessage(true);
 	}
     public ResultMessage signUp(String username,String password){
     	
-    	return ResultMessage.SUCCEED;
+    	return new ResultMessage(true);
     }
     public boolean isUnregistered (String username){
     	return true;

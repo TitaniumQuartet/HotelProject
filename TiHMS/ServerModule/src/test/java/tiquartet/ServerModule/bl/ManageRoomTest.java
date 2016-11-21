@@ -28,7 +28,7 @@ public class ManageRoomTest{
 		room = new ManageRoom();
 		RoomVO vo = new RoomVO();
 		ResultMessage result = room.modifyRoomInfo(vo);
-		assertEquals(result, ResultMessage.SUCCEED);
+		assertEquals(result.result,true);
 	}
 	
 	@Test
@@ -36,28 +36,28 @@ public class ManageRoomTest{
 		room = new ManageRoom();
 		RoomVO vo = new RoomVO();
 		ResultMessage result = room.addRoom(vo);
-		assertEquals(result, ResultMessage.SUCCEED);
+		assertEquals(result.result,true);
 	}
 	
 	@Test
 	public void testdeleteRoom(){
 		room = new ManageRoom();
 		ResultMessage result = room.deleteRoom(00000001);
-		assertEquals(result, ResultMessage.SUCCEED);
+		assertEquals(result.result,true);
 	}
 	
 	@Test
 	public void testcheckIn(){
 		room = new ManageRoom();
 		ResultMessage result = room.checkIn(00000001);
-		assertEquals(result, ResultMessage.SUCCEED);
+		assertEquals(result.result,true);
 	}
 	
 	@Test
 	public void testcheckOut(){
 		room = new ManageRoom();
 		ResultMessage result = room.checkOut(00000001);
-		assertEquals(result, ResultMessage.SUCCEED);
+		assertEquals(result.result,true);
 	}
 	
 	@Test
@@ -65,7 +65,7 @@ public class ManageRoomTest{
 		room = new ManageRoom();
 		RoomTypeVO vo = new RoomTypeVO();
 		ResultMessage result = room.addRoomType(vo);
-		assertEquals(result, ResultMessage.SUCCEED);
+		assertEquals(result.result,true);
 		
 	}
 	
@@ -74,7 +74,7 @@ public class ManageRoomTest{
 		room = new ManageRoom();
 		RoomTypeVO vo = new RoomTypeVO();
 		ResultMessage result = room.modifyRoomType(vo);
-		assertEquals(result, ResultMessage.SUCCEED);
+		assertEquals(result.result,true);
 		
 	}
 	
@@ -82,7 +82,7 @@ public class ManageRoomTest{
 	public void deleteRoomType(){
 		room = new ManageRoom();
 		ResultMessage result = room.deleteRoomType(12345678, 11111111);
-		assertEquals(result, ResultMessage.SUCCEED);
+		assertEquals(result.result,true);
 		
 	}
 }

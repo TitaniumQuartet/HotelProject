@@ -10,15 +10,15 @@ import tiquartet.ServerModule.po.*;
 public class RoomData_stub implements RoomDataService{
 	public ResultMessage update(RoomPO room){
 		System.out.println("yes");
-		return ResultMessage.SUCCEED;
+		return new ResultMessage(true);
 	}
 	public ResultMessage insert(RoomPO room){
 		System.out.println("yes");
-		return ResultMessage.SUCCEED;
+		return new ResultMessage(true);
 	}
 	public ResultMessage delete(int roomID){
 		System.out.println("yes");
-		return ResultMessage.SUCCEED;
+		return new ResultMessage(true);
 	}
 	public boolean isAvailable(Calendar start, Calendar end, int roomTypeID, int numOfRoom){
 		System.out.println("yes");
@@ -26,11 +26,11 @@ public class RoomData_stub implements RoomDataService{
 	}
 	public ResultMessage checkIn (int roomID){
 		System.out.println("yes");
-		return ResultMessage.SUCCEED;
+		return new ResultMessage(true);
 	}
 	public ResultMessage checkOut (int roomID){
 		System.out.println("yes");
-		return ResultMessage.SUCCEED;
+		return new ResultMessage(true);
 	}
 	public ResultMessage preOrder(OrderPO preOrder) {
 		// TODO Auto-generated method stub

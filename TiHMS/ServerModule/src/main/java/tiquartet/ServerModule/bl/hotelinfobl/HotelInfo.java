@@ -44,11 +44,11 @@ public class HotelInfo {
 	}
 	
 	public ResultMessage reviewHotel(ReviewVO review){
-		return ResultMessage.SUCCEED;
+		return new ResultMessage(true);
 	}
 	
 	public ResultMessage modifyHotelInfo (HotelInfoVO hotelInfo){
-		return ResultMessage.SUCCEED;
+		return new ResultMessage(true);
 	}
 
 }

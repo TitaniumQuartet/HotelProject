@@ -11,7 +11,7 @@ public class UserData_stub implements UserDataService{
 	
 	public ResultMessage insert(UserPO user){
 		System.out.println("yes");
-		return ResultMessage.SUCCEED;
+		return new ResultMessage(true);
 	}
 	
 	public PersonalPO getUserInfo(long userID){
@@ -21,12 +21,12 @@ public class UserData_stub implements UserDataService{
 	
 	public ResultMessage update(PersonalPO personal){
 		System.out.println("yes");
-		return ResultMessage.SUCCEED;		
+		return new ResultMessage(true);		
 	}
 	
 	public ResultMessage insert(PersonalPO personal){
 		System.out.println("yes");
-		return ResultMessage.SUCCEED;
+		return new ResultMessage(true);
 	}
 	
 	public CreditPO getCreditBalance(long userID){

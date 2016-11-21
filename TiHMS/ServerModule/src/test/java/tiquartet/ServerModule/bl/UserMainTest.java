@@ -24,14 +24,14 @@ public class UserMainTest {
 		user=new UserMain();
 		UserVO userVO=user.login("Teki", "12345678");
 		ResultMessage result=user.logout(userVO.userID);
-		assertEquals(result,ResultMessage.SUCCEED);
+		assertEquals(result.result,true);
 	}
 	
 	@Test
 	public void testsignUp(){
 		user=new UserMain();
 		ResultMessage result=user.signUp("Teki", "12345678");
-		assertEquals(result,ResultMessage.SUCCEED);
+		assertEquals(result.result,true);
 	}
 	
 	@Test

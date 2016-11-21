@@ -26,14 +26,14 @@ public class CreateOrderTest{
 		order = new CreateOrder();
 		PreOrderVO pre = new PreOrderVO();
 		ResultMessage result = order.preOrder(pre);
-		assertEquals(result, ResultMessage.SUCCEED);
+		assertEquals(result.result, true);
 	}
 	
 	@Test
 	public void testcancelPreOrder(){
 		order = new CreateOrder();
 		ResultMessage result = order.cancelPreOrder();
-		assertEquals(result, ResultMessage.SUCCEED);
+		assertEquals(result.result, true);
 	}
 	
 	@Test
@@ -41,6 +41,6 @@ public class CreateOrderTest{
 		order = new CreateOrder();
 		OrderInfoVO vo = new OrderInfoVO();
 		ResultMessage result = order.confirm(vo);
-		assertEquals(result, ResultMessage.SUCCEED);
+		assertEquals(result.result, true);
 	}
 }

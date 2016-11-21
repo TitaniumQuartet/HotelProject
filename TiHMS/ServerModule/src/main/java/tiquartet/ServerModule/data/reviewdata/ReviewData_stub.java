@@ -9,7 +9,7 @@ import tiquartet.ServerModule.po.*;
 public class ReviewData_stub implements ReviewDataService{
 	
 	public ResultMessage insert(ReviewPO review){
-		return ResultMessage.SUCCEED;
+		return new ResultMessage(true);
 	}
 	public List<ReviewPO> searchByHotel(int hotelID) {
 		// TODO Auto-generated method stub

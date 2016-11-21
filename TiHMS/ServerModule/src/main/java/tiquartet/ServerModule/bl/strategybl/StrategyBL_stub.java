@@ -8,15 +8,15 @@ import tiquartet.CommonModule.util.ResultMessage;
 
 public class StrategyBL_stub implements StrategyBLService{
 	public ResultMessage addStrategy(StrategyVO s){
-		return ResultMessage.SUCCEED;
+		return new ResultMessage(true);
 	}
 	public ResultMessage deleteStrategy(long strategyID){
-		return ResultMessage.SUCCEED;
+		return new ResultMessage(true);
 	}
 	public List<StrategyVO> getStrategy(long userID){
 		return new ArrayList<StrategyVO>();
 	}
 	public ResultMessage changeStrategy(StrategyVO s){
-		return ResultMessage.SUCCEED;
+		return new ResultMessage(true);
 	}
 }

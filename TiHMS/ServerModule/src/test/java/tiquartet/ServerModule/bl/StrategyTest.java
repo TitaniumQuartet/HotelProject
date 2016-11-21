@@ -18,14 +18,14 @@ public class StrategyTest{
 		Strategy startegy = new Strategy();
 		StrategyVO vo = new StrategyVO();
 		ResultMessage result = startegy.addStrategy(123456789, vo);
-		assertEquals(result, ResultMessage.SUCCEED);
+		assertEquals(result.result,true);
 	}
 	
 	@Test
 	public void testdeleteStrategy(){
 		strategy = new Strategy();
 		ResultMessage result = strategy.deleteStrategy(00001111);
-		assertEquals(result, ResultMessage.SUCCEED);
+		assertEquals(result.result,true);
 	}
 	
 	@Test
@@ -40,6 +40,6 @@ public class StrategyTest{
 		strategy = new Strategy();
 		StrategyVO vo = new StrategyVO();
 		ResultMessage result = strategy.changeStrategy(vo);
-		assertEquals(result, ResultMessage.SUCCEED);
+		assertEquals(result.result,true);
 	}
 }

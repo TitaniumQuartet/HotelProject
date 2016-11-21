@@ -14,10 +14,10 @@ public class HotelInfoBL_stub implements HotelInfoBLService{
 		return new HotelDetailsVO();
 	}
 	public ResultMessage reviewHotel(ReviewVO review){
-		return ResultMessage.SUCCEED;
+		return new ResultMessage(true);
 	}
 	public ResultMessage modifyHotelInfo (HotelInfoVO hotelInfo){
-		return ResultMessage.SUCCEED;
+		return new ResultMessage(true);
 	}
 	public List<RoomTypeVO> availableRoomType(PreOrderVO preOrder) {
 		return new ArrayList<RoomTypeVO>();

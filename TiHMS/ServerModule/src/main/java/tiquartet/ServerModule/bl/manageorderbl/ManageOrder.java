@@ -9,10 +9,11 @@ import tiquartet.CommonModule.util.ResultMessage;
 import tiquartet.CommonModule.vo.OrderFilterVO;
 import tiquartet.CommonModule.vo.OrderNumVO;
 import tiquartet.CommonModule.vo.OrderVO;
-import tiquartet.ServerModule.dataservice.orderdataservice.OrderDataController;
+import tiquartet.ServerModule.datahelper.DataFactory;
 import tiquartet.ServerModule.po.OrderPO;
 
 public class ManageOrder implements ManageOrderBLService{
+	static DataFactory dataFactory=new DataFactory();
 
 	public List<OrderVO> orderHistory(int userID, OrderFilterVO filter,
 			OrderSort sort, int rank1, int rank2) {
@@ -20,7 +21,7 @@ public class ManageOrder implements ManageOrderBLService{
 	}
 
 	public OrderVO getOrderByID(long orderID) {
-		OrderPO po=OrderDataController.getOrderByID(orderID);
+		OrderPO po=dataFactory.getOrderDataHelper().getOrderByID(orderID);
 		return new OrderVO();//未完成的返回内容，需要补充po转化为vo的方法。
 	}
 

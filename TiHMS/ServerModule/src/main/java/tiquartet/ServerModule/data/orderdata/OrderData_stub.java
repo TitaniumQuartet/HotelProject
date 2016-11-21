@@ -11,11 +11,11 @@ public class OrderData_stub implements OrderDataService{
 	
 	public ResultMessage insert(OrderPO order){
 		System.out.println("yes");
-		return ResultMessage.SUCCEED;
+		return new ResultMessage(true);
 	}
 	public ResultMessage update(OrderPO order){
 		System.out.println("yes");
-		return ResultMessage.SUCCEED;
+		return new ResultMessage(true);
 	}
 	public List<OrderPO> hasBeenOrdered(int hotelID, int userID) {
 		// TODO Auto-generated method stub

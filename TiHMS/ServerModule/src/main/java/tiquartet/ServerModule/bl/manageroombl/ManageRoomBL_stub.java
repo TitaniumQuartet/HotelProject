@@ -13,14 +13,14 @@ public class ManageRoomBL_stub implements ManageRoomBLService{
 	}
 	
 	public ResultMessage modifyRoomStatus (RoomVO room){
-		return ResultMessage.SUCCEED;
+		return new ResultMessage(true);
 	}
 	
 	public ResultMessage addRoom (RoomVO room){
-		return ResultMessage.SUCCEED;
+		return new ResultMessage(true);
 	}
 	
 	public ResultMessage deleteRoom (int roomID){
-		return ResultMessage.SUCCEED;
+		return new ResultMessage(true);
 	}
 }

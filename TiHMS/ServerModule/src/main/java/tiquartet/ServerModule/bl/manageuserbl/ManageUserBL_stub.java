@@ -31,15 +31,15 @@ public class ManageUserBL_stub implements ManageUserBLService{
 	}
 	
 	public ResultMessage credit(double money, int userId){
-		return ResultMessage.SUCCEED;
+		return new ResultMessage(true);
 	}
 	
 	public ResultMessage addHotel(String hotelName){
-		return ResultMessage.SUCCEED;
+		return new ResultMessage(true);
 	}
 	
 	public ResultMessage add(int hotelId, int staffId){
-		return ResultMessage.SUCCEED;
+		return new ResultMessage(true);
 	}
 
 	public List<UserVO> accurateSearch(String username, String realName) {

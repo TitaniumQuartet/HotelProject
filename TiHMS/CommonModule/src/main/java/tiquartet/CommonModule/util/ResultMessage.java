@@ -1,5 +1,19 @@
 package tiquartet.CommonModule.util;
 
-public enum ResultMessage {
-	 SUCCEED,FAIL,OFFLINE;
+import java.io.Serializable;
+
+public class ResultMessage implements Serializable{
+	 public boolean result;
+	 public String failInfo;
+	 public String message;
+	 
+	 public ResultMessage(boolean isSuccessful){
+		 result=isSuccessful;
+	 }
+	 
+	 public ResultMessage(boolean isSuccessful,String failInfo,String message){
+		 result=isSuccessful;
+		 this.failInfo=failInfo;
+		 this.message=message;
+	 }
 }

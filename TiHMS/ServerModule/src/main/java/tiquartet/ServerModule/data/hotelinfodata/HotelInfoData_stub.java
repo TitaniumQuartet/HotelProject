@@ -24,11 +24,11 @@ public class HotelInfoData_stub implements HotelInfoDataService{
 	}
 	public ResultMessage insert(HotelDetailsPO hotel){
 		System.out.println("yes");
-		return ResultMessage.SUCCEED;
+		return new ResultMessage(true);
 	}
 	public ResultMessage update(HotelInfoPO hotelInfo){
 		System.out.println("yes");
-		return ResultMessage.SUCCEED;
+		return new ResultMessage(true);
 	}
 	public RoomTypePO getRoomType(long hotelID, int roomTypeID){
 		System.out.println("yes");

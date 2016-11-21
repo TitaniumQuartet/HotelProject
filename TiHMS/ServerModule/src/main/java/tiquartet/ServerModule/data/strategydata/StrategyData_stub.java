@@ -14,15 +14,15 @@ public class StrategyData_stub implements StrategyDataService{
 	}
 	public ResultMessage insert(StrategyPO strategy){
 		System.out.println("yes");
-		return ResultMessage.SUCCEED;
+		return new ResultMessage(true);
 	}
 	public ResultMessage delete(long strategyID){
 		System.out.println("yes");
-		return ResultMessage.SUCCEED;
+		return new ResultMessage(true);
 	}
 	public ResultMessage update(StrategyPO strategy){
 		System.out.println("yes");
-		return ResultMessage.SUCCEED;
+		return new ResultMessage(true);
 	}
 	public List<StrategyPO> searchByHotel(int hotelID) {
 		// TODO Auto-generated method stub

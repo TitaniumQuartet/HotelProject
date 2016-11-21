@@ -8,7 +8,7 @@ import tiquartet.CommonModule.util.ResultMessage;
 
 public class CreateOrderBL_stub implements CreateOrderBLService{
 	public ResultMessage orderInfo(OrderInfoVO orderInfo){
-		return ResultMessage.SUCCEED;
+		return new ResultMessage(true);
 	}
 	public void endCreateOrder(){
 		
@@ -20,6 +20,6 @@ public class CreateOrderBL_stub implements CreateOrderBLService{
 		return new ArrayList<OrderStrategyVO>();
 	}
 	public ResultMessage selectStrategy(long strategyID){
-		return ResultMessage.SUCCEED;
+		return new ResultMessage(true);
 	}
 }

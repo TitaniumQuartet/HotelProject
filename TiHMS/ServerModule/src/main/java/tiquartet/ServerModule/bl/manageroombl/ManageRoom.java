@@ -13,35 +13,35 @@ public class ManageRoom{
 	}
 	
 	public ResultMessage modifyRoomInfo(RoomVO room){
-		return ResultMessage.SUCCEED;
+		return new ResultMessage(true);
 	}
 	
 	public ResultMessage addRoom(RoomVO room){
-		return ResultMessage.SUCCEED;
+		return new ResultMessage(true);
 	}
 	
 	public ResultMessage deleteRoom(int roomID){
-		return ResultMessage.SUCCEED;
+		return new ResultMessage(true);
 	}
 	
 	public ResultMessage checkIn(int roomID){
-		return ResultMessage.SUCCEED;
+		return new ResultMessage(true);
 	}
 	
 	public ResultMessage checkOut(int roomID){
-		return ResultMessage.SUCCEED;
+		return new ResultMessage(true);
 	}
 	
 	public ResultMessage addRoomType(RoomTypeVO roomType){
-		return ResultMessage.SUCCEED;
+		return new ResultMessage(true);
 	}
 	
 	public ResultMessage modifyRoomType(RoomTypeVO roomType){
-		return ResultMessage.SUCCEED;
+		return new ResultMessage(true);
 	}
 	
 	public ResultMessage deleteRoomType(int hotelID, int roomTypeID){
-		return ResultMessage.SUCCEED;
+		return new ResultMessage(true);
 	}
 	
 }

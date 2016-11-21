@@ -13,15 +13,15 @@ public class CreateOrder{
 	}
 	
 	public ResultMessage preOrder(PreOrderVO preOrder){
-		return ResultMessage.SUCCEED;
+		return new ResultMessage(true);
 	}
 	
 	public ResultMessage cancelPreOrder(){
-		return ResultMessage.SUCCEED;
+		return new ResultMessage(true);
 	}
 	
 	public ResultMessage confirm(OrderInfoVO orderInfo){
-		return ResultMessage.SUCCEED;
+		return new ResultMessage(true);
 	}
 	
 }
