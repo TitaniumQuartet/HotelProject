@@ -39,7 +39,13 @@ public class UserDataSqlHelper implements UserDataHelper{
 	 * @return	从数据文件中读取用户数据
 	 */
 	public Map<Integer, UserPO> getUser(int userID){
-		return new HashMap<Integer, UserPO>();
+		Map<Integer, UserPO> map = new HashMap<Integer, UserPO>();
+		try {
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
 	}
 	
 	/**

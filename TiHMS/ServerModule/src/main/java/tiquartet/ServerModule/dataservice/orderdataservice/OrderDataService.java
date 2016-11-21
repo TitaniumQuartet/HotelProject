@@ -3,7 +3,6 @@ package tiquartet.ServerModule.dataservice.orderdataservice;
 import java.util.List;
 import tiquartet.CommonModule.util.OrderStatus;
 import tiquartet.CommonModule.util.ResultMessage;
-import tiquartet.ServerModule.po.OrderFilterPO;
 import tiquartet.ServerModule.po.OrderPO;
 
 public interface OrderDataService {

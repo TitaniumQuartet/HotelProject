@@ -7,9 +7,7 @@
     <artifactId>TiHMS</artifactId>
     <version>0.0.1-SNAPSHOT</version>
   </parent>
-  <groupId>tiquartet</groupId>
   <artifactId>ServerModule</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
   <name>ServerModule</name>
   <url>http://maven.apache.org</url>
   <properties>

@@ -1,7 +1,6 @@
 package tiquartet.ServerModule.dataservice.orderdataservice;
 
 import java.util.List;
-
 import tiquartet.CommonModule.util.OrderStatus;
 import tiquartet.CommonModule.util.ResultMessage;
 import tiquartet.ServerModule.datahelper.service.OrderDataHelper;
