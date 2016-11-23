@@ -48,7 +48,7 @@ public class ManageOrderController {
 		return null;
 	}
 
-	public static List<Long> getHotelList(int userID) {
+	public static List<Integer> getHotelList(int userID) {
 		// TODO Auto-generated method stub
 		return null;
 	}

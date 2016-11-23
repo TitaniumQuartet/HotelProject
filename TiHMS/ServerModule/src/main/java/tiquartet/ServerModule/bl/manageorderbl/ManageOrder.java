@@ -51,12 +51,12 @@ public class ManageOrder implements ManageOrderBLService{
 		return null;
 	}
 
-	public List<Long> getHotelList(int userID) {
+	public List<Integer> getHotelList(int userID) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	public List<OrderVO> clientAtHotel(int hotelID) {
+	public List<OrderVO> clientAtHotel(int userID, int hotelID) {
 		// TODO Auto-generated method stub
 		return null;
 	}

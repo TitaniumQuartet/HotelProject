@@ -14,16 +14,12 @@ public class HotelInfoTest {
 
 	@Test
 	public void testgetHotelBrief() {
-       hotel=new HotelInfo();
-       HotelBriefVO hotelbriefvo=hotel.getHotelBrief(0000000111);
-       assertEquals(hotelbriefvo.hotelID,0000000111);
+   
 	}
 	
 	@Test
 	public void testgetHotelDetails(){
-		hotel=new HotelInfo();
-	    HotelDetailsVO hoteldetailsvo=hotel.getHotelDetails(0000000111);
-	    assertEquals(hoteldetailsvo.hotelID,0000000111);
+		
 	}
 	
 	@Test
@@ -32,7 +28,7 @@ public class HotelInfoTest {
 		PreOrderVO preOrder=new PreOrderVO();
 		List<RoomTypeVO> roomtype=hotel.availableRoomType(preOrder);
 		assertEquals(roomtype.get(0).price,100);
-		assertEquals(roomtype.get(1).name,"家庭房");
+		assertEquals(roomtype.get(1).roomType,"家庭房");
 	}
 	
 	@Test

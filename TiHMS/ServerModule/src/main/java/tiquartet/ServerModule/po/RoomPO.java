@@ -11,7 +11,6 @@ public class RoomPO implements Serializable{
 	private int roomTypeId;
 	//客房状态
 	private String state;
-	
 	public RoomPO(){
 		
 	}

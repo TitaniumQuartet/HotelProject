@@ -6,7 +6,7 @@ import java.util.Calendar;
 
 public class ReviewPO implements Serializable{
 	//酒店编号
-	private String hotelId;
+	private long hotelId;
 	//评分
 	private int score;
 	//评价内容
@@ -22,7 +22,7 @@ public class ReviewPO implements Serializable{
 		
 	}
 	
-	public ReviewPO(String hotelId,int score,String review,int userId,String userName,Calendar time){
+	public ReviewPO(long hotelId,int score,String review,int userId,String userName,Calendar time){
 		super();
 		this.hotelId=hotelId;
 		this.score=score;
@@ -32,11 +32,11 @@ public class ReviewPO implements Serializable{
 		this.time=time;
 	}
 	
-	public String gethotelId(){
+	public long gethotelId(){
 		return hotelId;
 	}
 	
-	public void sethotelId(String hotelId){
+	public void sethotelId(long hotelId){
 		this.hotelId=hotelId;
 	}
 	

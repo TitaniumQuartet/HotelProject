@@ -11,17 +11,20 @@ public class CreditPO implements Serializable{
 	private int balance;
 	//相关订单号
 	private int orderId;
+	//信用记录编号
+	private long creditRecordId;
 	
 	public CreditPO(){
 		
 	}
 	
-	public CreditPO(String changeType,int change,int balance,int orderId){
+	public CreditPO(String changeType,int change,int balance,int orderId,long creditRecordId){
 		super();
 		this.changeType=changeType;
 		this.change=change;
 		this.balance=balance;
 		this.orderId=orderId;
+		this.creditRecordId=creditRecordId;
 	}
 	
 	public String getchangeType(){
@@ -54,5 +57,13 @@ public class CreditPO implements Serializable{
 	
 	public void setorderTd(int orderId){
 		this.orderId=orderId;
+	}
+	
+	public void setcreditRecordId(long creditRecordId){
+		this.creditRecordId=creditRecordId;
+	}
+	
+	public long getcreditRecordId(){
+		return this.creditRecordId;
 	}
 }

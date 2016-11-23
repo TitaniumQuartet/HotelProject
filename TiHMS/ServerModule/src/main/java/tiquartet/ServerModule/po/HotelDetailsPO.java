@@ -11,7 +11,7 @@ public class HotelDetailsPO implements Serializable{
 	//星级
 	private int star;
 	//平均评分
-	private int average;
+	private int averagegrade;
 	//城市名称
 	private String cityName;
 	//商圈名称
@@ -19,9 +19,9 @@ public class HotelDetailsPO implements Serializable{
 	//酒店地址
 	private String address;
 	//酒店介绍
-	private String introduction;
+	private String hotelIntroduction;
 	//服务设施介绍
-	private String service;
+	private String serviceIntroduction;
 	//评价列表
 	private List<ReviewPO> reviewList;
 	
@@ -34,12 +34,12 @@ public class HotelDetailsPO implements Serializable{
 		this.hotelId=hotelId;
 		this.hotelName=hotelName;
 		this.star=star;
-		this.average=average;
+		this.averagegrade=average;
 		this.cityName=cityName;
 		this.businessDistrict=businessDistrict;
 		this.address=address;
-		this.introduction=introduction;
-		this.service=service;
+		this.hotelIntroduction=introduction;
+		this.serviceIntroduction=service;
 		this.reviewList=reviewList;
 	}
 	
@@ -68,11 +68,11 @@ public class HotelDetailsPO implements Serializable{
 	}
 	
 	public int getaverage(){
-		return average;
+		return averagegrade;
 	}
 	
 	public void setaverage(int average){
-		this.average=average;
+		this.averagegrade=average;
 	}
 	
 	public String getcityName(){
@@ -99,20 +99,20 @@ public class HotelDetailsPO implements Serializable{
 		this.address=address;
 	}
 	
-	public String getintroduction(){
-		return introduction;
+	public String gethotelIntroduction(){
+		return this.hotelIntroduction;
 	}
 	
-	public void setintroduction(String introduction){
-		this.introduction=introduction;
+	public void sethotelIntroduction(String hotelIntroduction){
+		this.hotelIntroduction=hotelIntroduction;
 	}
 	
-	public String getservice(){
-		return service;
+	public String getserviceIntroduction(){
+		return serviceIntroduction;
 	}
 	
-	public void setservice(String service){
-		this.service=service;
+	public void setserviceIntroduction(String serviceIntroduction){
+		this.serviceIntroduction=serviceIntroduction;
 	}
 	
 	public List<ReviewPO> getreviewList(){

@@ -26,9 +26,9 @@ public interface ManageOrderBLService {
 	
 	public ResultMessage checkOut(long orderID);
 	
-	public List<Long> getHotelList (int userID);
+	public List<Integer> getHotelList (int userID);
 	
-	public List<OrderVO> clientAtHotel (int hotelID);
+	public List<OrderVO> clientAtHotel (int userID,int hotelID);
 	
 	public OrderNumVO numAtHotel (int hotelID);
 	

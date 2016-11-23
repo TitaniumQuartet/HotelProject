@@ -4,7 +4,7 @@ import java.io.Serializable;
 
 public class HotelInfoPO implements Serializable{
 	//酒店编号
-	private long hotelId;
+	private int hotelId;
 	//酒店名称
 	private String hotelName;
 	//星级
@@ -12,34 +12,44 @@ public class HotelInfoPO implements Serializable{
 	//酒店地址
 	private String address;
 	//酒店介绍
-	private String introduction;
+	private String hotelIntroduction;
 	//服务设施介绍
-	private String service;
+	private String serviceIntroduction;
+	//商圈编号
+	private int circleId;
+	//商圈名字
+	private String circleName;
+	//最低价格
+	private int lowprice;
+	//平均评分
+	private double avgragegrade;
+	//城市名称
+	private String cityName;
 	
 	public HotelInfoPO(){
 		
 	}
 	
-	public HotelInfoPO(long hotelId,String hotelName,int star,String address,String introduction,String service){
+	public HotelInfoPO(int hotelId,String hotelName,int star,String address,String introduction,String service){
 		super();
 		this.hotelId=hotelId;
 		this.hotelName=hotelName;
 		this.star=star;
 		this.address=address;
-		this.introduction=introduction;
-		this.service=service;
+		this.hotelIntroduction=introduction;
+		this.serviceIntroduction=service;
 	}
 	
-	public long gethotelId(){
-		return hotelId;
+	public int gethotelId(){
+		return this.hotelId;
 	}
 	
-	public void sethotelId(long hotelId){
+	public void sethotelId(int hotelId){
 		this.hotelId=hotelId;
 	}
 	
 	public String gethotelName(){
-		return hotelName;
+		return this.hotelName;
 	}
 	
 	public void sethotelName(String hotelName){
@@ -47,7 +57,7 @@ public class HotelInfoPO implements Serializable{
 	}
 	
 	public int getstar(){
-		return star;
+		return this.star;
 	}
 	
 	public void setstar(int star){
@@ -62,20 +72,59 @@ public class HotelInfoPO implements Serializable{
 		this.address=address;
 	}
 	
-	public String getintroduction(){
-		return introduction;
+	public String gethotelIntroduction(){
+		return this.hotelIntroduction;
 	}
 	
-	public void setintroduction(String introduction){
-		this.introduction=introduction;
+	public void sethotelIntroduction(String hotelIntroduction){
+		this.hotelIntroduction=hotelIntroduction;
 	}
 	
-	public String getservice(){
-		return service;
+	public String getserviceIntroduction(){
+		return this.serviceIntroduction;
 	}
 	
-	public void setservice(String service){
-		this.service=service;
+	public void setserviceIntroduction(String serviceIntroduction){
+		this.serviceIntroduction=serviceIntroduction;
 	}
 	
+	public void setcircleId(int circleId){
+		this.circleId=circleId;
+	}
+	
+	public int getcircleId(){
+		return this.circleId;
+	}
+	
+	public void setcircleName(String circleName){
+		this.circleName=circleName;
+	}
+	
+	public String getcircleName(){
+		return this.circleName;
+	}
+	
+	public void setlowprice(int lowprice){
+		this.lowprice=lowprice;
+	}
+	
+	public int getlowprice(){
+		return this.lowprice;
+	}
+	
+	public void setavgragegrade(double avgragegrade){
+		this.avgragegrade=avgragegrade;
+	}
+	
+	public double getavgreagegrade(){
+		return this.avgragegrade;
+	}
+	
+	public void setcityName(String cityName){
+		this.cityName=cityName;
+	}
+	
+	public String getcityName(){
+		return this.cityName;
+	}
 }

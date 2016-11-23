@@ -3,13 +3,15 @@ package tiquartet.CommonModule.vo;
 import java.util.List;
 
 public class HotelDetailsVO {
-	    public int hotelID;
-	    public String name;
-	    public int level;
-	    public int averagegrade;
+	    public long hotelID;
+	    public String hotelName;
+	    public int star;
+	    public double averageg;
 	    public String address;
 	    public String  cityName;
-	    public String  businessName;
+	    public String  circleName;
 	    public List<ReviewVO> list;
-	    public String introduce;
+	    public String introduction;
+	    public double lowprice;
+	    public String serviceintro;
 }
