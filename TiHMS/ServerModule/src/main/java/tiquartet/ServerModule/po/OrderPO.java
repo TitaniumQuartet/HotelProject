@@ -1,12 +1,16 @@
 package tiquartet.ServerModule.po;
 
 import java.io.Serializable;
-import java.util.Calendar;
+
+import tiquartet.CommonModule.util.OrderStatus;
+import tiquartet.CommonModule.vo.OrderVO;
 
 
 public class OrderPO implements Serializable{
 	//订单编号
 	private long orderId;
+	//订单状态
+	private OrderStatus orderStatus;
 	//最晚订单执行时间
 	private String latestTime;
 	//房间数量
@@ -27,6 +31,8 @@ public class OrderPO implements Serializable{
 	private String startTime;
 	//离店日期
 	private String leaveTime;
+	//订单价格
+	private double price;
 	public OrderPO(){
 		
 	}
@@ -94,7 +100,7 @@ public class OrderPO implements Serializable{
 		this.hotelId=hotelId;
 	}
 	
-	public int gethOtelId(){
+	public int gethotelId(){
 		return this.hotelId;
 	}
 	
@@ -128,5 +134,36 @@ public class OrderPO implements Serializable{
 
 	public String getleaveTime(){
 		return this.leaveTime;
+	}
+	
+	public void setprice(double price){
+		this.price=price;
+	}
+	
+	public double getprice(){
+		return this.price;
+	}
+	
+	public void setorderStatus(OrderStatus orderType){
+		this.orderStatus=orderType;
+	}
+	
+	public OrderStatus getorderStatus(){
+		return this.orderStatus;
+	}
+	public OrderVO toOrderVO(){
+		OrderVO vo=new OrderVO();
+		vo.child=this.child;
+		vo.hotelId=this.hotelId;
+		vo.latestTime=this.latestTime;
+		vo.leaveTime=this.leaveTime;
+		vo.numberOfPeople=this.numberOfPeople;
+		vo.numberOfRoom=this.numberOfRoom;
+		vo.orderId=this.orderId;
+		vo.realName=this.realName;
+		vo.startTime=this.startTime;
+		vo.userId=this.userId;
+		vo.userName=this.userName;
+		return vo;
 	}
 }

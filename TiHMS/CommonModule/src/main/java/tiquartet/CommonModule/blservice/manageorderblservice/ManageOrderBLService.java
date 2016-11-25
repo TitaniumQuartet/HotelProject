@@ -17,10 +17,9 @@ public interface ManageOrderBLService {
 	public OrderVO getOrderByID (long orderID);
 	
 	public List<OrderVO> hotelOrders(int hotelID, OrderFilterVO filter, OrderSort sort, int rank1, int rank2);
-	
-	public ResultMessage clientCancel (long orderID);
-	
+		
 	public ResultMessage marketerCancel (long orderID, CreditRestore restore);
+	public ResultMessage clientCancel(long orderID);
 	
 	public ResultMessage checkIn(long orderID, String leaveTime);
 	
@@ -30,6 +29,6 @@ public interface ManageOrderBLService {
 	
 	public List<OrderVO> clientAtHotel (int userID,int hotelID);
 	
-	public OrderNumVO numAtHotel (int hotelID);
+	public OrderNumVO numAtHotel (int hotelID,int userID);
 	
 }

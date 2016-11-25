@@ -21,7 +21,7 @@ public class ManageOrderBL_driver {
 		ordervo = stub.hotelOrders(245,new OrderFilterVO(),OrderSort.DATEDESCEND,1,10);
 		System.out.println("Searching for order list...");
 		
-		message = stub.clientCancel(353452);
+		message = stub.clientCancel((long) 353452);
 		System.out.println(message);
 		
 		message = stub.marketerCancel(8976986,CreditRestore.FULL);
