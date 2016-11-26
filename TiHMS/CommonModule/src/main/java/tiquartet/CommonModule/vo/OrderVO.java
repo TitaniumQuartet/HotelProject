@@ -1,4 +1,7 @@
 package tiquartet.CommonModule.vo;
+
+import tiquartet.CommonModule.util.OrderStatus;
+
 public class OrderVO {
 	    //订单编号
 		public long orderId;
@@ -24,5 +27,7 @@ public class OrderVO {
 		public String leaveTime;
 		//订单价格
 		public double price;
+		//订单状态
+		public OrderStatus orderStatus;
 		
 }

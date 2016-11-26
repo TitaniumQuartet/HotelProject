@@ -2,11 +2,11 @@ package tiquartet.CommonModule.vo;
 
 public class StrategyVO {
 	 //酒店编号
-	 public long hotelID;
+	 public int hotelID;
 	 //策略介绍
-     public String strategyIntroduce;
+     public String strategyIntro;
      //折扣
-     public int discount;
+     public double discount;
      //策略编号
      public long strategyID;
 }

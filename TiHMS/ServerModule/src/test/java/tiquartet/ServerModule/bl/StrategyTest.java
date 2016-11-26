@@ -17,7 +17,7 @@ public class StrategyTest{
 	public void testaddStartegy(){
 		Strategy startegy = new Strategy();
 		StrategyVO vo = new StrategyVO();
-		ResultMessage result = startegy.addStrategy(123456789, vo);
+		ResultMessage result = startegy.addStrategy(vo);
 		assertEquals(result.result,true);
 	}
 	

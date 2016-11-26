@@ -33,10 +33,24 @@ public class OrderPO implements Serializable{
 	private String leaveTime;
 	//订单价格
 	private double price;
+	public OrderPO(OrderVO vo){
+		this.child=vo.child;
+		this.hotelId=vo.hotelId;
+		this.latestTime=vo.latestTime;
+		this.leaveTime=vo.leaveTime;
+		this.numberOfPeople=vo.numberOfPeople;
+		this.numberOfRoom=vo.numberOfRoom;
+		this.orderId=vo.orderId;
+		this.orderStatus=vo.orderStatus;
+		this.price=vo.price;
+		this.realName=vo.realName;
+		this.startTime=vo.startTime;
+		this.userId=vo.userId;
+		this.userName=vo.userName;
+	}
 	public OrderPO(){
 		
 	}
-	
 	public OrderPO(long orderId,String latestTime,int numberOfRoom,int numberOfPeople,int child,String realName,int hotelId){
 		super();
 		this.orderId=orderId;
@@ -164,6 +178,8 @@ public class OrderPO implements Serializable{
 		vo.startTime=this.startTime;
 		vo.userId=this.userId;
 		vo.userName=this.userName;
+		vo.orderStatus=this.orderStatus;
 		return vo;
 	}
+	
 }

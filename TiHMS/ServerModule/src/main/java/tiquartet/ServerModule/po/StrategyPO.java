@@ -2,13 +2,15 @@ package tiquartet.ServerModule.po;
 
 import java.io.Serializable;
 
+import tiquartet.CommonModule.vo.StrategyVO;
+
 public class StrategyPO implements Serializable{
 	//策略编号
 	private long strategyId;
 	//策略介绍
 	private String strategyIntro;
 	//酒店编号
-	private long hotelId;	
+	private int  hotelId;	
 	//折扣比例
 	private double discount;
 	
@@ -16,14 +18,19 @@ public class StrategyPO implements Serializable{
 		
 	}
 	
-	public StrategyPO(long strategyId,String strategyIntro,long hotelId,double discount){
+	public StrategyPO(long strategyId,String strategyIntro,int hotelId,double discount){
 		super();
 		this.strategyId=strategyId;
 		this.strategyIntro=strategyIntro;
 		this.hotelId=hotelId;
 		this.discount=discount;
 	}
-	
+	public StrategyPO(StrategyVO vo){
+		this.discount=vo.discount;
+		this.hotelId=vo.hotelID;
+		this.strategyId=vo.strategyID;
+		this.strategyIntro=vo.strategyIntro;
+	}
 	public long getstrategyId(){
 		return strategyId;
 	}
@@ -40,11 +47,11 @@ public class StrategyPO implements Serializable{
 		this.strategyIntro=strategyIntro;
 	}
 	
-	public long gethotelId(){
+	public int gethotelId(){
 		return hotelId;
 	}
 	
-	public void sethotelId(long hotelId){
+	public void sethotelId(int hotelId){
 		this.hotelId=hotelId;
 	}
 	
@@ -52,7 +59,16 @@ public class StrategyPO implements Serializable{
 		return discount;
 	}
 	
-	public void setdiscount(long discount){
+	public void setdiscount(double discount){
 		this.discount=discount;
+	}
+	
+	public StrategyVO toStrategyvo(){
+		StrategyVO vo=new StrategyVO();
+		vo.discount=this.discount;
+		vo.hotelID=this.hotelId;
+		vo.strategyID=this.strategyId;
+		vo.strategyIntro=this.strategyIntro;
+		return vo;
 	}
 }
