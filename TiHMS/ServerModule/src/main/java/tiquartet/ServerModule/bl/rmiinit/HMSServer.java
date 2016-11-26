@@ -1,6 +1,11 @@
 package tiquartet.ServerModule.bl.rmiinit;
 
+import java.rmi.registry.LocateRegistry;
+import java.rmi.registry.Registry;
+import java.rmi.server.UnicastRemoteObject;
+
 import tiquartet.CommonModule.util.ResultMessage;
+import tiquartet.ServerModule.bl.manageorderbl.ManageOrderController;
 
 /**
  * 酒店管理系统的服务器类，可建立RMI服务，运行服务器.
@@ -16,7 +21,9 @@ public class HMSServer {
 			System.setSecurityManager(new SecurityManager());
 		}
 		try {
-			
+			Registry registry = LocateRegistry.getRegistry();
+			//ManageOrderController manageOrderStub = (ManageOrderController) UnicastRemoteObject.exportObject(new ManageOrderController(), 0);
+			//registry.bind("manageOrder", );
 		} catch (Exception e) {
 			// TODO: handle exception
 		}
