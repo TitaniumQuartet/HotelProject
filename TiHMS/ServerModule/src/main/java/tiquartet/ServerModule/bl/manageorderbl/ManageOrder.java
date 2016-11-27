@@ -1,5 +1,6 @@
 package tiquartet.ServerModule.bl.manageorderbl;
 
+import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,33 +17,33 @@ import tiquartet.ServerModule.po.HotelInfoPO;
 import tiquartet.ServerModule.po.OrderPO;
 import tiquartet.ServerModule.po.UserPO;
 
-public class ManageOrder implements ManageOrderBLService{
+public class ManageOrder implements ManageOrderBLService {
 	static DataFactory dataFactory=new DataFactory();
 
-	public List<OrderVO> orderHistory(int userID, OrderFilterVO filter,
-			OrderSort sort, int rank1, int rank2) {
+	public List<OrderVO> orderHistory(OrderFilterVO filter,
+			OrderSort sort, int rank1, int rank2) throws RemoteException{
 		List<OrderVO> volist=new ArrayList<OrderVO>();
-		List<OrderPO> polist=dataFactory.getOrderDataHelper().searchByUser(0, userID);
+		
 		
 		//此方法可能需要修改
 	
 		return null;
 	}
 
-	public OrderVO getOrderByID(long orderID) {
+	public OrderVO getOrderByID(long orderID) throws RemoteException{
 		OrderPO po=dataFactory.getOrderDataHelper().getOrderByID(orderID);
 		OrderVO vo=new OrderVO();
 		vo=po.toOrderVO();
 		return vo;//未完成的返回内容，需要补充po转化为vo的方法。
 	}
 
-	public List<OrderVO> hotelOrders(int hotelID, OrderFilterVO filter,
-			OrderSort sort, int rank1, int rank2) {
+	public List<OrderVO> hotelOrders( OrderFilterVO filter,
+			OrderSort sort, int rank1, int rank2) throws RemoteException{
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	public ResultMessage clientCancel(long orderID) {
+	public ResultMessage clientCancel(long orderID) throws RemoteException{
 		//客户撤销订单
 		OrderPO po=dataFactory.getOrderDataHelper().getOrderByID(orderID);
 		//如果订单不为异常
@@ -56,7 +57,7 @@ public class ManageOrder implements ManageOrderBLService{
 		
 	}
 
-	public ResultMessage marketerCancel(long orderID, CreditRestore restore) {
+	public ResultMessage marketerCancel(long orderID, CreditRestore restore) throws RemoteException{
 		//网站营销人员撤销异常订单，并恢复一定信用值；
 		OrderPO po=dataFactory.getOrderDataHelper().getOrderByID(orderID);
 		//订单为异常
@@ -69,20 +70,20 @@ public class ManageOrder implements ManageOrderBLService{
 		return new ResultMessage(false);
 	}
 
-	public ResultMessage checkIn(long orderID, String leaveTime) {
+	public ResultMessage checkIn(long orderID, String leaveTime) throws RemoteException{
 		OrderPO po=dataFactory.getOrderDataHelper().getOrderByID(orderID);
 		po.setleaveTime(leaveTime);
 		dataFactory.getOrderDataHelper().update(po);
 		return new ResultMessage(true);
 	}
 
-	public ResultMessage checkOut(long orderID) {
+	public ResultMessage checkOut(long orderID) throws RemoteException{
 		OrderPO po=dataFactory.getOrderDataHelper().getOrderByID(orderID);
 		po.setorderStatus(OrderStatus.EXECUTED);// TODO Auto-generated method stub
 		return null;
 	}
 
-	public List<Integer> getHotelList(int userID) {
+	public List<Integer> getHotelList(int userID) throws RemoteException{
 		// 返回用户预订过的酒店编号列表
 		List<Integer> hotelIdlist=new ArrayList<Integer>();
 		List<HotelInfoPO> polist=dataFactory.getHotelInfoDataHelper().getHotelList(userID);
@@ -92,7 +93,7 @@ public class ManageOrder implements ManageOrderBLService{
 		return hotelIdlist;
 	}
 
-	public List<OrderVO> clientAtHotel(int userID, int hotelID) {
+	public List<OrderVO> clientAtHotel(int userID, int hotelID) throws RemoteException{
 		//返回该用户在该酒店预定过得订单列表
 		List<OrderVO> volist=new ArrayList<OrderVO>();
 		List<OrderPO> polist=dataFactory.getOrderDataHelper().searchByUser(hotelID, userID);
@@ -102,7 +103,7 @@ public class ManageOrder implements ManageOrderBLService{
 		return null;
 	}
 
-	public OrderNumVO numAtHotel(int hotelID,int userID) {
+	public OrderNumVO numAtHotel(int hotelID,int userID) throws RemoteException{
 		//返回用户在该酒店的各类订单数目；
 		List<OrderPO> polist=dataFactory.getOrderDataHelper().searchByUser(hotelID, userID);
 		OrderNumVO ordernumvo=new OrderNumVO();
@@ -125,6 +126,12 @@ public class ManageOrder implements ManageOrderBLService{
 			}
 		}
 		return ordernumvo;
+	}
+
+	@Override
+	public List<Integer> orderedHotelID(int userID) throws RemoteException {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 	

@@ -1,5 +1,6 @@
 package tiquartet.ServerModule.bl.hotelinfobl;
 
+import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,7 +15,7 @@ import tiquartet.CommonModule.util.ResultMessage;
 
 public class HotelInfo implements HotelInfoBLService{
 	static DataFactory datafactory=new DataFactory();	
-	public HotelBriefVO getHotelBrief (int hotelID){
+	public HotelBriefVO getHotelBrief (int hotelID,int userID)throws RemoteException{
 		//传入酒店ID返回酒店的简略信息
 		HotelBriefVO hotelbrief=new HotelBriefVO();
 		HotelInfoPO hp=datafactory.getHotelInfoDataHelper().getHotelInfo(hotelID);
@@ -27,7 +28,7 @@ public class HotelInfo implements HotelInfoBLService{
 		return hotelbrief;
 	}
 	
-	public HotelDetailsVO getHotelDetails (int hotelID){	
+	public HotelDetailsVO getHotelDetails (int hotelID,int userID)throws RemoteException{	
 		//传入酒店编号，返回酒店详细信息
 	    HotelDetailsVO hoteldetails=new HotelDetailsVO();
 	    HotelInfoPO hp=datafactory.getHotelInfoDataHelper().getHotelInfo(hotelID);
@@ -56,7 +57,7 @@ public class HotelInfo implements HotelInfoBLService{
 		return hoteldetails;
 	}
 	
-	public List<RoomTypeVO> availableRoomType (PreOrderVO preOrder){
+	public List<RoomTypeVO> availableRoomType (PreOrderVO preOrder)throws RemoteException{
 		//传入入住日期，酒店，返回可用客房类型及该类型数量
 		List<RoomTypePO> list=datafactory.getRoomDataHelper().availableRoomType(preOrder.hotelID, preOrder.startTime, preOrder.endTime, preOrder.numOfRoom);
 		List<RoomTypeVO> listvo=new ArrayList<RoomTypeVO>();
@@ -72,7 +73,7 @@ public class HotelInfo implements HotelInfoBLService{
 		
 	}
 	
-	public ResultMessage reviewHotel(ReviewVO review){
+	public ResultMessage reviewHotel(ReviewVO review)throws RemoteException{
 		//传入一个评价，把他存入数据库中
 		ReviewPO reviewpo=new ReviewPO();
 		reviewpo.setreview(review.review);
@@ -88,7 +89,7 @@ public class HotelInfo implements HotelInfoBLService{
 		return new ResultMessage(false);
 	}
 	
-	public ResultMessage modifyHotelInfo (HotelInfoVO hotelInfo){
+	public ResultMessage modifyHotelInfo (HotelInfoVO hotelInfo)throws RemoteException{
 		//修改酒店信息
 		HotelInfoPO hip=new HotelInfoPO();
 		hip.setavgragegrade(hotelInfo.averagegrade);
@@ -103,25 +104,20 @@ public class HotelInfo implements HotelInfoBLService{
 		datafactory.getHotelInfoDataHelper().update(hip);
 		return new ResultMessage(true);
 	}
-   public List<HotelInfoVO> clientHotelList(int userId){
+   public List<HotelBriefVO> clientHotelList(int userId)throws RemoteException{
 	   //返回用户预订过的酒店列表
-	   List<HotelInfoVO> listvo=new ArrayList<HotelInfoVO>();	   
+	   List<HotelBriefVO> listvo=new ArrayList<HotelBriefVO>();	   
 	   List<Integer>  hotelID=ManageOrderController.getHotelList(userId);
 	   for(int i=0;i<hotelID.size();i++){
 		   HotelInfoPO hip=datafactory.getHotelInfoDataHelper().getHotelInfo(hotelID.get(i));
-		   HotelInfoVO hotelinfovo =new HotelInfoVO();
-		   hotelinfovo.address=hip.getaddress();
-		   hotelinfovo.averagegrade=hip.getavgreagegrade();
-		   hotelinfovo.circleId=hip.getcircleId();
-		   hotelinfovo.circleName=hip.getcircleName();
-		   hotelinfovo.cityName=hip.getcityName();
-		   hotelinfovo.hotelID=hip.gethotelId();
-		   hotelinfovo.hotelIntroduction=hip.gethotelIntroduction();
-		   hotelinfovo.hotelname=hip.gethotelName();
-		   hotelinfovo.lowprice=hip.getlowprice();
-		   hotelinfovo.serviceIntroduction=hip.getserviceIntroduction();
-		   hotelinfovo.star=hip.getstar();
-		   listvo.add(hotelinfovo);
+		   HotelBriefVO hotelbriefvo =new HotelBriefVO();
+		   hotelbriefvo.circleName=hip.getcircleName();
+		   hotelbriefvo.cityName=hip.getcityName();
+		   hotelbriefvo.hotelID=hip.gethotelId();
+		   hotelbriefvo.star=hip.getstar();
+		   hotelbriefvo.avgrage=hip.getavgreagegrade();
+		   hotelbriefvo.hotelName=hip.gethotelName();
+		   listvo.add(hotelbriefvo);
 	   }
 	   return listvo;
    }

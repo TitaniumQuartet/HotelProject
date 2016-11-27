@@ -1,8 +1,8 @@
 package tiquartet.CommonModule.blservice.manageorderblservice;
 
-import java.sql.Time;
+import java.rmi.Remote;
+import java.rmi.RemoteException;
 import tiquartet.CommonModule.util.ResultMessage;
-import java.util.Date;
 import java.util.List;
 import tiquartet.CommonModule.vo.OrderVO;
 import tiquartet.CommonModule.vo.OrderFilterVO;
@@ -10,25 +10,26 @@ import tiquartet.CommonModule.vo.OrderNumVO;
 import tiquartet.CommonModule.util.CreditRestore;
 import tiquartet.CommonModule.util.OrderSort;;
 
-public interface ManageOrderBLService {
+public interface ManageOrderBLService extends Remote{
 	
-	public List<OrderVO> orderHistory(int userID, OrderFilterVO filter, OrderSort sort, int rank1, int rank2);
+	public List<OrderVO> orderHistory( OrderFilterVO filter, OrderSort sort, int rank1, int rank2) throws RemoteException;
 
-	public OrderVO getOrderByID (long orderID);
+	public OrderVO getOrderByID (long orderID) throws RemoteException;
 	
-	public List<OrderVO> hotelOrders(int hotelID, OrderFilterVO filter, OrderSort sort, int rank1, int rank2);
+	public List<OrderVO> hotelOrders(OrderFilterVO filter, OrderSort sort, int rank1, int rank2) throws RemoteException;
 		
-	public ResultMessage marketerCancel (long orderID, CreditRestore restore);
-	public ResultMessage clientCancel(long orderID);
+	public ResultMessage marketerCancel (long orderID, CreditRestore restore) throws RemoteException;
 	
-	public ResultMessage checkIn(long orderID, String leaveTime);
+	public ResultMessage clientCancel(long orderID) throws RemoteException;
 	
-	public ResultMessage checkOut(long orderID);
+	public ResultMessage checkIn(long orderID, String estLeaveTime) throws RemoteException;
 	
-	public List<Integer> getHotelList (int userID);
+	public ResultMessage checkOut(long orderID) throws RemoteException;
 	
-	public List<OrderVO> clientAtHotel (int userID,int hotelID);
+	public List<Integer> orderedHotelID (int userID) throws RemoteException;
 	
-	public OrderNumVO numAtHotel (int hotelID,int userID);
+	public List<OrderVO> clientAtHotel (int userID,int hotelID) throws RemoteException;
+	
+	public OrderNumVO numAtHotel (int userID,int hotelID) throws RemoteException;
 	
 }
