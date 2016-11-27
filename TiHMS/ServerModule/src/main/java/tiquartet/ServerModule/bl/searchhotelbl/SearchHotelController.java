@@ -25,7 +25,7 @@ public class SearchHotelController {
 	 */
 	public List<HotelVO> recommend (){
 		
-		return searchhotel.recommand();
+		return searchhotel.recommend();
 	}
 	
 	/*

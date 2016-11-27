@@ -1,7 +1,10 @@
 package tiquartet.ServerModule.bl.strategybl;
 
 import java.util.List;
+import java.rmi.RemoteException;
 import java.util.ArrayList;
+
+import tiquartet.CommonModule.vo.OrderFilterVO;
 import tiquartet.CommonModule.vo.StrategyVO;
 import tiquartet.ServerModule.datahelper.DataFactory;
 import tiquartet.ServerModule.po.StrategyPO;
@@ -11,19 +14,19 @@ public class Strategy{
 	
 	DataFactory dataFactory = new DataFactory();
 	//增加策略
-	public ResultMessage addStrategy(StrategyVO vo){
+	public ResultMessage addStrategy(StrategyVO vo)throws RemoteException{
 		StrategyPO po=new StrategyPO(vo);
 		dataFactory.getStrategyDataHelper().insert(po);
 		return new ResultMessage(true);
 		//return dataFactory.getStrategyDataHelper().insert(po);
 	}
 	//删除策略
-	public ResultMessage deleteStrategy(int strategyID){
+	public ResultMessage deleteStrategy(int strategyID)throws RemoteException{
 		dataFactory.getStrategyDataHelper().delete(strategyID);
 		return new ResultMessage(true);
 	}
 	//根据酒店编号搜索策略
-	public List<StrategyVO> getStrategy(int hotelID){
+	public List<StrategyVO> getStrategy(int hotelID)throws RemoteException{
 		List<StrategyPO> polist=dataFactory.getStrategyDataHelper().searchByHotel(hotelID);
 		List<StrategyVO> volist=new ArrayList<StrategyVO>();
 		for(int i=0;i<polist.size();i++){
@@ -33,7 +36,7 @@ public class Strategy{
 		return volist;
 	}
 	
-	public ResultMessage changeStrategy(StrategyVO vo){
+	public ResultMessage changeStrategy(StrategyVO vo)throws RemoteException{
 		StrategyPO po=new StrategyPO(vo);
 		dataFactory.getStrategyDataHelper().update(po);
 		return new ResultMessage(true);

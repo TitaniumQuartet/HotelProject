@@ -3,21 +3,28 @@
  */
 package tiquartet.ServerModule.bl.manageuserbl;
 
+import java.util.ArrayList;
 import java.util.Collections;
-import org.apache.commons.beanutils.BeanUtils; 
+import java.util.Comparator;
 import java.util.List;
 
-import tiquartet.CommonModule.blservice.manageorderblservice.ManageOrderBLService;
-import tiquartet.ServerModule.dataservice.userdataservice.UserDataController;
-import tiquartet.CommonModule.vo.UserVO;
-import tiquartet.ServerModule.po.UserPO;
-import tiquartet.CommonModule.vo.HotelStaffVO;
-import tiquartet.ServerModule.po.HotelStaffPO;
-import tiquartet.CommonModule.vo.UserFilterVO;
+import tiquartet.CommonModule.blservice.manageuserblservice.ManageUserBLService;
+import tiquartet.CommonModule.util.ResultMessage;
+import tiquartet.CommonModule.util.UserSort;
 import tiquartet.CommonModule.vo.CreditVO;
-import tiquartet.CommonModule.Util.UserSort;
+import tiquartet.CommonModule.vo.HotelStaffVO;
+import tiquartet.CommonModule.vo.MemberVO;
+import tiquartet.CommonModule.vo.UserFilterVO;
+import tiquartet.CommonModule.vo.UserVO;
+import tiquartet.ServerModule.datahelper.DataFactory;
+import tiquartet.ServerModule.po.CreditPO;
+import tiquartet.ServerModule.po.HotelStaffPO;
+import tiquartet.ServerModule.po.MemberPO;
+import tiquartet.ServerModule.po.UserPO;
 
-public class ManageUser implements ManageOrderBLService {
+public class ManageUser implements ManageUserBLService {
+	
+	static DataFactory dataFactory=new DataFactory();
 
 	/*
 	 * 根据用户名和真实姓名搜索用户
@@ -25,11 +32,11 @@ public class ManageUser implements ManageOrderBLService {
 	public List<UserVO> accurateSearch (String username, String realName) {
 		
 		//获取po的列表
-		List<UserPO> user = new List<UserPO>();
-		user.addAll(UserDataController.searchUser(username, realName));
+		List<UserPO> user = new ArrayList<UserPO>();
+		user.addAll(dataFactory.getUserDataHelper().searchUser(username, realName));
 		
 		//po转vo
-		List<UserVO> userList = new List<UserVO>();
+		List<UserVO> userList = new ArrayList<UserVO>();
 		UserVO uservo;
 		
 		for(UserPO userpo: user){
@@ -47,11 +54,11 @@ public class ManageUser implements ManageOrderBLService {
 	public List<HotelStaffVO> searchHotelStaff(int cityID, int districtID) {
 		
 		//获取po列表
-		List<HotelStaffPO> hotelstaff = new List<HotelStaffPO>();
-		hotelstaff.addAll(UserDataController.searchHotelStaff(cityID, districtID));
+		List<HotelStaffPO> hotelstaff = new ArrayList<HotelStaffPO>();
+		hotelstaff.addAll(dataFactory.getUserDataHelper().searchHotelStaff(cityID, districtID));
 		
 		//po转vo
-		List<HotelStaffVO> hotelstaffList = new List<HotelStaffVO>();
+		List<HotelStaffVO> hotelstaffList = new ArrayList<HotelStaffVO>();
 		HotelStaffVO hotelstaffvo;
 		
 		for(HotelStaffPO hotelstaffpo: hotelstaff){
@@ -69,7 +76,7 @@ public class ManageUser implements ManageOrderBLService {
 	public UserVO getUser (int userID) {
 		
 		UserPO userpo = new UserPO();
-		userpo = UserDataController.getUser(userID);
+		userpo = dataFactory.getUserDataHelper().getUser(userID);
 		
 		UserVO uservo = new UserVO();
 		BeanUtils.copyProperties(uservo, userpo);
@@ -84,10 +91,10 @@ public class ManageUser implements ManageOrderBLService {
 			UserSort sort, int rank1, int rank2) {
 		
 		//首先获取用户信息列表
-		List<UserPO> user = new List<UserPO>();
-		user = UserDataController.userList();
+		List<UserPO> user = new ArrayList<UserPO>();
+		user = dataFactory.getUserDataHelper().userList();
 		
-		List<UserVO> userlist = new List<UserVO>();
+		List<UserVO> userlist = new ArrayList<UserVO>();
 		UserVO uservo;
 		
 		for(UserPO userpo: user){
@@ -97,8 +104,8 @@ public class ManageUser implements ManageOrderBLService {
 		}
 		
 		//根据筛选条件进行筛选
-		List<UserVO> filterUser = new List<UserVO>();
-		for(UserVO uservos: userList){
+		List<UserVO> filterUser = new ArrayList<UserVO>();
+		for(UserVO uservos: userlist){
 			if(uservos.userName.equals(filter.userName)
 					&& uservos.realName.equals(filter.realName)
 					&& uservos.isMember == filter.isMember){
@@ -159,7 +166,9 @@ public class ManageUser implements ManageOrderBLService {
 	 */
 	public ResultMessage creditRecharge (int userID, double amount) {
 		
-		return UserDataController.addCredit(userID, amount);
+		dataFactory.getUserDataHelper().addCredit(userID, amount);
+		
+		return new ResultMessage(true);
 	}
 	
 	/*
@@ -167,7 +176,9 @@ public class ManageUser implements ManageOrderBLService {
 	 */
 	public ResultMessage addHotel (int districtID, String hotelName) {
 		
-		return UserDataController.addHotel(districtID, hotelName);
+		dataFactory.getUserDataHelper().addHotel(districtID, hotelName);
+		
+		return new ResultMessage(true);
 	}
 	
 	/*
@@ -176,7 +187,9 @@ public class ManageUser implements ManageOrderBLService {
 	public ResultMessage addHotelStaff (int hotelID, 
 			String username, String password) {
 		
-		return UserDataController.addHotelStaff(hotelID, username, password);
+		dataFactory.getUserDataHelper().addHotelStaff(hotelID, username, password);
+		
+		return new ResultMessage(true);
 	}
 	
 	/*
@@ -185,11 +198,11 @@ public class ManageUser implements ManageOrderBLService {
 	public List<CreditVO> getCreditRecord (int userID) {
 		
 		//获取po的列表
-		List<CreditPO> credit = new List<CreditPO>();
-		credit.addAll(UserDataController.getCreditRecord(userID));
+		List<CreditPO> credit = new ArrayList<CreditPO>();
+		credit.addAll(dataFactory.getUserDataHelper().getCreditRecord(userID));
 		
 		//po转vo
-		List<CreditVO> creditList = new List<CreditVO>();
+		List<CreditVO> creditList = new ArrayList<CreditVO>();
 		CreditVO creditvo;
 		
 		for(CreditPO creditpo: credit){
@@ -209,7 +222,21 @@ public class ManageUser implements ManageOrderBLService {
 		CreditPO creditpo = new CreditPO();
 		BeanUtils.copyProperties(creditpo, creditItem);
 		
-		return UserDataController.addCreditItem(creditpo);
+		//调用数据层方法返回一个PO列表
+		List<CreditPO> credit = new ArrayList<CreditPO>();
+		credit.addAll(dataFactory.getUserDataHelper().addCreditItem(creditpo));
+		
+		//po转vo并返回
+		List<CreditVO> creditList = new ArrayList<CreditVO>();
+		CreditVO creditvo;
+		
+		for(CreditPO creditpos: credit){
+			creditvo = new CreditVO();
+			BeanUtils.copyProperties(creditvo, creditpos);
+			creditList.add(creditvo);
+		}
+		
+		return creditList;
 	}
 	
 	/*
@@ -219,8 +246,10 @@ public class ManageUser implements ManageOrderBLService {
 		
 		MemberPO memberpo = new MemberPO();
 		BeanUtils.copyProperties(memberpo, member);
+		
+		dataFactory.getUserDataHelper().memberSignIn(member);
 
-		return UserDataController.memberSignIn(memberpo);
+		return new ResultMessage(true);
 	}
 	
 	/*
@@ -229,17 +258,17 @@ public class ManageUser implements ManageOrderBLService {
 	public List<UserVO> marketerList () {
 		
 		//获取po列表
-		List<UserPO> marketer = new List<UserPO>();
-		user.addAll(UserDataController.marketerList());
+		List<UserPO> marketer = new ArrayList<UserPO>();
+		marketer.addAll(dataFactory.getUserDataHelper().marketerList());
 		
 		//po转vo
-		List<UserVO> marketerList = new List<UserVO>();
+		List<UserVO> marketerList = new ArrayList<UserVO>();
 		UserVO marketervo;
 		
 		for(UserPO marketerpo: marketer){
 			marketervo = new UserVO();
 			BeanUtils.copyProperties(marketervo, marketerpo);
-			creditList.add(marketervo);
+			marketerList.add(marketervo);
 		}
 		
 		return marketerList;
