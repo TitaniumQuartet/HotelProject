@@ -1,6 +1,5 @@
 package tiquartet.ServerModule.bl.usermainbl;
 
-import tiquartet.CommonModule.blservice.usermainblservice.UsermainBLService;
 import tiquartet.CommonModule.util.ResultMessage;
 import tiquartet.CommonModule.vo.UserVO;
 

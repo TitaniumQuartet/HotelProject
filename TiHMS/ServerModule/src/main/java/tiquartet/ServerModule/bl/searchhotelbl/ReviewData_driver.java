@@ -15,7 +15,7 @@ public class ReviewData_driver {
 	try {
 		new ReviewData_driver().drive(new ReviewData_stub());
 	} catch (RemoteException e) {
-		// TODO 自动生成的 catch 块
+		// TODO 自动生成�? catch �?
 		e.printStackTrace();
 	}
 	}

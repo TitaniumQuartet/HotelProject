@@ -4,13 +4,14 @@
 package tiquartet.ServerModule.bl.manageuserbl;
 
 import java.util.List;
-import tiquartet.CommonModule.vo.UserVO;
-import tiquartet.CommonModule.vo.UserFilterVO;
-import tiquartet.CommonModule.vo.CreditVO;
-import tiquartet.CommonModule.vo.MemberVO;
-import tiquartet.ServerModule.po.HotelStaffPO;
-import tiquartet.CommonModule.util.Usersort;
+
 import tiquartet.CommonModule.util.ResultMessage;
+import tiquartet.CommonModule.util.UserSort;
+import tiquartet.CommonModule.vo.CreditVO;
+import tiquartet.CommonModule.vo.HotelStaffVO;
+import tiquartet.CommonModule.vo.MemberVO;
+import tiquartet.CommonModule.vo.UserFilterVO;
+import tiquartet.CommonModule.vo.UserVO;
 
 public class ManageUserController {
 	

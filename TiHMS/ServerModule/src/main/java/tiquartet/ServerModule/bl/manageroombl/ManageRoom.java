@@ -3,29 +3,32 @@
  */
 package tiquartet.ServerModule.bl.manageroombl;
 
+import java.util.ArrayList;
 import java.util.List;
-import org.apache.commons.beanutils.BeanUtils; 
 
-import tiquartet.CommonModule.vo.RoomVO;
-import tiquartet.CommenModule.vo.RoomTypeVO;
-import tiquartet.CommonModule.util.ResultMessage;
 import tiquartet.CommonModule.blservice.manageroomblservice.ManageRoomBLService;
-import tiquartet.ServerModule.dataservice.roomdataservice.RoomDataController;
+import tiquartet.CommonModule.util.ResultMessage;
+import tiquartet.CommonModule.vo.RoomTypeVO;
+import tiquartet.CommonModule.vo.RoomVO;
+import tiquartet.ServerModule.datahelper.DataFactory;
 import tiquartet.ServerModule.po.RoomPO;
+import tiquartet.ServerModule.po.RoomTypePO;
 
 
 public class ManageRoom implements ManageRoomBLService {
+	
+	static DataFactory dataFactory=new DataFactory();
 	
 	/*
 	 * 利用酒店编号获取该酒店的房间列表
 	 */
 	public List<RoomVO> getRoomList (long hotelID) {
 		
-		List<RoomPO> list = new List<RoomPO>();
-		list.addAll(RoomDataController.getRoom(hotelID));
+		List<RoomPO> list = new ArrayList<RoomPO>();
+		list.addAll(dataFactory.getRoomDataHelper().getRoom(hotelID));
 		
 		//把po转成vo
-		List<RoomVO> roomList = new List<RoomVO>();
+		List<RoomVO> roomList = new ArrayList<RoomVO>();
 		RoomVO roomvo;
 		
 		for(RoomPO roompo: list){
@@ -46,7 +49,9 @@ public class ManageRoom implements ManageRoomBLService {
 		RoomPO roompo = new RoomPO();
 		BeanUtils.copyPropertites(roompo, room);
 		
-		return RoomDataController.update(roompo) ;
+		dataFactory.getRoomDataHelper().update(roompo);
+		
+		return new ResultMessage(true);
 	}
 	
 	/*
@@ -58,7 +63,9 @@ public class ManageRoom implements ManageRoomBLService {
 		RoomPO roompo = new RoomPO();
 		BeanUtils.copyPropertites(roompo, room);
 		
-		return RoomDataController.insert(roompo);
+		dataFactory.getRoomDataHelper().insert(roompo);
+		
+		return new ResultMessage(true);
 	}
 	
 	/*
@@ -66,7 +73,9 @@ public class ManageRoom implements ManageRoomBLService {
 	 */
 	public ResultMessage deleteRoom (int roomID) {
 		
-		return RoomDataController.delete(roomID);
+		dataFactory.getRoomDataHelper().delete(roomID);
+		
+		return new ResultMessage(true);
 	}
 	
 	/*
@@ -74,7 +83,9 @@ public class ManageRoom implements ManageRoomBLService {
 	 */
 	public ResultMessage checkIn (int roomID) {
 		
-		return RoomDataController.checkIn(roomID);
+		dataFactory.getRoomDataHelper().checkIn(roomID);
+		
+		return new ResultMessage(true);
 	}
 	
 	/*
@@ -82,7 +93,9 @@ public class ManageRoom implements ManageRoomBLService {
 	 */
 	public ResultMessage checkOut (int roomID) {
 		
-		return RoomDataController.checkOut(roomID);
+		dataFactory.getRoomDataHelper().checkOut(roomID);
+		
+		return new ResultMessage(true);
 	}
 	
 	/*
@@ -90,7 +103,13 @@ public class ManageRoom implements ManageRoomBLService {
 	 */
 	public ResultMessage modifyRoomType (int hotelID, RoomTypeVO roomType) {
 		
-		return RoomDataController.updateType(hotelID, roomType);
+		//vo转po
+		RoomTypePO roompo = new RoomTypePO();
+		BeanUtils.copyPropertites(roompo, roomType);
+		
+		dataFactory.getRoomDataHelper().updateType(hotelID, roompo);
+		
+		return new ResultMessage(true);
 	}
 	
 	/*
@@ -98,7 +117,9 @@ public class ManageRoom implements ManageRoomBLService {
 	 */
 	public ResultMessage deleteRoomType (int hotelID, int roomTypeID) {
 		
-		return RoomDateController.deleteType(hotelID, roomTypeID);
+		dataFactory.getRoomDataHelper().deleteType(hotelID, roomTypeID);
+		
+		return new ResultMessage(true);
 	}
 	
 }
