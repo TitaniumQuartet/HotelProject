@@ -45,12 +45,7 @@ public class HotelInfo implements HotelInfoBLService{
 	    List<ReviewPO> list=datafactory.getReviewDataHelper().searchByHotel(hotelID);
 	    for(int i=0;i<list.size();i++){
 	    	ReviewVO rv=new ReviewVO();
-	    	rv.score=list.get(i).getscore();
-	    	rv.hotelID=list.get(i).gethotelId();
-	    	rv.review=list.get(i).getreview();
-	    	rv.time=list.get(i).gettime();
-	    	rv.userID=list.get(i).getuserId();
-	    	rv.userName=list.get(i).getuserName();
+	    	rv=list.get(i).toReviewvo();
 	    	hoteldetails.list.add(rv);
 	    	
 	    }

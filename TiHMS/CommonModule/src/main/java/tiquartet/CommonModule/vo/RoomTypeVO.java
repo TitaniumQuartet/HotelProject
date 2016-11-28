@@ -8,5 +8,5 @@ public class RoomTypeVO {
 	    //客房类型介绍
 	    public String  typeIntroduction;
 	    //客房价格
-	    public int price;
+	    public double price;
 }

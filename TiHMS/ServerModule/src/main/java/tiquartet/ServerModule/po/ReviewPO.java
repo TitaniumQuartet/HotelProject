@@ -3,6 +3,8 @@ package tiquartet.ServerModule.po;
 import java.io.Serializable;
 import java.util.Calendar;
 
+import tiquartet.CommonModule.vo.ReviewVO;
+
 
 public class ReviewPO implements Serializable{
 	//酒店编号
@@ -79,5 +81,14 @@ public class ReviewPO implements Serializable{
 	public void settime(Calendar time){
 		this.time=time;
 	}
-	
+	public ReviewVO toReviewvo(){
+		ReviewVO vo=new ReviewVO();
+		vo.hotelID=this.hotelId;
+		vo.review=this.review;
+		vo.score=this.score;
+		vo.time=this.time;
+		vo.userID=this.userId;
+		vo.userName=this.userName;
+	    return vo;
+	}
 }

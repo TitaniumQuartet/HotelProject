@@ -237,7 +237,6 @@ public class UserDataSqlHelper implements UserDataHelper{
 	    return success;
 	}
 
-	@Override
 	public ResultMessage update(Map<Integer, UserPO> map) {
 		// TODO Auto-generated method stub
 		return null;

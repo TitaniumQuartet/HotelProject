@@ -79,7 +79,6 @@ public class UserDataImpl implements UserDataService{
 		return userDataHelper.addCredit(userID, addition);
 	}
 
-	@Override
 	public UserPO getUser(String username, String password) {
 		// TODO Auto-generated method stub
 		return null;
