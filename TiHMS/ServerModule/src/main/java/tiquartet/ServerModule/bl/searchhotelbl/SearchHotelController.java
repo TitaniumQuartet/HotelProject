@@ -2,18 +2,18 @@ package tiquartet.ServerModule.bl.searchhotelbl;
 
 import java.util.List;
 
+import tiquartet.CommonModule.util.HotelSort;
 import tiquartet.CommonModule.vo.DistrictVO;
 import tiquartet.CommonModule.vo.HotelVO;
 import tiquartet.CommonModule.vo.HotelBriefVO;
 import tiquartet.CommonModule.vo.HotelFilterVO;
-import tiquartet.CommonModule.vo.SortHotelVO;
 
 public class SearchHotelController {
 	
 	static SearchHotel searchhotel = new SearchHotel();
 	
 	/*
-	 * »ñÈ¡ÉÌÈ¦ÐÅÏ¢ÁÐ±í
+	 * ï¿½ï¿½È¡ï¿½ï¿½È¦ï¿½ï¿½Ï¢ï¿½Ð±ï¿½
 	 */
 	public List<DistrictVO> renewDistrict () {	
 		
@@ -21,7 +21,7 @@ public class SearchHotelController {
 	}
 	
 	/*
-	 * »ñÈ¡ÍøÕ¾ÍÆ¼öµÄ¾Æµê
+	 * ï¿½ï¿½È¡ï¿½ï¿½Õ¾ï¿½Æ¼ï¿½ï¿½Ä¾Æµï¿½
 	 */
 	public List<HotelVO> recommend (){
 		
@@ -29,10 +29,10 @@ public class SearchHotelController {
 	}
 	
 	/*
-	 * »ñÈ¡¾ÆµêÁÐ±í
+	 * ï¿½ï¿½È¡ï¿½Æµï¿½ï¿½Ð±ï¿½
 	 */
 	public List<HotelBriefVO> getHotelList (HotelFilterVO filter, 
-			SortHotelVO sort, int rank1, int rank2){
+			HotelSort sort, int rank1, int rank2){
 		
 		return searchhotel.getHotelList(filter, sort, rank1, rank2);
 	}

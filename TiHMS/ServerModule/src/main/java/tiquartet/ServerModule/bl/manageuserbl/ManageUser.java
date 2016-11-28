@@ -3,6 +3,7 @@
  */
 package tiquartet.ServerModule.bl.manageuserbl;
 
+import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -12,14 +13,11 @@ import tiquartet.CommonModule.blservice.manageuserblservice.ManageUserBLService;
 import tiquartet.CommonModule.util.ResultMessage;
 import tiquartet.CommonModule.util.UserSort;
 import tiquartet.CommonModule.vo.CreditVO;
-import tiquartet.CommonModule.vo.HotelStaffVO;
 import tiquartet.CommonModule.vo.MemberVO;
 import tiquartet.CommonModule.vo.UserFilterVO;
 import tiquartet.CommonModule.vo.UserVO;
 import tiquartet.ServerModule.datahelper.DataFactory;
 import tiquartet.ServerModule.po.CreditPO;
-import tiquartet.ServerModule.po.HotelStaffPO;
-import tiquartet.ServerModule.po.MemberPO;
 import tiquartet.ServerModule.po.UserPO;
 
 public class ManageUser implements ManageUserBLService {
@@ -27,11 +25,11 @@ public class ManageUser implements ManageUserBLService {
 	static DataFactory dataFactory=new DataFactory();
 
 	/*
-	 * ¸ù¾ÝÓÃ»§ÃûºÍÕæÊµÐÕÃûËÑË÷ÓÃ»§
+	 * ï¿½ï¿½ï¿½ï¿½ï¿½Ã»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Êµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã»ï¿½
 	 */
 	public List<UserVO> accurateSearch (String username, String realName) {
 		
-		//»ñÈ¡poµÄÁÐ±í
+		//ï¿½ï¿½È¡poï¿½ï¿½ï¿½Ð±ï¿½
 		List<UserPO> user = new ArrayList<UserPO>();
 		user.addAll(dataFactory.getUserDataHelper().searchUser(username, realName));
 		
@@ -41,7 +39,7 @@ public class ManageUser implements ManageUserBLService {
 		
 		for(UserPO userpo: user){
 			uservo = new UserVO();
-			BeanUtils.copyProperties(uservo, userpo);
+			//BeanUtils.copyProperties(uservo, userpo);
 			userList.add(uservo);
 		}
 		
@@ -49,72 +47,72 @@ public class ManageUser implements ManageUserBLService {
 	}
 	
 	/*
-	 * ¸ù¾Ý³ÇÊÐºÍÉÌÈ¦»ñÈ¡¾ÆµêÔ±¹¤ÁÐ±í
+	 * ï¿½ï¿½ï¿½Ý³ï¿½ï¿½Ðºï¿½ï¿½ï¿½È¦ï¿½ï¿½È¡ï¿½Æµï¿½Ô±ï¿½ï¿½ï¿½Ð±ï¿½
 	 */
-	public List<HotelStaffVO> searchHotelStaff(int cityID, int districtID) {
+	public List<UserVO> searchHotelStaff(int cityID, int districtID) {
 		
-		//»ñÈ¡poÁÐ±í
-		List<HotelStaffPO> hotelstaff = new ArrayList<HotelStaffPO>();
-		hotelstaff.addAll(dataFactory.getUserDataHelper().searchHotelStaff(cityID, districtID));
+		//ï¿½ï¿½È¡poï¿½Ð±ï¿½
+		//List<HotelStaffPO> hotelstaff = new ArrayList<HotelStaffPO>();
+		//hotelstaff.addAll(dataFactory.getUserDataHelper().searchHotelStaff(cityID, districtID));
 		
 		//po×ªvo
-		List<HotelStaffVO> hotelstaffList = new ArrayList<HotelStaffVO>();
-		HotelStaffVO hotelstaffvo;
+		List<UserVO> hotelstaffList = new ArrayList<UserVO>();
+		UserVO hotelstaffvo;
 		
-		for(HotelStaffPO hotelstaffpo: hotelstaff){
-			hotelstaffvo = new HotelStaffVO();
-			BeanUtils.copyProperties(hotelstaffvo, hotelstaffpo);
+		//for(HotelStaffPO hotelstaffpo: hotelstaff){
+			hotelstaffvo = new UserVO();
+			//BeanUtils.copyProperties(hotelstaffvo, hotelstaffpo);
 			hotelstaffList.add(hotelstaffvo);
-		}
+		//}
 		
 		return hotelstaffList;
 	}
 	
 	/*
-	 * ¸ù¾ÝÓÃ»§ID»ñÈ¡ÓÃ»§ÐÅÏ¢
+	 * ï¿½ï¿½ï¿½ï¿½ï¿½Ã»ï¿½IDï¿½ï¿½È¡ï¿½Ã»ï¿½ï¿½ï¿½Ï¢
 	 */
 	public UserVO getUser (int userID) {
 		
 		UserPO userpo = new UserPO();
-		userpo = dataFactory.getUserDataHelper().getUser(userID);
+		//userpo = dataFactory.getUserDataHelper().getUser(userID);
 		
 		UserVO uservo = new UserVO();
-		BeanUtils.copyProperties(uservo, userpo);
+		//BeanUtils.copyProperties(uservo, userpo);
 		
 		return uservo;
 	}
 	
 	/*
-	 * ¸ù¾ÝÉ¸Ñ¡Ìõ¼þ¡¢ÅÅÐò·½Ê½µÈÌõ¼þ»ñÈ¡ÓÃ»§ÐÅÏ¢ÁÐ±í
+	 * ï¿½ï¿½ï¿½ï¿½É¸Ñ¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È¡ï¿½Ã»ï¿½ï¿½ï¿½Ï¢ï¿½Ð±ï¿½
 	 */
 	public List<UserVO> search (UserFilterVO filter, 
 			UserSort sort, int rank1, int rank2) {
 		
-		//Ê×ÏÈ»ñÈ¡ÓÃ»§ÐÅÏ¢ÁÐ±í
+		//ï¿½ï¿½ï¿½È»ï¿½È¡ï¿½Ã»ï¿½ï¿½ï¿½Ï¢ï¿½Ð±ï¿½
 		List<UserPO> user = new ArrayList<UserPO>();
-		user = dataFactory.getUserDataHelper().userList();
+		//user = dataFactory.getUserDataHelper().userList();
 		
 		List<UserVO> userlist = new ArrayList<UserVO>();
 		UserVO uservo;
 		
 		for(UserPO userpo: user){
 			uservo = new UserVO();
-			BeanUtils.copyProperties(uservo, userpo);
+			//BeanUtils.copyProperties(uservo, userpo);
 			userlist.add(uservo);
 		}
 		
-		//¸ù¾ÝÉ¸Ñ¡Ìõ¼þ½øÐÐÉ¸Ñ¡
+		//ï¿½ï¿½ï¿½ï¿½É¸Ñ¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É¸Ñ¡
 		List<UserVO> filterUser = new ArrayList<UserVO>();
-		for(UserVO uservos: userlist){
-			if(uservos.userName.equals(filter.userName)
+		/*for(UserVO uservos: userlist){
+			if(uservos.userName.equals(filter)
 					&& uservos.realName.equals(filter.realName)
 					&& uservos.isMember == filter.isMember){
 				filterUser.add(uservos);
 			}
-		}
+		}*/
 		
-		//°´ÕÕÒªÇó½øÐÐÅÅÐò
-		//ÓÃ»§ÃûÉýÐòÅÅÁÐ
+		//ï¿½ï¿½ï¿½ï¿½Òªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+		//ï¿½Ã»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		if(sort == UserSort.USERNAMEASCEND){
 			Collections.sort(filterUser, new Comparator<UserVO>(){
 				@Override
@@ -123,19 +121,19 @@ public class ManageUser implements ManageUserBLService {
 				}
 				});
 		}
-		//ÓÃ»§Ãû½µÐò
+		//ï¿½Ã»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		else if(sort == UserSort.USERNAMEDESCEND){
-			//ÏÈÉýÐòÅÅÁÐ
+			//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 			Collections.sort(filterUser, new Comparator<UserVO>(){
 				@Override
 				public int compare(UserVO o1, UserVO o2) {
 				return (o1.userName).compareToIgnoreCase(o2.userName);
 				}
 				});
-			//ÔÙ°ÑÉýÐòµÄµ¹ÖÃ
+			//ï¿½Ù°ï¿½ï¿½ï¿½ï¿½ï¿½Äµï¿½ï¿½ï¿½
 			Collections.reverse(filterUser);
 		}
-		//ÕæÊµÐÕÃûÉýÐò
+		//ï¿½ï¿½Êµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		else if(sort == UserSort.REALNAMEASCEND){
 			Collections.sort(filterUser, new Comparator<UserVO>(){
 				@Override
@@ -144,25 +142,25 @@ public class ManageUser implements ManageUserBLService {
 				}
 				});
 		}
-		//ÕæÊµÐÕÃû½µÐò
+		//ï¿½ï¿½Êµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		else if(sort == UserSort.REALNAMEDESCEND){
-			//ÏÈÉýÐòÅÅÁÐ
+			//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 			Collections.sort(filterUser, new Comparator<UserVO>(){
 				@Override
 				public int compare(UserVO o1, UserVO o2) {
 				return (o1.realName).compareToIgnoreCase(o2.realName);
 				}
 				});
-			//ÔÙ°ÑÉýÐòµÄµ¹ÖÃ
+			//ï¿½Ù°ï¿½ï¿½ï¿½ï¿½ï¿½Äµï¿½ï¿½ï¿½
 			Collections.reverse(filterUser);
 		}
 		
-		//·µ»Ørank1µ½rank2Ö®¼äµÄÐÅÏ¢
+		//ï¿½ï¿½ï¿½ï¿½rank1ï¿½ï¿½rank2Ö®ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢
 		return filterUser.subList(rank1, rank2);
 	}
 	
 	/*
-	 * ¸ù¾ÝÓÃ»§IDºÍ½ð¶î½øÐÐÐÅÓÃ³äÖµ
+	 * ï¿½ï¿½ï¿½ï¿½ï¿½Ã»ï¿½IDï¿½Í½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã³ï¿½Öµ
 	 */
 	public ResultMessage creditRecharge (int userID, double amount) {
 		
@@ -172,34 +170,34 @@ public class ManageUser implements ManageUserBLService {
 	}
 	
 	/*
-	 * ¸ù¾Ý¾ÆµêIDºÍÃû³ÆÌí¼Ó¾Æµê
+	 * ï¿½ï¿½ï¿½Ý¾Æµï¿½IDï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ó¾Æµï¿½
 	 */
 	public ResultMessage addHotel (int districtID, String hotelName) {
 		
-		dataFactory.getUserDataHelper().addHotel(districtID, hotelName);
+		//dataFactory.getUserDataHelper().addHotel(districtID, hotelName);
 		
 		return new ResultMessage(true);
 	}
 	
 	/*
-	 * ¸ù¾Ý¾ÆµêID¡¢ÓÃ»§Ãû¡¢ÃÜÂëÌí¼Ó¾ÆµêÔ±¹¤
+	 * ï¿½ï¿½ï¿½Ý¾Æµï¿½IDï¿½ï¿½ï¿½Ã»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ó¾Æµï¿½Ô±ï¿½ï¿½
 	 */
 	public ResultMessage addHotelStaff (int hotelID, 
 			String username, String password) {
 		
-		dataFactory.getUserDataHelper().addHotelStaff(hotelID, username, password);
+		//dataFactory.getUserDataHelper().addHotelStaff(hotelID, username, password);
 		
 		return new ResultMessage(true);
 	}
 	
 	/*
-	 * Í¨¹ýÓÃ»§±àºÅ»ñÈ¡ÐÅÓÃ¼ÇÂ¼
+	 * Í¨ï¿½ï¿½ï¿½Ã»ï¿½ï¿½ï¿½Å»ï¿½È¡ï¿½ï¿½ï¿½Ã¼ï¿½Â¼
 	 */
 	public List<CreditVO> getCreditRecord (int userID) {
 		
-		//»ñÈ¡poµÄÁÐ±í
+		//ï¿½ï¿½È¡poï¿½ï¿½ï¿½Ð±ï¿½
 		List<CreditPO> credit = new ArrayList<CreditPO>();
-		credit.addAll(dataFactory.getUserDataHelper().getCreditRecord(userID));
+		//credit.addAll(dataFactory.getUserDataHelper().getCreditRecord(userID));
 		
 		//po×ªvo
 		List<CreditVO> creditList = new ArrayList<CreditVO>();
@@ -207,7 +205,7 @@ public class ManageUser implements ManageUserBLService {
 		
 		for(CreditPO creditpo: credit){
 			creditvo = new CreditVO();
-			BeanUtils.copyProperties(creditvo, creditpo);
+			//BeanUtils.copyProperties(creditvo, creditpo);
 			creditList.add(creditvo);
 		}
 		
@@ -215,24 +213,24 @@ public class ManageUser implements ManageUserBLService {
 	}
 	
 	/*
-	 * Ìí¼ÓÐÅÓÃ¼ÇÂ¼
+	 * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã¼ï¿½Â¼
 	 */
 	public List<CreditVO> addCreditItem (CreditVO creditItem) {
 		
 		CreditPO creditpo = new CreditPO();
-		BeanUtils.copyProperties(creditpo, creditItem);
+		//BeanUtils.copyProperties(creditpo, creditItem);
 		
-		//µ÷ÓÃÊý¾Ý²ã·½·¨·µ»ØÒ»¸öPOÁÐ±í
+		//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ý²ã·½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½POï¿½Ð±ï¿½
 		List<CreditPO> credit = new ArrayList<CreditPO>();
-		credit.addAll(dataFactory.getUserDataHelper().addCreditItem(creditpo));
+		//credit.addAll(dataFactory.getUserDataHelper().addCreditItem(creditpo));
 		
-		//po×ªvo²¢·µ»Ø
+		//po×ªvoï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		List<CreditVO> creditList = new ArrayList<CreditVO>();
 		CreditVO creditvo;
 		
 		for(CreditPO creditpos: credit){
 			creditvo = new CreditVO();
-			BeanUtils.copyProperties(creditvo, creditpos);
+			//BeanUtils.copyProperties(creditvo, creditpos);
 			creditList.add(creditvo);
 		}
 		
@@ -240,26 +238,26 @@ public class ManageUser implements ManageUserBLService {
 	}
 	
 	/*
-	 * ×¢²á»áÔ±ÐÅÏ¢
+	 * ×¢ï¿½ï¿½ï¿½Ô±ï¿½ï¿½Ï¢
 	 */
 	public ResultMessage memberSignIn (MemberVO member) {
 		
-		MemberPO memberpo = new MemberPO();
-		BeanUtils.copyProperties(memberpo, member);
+		//MemberPO memberpo = new MemberPO();
+		//BeanUtils.copyProperties(memberpo, member);
 		
-		dataFactory.getUserDataHelper().memberSignIn(member);
+		//dataFactory.getUserDataHelper().memberSignIn(member);
 
 		return new ResultMessage(true);
 	}
 	
 	/*
-	 * »ñÈ¡ÓªÏúÈËÔ±ÐÅÏ¢ÁÐ±í
+	 * ï¿½ï¿½È¡Óªï¿½ï¿½ï¿½ï¿½Ô±ï¿½ï¿½Ï¢ï¿½Ð±ï¿½
 	 */
 	public List<UserVO> marketerList () {
 		
-		//»ñÈ¡poÁÐ±í
+		//ï¿½ï¿½È¡poï¿½Ð±ï¿½
 		List<UserPO> marketer = new ArrayList<UserPO>();
-		marketer.addAll(dataFactory.getUserDataHelper().marketerList());
+		//marketer.addAll(dataFactory.getUserDataHelper().marketerList());
 		
 		//po×ªvo
 		List<UserVO> marketerList = new ArrayList<UserVO>();
@@ -267,11 +265,17 @@ public class ManageUser implements ManageUserBLService {
 		
 		for(UserPO marketerpo: marketer){
 			marketervo = new UserVO();
-			BeanUtils.copyProperties(marketervo, marketerpo);
+			//BeanUtils.copyProperties(marketervo, marketerpo);
 			marketerList.add(marketervo);
 		}
 		
 		return marketerList;
+	}
+
+	@Override
+	public ResultMessage addUser(UserVO user) throws RemoteException {
+		// TODO Auto-generated method stub
+		return null;
 	}
 	
 }

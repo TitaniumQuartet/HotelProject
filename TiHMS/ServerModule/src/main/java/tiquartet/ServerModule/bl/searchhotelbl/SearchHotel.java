@@ -1,17 +1,17 @@
 package tiquartet.ServerModule.bl.searchhotelbl;
 
+import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.List;
 
 import tiquartet.CommonModule.blservice.searchhotelblservice.SearchHotelBLService;
+import tiquartet.CommonModule.util.HotelSort;
 import tiquartet.CommonModule.vo.DistrictVO;
 import tiquartet.CommonModule.vo.HotelBriefVO;
 import tiquartet.CommonModule.vo.HotelFilterVO;
 import tiquartet.CommonModule.vo.HotelVO;
-import tiquartet.CommonModule.vo.SortHotelVO;
 import tiquartet.ServerModule.datahelper.DataFactory;
 import tiquartet.ServerModule.po.DistrictPO;
-import tiquartet.ServerModule.po.HotelBriefPO;
 import tiquartet.ServerModule.po.HotelPO;
 
 public class SearchHotel implements SearchHotelBLService {
@@ -19,21 +19,21 @@ public class SearchHotel implements SearchHotelBLService {
 	static DataFactory dataFactory=new DataFactory();
 	
 	/*
-	 * »ñÈ¡ÉÌÈ¦ÐÅÏ¢
+	 * ï¿½ï¿½È¡ï¿½ï¿½È¦ï¿½ï¿½Ï¢
 	 */
 	public List<DistrictVO> renewDistrict (){	
 		
-		//ÏÈ»ñÈ¡ÉÌÈ¦ÐÅÏ¢µÄpo
+		//ï¿½È»ï¿½È¡ï¿½ï¿½È¦ï¿½ï¿½Ï¢ï¿½ï¿½po
 		List<DistrictPO> district = new ArrayList<DistrictPO>();
-		district.addAll(dataFactory.getLocationDataHelper().renewDistrict());
+		//district.addAll(dataFactory.getLocationDataHelper().renewDistrict());
 		
 		//po×ªvo
 		List<DistrictVO> districtList = new ArrayList<DistrictVO>();
 		DistrictVO districtvo;
 		
 		for(DistrictPO districtpo: district){
-			districtvo = new DistrictVO();
-			BeanUtils.copyProperties(districtvo, districtpo);
+			districtvo = new DistrictVO(null,null);
+			//BeanUtils.copyProperties(districtvo, districtpo);
 			districtList.add(districtvo);
 		}
 		
@@ -41,25 +41,25 @@ public class SearchHotel implements SearchHotelBLService {
 	}
 	
 	/*
-	 * »ñµÃÍÆ¼ö¾ÆµêÁÐ±í
+	 * ï¿½ï¿½ï¿½ï¿½Æ¼ï¿½ï¿½Æµï¿½ï¿½Ð±ï¿½
 	 */
 	public List<HotelVO> recommend (){
 		
-		//ÏÈ»ñÈ¡¾ÆµêÁÐ±í
+		//ï¿½È»ï¿½È¡ï¿½Æµï¿½ï¿½Ð±ï¿½
 		List<HotelPO> hotel = new ArrayList<HotelPO>();
-		hotel.addAll(dataFactory.getLocationDataHelper().getHotel());
+		//hotel.addAll(dataFactory.getLocationDataHelper().getHotel());
 		
 		//po×ªvo
 		List<HotelVO> hotelList = new ArrayList<HotelVO>();
-		HotelVO hotelvo;
+		HotelVO hotelvo = null;
 		
 		for(HotelPO hotelpo: hotel){
 			hotelvo = new HotelVO();
-			BeanUtils.copyProperties(hotelvo, hotelpo);
+			//BeanUtils.copyProperties(hotelvo, hotelpo);
 			hotelList.add(hotelvo);
 		}
 		
-		//¸ù¾ÝÒ»¶¨Ìõ¼þÉ¸Ñ¡ÍÆ¼ö¾Æµê£¬±ÈÈçÆ½¾ù·Ö80ÒÔÉÏµÄ
+		//ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É¸Ñ¡ï¿½Æ¼ï¿½ï¿½Æµê£¬ï¿½ï¿½ï¿½ï¿½Æ½ï¿½ï¿½ï¿½ï¿½80ï¿½ï¿½ï¿½Ïµï¿½
 		List<HotelVO> recommendHotel = new ArrayList<HotelVO>();
 		for(HotelVO hotelvos: hotelList){
 			if(hotelvo.averagegrade >= 80){
@@ -67,32 +67,32 @@ public class SearchHotel implements SearchHotelBLService {
 			}
 		}
 		
-		//·µ»ØÍÆ¼ö¾ÆµêÁÐ±í
+		//ï¿½ï¿½ï¿½ï¿½ï¿½Æ¼ï¿½ï¿½Æµï¿½ï¿½Ð±ï¿½
 		return recommendHotel;
 	}
 	
 	/*
-	 * »ñµÃ¾Æµê¼ò½éÁÐ±í
+	 * ï¿½ï¿½Ã¾Æµï¿½ï¿½ï¿½ï¿½Ð±ï¿½
 	 */
 	public List<HotelBriefVO> getHotelList (HotelFilterVO filter, 
-			SortHotelVO sort, int rank1, int rank2){
+			HotelSort sort, int rank1, int rank2){
 		
-		//ÏÈ»ñÈ¡¾Æµê¼ò½éÐÅÏ¢
-		List<HotelBriefPO> hotelbrief = new ArrayList<HotelBriefPO>();
-		hotelbrief.addAll(dataFactory.getLocationDataHelper().getHotelBrief());
+		//ï¿½È»ï¿½È¡ï¿½Æµï¿½ï¿½ï¿½ï¿½ï¿½Ï¢
+		List<HotelBriefVO> hotelbrief = new ArrayList<HotelBriefVO>();
+		//hotelbrief.addAll(dataFactory.getLocationDataHelper().getHotelBrief());
 		
 		//po×ªvo
 		List<HotelBriefVO> hotelbriefList = new ArrayList<HotelBriefVO>();
 		HotelBriefVO hotelbriefvo;
 		
-		for(HotelBriefPO hotelbriefpo: hotelbrief){
+		for(HotelBriefVO hotelbriefpo: hotelbrief){
 			hotelbriefvo = new HotelBriefVO();
-			BeanUtils.copyProperties(hotelbriefvo, hotelbriefpo);
+			//BeanUtils.copyProperties(hotelbriefvo, hotelbriefpo);
 			hotelbriefList.add(hotelbriefvo);
 		}
 		
-		//¸ù¾ÝÉ¸Ñ¡Ìõ¼þÉ¸Ñ¡
-		//±È½ÏÁËHotelBreifVOºÍHotelFilterVOÀïÃæµÄ±äÁ¿£¬ÔÝÊ±Ö»ÄÜ¿¼ÂÇ¶Ô±ÈÐÇ¼¶
+		//ï¿½ï¿½ï¿½ï¿½É¸Ñ¡ï¿½ï¿½ï¿½ï¿½É¸Ñ¡
+		//ï¿½È½ï¿½ï¿½ï¿½HotelBreifVOï¿½ï¿½HotelFilterVOï¿½ï¿½ï¿½ï¿½Ä±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê±Ö»ï¿½Ü¿ï¿½ï¿½Ç¶Ô±ï¿½ï¿½Ç¼ï¿½
 		List<HotelBriefVO> filterHotel = new ArrayList<HotelBriefVO>();
 		for(HotelBriefVO hotelbreifvos: hotelbriefList){
 			if(hotelbreifvos.star == filter.level){
@@ -100,7 +100,15 @@ public class SearchHotel implements SearchHotelBLService {
 			}
 		}
 		
-		//·µ»ØÖ¸¶¨Çø¼äµÄÁÐ±í
+		//ï¿½ï¿½ï¿½ï¿½Ö¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð±ï¿½
 		return filterHotel.subList(rank1, rank2);
 	}
+
+	@Override
+	public List<HotelBriefVO> recommend(int userID) throws RemoteException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	
 }

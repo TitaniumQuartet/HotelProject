@@ -11,7 +11,7 @@ public interface ManageUserBLService extends Remote{
 	
 	public List<UserVO> accurateSearch (String username, String realName) throws RemoteException;
 
-	public List<HotelStaffVO> searchHotelStaff(int cityID, int districtID) throws RemoteException;
+	public List<UserVO> searchHotelStaff(int cityID, int districtID) throws RemoteException;
 	
 	public UserVO getUser (int userID) throws RemoteException;
 	

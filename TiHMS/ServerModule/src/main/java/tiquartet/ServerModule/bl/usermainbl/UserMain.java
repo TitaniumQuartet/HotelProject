@@ -11,34 +11,34 @@ public class UserMain implements UsermainBLService{
 	static DataFactory dataFactory=new DataFactory();
 	
 	/*
-	 * ÓÃ»§µÇÂ¼
+	 * ï¿½Ã»ï¿½ï¿½ï¿½Â¼
 	 */
 	public UserVO login (String username, String password){
 		
-		//ÏÈÅÐ¶ÏÓÃ»§ÊÇ·ñ´æÔÚ
+		//ï¿½ï¿½ï¿½Ð¶ï¿½ï¿½Ã»ï¿½ï¿½Ç·ï¿½ï¿½ï¿½ï¿½
 		ResultMessage res = new ResultMessage(true); 
 		dataFactory.getUserDataHelper().userExist(username);
 		
-		//ÓÃ»§´æÔÚ
+		//ï¿½Ã»ï¿½ï¿½ï¿½ï¿½ï¿½
 		if(res.result == true){
-			//ÑéÖ¤ÓÃ»§ÃûºÍÃÜÂëÊÇ·ñÆ¥Åä
+			//ï¿½ï¿½Ö¤ï¿½Ã»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç·ï¿½Æ¥ï¿½ï¿½
 			ResultMessage match = new ResultMessage(true);
 			dataFactory.getUserDataHelper().checkPassword(username, password);
 			
-			//Æ¥Åä·µ»ØÓÃ»§ÐÅÏ¢
+			//Æ¥ï¿½ä·µï¿½ï¿½ï¿½Ã»ï¿½ï¿½ï¿½Ï¢
 			if(match.result == true){
-				UserPO userpo = dataFactory.getUserDataHelper().getUser(username, password);
+				//UserPO userpo = dataFactory.getUserDataHelper().getUser(username);
 				UserVO uservo = new UserVO();
-				BeanUtils.copyProperties(uservo, userpo);
+				//BeanUtils.copyProperties(uservo, userpo);
 				
 				return uservo;
 			}
-			//²»Æ¥Åä·µ»Ø¿Õ
+			//ï¿½ï¿½Æ¥ï¿½ä·µï¿½Ø¿ï¿½
 			else{
 				return null;
 			}
 		}
-		//²»´æÔÚ·µ»Ø¿Õ
+		//ï¿½ï¿½ï¿½ï¿½ï¿½Ú·ï¿½ï¿½Ø¿ï¿½
 		else{
 			return null;
 		}
@@ -46,7 +46,7 @@ public class UserMain implements UsermainBLService{
     }
 	
 	/*
-	 * ÓÃ»§µÇ³ö
+	 * ï¿½Ã»ï¿½ï¿½Ç³ï¿½
 	 */
 	public ResultMessage logout (int userID){
 		
@@ -54,7 +54,7 @@ public class UserMain implements UsermainBLService{
 	}
 	
 	/*
-	 * ÓÃ»§×¢²á
+	 * ï¿½Ã»ï¿½×¢ï¿½ï¿½
 	 */
     public ResultMessage signUp(String username,String password){
     	
@@ -62,9 +62,9 @@ public class UserMain implements UsermainBLService{
     	newUser.password = password;
     	newUser.userName = username;
     	
-    	//·ÅÈëÊý¾Ý¿â
+    	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ý¿ï¿½
     	UserPO userpo = new UserPO();
-    	BeanUtils.copyProperties(userpo, newUser);
+    	//BeanUtils.copyProperties(userpo, newUser);
     	
     	dataFactory.getUserDataHelper().insert(userpo);
     	
@@ -72,7 +72,7 @@ public class UserMain implements UsermainBLService{
     }
     
     /*
-     * ÅÐ¶ÏÓÃ»§ÃûÊÇ·ñÒÑ´æÔÚ
+     * ï¿½Ð¶ï¿½ï¿½Ã»ï¿½ï¿½ï¿½ï¿½Ç·ï¿½ï¿½Ñ´ï¿½ï¿½ï¿½
      */
     public boolean isUnregistered (String username){
     	
@@ -81,7 +81,7 @@ public class UserMain implements UsermainBLService{
     	return true;
     }
     
-    //ÏÈ²»¿¼ÂÇÕâ¸ö·½·¨
+    //ï¿½È²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     public UserVO currentUser (){
     	UserVO user=this.login("Teki", "12345678");
     	return user;

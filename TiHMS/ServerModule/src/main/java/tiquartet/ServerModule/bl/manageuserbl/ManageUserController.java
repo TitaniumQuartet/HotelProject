@@ -8,7 +8,6 @@ import java.util.List;
 import tiquartet.CommonModule.util.ResultMessage;
 import tiquartet.CommonModule.util.UserSort;
 import tiquartet.CommonModule.vo.CreditVO;
-import tiquartet.CommonModule.vo.HotelStaffVO;
 import tiquartet.CommonModule.vo.MemberVO;
 import tiquartet.CommonModule.vo.UserFilterVO;
 import tiquartet.CommonModule.vo.UserVO;
@@ -18,7 +17,7 @@ public class ManageUserController {
 	static ManageUser manageuser = new ManageUser();
 	
 	/*
-	 * ¸ù¾ÝÓÃ»§ÃûºÍÕæÊµÐÕÃûËÑË÷ÓÃ»§
+	 * ï¿½ï¿½ï¿½ï¿½ï¿½Ã»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Êµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã»ï¿½
 	 */
 	public static List<UserVO> accurateSearch (String username, String realName) {
 		
@@ -26,15 +25,15 @@ public class ManageUserController {
 	}
 	
 	/*
-	 * ¸ù¾Ý³ÇÊÐºÍÉÌÈ¦»ñÈ¡¾ÆµêÔ±¹¤ÁÐ±í
+	 * ï¿½ï¿½ï¿½Ý³ï¿½ï¿½Ðºï¿½ï¿½ï¿½È¦ï¿½ï¿½È¡ï¿½Æµï¿½Ô±ï¿½ï¿½ï¿½Ð±ï¿½
 	 */
-	public static List<HotelStaffVO> searchHotelStaff(int cityID, int districtID) {
+	public static List<UserVO> searchHotelStaff(int cityID, int districtID) {
 		
 		return manageuser.searchHotelStaff(cityID, districtID);
 	}
 	
 	/*
-	 * ¸ù¾ÝÓÃ»§ID»ñÈ¡ÓÃ»§ÐÅÏ¢
+	 * ï¿½ï¿½ï¿½ï¿½ï¿½Ã»ï¿½IDï¿½ï¿½È¡ï¿½Ã»ï¿½ï¿½ï¿½Ï¢
 	 */
 	public static UserVO getUser (int userID) {
 		
@@ -42,7 +41,7 @@ public class ManageUserController {
 	}
 	
 	/*
-	 * ¸ù¾ÝÉ¸Ñ¡Ìõ¼þ¡¢ÅÅÐò·½Ê½µÈÌõ¼þ»ñÈ¡ÓÃ»§ÐÅÏ¢ÁÐ±í
+	 * ï¿½ï¿½ï¿½ï¿½É¸Ñ¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È¡ï¿½Ã»ï¿½ï¿½ï¿½Ï¢ï¿½Ð±ï¿½
 	 */
 	public static List<UserVO> search (UserFilterVO filter, 
 			UserSort sort, int rank1, int rank2) {
@@ -51,7 +50,7 @@ public class ManageUserController {
 	}
 	
 	/*
-	 * ¸ù¾ÝÓÃ»§IDºÍ½ð¶î½øÐÐÐÅÓÃ³äÖµ
+	 * ï¿½ï¿½ï¿½ï¿½ï¿½Ã»ï¿½IDï¿½Í½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã³ï¿½Öµ
 	 */
 	public static ResultMessage creditRecharge (int userID, double amount) {
 		
@@ -59,7 +58,7 @@ public class ManageUserController {
 	}
 	
 	/*
-	 * ¸ù¾Ý¾ÆµêIDºÍÃû³ÆÌí¼Ó¾Æµê
+	 * ï¿½ï¿½ï¿½Ý¾Æµï¿½IDï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ó¾Æµï¿½
 	 */
 	public static ResultMessage addHotel (int districtID, String hotelName) {
 		
@@ -67,7 +66,7 @@ public class ManageUserController {
 	}
 	
 	/*
-	 * ¸ù¾Ý¾ÆµêID¡¢ÓÃ»§Ãû¡¢ÃÜÂëÌí¼Ó¾ÆµêÔ±¹¤
+	 * ï¿½ï¿½ï¿½Ý¾Æµï¿½IDï¿½ï¿½ï¿½Ã»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ó¾Æµï¿½Ô±ï¿½ï¿½
 	 */
 	public static ResultMessage addHotelStaff (int hotelID, 
 			String username, String password) {
@@ -76,7 +75,7 @@ public class ManageUserController {
 	}
 	
 	/*
-	 * Í¨¹ýÓÃ»§±àºÅ»ñÈ¡ÐÅÓÃ¼ÇÂ¼
+	 * Í¨ï¿½ï¿½ï¿½Ã»ï¿½ï¿½ï¿½Å»ï¿½È¡ï¿½ï¿½ï¿½Ã¼ï¿½Â¼
 	 */
 	public static List<CreditVO> getCreditRecord (int userID) {
 		
@@ -84,7 +83,7 @@ public class ManageUserController {
 	}
 	
 	/*
-	 * Ìí¼ÓÐÅÓÃ¼ÇÂ¼
+	 * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã¼ï¿½Â¼
 	 */
 	public static List<CreditVO> addCreditItem (CreditVO creditItem) {
 		
@@ -92,7 +91,7 @@ public class ManageUserController {
 	}
 	
 	/*
-	 * ×¢²á»áÔ±ÐÅÏ¢
+	 * ×¢ï¿½ï¿½ï¿½Ô±ï¿½ï¿½Ï¢
 	 */
 	public static ResultMessage memberSignIn (MemberVO member) {
 		
@@ -100,7 +99,7 @@ public class ManageUserController {
 	}
 	
 	/*
-	 * »ñÈ¡ÓªÏúÈËÔ±ÐÅÏ¢ÁÐ±í
+	 * ï¿½ï¿½È¡Óªï¿½ï¿½ï¿½ï¿½Ô±ï¿½ï¿½Ï¢ï¿½Ð±ï¿½
 	 */
 	public static List<UserVO> marketerList () {
 		

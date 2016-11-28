@@ -3,6 +3,7 @@
  */
 package tiquartet.ServerModule.bl.manageroombl;
 
+import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -20,20 +21,20 @@ public class ManageRoom implements ManageRoomBLService {
 	static DataFactory dataFactory=new DataFactory();
 	
 	/*
-	 * ÀûÓÃ¾Æµê±àºÅ»ñÈ¡¸Ã¾ÆµêµÄ·¿¼äÁÐ±í
+	 * ï¿½ï¿½ï¿½Ã¾Æµï¿½ï¿½Å»ï¿½È¡ï¿½Ã¾Æµï¿½Ä·ï¿½ï¿½ï¿½ï¿½Ð±ï¿½
 	 */
 	public List<RoomVO> getRoomList (long hotelID) {
 		
 		List<RoomPO> list = new ArrayList<RoomPO>();
-		list.addAll(dataFactory.getRoomDataHelper().getRoom(hotelID));
+		//list.addAll(dataFactory.getRoomDataHelper().getRoom(hotelID));
 		
-		//°Ñpo×ª³Évo
+		//ï¿½ï¿½po×ªï¿½ï¿½vo
 		List<RoomVO> roomList = new ArrayList<RoomVO>();
 		RoomVO roomvo;
 		
 		for(RoomPO roompo: list){
 			roomvo = new RoomVO();
-			BeanUtils.copyProperties(roomvo, roompo);
+			//BeanUtils.copyProperties(roomvo, roompo);
 			roomList.add(roomvo);
 		}
 		
@@ -41,13 +42,13 @@ public class ManageRoom implements ManageRoomBLService {
 	}
 	
 	/*
-	 * ÐÞ¸ÄÄ³¸ö·¿¼äµÄÐÅÏ¢
+	 * ï¿½Þ¸ï¿½Ä³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢
 	 */
 	public ResultMessage modifyRoomInfo (RoomVO room) {
 		
 		//vo×ªpo
 		RoomPO roompo = new RoomPO();
-		BeanUtils.copyPropertites(roompo, room);
+		//BeanUtils.copyPropertites(roompo, room);
 		
 		dataFactory.getRoomDataHelper().update(roompo);
 		
@@ -55,13 +56,13 @@ public class ManageRoom implements ManageRoomBLService {
 	}
 	
 	/*
-	 * Ôö¼ÓÒ»¸ö·¿¼äµÄÐÅÏ¢
+	 * ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢
 	 */
 	public ResultMessage addRoom (RoomVO room) {
 		
 		//vo×ªpo
 		RoomPO roompo = new RoomPO();
-		BeanUtils.copyPropertites(roompo, room);
+		//BeanUtils.copyPropertites(roompo, room);
 		
 		dataFactory.getRoomDataHelper().insert(roompo);
 		
@@ -69,7 +70,7 @@ public class ManageRoom implements ManageRoomBLService {
 	}
 	
 	/*
-	 * É¾³ýÒ»¸ö·¿¼äµÄÐÅÏ¢
+	 * É¾ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢
 	 */
 	public ResultMessage deleteRoom (int roomID) {
 		
@@ -79,7 +80,7 @@ public class ManageRoom implements ManageRoomBLService {
 	}
 	
 	/*
-	 * ½«Ä³¸ö¿Í·¿µÄ×´Ì¬ÉèÎª¡°Èë×¡¡±
+	 * ï¿½ï¿½Ä³ï¿½ï¿½ï¿½Í·ï¿½ï¿½ï¿½×´Ì¬ï¿½ï¿½Îªï¿½ï¿½ï¿½ï¿½×¡ï¿½ï¿½
 	 */
 	public ResultMessage checkIn (int roomID) {
 		
@@ -89,7 +90,7 @@ public class ManageRoom implements ManageRoomBLService {
 	}
 	
 	/*
-	 * ½«Ä³¸ö·¿¼ä×´Ì¬ÉèÎª¡°¿ÕÏÐ¡±
+	 * ï¿½ï¿½Ä³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×´Ì¬ï¿½ï¿½Îªï¿½ï¿½ï¿½ï¿½ï¿½Ð¡ï¿½
 	 */
 	public ResultMessage checkOut (int roomID) {
 		
@@ -99,13 +100,13 @@ public class ManageRoom implements ManageRoomBLService {
 	}
 	
 	/*
-	 * ÐÞ¸Ä·¿¼äÀàÐÍ
+	 * ï¿½Þ¸Ä·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	 */
 	public ResultMessage modifyRoomType (int hotelID, RoomTypeVO roomType) {
 		
 		//vo×ªpo
 		RoomTypePO roompo = new RoomTypePO();
-		BeanUtils.copyPropertites(roompo, roomType);
+		//BeanUtils.copyPropertites(roompo, roomType);
 		
 		dataFactory.getRoomDataHelper().updateType(hotelID, roompo);
 		
@@ -113,13 +114,27 @@ public class ManageRoom implements ManageRoomBLService {
 	}
 	
 	/*
-	 * É¾³ý·¿¼äÀàÐÍ
+	 * É¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	 */
 	public ResultMessage deleteRoomType (int hotelID, int roomTypeID) {
 		
-		dataFactory.getRoomDataHelper().deleteType(hotelID, roomTypeID);
+		//dataFactory.getRoomDataHelper().deleteType(hotelID, roomTypeID);
 		
 		return new ResultMessage(true);
+	}
+
+	@Override
+	public ResultMessage addRoomType(RoomTypeVO roomType)
+			throws RemoteException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public ResultMessage modifyRoomType(RoomTypeVO roomType)
+			throws RemoteException {
+		// TODO Auto-generated method stub
+		return null;
 	}
 	
 }

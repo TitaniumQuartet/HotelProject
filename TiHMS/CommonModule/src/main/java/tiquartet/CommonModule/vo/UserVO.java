@@ -9,4 +9,6 @@ public class UserVO {
     public int userType;
     // 用户密码
     public String password;
+    //真实姓名
+    public String realName;
 }
