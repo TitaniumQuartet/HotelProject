@@ -2,6 +2,10 @@ package tiquartet.ServerModule.datahelper.service;
 
 import java.util.List;
 import java.util.Map;
+
+import javax.naming.spi.DirStateFactory.Result;
+
+import tiquartet.CommonModule.util.ResultMessage;
 import tiquartet.ServerModule.po.UserPO;
 
 public interface UserDataHelper {
@@ -10,30 +14,30 @@ public interface UserDataHelper {
 	 * 验证用户是否存在
 	 * @param 
 	 */
-	public void userExist (String username);
+	public ResultMessage userExist (String username);
 	
 	/**
 	 * 验证密码是否正确
 	 * @param 
 	 */
-	public void checkPassword (String username, String password);
+	public ResultMessage checkPassword (String username, String password);
 	
 	/**
 	 * 新增用户
 	 * @param 
 	 */
-	public void insert (UserPO user);
+	public ResultMessage insert (UserPO user);
 	
 	/**
 	 * @return	从数据文件中读取用户数据
 	 */
-	public Map<Integer, UserPO> getUser (int userID);
+	public Map<Integer, UserPO> getUser ();
 	
 	/**
 	 * 向数据文件中写入用户数据
 	 * @param list
 	 */
-	public void update (Map<Integer, UserPO> map);
+	public ResultMessage update (Map<Integer, UserPO> map);
 	
 	/**
 	 *搜索用户
@@ -45,11 +49,11 @@ public interface UserDataHelper {
 	 * 得到信用记录
 	 * @param 
 	 */
-	public void getCreditBalance (int userID);
+	public ResultMessage getCreditBalance (int userID);
 	
 	/**
 	 * 增加信用记录
 	 * @param 
 	 */
-	public void addCredit (int userID, double addition);
+	public ResultMessage addCredit (int userID, double addition);
 }
