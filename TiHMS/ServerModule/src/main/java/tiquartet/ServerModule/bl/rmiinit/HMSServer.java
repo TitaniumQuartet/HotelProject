@@ -1,10 +1,13 @@
 package tiquartet.ServerModule.bl.rmiinit;
 
+import java.rmi.AlreadyBoundException;
+import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 import java.rmi.server.UnicastRemoteObject;
 
 import tiquartet.CommonModule.util.ResultMessage;
+import tiquartet.ServerModule.bl.hotelinfobl.HotelInfoController;
 import tiquartet.ServerModule.bl.manageorderbl.ManageOrderController;
 
 /**
@@ -22,10 +25,13 @@ public class HMSServer {
 		}
 		try {
 			Registry registry = LocateRegistry.getRegistry();
-			//ManageOrderController manageOrderStub = (ManageOrderController) UnicastRemoteObject.exportObject(new ManageOrderController(), 0);
-			//registry.bind("manageOrder", );
-		} catch (Exception e) {
-			// TODO: handle exception
+			HotelInfoController hotelInfoStub = (HotelInfoController) UnicastRemoteObject.exportObject(new HotelInfoController(), 0);
+			registry.bind("hotelInfo", hotelInfoStub);
+			ManageOrderController manageOrderStub = (ManageOrderController) UnicastRemoteObject.exportObject(new ManageOrderController(), 0);
+			registry.bind("manageOrder", manageOrderStub);
+		} catch (RemoteException | AlreadyBoundException e) {
+			e.printStackTrace();
+			return new ResultMessage(false);
 		}
 		return new ResultMessage(true);
 	}
