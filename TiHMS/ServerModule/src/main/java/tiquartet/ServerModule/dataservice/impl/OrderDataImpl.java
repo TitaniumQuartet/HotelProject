@@ -10,15 +10,23 @@ import tiquartet.ServerModule.po.OrderPO;
 public class OrderDataImpl implements OrderDataService{
 
 	public ResultMessage insert(OrderPO order){
-		
+		return null;
 	}
 	
 	public ResultMessage update(OrderPO order){
-		
+		return null;
 	}
 	
-	public List<OrderPO> searchByHotel (int hotelID, OrderStatus status);
-	public List<OrderPO> searchByUser (int hotelID, int userID);
-	public OrderPO getOrderByID (long orderID);
-	public int countOrder (int userID, OrderStatus status);
+	public List<OrderPO> searchByHotel (int hotelID, OrderStatus status){
+		return null;
+	}
+	public List<OrderPO> searchByUser (int hotelID, int userID){
+		return null;
+	}
+	public OrderPO getOrderByID (long orderID){
+		return null;
+	}
+	public int countOrder (int userID, OrderStatus status){
+		return 0;
+	}
 }
