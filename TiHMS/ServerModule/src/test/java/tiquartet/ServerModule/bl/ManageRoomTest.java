@@ -1,6 +1,8 @@
 package tiquartet.ServerModule.bl;
 
 import static org.junit.Assert.*;
+
+import java.rmi.RemoteException;
 import java.util.List;
 
 import javax.naming.spi.DirStateFactory.Result;
@@ -61,7 +63,7 @@ public class ManageRoomTest{
 	}
 	
 	@Test
-	public void addRoomType(){
+	public void addRoomType() throws RemoteException{
 		room = new ManageRoom();
 		RoomTypeVO vo = new RoomTypeVO();
 		ResultMessage result = room.addRoomType(vo);
@@ -70,7 +72,7 @@ public class ManageRoomTest{
 	}
 	
 	@Test
-	public void modifyRoomType(){
+	public void modifyRoomType() throws RemoteException{
 		room = new ManageRoom();
 		RoomTypeVO vo = new RoomTypeVO();
 		ResultMessage result = room.modifyRoomType(vo);

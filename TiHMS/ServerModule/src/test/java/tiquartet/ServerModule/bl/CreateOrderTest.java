@@ -1,6 +1,9 @@
 package tiquartet.ServerModule.bl;
 
 import static org.junit.Assert.*;
+
+import java.rmi.RemoteException;
+
 import org.junit.Test;
 
 
@@ -15,14 +18,14 @@ public class CreateOrderTest{
 	private CreateOrder order;
 	
 	@Test
-	public void testgetStrategyByID(){
+	public void testgetStrategyByID() throws RemoteException{
 		order = new CreateOrder();
 		StrategyListItem strategy = order.getStrategyByID(123456, 666666);
 		assertEquals(strategy.intro, "20% dicount");
 	}
 	
 	@Test
-	public void testpreOrder(){
+	public void testpreOrder() throws RemoteException{
 		order = new CreateOrder();
 		PreOrderVO pre = new PreOrderVO();
 		ResultMessage result = order.preOrder(pre);
@@ -30,14 +33,14 @@ public class CreateOrderTest{
 	}
 	
 	@Test
-	public void testcancelPreOrder(){
+	public void testcancelPreOrder() throws RemoteException{
 		order = new CreateOrder();
 		ResultMessage result = order.cancelPreOrder();
 		assertEquals(result.result, true);
 	}
 	
 	@Test
-	public void testconfirm(){
+	public void testconfirm() throws RemoteException{
 		order = new CreateOrder();
 		OrderInfoVO vo = new OrderInfoVO();
 		ResultMessage result = order.confirm(vo);

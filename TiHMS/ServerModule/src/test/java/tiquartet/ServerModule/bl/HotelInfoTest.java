@@ -1,6 +1,8 @@
 package tiquartet.ServerModule.bl;
 
 import static org.junit.Assert.*;
+
+import java.rmi.RemoteException;
 import java.util.List;
 import org.junit.Test;
 
@@ -23,7 +25,7 @@ public class HotelInfoTest {
 	}
 	
 	@Test
-	public void testavailableRoomType(){
+	public void testavailableRoomType() throws RemoteException{
 		hotel=new HotelInfo();
 		PreOrderVO preOrder=new PreOrderVO();
 		List<RoomTypeVO> roomtype=hotel.availableRoomType(preOrder);
@@ -32,7 +34,7 @@ public class HotelInfoTest {
 	}
 	
 	@Test
-	public void testreviewHotel(){
+	public void testreviewHotel() throws RemoteException{
 		hotel=new HotelInfo();
 		ReviewVO review=new ReviewVO();
 		ResultMessage result=hotel.reviewHotel(review);
@@ -40,7 +42,7 @@ public class HotelInfoTest {
 	}
 	
 	@Test
-	public void testmodifyHotelInfo(){
+	public void testmodifyHotelInfo() throws RemoteException{
 		hotel=new HotelInfo();
 		HotelInfoVO hotelInfo=new HotelInfoVO();
 		ResultMessage result=hotel.modifyHotelInfo(hotelInfo);

@@ -15,6 +15,7 @@ import tiquartet.ServerModule.bl.manageorderbl.ManageOrderController;
  * @author greatlyr
  */
 public class HMSServer {
+	
 	/**
 	 * 服务器初始化，提供RMI服务.
 	 * @return 启动服务器的结果信息
@@ -35,4 +36,5 @@ public class HMSServer {
 		}
 		return new ResultMessage(true);
 	}
+	
 }
