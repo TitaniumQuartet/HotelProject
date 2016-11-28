@@ -16,7 +16,7 @@ import tiquartet.CommonModule.util.ResultMessage;
 public class HotelInfo implements HotelInfoBLService{
 	static DataFactory datafactory=new DataFactory();	
 	public HotelBriefVO getHotelBrief (int hotelID,int userID)throws RemoteException{
-		//传入酒店ID返回酒店的简略信息
+	    //传入酒店ID返回酒店的简略信息.
 		HotelBriefVO hotelbrief=new HotelBriefVO();
 		HotelInfoPO hp=datafactory.getHotelInfoDataHelper().getHotelInfo(hotelID);
 		hotelbrief.avgrage=hp.getavgreagegrade();
@@ -28,6 +28,7 @@ public class HotelInfo implements HotelInfoBLService{
 		return hotelbrief;
 	}
 	
+		
 	public HotelDetailsVO getHotelDetails (int hotelID,int userID)throws RemoteException{	
 		//传入酒店编号，返回酒店详细信息
 	    HotelDetailsVO hoteldetails=new HotelDetailsVO();
