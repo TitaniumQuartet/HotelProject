@@ -9,8 +9,32 @@ import tiquartet.CommonModule.vo.OrderStrategyVO;
 import tiquartet.CommonModule.vo.PreOrderVO;
 
 public interface CreateOrderBLService extends Remote{
+	/**
+	 *预定了某日期的房间，系统改变该房间的状态
+	 * @param preOrder
+	 * @return
+	 * @throws RemoteException
+	 */
 	public ResultMessage prePrder(PreOrderVO preOrder) throws RemoteException;
+	/**
+	 * 取消预定的订单
+	 * @param preOrderID
+	 * @return
+	 * @throws RemoteException
+	 */
 	public ResultMessage cancelPreOrder(long preOrderID) throws RemoteException;
+	/**
+	 * 获得与订单相关的策略
+	 * @param preOrderID
+	 * @return
+	 * @throws RemoteException
+	 */
 	public List<OrderStrategyVO> getStrategy(long preOrderID) throws RemoteException;
+	/**
+	 * 订单完成，系统保存完整订单信息
+	 * @param orderInfo
+	 * @return
+	 * @throws RemoteException
+	 */
 	public ResultMessage confirm(OrderInfoVO orderInfo)throws RemoteException;
 }
