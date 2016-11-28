@@ -70,20 +70,21 @@ public class ManageOrder implements ManageOrderBLService {
 		return new ResultMessage(false);
 	}
 
-	public ResultMessage checkIn(long orderID, String leaveTime) throws RemoteException{
+	public ResultMessage checkIn(long orderID, String estLeaveTime) throws RemoteException{
 		OrderPO po=dataFactory.getOrderDataHelper().getOrderByID(orderID);
-		po.setleaveTime(leaveTime);
+		po.setlatestTime(estLeaveTime);
 		dataFactory.getOrderDataHelper().update(po);
 		return new ResultMessage(true);
 	}
 
-	public ResultMessage checkOut(long orderID) throws RemoteException{
+	public ResultMessage checkOut(long orderID,String leaveTime) throws RemoteException{
 		OrderPO po=dataFactory.getOrderDataHelper().getOrderByID(orderID);
+		po.setleaveTime(leaveTime);
 		po.setorderStatus(OrderStatus.EXECUTED);// TODO Auto-generated method stub
 		return null;
 	}
 
-	public List<Integer> getHotelList(int userID) throws RemoteException{
+	public List<Integer> orderedHotelID(int userID) throws RemoteException{
 		// 返回用户预订过的酒店编号列表
 		List<Integer> hotelIdlist=new ArrayList<Integer>();
 		List<HotelInfoPO> polist=dataFactory.getHotelInfoDataHelper().getHotelList(userID);
@@ -103,6 +104,9 @@ public class ManageOrder implements ManageOrderBLService {
 		return null;
 	}
 
+	/* (non-Javadoc)
+	 * @see tiquartet.CommonModule.blservice.manageorderblservice.ManageOrderBLService#numAtHotel(int, int)
+	 */
 	public OrderNumVO numAtHotel(int hotelID,int userID) throws RemoteException{
 		//返回用户在该酒店的各类订单数目；
 		List<OrderPO> polist=dataFactory.getOrderDataHelper().searchByUser(hotelID, userID);
@@ -128,11 +132,6 @@ public class ManageOrder implements ManageOrderBLService {
 		return ordernumvo;
 	}
 
-	@Override
-	public List<Integer> orderedHotelID(int userID) throws RemoteException {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
 	
 }

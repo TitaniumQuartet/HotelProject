@@ -14,8 +14,8 @@ public class Strategy{
 	
 	DataFactory dataFactory = new DataFactory();
 	//增加策略
-	public ResultMessage addStrategy(StrategyVO vo)throws RemoteException{
-		StrategyPO po=new StrategyPO(vo);
+	public ResultMessage addStrategy(StrategyVO strategyvo)throws RemoteException{
+		StrategyPO po=new StrategyPO(strategyvo);
 		dataFactory.getStrategyDataHelper().insert(po);
 		return new ResultMessage(true);
 		//return dataFactory.getStrategyDataHelper().insert(po);
@@ -26,7 +26,7 @@ public class Strategy{
 		return new ResultMessage(true);
 	}
 	//根据酒店编号搜索策略
-	public List<StrategyVO> getStrategy(int hotelID)throws RemoteException{
+	public List<StrategyVO> searchByHotel(int hotelID)throws RemoteException{
 		List<StrategyPO> polist=dataFactory.getStrategyDataHelper().searchByHotel(hotelID);
 		List<StrategyVO> volist=new ArrayList<StrategyVO>();
 		for(int i=0;i<polist.size();i++){
@@ -36,8 +36,8 @@ public class Strategy{
 		return volist;
 	}
 	
-	public ResultMessage changeStrategy(StrategyVO vo)throws RemoteException{
-		StrategyPO po=new StrategyPO(vo);
+	public ResultMessage modifyStrategy(StrategyVO strategyvo)throws RemoteException{
+		StrategyPO po=new StrategyPO(strategyvo);
 		dataFactory.getStrategyDataHelper().update(po);
 		return new ResultMessage(true);
 	}

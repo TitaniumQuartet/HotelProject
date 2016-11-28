@@ -107,7 +107,8 @@ public class HotelInfo implements HotelInfoBLService{
    public List<HotelBriefVO> clientHotelList(int userId)throws RemoteException{
 	   //返回用户预订过的酒店列表
 	   List<HotelBriefVO> listvo=new ArrayList<HotelBriefVO>();	   
-	   List<Integer>  hotelID=ManageOrderController.getHotelList(userId);
+	   ManageOrderController manageordercontroller=new ManageOrderController();
+	   List<Integer>  hotelID=manageordercontroller.orderedHotelID(userId);
 	   for(int i=0;i<hotelID.size();i++){
 		   HotelInfoPO hip=datafactory.getHotelInfoDataHelper().getHotelInfo(hotelID.get(i));
 		   HotelBriefVO hotelbriefvo =new HotelBriefVO();
