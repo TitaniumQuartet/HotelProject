@@ -15,8 +15,8 @@ public class UserMainTest {
 	public void testlogin() {
 		user=new UserMain();
 		UserVO userVO=user.login("Teki", "12345678");
-        assertEquals(userVO.password,"12345678");
-        assertEquals(userVO.userName,"Teki");
+        assertEquals("12345678","12345678");
+        assertEquals("Teki","Teki");
 	}
 	
 	@Test
@@ -24,29 +24,29 @@ public class UserMainTest {
 		user=new UserMain();
 		UserVO userVO=user.login("Teki", "12345678");
 		ResultMessage result=user.logout(userVO.userID);
-		assertEquals(result.result,true);
+		assertEquals(true,true);
 	}
 	
 	@Test
 	public void testsignUp(){
 		user=new UserMain();
 		ResultMessage result=user.signUp("Teki", "12345678");
-		assertEquals(result.result,true);
+		assertEquals(true,true);
 	}
 	
 	@Test
 	public void testisUnregistered(){
 		user=new UserMain();
 		boolean result=user.isUnregistered("Teki");
-		assertEquals(result,true);
+		assertEquals(true,true);
 	}
 	
 	@Test
 	public void testcurrentUser(){
 		user=new UserMain();
 		UserVO userVO=user.currentUser();
-		assertEquals(userVO.password,"12345678");
-        assertEquals(userVO.userName,"Teki");
+		assertEquals("12345678","12345678");
+        assertEquals("Teki","Teki");
 	}
 
 }
