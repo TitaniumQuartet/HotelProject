@@ -7,6 +7,8 @@ import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
+import tiquartet.ClientModule.ui.rmiclient.HMSClient;
+import tiquartet.CommonModule.vo.UserVO;
 
 /**
  * 主登录界面和客户注册界面的控制器类.
@@ -14,7 +16,9 @@ import javafx.scene.image.ImageView;
  *
  */
 public class UserMainController {
-
+	
+	private static UserVO currentUser = null;
+	
     @FXML
     private CheckBox rememberBox;
 
@@ -66,13 +70,14 @@ public class UserMainController {
     @FXML
     private TextField RealNameField;
 
+    
     /**
      * 点击主登录界面的登录按钮触发.
      * @param event
      */
     @FXML
     void onLoginCLicked(ActionEvent event) {
-
+    	
     }
 
     /**
@@ -102,4 +107,12 @@ public class UserMainController {
 
     }
 
+    /**
+     * 取得当前客户端登录的用户的信息，未登录状态下值为null.
+     * @return
+     */
+    public static UserVO getCurrentUser(){
+    	return UserMainController.currentUser;
+    }
+    
 }

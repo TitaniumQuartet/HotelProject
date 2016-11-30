@@ -12,12 +12,14 @@ import tiquartet.ServerModule.bl.manageorderbl.ManageOrderController;
 
 /**
  * 酒店管理系统的服务器类，可建立RMI服务，运行服务器.
+ * 
  * @author greatlyr
  */
 public class HMSServer {
-	
+
 	/**
 	 * 服务器初始化，提供RMI服务.
+	 * 
 	 * @return 启动服务器的结果信息
 	 */
 	public ResultMessage init() {
@@ -26,15 +28,20 @@ public class HMSServer {
 		}
 		try {
 			Registry registry = LocateRegistry.getRegistry();
-			HotelInfoController hotelInfoStub = (HotelInfoController) UnicastRemoteObject.exportObject(new HotelInfoController(), 0);
+			HotelInfoController hotelInfoStub = (HotelInfoController) UnicastRemoteObject
+					.exportObject(new HotelInfoController(), 0);
 			registry.bind("hotelInfo", hotelInfoStub);
-			ManageOrderController manageOrderStub = (ManageOrderController) UnicastRemoteObject.exportObject(new ManageOrderController(), 0);
+			ManageOrderController manageOrderStub = (ManageOrderController) UnicastRemoteObject
+					.exportObject(new ManageOrderController(), 0);
 			registry.bind("manageOrder", manageOrderStub);
-		} catch (RemoteException | AlreadyBoundException e) {
+		} catch (RemoteException e) {
+			e.printStackTrace();
+			return new ResultMessage(false);
+		} catch (AlreadyBoundException e) {
 			e.printStackTrace();
 			return new ResultMessage(false);
 		}
 		return new ResultMessage(true);
 	}
-	
+
 }
