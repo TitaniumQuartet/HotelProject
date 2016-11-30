@@ -3,6 +3,7 @@ package tiquartet.ServerModule.bl.hotelinfobl;
 import java.rmi.RemoteException;
 import java.util.List;
 
+import tiquartet.CommonModule.blservice.hotelinfoblservice.HotelInfoBLService;
 import tiquartet.CommonModule.util.ResultMessage;
 import tiquartet.CommonModule.vo.HotelBriefVO;
 import tiquartet.CommonModule.vo.HotelDetailsVO;
@@ -10,7 +11,6 @@ import tiquartet.CommonModule.vo.HotelInfoVO;
 import tiquartet.CommonModule.vo.PreOrderVO;
 import tiquartet.CommonModule.vo.ReviewVO;
 import tiquartet.CommonModule.vo.RoomTypeVO;
-import tiquartet.CommonModule.blservice.hotelinfoblservice.*;
 
 public class HotelInfoController implements HotelInfoBLService{
 	static HotelInfo HotelInfo=new HotelInfo();

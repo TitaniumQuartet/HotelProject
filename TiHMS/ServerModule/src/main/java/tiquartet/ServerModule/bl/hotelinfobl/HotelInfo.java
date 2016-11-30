@@ -5,6 +5,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import tiquartet.ServerModule.datahelper.DataFactory;
+import tiquartet.ServerModule.dataservice.impl.HotelInfoDataImpl;
+import tiquartet.ServerModule.dataservice.impl.ReviewDataImpl;
+import tiquartet.ServerModule.dataservice.impl.RoomDataImpl;
 import tiquartet.ServerModule.po.HotelInfoPO;
 import tiquartet.ServerModule.po.ReviewPO;
 import tiquartet.ServerModule.po.RoomTypePO;
@@ -14,16 +17,20 @@ import tiquartet.CommonModule.blservice.hotelinfoblservice.HotelInfoBLService;
 import tiquartet.CommonModule.util.ResultMessage;
 import tiquartet.CommonModule.vo.OrderNumVO;
 public class HotelInfo implements HotelInfoBLService{
-	static DataFactory datafactory;
+	HotelInfoDataImpl hoteldataimpl;
+	ReviewDataImpl reviewdataimpl;
+	RoomDataImpl roomdataimpl;
 	ManageOrderController manageordercontroller;
 	public HotelInfo(){
-		datafactory=new DataFactory();
+		hoteldataimpl=new HotelInfoDataImpl();
+		reviewdataimpl=new ReviewDataImpl();
+		roomdataimpl=new RoomDataImpl();
 		manageordercontroller=new ManageOrderController();
 	}
 	public HotelBriefVO getHotelBrief (int hotelID,int userID)throws RemoteException{
 	    //传入酒店ID返回酒店的简略信息.
 		HotelBriefVO hotelbrief=new HotelBriefVO();
-		HotelInfoPO hp=datafactory.getHotelInfoDataHelper().getHotelInfo(hotelID);
+		HotelInfoPO hp=new HotelInfoPO();//此处 应该修改
 		hotelbrief.avgragegrade=hp.getavgreagegrade();
 		hotelbrief.circleName=hp.getcircleName();
 		hotelbrief.cityName=hp.getcityName();
@@ -40,7 +47,7 @@ public class HotelInfo implements HotelInfoBLService{
 	public HotelDetailsVO getHotelDetails (int hotelID,int userID)throws RemoteException{	
 		//传入酒店编号，返回酒店详细信息
 	    HotelDetailsVO hoteldetails=new HotelDetailsVO();
-	    HotelInfoPO hp=datafactory.getHotelInfoDataHelper().getHotelInfo(hotelID);
+	    HotelInfoPO hp=new HotelInfoPO();//此处应该修改
 	    hoteldetails.address=hp.getaddress();
 	    hoteldetails.averageg=hp.getavgreagegrade();
 	    hoteldetails.circleName=hp.getcircleName();
@@ -51,7 +58,7 @@ public class HotelInfo implements HotelInfoBLService{
 	    hoteldetails.hotelName=hp.gethotelName();
 	    hoteldetails.serviceintro=hp.getserviceIntroduction();
 	    hoteldetails.star=hp.getstar();
-	    List<ReviewPO> list=datafactory.getReviewDataHelper().searchByHotel(hotelID);
+	    List<ReviewPO> list=new ArrayList<ReviewPO>();//此处应该修改
 	    for(int i=0;i<list.size();i++){
 	    	ReviewVO rv=new ReviewVO();
 	    	rv=list.get(i).toReviewvo();
@@ -63,7 +70,7 @@ public class HotelInfo implements HotelInfoBLService{
 	
 	public List<RoomTypeVO> availableRoomType (PreOrderVO preOrder)throws RemoteException{
 		//传入入住日期，酒店，返回可用客房类型及该类型数量
-		List<RoomTypePO> list=datafactory.getRoomDataHelper().availableRoomType(preOrder.hotelID, preOrder.startTime, preOrder.endTime, preOrder.numOfRoom);
+		List<RoomTypePO> list=new ArrayList<RoomTypePO>();
 		List<RoomTypeVO> listvo=new ArrayList<RoomTypeVO>();
 		for(int i=0;i<list.size();i++){
 			RoomTypeVO rtv=new RoomTypeVO();
@@ -86,7 +93,7 @@ public class HotelInfo implements HotelInfoBLService{
 		reviewpo.settime(review.time);
 		reviewpo.setuserId(review.userID);
 		reviewpo.setuserName(review.userName);
-		datafactory.getReviewDataHelper().insert(reviewpo);
+		//datafactory.getReviewDataHelper().insert(reviewpo);
 		if(reviewpo.getreview()!=null){
 			return new ResultMessage(true);			
 		}
@@ -105,7 +112,7 @@ public class HotelInfo implements HotelInfoBLService{
 		hip.sethotelIntroduction(hotelInfo.hotelIntroduction);
 		hip.setserviceIntroduction(hotelInfo.serviceIntroduction);
 		hip.setstar(hotelInfo.star);
-		datafactory.getHotelInfoDataHelper().update(hip);
+		//datafactory.getHotelInfoDataHelper().update(hip);
 		return new ResultMessage(true);
 	}
    public List<HotelBriefVO> clientHotelList(int userId)throws RemoteException{
@@ -114,7 +121,7 @@ public class HotelInfo implements HotelInfoBLService{
 	   ManageOrderController manageordercontroller=new ManageOrderController();
 	   List<Integer>  hotelID=manageordercontroller.orderedHotelID(userId);
 	   for(int i=0;i<hotelID.size();i++){
-		   HotelInfoPO hip=datafactory.getHotelInfoDataHelper().getHotelInfo(hotelID.get(i));
+		   HotelInfoPO hip=new HotelInfoPO();//此处应该修改
 		   HotelBriefVO hotelbriefvo =new HotelBriefVO();
 		   hotelbriefvo.circleName=hip.getcircleName();
 		   hotelbriefvo.cityName=hip.getcityName();

@@ -14,7 +14,9 @@ public class OrderVO {
 		//有无儿童
 		public int child;
 		//入住人真实姓名
-		public String realName;
+		public String guestrealName;
+		//预订者真实姓名
+		public String clientrealName;
 		//酒店编号
 		public int hotelId;
 		//用户编号

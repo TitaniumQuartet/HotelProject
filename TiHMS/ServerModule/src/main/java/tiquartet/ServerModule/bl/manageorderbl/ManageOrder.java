@@ -12,24 +12,26 @@ import tiquartet.CommonModule.util.ResultMessage;
 import tiquartet.CommonModule.vo.OrderFilterVO;
 import tiquartet.CommonModule.vo.OrderNumVO;
 import tiquartet.CommonModule.vo.OrderVO;
-import tiquartet.ServerModule.datahelper.DataFactory;
 import tiquartet.ServerModule.dataservice.impl.HotelInfoDataImpl;
 import tiquartet.ServerModule.dataservice.impl.OrderDataImpl;
+import tiquartet.ServerModule.dataservice.impl.UserDataImpl;
 import tiquartet.ServerModule.po.HotelInfoPO;
 import tiquartet.ServerModule.po.OrderPO;
 import tiquartet.ServerModule.po.UserPO;
 
 public class ManageOrder implements ManageOrderBLService {
-	static OrderDataImpl orderdataimpl;
-	static HotelInfoDataImpl hoteldataimpl;
+	 OrderDataImpl orderdataimpl;
+	 HotelInfoDataImpl hoteldataimpl;
+	 UserDataImpl userdataimpl;
     public ManageOrder(){
     	orderdataimpl=new OrderDataImpl();
     	hoteldataimpl=new HotelInfoDataImpl();
+    	userdataimpl=new UserDataImpl();
     }
 	public List<OrderVO> orderHistory(OrderFilterVO filter,
 			OrderSort sort, int rank1, int rank2) throws RemoteException{
 		List<OrderVO> volist=new ArrayList<OrderVO>();
-		List<OrderPO> polist=orderdataimpl.searchByUser(hotelID, userID);
+		List<OrderPO> polist=orderdataimpl.searchByUser(filter.hotelID, filter.userId);
 		for(int i=0;i<polist.size();i++){
 			if(filter.circleId!=-1){
 				if(polist.get(i).gethotelId()/1000!=filter.circleId){
@@ -47,10 +49,7 @@ public class ManageOrder implements ManageOrderBLService {
 				}
 			}
 			if(filter.star!=-1){
-				HotelInfoPO hotelpo=dataFactory.getHotelInfoDataHelper().getHotelInfo(polist.get(i).gethotelId());
-				if(hotelpo.getstar()!=filter.star){
-					continue;
-				}
+				//需添加
 			}
 			if(filter.endTime!=null){
 				int filterEndTime=Integer.parseInt(filter.endTime);
@@ -67,7 +66,8 @@ public class ManageOrder implements ManageOrderBLService {
 				}
 			}
 			if(filter.hotelName!=null){
-				HotelInfoPO hotelinfopo=;
+				HotelInfoPO hotelinfopo=new HotelInfoPO();
+				//需修改
 				if(hotelinfopo.gethotelName()!=filter.hotelName){
 					continue;
 				}
@@ -82,8 +82,8 @@ public class ManageOrder implements ManageOrderBLService {
 					continue;
 				}
             }
-			if(filter.orderManName!=null){
-				if(polist.get(i).getOrderManName()!=filter.orderManName){
+			if(filter.guestRealName!=null){
+				if(polist.get(i).getguestRealName()!=filter.guestRealName){
 					continue;
 				}
 			}
@@ -100,7 +100,7 @@ public class ManageOrder implements ManageOrderBLService {
 	}
 
 	public OrderVO getOrderByID(long orderID) throws RemoteException{
-		OrderPO po=dataFactory.getOrderDataHelper().getOrderByID(orderID);
+		OrderPO po=orderdataimpl.getOrderByID(orderID);
 		OrderVO vo=new OrderVO();
 		vo=po.toOrderVO();
 		return vo;//未完成的返回内容，需要补充po转化为vo的方法。
@@ -110,7 +110,7 @@ public class ManageOrder implements ManageOrderBLService {
 			OrderSort sort, int rank1, int rank2) throws RemoteException{
 		// TODO Auto-generated method stub
 		List<OrderVO> volist=new ArrayList<OrderVO>();
-		List<OrderPO> polist=dataFactory.getOrderDataHelper().searchByHotel(filter.hotelID, null);
+		List<OrderPO> polist=orderdataimpl.searchByHotel(filter.hotelID, null);
 		for(int i=0;i<polist.size();i++){
 			if(filter.highprice!=-1){
 				if(polist.get(i).getprice()>filter.highprice){
@@ -146,8 +146,8 @@ public class ManageOrder implements ManageOrderBLService {
 					continue;
 				}
             }
-			if(filter.orderManName!=null){
-				if(polist.get(i).getOrderManName()!=filter.orderManName){
+			if(filter.guestRealName!=null){
+				if(polist.get(i).getguestRealName()!=filter.guestRealName){
 					continue;
 				}
 			}
@@ -169,7 +169,7 @@ public class ManageOrder implements ManageOrderBLService {
 
 	public ResultMessage clientCancel(long orderID) throws RemoteException{
 		//客户撤销订单
-		OrderPO po=dataFactory.getOrderDataHelper().getOrderByID(orderID);
+		OrderPO po=orderdataimpl.getOrderByID(orderID);
 		//如果订单不为异常
 		if(po.getorderStatus()!=OrderStatus.ABNORMAL){
 			po.setorderStatus(OrderStatus.UNEXECUTED);
@@ -183,11 +183,12 @@ public class ManageOrder implements ManageOrderBLService {
 
 	public ResultMessage marketerCancel(long orderID, CreditRestore restore) throws RemoteException{
 		//网站营销人员撤销异常订单，并恢复一定信用值；
-		OrderPO po=dataFactory.getOrderDataHelper().getOrderByID(orderID);
+		OrderPO po=orderdataimpl.getOrderByID(orderID);
 		//订单为异常
 		if(po.getorderStatus()==OrderStatus.ABNORMAL&&po.getuserId()!=-1){
 			po.setorderStatus(OrderStatus.CANCELED);
-			//user的更新没有写
+			UserPO userpo=userdataimpl.getUser(po.getuserId());
+			userdataimpl.update(userpo);
 			return new ResultMessage(true);
 			
 		}
@@ -195,14 +196,14 @@ public class ManageOrder implements ManageOrderBLService {
 	}
 
 	public ResultMessage checkIn(long orderID, String estLeaveTime) throws RemoteException{
-		OrderPO po=dataFactory.getOrderDataHelper().getOrderByID(orderID);
+		OrderPO po=orderdataimpl.getOrderByID(orderID);
 		po.setlatestTime(estLeaveTime);
-		dataFactory.getOrderDataHelper().update(po);
+		orderdataimpl.update(po);
 		return new ResultMessage(true);
 	}
 
 	public ResultMessage checkOut(long orderID,String leaveTime) throws RemoteException{
-		OrderPO po=dataFactory.getOrderDataHelper().getOrderByID(orderID);
+		OrderPO po=orderdataimpl.getOrderByID(orderID);
 		po.setleaveTime(leaveTime);
 		po.setorderStatus(OrderStatus.EXECUTED);// TODO Auto-generated method stub
 		return null;
@@ -211,7 +212,7 @@ public class ManageOrder implements ManageOrderBLService {
 	public List<Integer> orderedHotelID(int userID) throws RemoteException{
 		// 返回用户预订过的酒店编号列表
 		List<Integer> hotelIdlist=new ArrayList<Integer>();
-		List<HotelInfoPO> polist=dataFactory.getHotelInfoDataHelper().getHotelList(userID);
+		List<HotelInfoPO> polist=new ArrayList<HotelInfoPO>();//此处应为根据userID搜索酒店列表；
 		for(int i=0;i<polist.size();i++){
 			hotelIdlist.add(polist.get(i).gethotelId());
 		}
@@ -221,7 +222,7 @@ public class ManageOrder implements ManageOrderBLService {
 	public List<OrderVO> clientAtHotel(int userID, int hotelID) throws RemoteException{
 		//返回该用户在该酒店预定过得订单列表
 		List<OrderVO> volist=new ArrayList<OrderVO>();
-		List<OrderPO> polist=dataFactory.getOrderDataHelper().searchByUser(hotelID, userID);
+		List<OrderPO> polist=orderdataimpl.searchByUser(hotelID, userID);//此处应该修改；
 		for(int i=0;i<polist.size();i++){
 			volist.add(polist.get(i).toOrderVO());
 		}
@@ -233,7 +234,7 @@ public class ManageOrder implements ManageOrderBLService {
 	 */
 	public OrderNumVO numAtHotel(int hotelID,int userID) throws RemoteException{
 		//返回用户在该酒店的各类订单数目；
-		List<OrderPO> polist=dataFactory.getOrderDataHelper().searchByUser(hotelID, userID);
+		List<OrderPO> polist=orderdataimpl.searchByUser(hotelID, userID);//此处应该修改
 		OrderNumVO ordernumvo=new OrderNumVO();
 		ordernumvo.uesrID=userID;
 		ordernumvo.hotelID=hotelID;

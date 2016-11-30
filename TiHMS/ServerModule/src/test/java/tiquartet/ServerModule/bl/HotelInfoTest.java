@@ -1,14 +1,17 @@
 package tiquartet.ServerModule.bl;
 
+
 import static org.junit.Assert.*;
 
 import java.rmi.RemoteException;
-import java.util.List;
+
 import org.junit.Test;
 
-import tiquartet.CommonModule.vo.*;
 import tiquartet.ServerModule.bl.hotelinfobl.HotelInfo;
 import tiquartet.CommonModule.util.ResultMessage;
+import tiquartet.CommonModule.vo.HotelInfoVO;
+import tiquartet.CommonModule.vo.PreOrderVO;
+import tiquartet.CommonModule.vo.ReviewVO;
 
 public class HotelInfoTest {
 	

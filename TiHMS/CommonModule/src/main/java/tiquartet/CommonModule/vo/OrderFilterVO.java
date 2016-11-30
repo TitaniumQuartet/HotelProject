@@ -25,9 +25,9 @@ public class OrderFilterVO {
 	    //入住时间
 	    public String startTime=null;
 	    //入住者姓名
-	    public String  clientRealName=null;
+	    public String  guestRealName=null;
 	    //用户名
 	    public String  userName=null;
 	    //订房者姓名
-	    public String orderManName=null;
+	    public String clientRealName=null;
 }
