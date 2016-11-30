@@ -11,6 +11,12 @@ public class CreateOrder{
 	
 	StrategyList list = new StrategyList();
 	
+	/**
+	 * @param hotelID
+	 * @param roomTypeID
+	 * @return
+	 * @throws RemoteException
+	 */
 	public StrategyListItem getStrategyByID(long hotelID, long roomTypeID) throws RemoteException{
 		return list.getStrategy(hotelID, roomTypeID);
 	}

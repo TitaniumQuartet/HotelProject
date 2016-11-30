@@ -4,7 +4,7 @@ public class HotelInfoVO {
 	    //酒店编号 
 	    public int hotelID;
 	    //酒店名字
-	    public String hotelname;
+	    public String hotelName;
 	    //酒店星级
 	    public int star;
 	    //酒店平均评分
@@ -23,4 +23,6 @@ public class HotelInfoVO {
 	    public String cityName;
 	    //最低价格
 	    public double lowprice;
+	    //
+	    public double highprice;
 }

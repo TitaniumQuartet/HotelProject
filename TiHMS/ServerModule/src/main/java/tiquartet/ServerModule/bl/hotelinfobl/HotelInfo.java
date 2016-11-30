@@ -93,7 +93,7 @@ public class HotelInfo implements HotelInfoBLService{
 		hip.setcircleName(hotelInfo.circleName);
 		hip.setcityName(hotelInfo.cityName);
 		hip.sethotelId(hotelInfo.hotelID);
-		hip.sethotelName(hotelInfo.hotelname);
+		hip.sethotelName(hotelInfo.hotelName);
 		hip.sethotelIntroduction(hotelInfo.hotelIntroduction);
 		hip.setserviceIntroduction(hotelInfo.serviceIntroduction);
 		hip.setstar(hotelInfo.star);

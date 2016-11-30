@@ -2,6 +2,8 @@ package tiquartet.ServerModule.po;
 
 import java.io.Serializable;
 
+import tiquartet.CommonModule.vo.HotelInfoVO;
+
 public class HotelInfoPO implements Serializable{
 	//酒店编号
 	private int hotelId;
@@ -20,7 +22,9 @@ public class HotelInfoPO implements Serializable{
 	//商圈名字
 	private String circleName;
 	//最低价格
-	private int lowprice;
+	private double lowprice;
+	//最高价格
+	private double highprice;
 	//平均评分
 	private double avgragegrade;
 	//城市名称
@@ -29,7 +33,20 @@ public class HotelInfoPO implements Serializable{
 	public HotelInfoPO(){
 		
 	}
-	
+	public HotelInfoPO(HotelInfoVO hotelInfovo){
+		this.address=hotelInfovo.address;
+		this.avgragegrade=hotelInfovo.highprice;
+		this.circleId=hotelInfovo.circleId;
+		this.circleName=hotelInfovo.circleName;
+		this.circleName=hotelInfovo.cityName;
+		this.highprice=hotelInfovo.highprice;
+		this.hotelId=hotelInfovo.hotelID;
+		this.hotelIntroduction=hotelInfovo.hotelIntroduction;
+		this.hotelName=hotelInfovo.hotelName;
+		this.lowprice=hotelInfovo.lowprice;
+		this.serviceIntroduction=hotelInfovo.serviceIntroduction;
+		this.star=hotelInfovo.star;
+	}
 	public HotelInfoPO(int hotelId,String hotelName,int star,String address,String introduction,String service){
 		super();
 		this.hotelId=hotelId;
@@ -104,14 +121,22 @@ public class HotelInfoPO implements Serializable{
 		return this.circleName;
 	}
 	
-	public void setlowprice(int lowprice){
+	public void setlowprice(double lowprice){
 		this.lowprice=lowprice;
 	}
 	
-	public int getlowprice(){
+	public double getlowprice(){
 		return this.lowprice;
 	}
 	
+	
+	public void sethighprice(double highprice){
+		this.highprice=highprice;
+	}
+	
+	public double gethighprice(){
+		return this.highprice;
+	}
 	public void setavgragegrade(double avgragegrade){
 		this.avgragegrade=avgragegrade;
 	}
@@ -126,5 +151,21 @@ public class HotelInfoPO implements Serializable{
 	
 	public String getcityName(){
 		return this.cityName;
+	}
+	public HotelInfoVO toHotelInfoVO(){
+		HotelInfoVO vo=new HotelInfoVO();
+		vo.address=this.address;
+		vo.averagegrade=this.avgragegrade;
+		vo.circleId=this.circleId;
+		vo.circleName=this.circleName;
+		vo.cityName=this.cityName;
+		vo.hotelID=this.hotelId;
+		vo.hotelIntroduction=this.hotelIntroduction;
+		vo.hotelName=this.hotelName;
+		vo.lowprice=this.lowprice;
+		vo.serviceIntroduction=this.serviceIntroduction;
+		vo.star=this.star;
+		vo.highprice=this.highprice;
+		return vo;
 	}
 }
