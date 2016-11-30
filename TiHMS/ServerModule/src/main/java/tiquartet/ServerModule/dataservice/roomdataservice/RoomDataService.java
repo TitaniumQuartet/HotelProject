@@ -8,7 +8,6 @@ public interface RoomDataService {
 	
 	public ResultMessage preOrder (OrderPO preOrder);
 	public ResultMessage cancelPreOrder (OrderPO preOrder);
-	public List<RoomPO> getRoom (long hotelID);
 	public List <RoomTypePO> availableRoomType (int hotelID, String startDate, String endDate, int numOfRoom);
 	public ResultMessage update(RoomPO room);
 	public ResultMessage insert(RoomPO room);

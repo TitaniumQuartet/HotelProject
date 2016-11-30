@@ -48,7 +48,7 @@ public class OrderDataSqlHelper implements OrderDataHelper{
 	        pstmt.setInt(3, order.getnumberOfRoom());
 	        pstmt.setInt(4, order.getnumberOfPeople());
 	        pstmt.setInt(5, order.getchild());
-	        pstmt.setString(6, order.getrealName());
+	        pstmt.setString(6, order.getclientRealName());
 	        pstmt.setInt(7, order.gethotelId());
 	        pstmt.executeUpdate();
 	        pstmt.close();
@@ -66,7 +66,7 @@ public class OrderDataSqlHelper implements OrderDataHelper{
 	    		"set numberOfRoom='" + order.getnumberOfRoom() +
 	    		"set numberOfPeople='" + order.getnumberOfPeople() +
 	    		"set child='" + order.getchild() +
-	    		"set realName='" + order.getrealName() +
+	    		"set realName='" + order.getclientRealName() +
 	    		"set hotelId='" + order.gethotelId() +
 	            "' where orderId='" + order.getorderId() + "'";
 	    PreparedStatement pstmt;

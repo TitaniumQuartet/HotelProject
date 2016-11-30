@@ -1,6 +1,7 @@
 package tiquartet.ServerModule.datahelper;
 
 import java.util.List;
+import java.util.Map;
 
 import tiquartet.ServerModule.datahelper.service.RoomDataHelper;
 import tiquartet.ServerModule.po.OrderPO;
@@ -25,6 +26,10 @@ public class RoomDataSqlHelper implements RoomDataHelper{
 		return null;
 	}
 
+	public Map<Integer, RoomPO> getRoom(){
+		return null;
+	}
+	
 	public void update(RoomPO room) {
 		// TODO Auto-generated method stub
 		

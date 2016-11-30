@@ -1,6 +1,7 @@
 package tiquartet.ServerModule.datahelper.service;
 
 import java.util.List;
+import java.util.Map;
 
 import tiquartet.ServerModule.po.CreditPO;
 
@@ -16,6 +17,6 @@ public interface CreditDataHelper {
 	 * 获得信用值记录
 	 * @param 
 	 */
-	public List<CreditPO> getRecord (int userID);
+	public Map<Integer,CreditPO> getRecord (int userId);
 
 }

@@ -2,6 +2,7 @@ package tiquartet.ServerModule.datahelper.service;
 
 import tiquartet.ServerModule.po.*;
 import java.util.List;
+import java.util.Map;
 public interface RoomDataHelper {
 
 	/**
@@ -16,6 +17,8 @@ public interface RoomDataHelper {
 	 */
 	public void cancelPreOrder (OrderPO preOrder);
 	
+	
+	public Map<Integer, RoomPO> getRoom ();
 	/**
 	 * 获得房间类型
 	 * @param 

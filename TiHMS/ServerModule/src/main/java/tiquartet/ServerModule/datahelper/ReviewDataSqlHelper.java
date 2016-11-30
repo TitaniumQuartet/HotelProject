@@ -1,13 +1,14 @@
 package tiquartet.ServerModule.datahelper;
 
 import java.util.List;
+import java.util.Map;
 
 import tiquartet.ServerModule.datahelper.service.ReviewDataHelper;
 import tiquartet.ServerModule.po.ReviewPO;
 
 public class ReviewDataSqlHelper implements ReviewDataHelper{
 
-	public List<ReviewPO> searchByHotel(int hotelID) {
+	public Map<Integer, ReviewPO> searchByHotel(int hotelID) {
 		// TODO Auto-generated method stub
 		return null;
 	}

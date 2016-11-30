@@ -1,6 +1,8 @@
 package tiquartet.ServerModule.datahelper.service;
 
 import java.util.List;
+import java.util.Map;
+
 import tiquartet.ServerModule.po.StrategyPO;
 
 public interface StrategyDataHelper {
@@ -9,7 +11,7 @@ public interface StrategyDataHelper {
 	 * 从数据文件中读取用户数据
 	 * @return	
 	 */
-	public List<StrategyPO> searchByHotel (int hotelID);
+	public Map<Integer, StrategyPO> searchByHotel (int hotelID);
 	
 	/**
 	 * 增加策略

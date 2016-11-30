@@ -1,6 +1,8 @@
 package tiquartet.ServerModule.datahelper.service;
 
 import java.util.List;
+import java.util.Map;
+
 import tiquartet.ServerModule.po.ReviewPO;
 
 public interface ReviewDataHelper {
@@ -9,7 +11,7 @@ public interface ReviewDataHelper {
 	 * 获得酒店评价
 	 * @param 
 	 */
-	public List<ReviewPO> searchByHotel (int hotelID);
+	public Map<Integer, ReviewPO> searchByHotel (int hotelID);
 	
 	/**
 	 * 新增评价

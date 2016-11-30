@@ -1,6 +1,8 @@
 package tiquartet.ServerModule.datahelper.service;
 
 import java.util.List;
+import java.util.Map;
+
 import tiquartet.ServerModule.po.*;
 import tiquartet.CommonModule.vo.*;
 
@@ -10,7 +12,7 @@ public interface HotelInfoDataHelper {
 	 * 得到酒店信息
 	 * @param 
 	 */
-	public HotelInfoPO getHotelInfo (int hotelID);
+	public Map<Integer,HotelInfoPO> getHotelInfo ();
 	
 	/**
 	 * 更新等级
