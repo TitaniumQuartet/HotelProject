@@ -6,6 +6,8 @@ import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 import java.rmi.server.UnicastRemoteObject;
 
+import tiquartet.CommonModule.blservice.hotelinfoblservice.HotelInfoBLService;
+import tiquartet.CommonModule.blservice.manageorderblservice.ManageOrderBLService;
 import tiquartet.CommonModule.util.ResultMessage;
 import tiquartet.ServerModule.bl.hotelinfobl.HotelInfoController;
 import tiquartet.ServerModule.bl.manageorderbl.ManageOrderController;
@@ -16,6 +18,15 @@ import tiquartet.ServerModule.bl.manageorderbl.ManageOrderController;
  * @author greatlyr
  */
 public class HMSServer {
+	
+	/**
+	 * 运行服务器程序.
+	 * @param args
+	 */
+	public static void main(String[] args){
+		HMSServer server = new HMSServer();
+		server.init();
+	}
 
 	/**
 	 * 服务器初始化，提供RMI服务.
@@ -28,10 +39,10 @@ public class HMSServer {
 		}
 		try {
 			Registry registry = LocateRegistry.getRegistry();
-			HotelInfoController hotelInfoStub = (HotelInfoController) UnicastRemoteObject
+			HotelInfoBLService hotelInfoStub = (HotelInfoBLService) UnicastRemoteObject
 					.exportObject(new HotelInfoController(), 0);
 			registry.bind("hotelInfo", hotelInfoStub);
-			ManageOrderController manageOrderStub = (ManageOrderController) UnicastRemoteObject
+			ManageOrderBLService manageOrderStub = (ManageOrderBLService) UnicastRemoteObject
 					.exportObject(new ManageOrderController(), 0);
 			registry.bind("manageOrder", manageOrderStub);
 		} catch (RemoteException e) {
