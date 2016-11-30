@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import tiquartet.CommonModule.vo.OrderFilterVO;
 import tiquartet.CommonModule.vo.StrategyVO;
 import tiquartet.ServerModule.datahelper.DataFactory;
+import tiquartet.ServerModule.dataservice.impl.StrategyDataImpl;
 import tiquartet.ServerModule.po.StrategyPO;
 import tiquartet.CommonModule.util.ResultMessage;
 
@@ -27,7 +28,7 @@ public class Strategy{
 	}
 	//根据酒店编号搜索策略
 	public List<StrategyVO> searchByHotel(int hotelID)throws RemoteException{
-		List<StrategyPO> polist=dataFactory.getStrategyDataHelper().searchByHotel(hotelID);
+		List<StrategyPO> polist=StrategyDataImpl.getInstance().searchByHotel(hotelID);
 		List<StrategyVO> volist=new ArrayList<StrategyVO>();
 		for(int i=0;i<polist.size();i++){
 			StrategyVO vo=polist.get(i).toStrategyvo();			

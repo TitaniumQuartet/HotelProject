@@ -3,6 +3,7 @@ package tiquartet.ServerModule.bl.createorderbl;
 import tiquartet.CommonModule.vo.PreOrderVO;
 import tiquartet.CommonModule.vo.StrategyVO;
 import tiquartet.ServerModule.datahelper.DataFactory;
+import tiquartet.ServerModule.dataservice.impl.StrategyDataImpl;
 import tiquartet.ServerModule.po.StrategyPO;
 import tiquartet.CommonModule.vo.OrderInfoVO;
 
@@ -32,7 +33,7 @@ public class CreateOrder{
 				break;
 			}
 		}
-		polist=dataFactory.getStrategyDataHelper().searchByHotel(vo.hotelID);
+		polist=StrategyDataImpl.getInstance().searchByHotel(vo.hotelID);
 		return volist;
 	}
 	
