@@ -13,17 +13,23 @@ import tiquartet.CommonModule.vo.OrderFilterVO;
 import tiquartet.CommonModule.vo.OrderNumVO;
 import tiquartet.CommonModule.vo.OrderVO;
 import tiquartet.ServerModule.datahelper.DataFactory;
+import tiquartet.ServerModule.dataservice.impl.HotelInfoDataImpl;
+import tiquartet.ServerModule.dataservice.impl.OrderDataImpl;
 import tiquartet.ServerModule.po.HotelInfoPO;
 import tiquartet.ServerModule.po.OrderPO;
 import tiquartet.ServerModule.po.UserPO;
 
 public class ManageOrder implements ManageOrderBLService {
-	static DataFactory dataFactory=new DataFactory();
-
+	static OrderDataImpl orderdataimpl;
+	static HotelInfoDataImpl hoteldataimpl;
+    public ManageOrder(){
+    	orderdataimpl=new OrderDataImpl();
+    	hoteldataimpl=new HotelInfoDataImpl();
+    }
 	public List<OrderVO> orderHistory(OrderFilterVO filter,
 			OrderSort sort, int rank1, int rank2) throws RemoteException{
 		List<OrderVO> volist=new ArrayList<OrderVO>();
-		List<OrderPO> polist=dataFactory.getOrderDataHelper().searchByUser(filter.userId, filter.userId);
+		List<OrderPO> polist=orderdataimpl.searchByUser(hotelID, userID);
 		for(int i=0;i<polist.size();i++){
 			if(filter.circleId!=-1){
 				if(polist.get(i).gethotelId()/1000!=filter.circleId){
@@ -61,7 +67,7 @@ public class ManageOrder implements ManageOrderBLService {
 				}
 			}
 			if(filter.hotelName!=null){
-				HotelInfoPO hotelinfopo=dataFactory.getHotelInfoDataHelper().getHotelInfo(polist.get(i).gethotelId());
+				HotelInfoPO hotelinfopo=;
 				if(hotelinfopo.gethotelName()!=filter.hotelName){
 					continue;
 				}
