@@ -20,9 +20,13 @@ public class OrderPO implements Serializable{
 	//有无儿童
 	private int child;
 	//入住人真实姓名
-	private String realName;
+	private String clientRealName;
+	//订房者真实姓名
+	private String orderManName;
 	//酒店编号
 	private int hotelId;
+	//酒店名称
+	public String hotelName;
 	//用户编号
 	private int userId;
 	//用户名
@@ -43,7 +47,7 @@ public class OrderPO implements Serializable{
 		this.orderId=vo.orderId;
 		this.orderStatus=vo.orderStatus;
 		this.price=vo.price;
-		this.realName=vo.realName;
+		this.clientRealName=vo.realName;
 		this.startTime=vo.startTime;
 		this.userId=vo.userId;
 		this.userName=vo.userName;
@@ -58,7 +62,7 @@ public class OrderPO implements Serializable{
 		this.numberOfRoom=numberOfRoom;
 		this.numberOfPeople=numberOfPeople;
 		this.child=child;
-		this.realName=realName;
+		this.clientRealName=realName;
 		this.hotelId=hotelId;
 	}
 	
@@ -102,12 +106,12 @@ public class OrderPO implements Serializable{
 		this.child=child;
 	}
 	
-	public String getrealName(){
-		return realName;
+	public String getclientRealName(){
+		return clientRealName;
 	}
 	
-	public void setrealName(String realName){
-		this.realName=realName;
+	public void setclientRealName(String realName){
+		this.clientRealName=realName;
 	}
 	
 	public void sethotelId(int hotelId){
@@ -165,6 +169,14 @@ public class OrderPO implements Serializable{
 	public OrderStatus getorderStatus(){
 		return this.orderStatus;
 	}
+	
+	public void setOrderManName(String orderManRealName){
+		this.orderManName=orderManRealName;
+	}
+	
+	public String getOrderManName(){
+		return this.orderManName;
+	}
 	public OrderVO toOrderVO(){
 		OrderVO vo=new OrderVO();
 		vo.child=this.child;
@@ -174,7 +186,7 @@ public class OrderPO implements Serializable{
 		vo.numberOfPeople=this.numberOfPeople;
 		vo.numberOfRoom=this.numberOfRoom;
 		vo.orderId=this.orderId;
-		vo.realName=this.realName;
+		vo.realName=this.clientRealName;
 		vo.startTime=this.startTime;
 		vo.userId=this.userId;
 		vo.userName=this.userName;

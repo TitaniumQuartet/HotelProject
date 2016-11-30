@@ -60,9 +60,9 @@ public class ManageOrderController implements ManageOrderBLService{
 		return manageOrder.clientAtHotel(userID, hotelID);
 	}
 
-	public  OrderNumVO numAtHotel(int ueseID,int hotelID) {
+	public  OrderNumVO numAtHotel(int hotelID,int userID) throws RemoteException{
 		// TODO Auto-generated method stub
-		return null;
+		return manageOrder.numAtHotel(hotelID, userID);
 	}
 
 }

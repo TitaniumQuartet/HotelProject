@@ -23,11 +23,74 @@ public class ManageOrder implements ManageOrderBLService {
 	public List<OrderVO> orderHistory(OrderFilterVO filter,
 			OrderSort sort, int rank1, int rank2) throws RemoteException{
 		List<OrderVO> volist=new ArrayList<OrderVO>();
-		
-		
+		List<OrderPO> polist=dataFactory.getOrderDataHelper().searchByUser(filter.userId, filter.userId);
+		for(int i=0;i<polist.size();i++){
+			if(filter.circleId!=-1){
+				if(polist.get(i).gethotelId()/1000!=filter.circleId){
+					continue;
+				}
+			}
+			if(filter.highprice!=-1){
+				if(polist.get(i).getprice()>filter.highprice){
+					continue;
+				}
+			}
+			if(filter.lowprice!=-1){
+				if(polist.get(i).getprice()<filter.lowprice){
+					continue;
+				}
+			}
+			if(filter.star!=-1){
+				HotelInfoPO hotelpo=dataFactory.getHotelInfoDataHelper().getHotelInfo(polist.get(i).gethotelId());
+				if(hotelpo.getstar()!=filter.star){
+					continue;
+				}
+			}
+			if(filter.endTime!=null){
+				int filterEndTime=Integer.parseInt(filter.endTime);
+				int orderEndTime=Integer.parseInt(polist.get(i).getleaveTime());				
+				if(orderEndTime>filterEndTime){
+					continue;
+				}
+			}
+			if(filter.startTime!=null){
+				int filterStartTime=Integer.parseInt(filter.startTime);
+				int orderStartTime=Integer.parseInt(polist.get(i).getstartTime());
+				if(orderStartTime<filterStartTime){
+					continue;
+				}
+			}
+			if(filter.hotelName!=null){
+				HotelInfoPO hotelinfopo=dataFactory.getHotelInfoDataHelper().getHotelInfo(polist.get(i).gethotelId());
+				if(hotelinfopo.gethotelName()!=filter.hotelName){
+					continue;
+				}
+			}
+			if(filter.orderState!=null){
+				if(polist.get(i).getorderStatus()!=filter.orderState){
+					continue;
+				}
+			}
+			if(filter.clientRealName!=null){
+				if(polist.get(i).getclientRealName()!=filter.clientRealName){
+					continue;
+				}
+            }
+			if(filter.orderManName!=null){
+				if(polist.get(i).getOrderManName()!=filter.orderManName){
+					continue;
+				}
+			}
+			volist.add(polist.get(i).toOrderVO());
+		}
 		//此方法可能需要修改
-	
-		return null;
+	    while(volist.size()>rank2){
+	    	volist.remove(rank2);
+	    }
+	    for(int i=1;i<rank1;i++){
+	    	volist.remove(0);
+	    }
+		return volist;
 	}
 
 	public OrderVO getOrderByID(long orderID) throws RemoteException{
@@ -40,7 +103,62 @@ public class ManageOrder implements ManageOrderBLService {
 	public List<OrderVO> hotelOrders( OrderFilterVO filter,
 			OrderSort sort, int rank1, int rank2) throws RemoteException{
 		// TODO Auto-generated method stub
-		return null;
+		List<OrderVO> volist=new ArrayList<OrderVO>();
+		List<OrderPO> polist=dataFactory.getOrderDataHelper().searchByHotel(filter.hotelID, null);
+		for(int i=0;i<polist.size();i++){
+			if(filter.highprice!=-1){
+				if(polist.get(i).getprice()>filter.highprice){
+					continue;
+				}
+			}
+			if(filter.lowprice!=-1){
+				if(polist.get(i).getprice()<filter.lowprice){
+					continue;
+				}
+			}
+			if(filter.endTime!=null){
+				int filterEndTime=Integer.parseInt(filter.endTime);
+				int orderEndTime=Integer.parseInt(polist.get(i).getleaveTime());				
+				if(orderEndTime>filterEndTime){
+					continue;
+				}
+			}
+			if(filter.startTime!=null){
+				int filterStartTime=Integer.parseInt(filter.startTime);
+				int orderStartTime=Integer.parseInt(polist.get(i).getstartTime());
+				if(orderStartTime<filterStartTime){
+					continue;
+				}
+			}
+			if(filter.orderState!=null){
+				if(polist.get(i).getorderStatus()!=filter.orderState){
+					continue;
+				}
+			}
+			if(filter.clientRealName!=null){
+				if(polist.get(i).getclientRealName()!=filter.clientRealName){
+					continue;
+				}
+            }
+			if(filter.orderManName!=null){
+				if(polist.get(i).getOrderManName()!=filter.orderManName){
+					continue;
+				}
+			}
+			if(filter.userName!=null){
+				if(polist.get(i).getuserName()!=filter.userName){
+					continue;
+				}
+			}
+			volist.add(polist.get(i).toOrderVO());
+		}
+		while(volist.size()>rank2){
+			volist.remove(rank2);
+		}
+		for(int i=1;i<rank1;i++){
+			volist.remove(0);
+		}
+		return volist;
 	}
 
 	public ResultMessage clientCancel(long orderID) throws RemoteException{
@@ -111,24 +229,27 @@ public class ManageOrder implements ManageOrderBLService {
 		//返回用户在该酒店的各类订单数目；
 		List<OrderPO> polist=dataFactory.getOrderDataHelper().searchByUser(hotelID, userID);
 		OrderNumVO ordernumvo=new OrderNumVO();
+		ordernumvo.uesrID=userID;
+		ordernumvo.hotelID=hotelID;
 		for(int i=0;i<polist.size();i++){
 			switch(polist.get(i).getorderStatus()){
 			case CANCELED:
-				ordernumvo.canceled=ordernumvo.canceled+1;
+				ordernumvo.canceledOrder=ordernumvo.canceledOrder+1;
 				break;
 			case UNEXECUTED:
-				ordernumvo.unexecuted=ordernumvo.unexecuted+1;
+				ordernumvo.unexecutedOrder=ordernumvo.unexecutedOrder+1;
 				break;
 			case EXECUTED:
-				ordernumvo.executed=ordernumvo.executed+1;
+				ordernumvo.executedOrder=ordernumvo.executedOrder+1;
 				break;
 			case ABNORMAL:
-				ordernumvo.abnormal=ordernumvo.abnormal+1;
+				ordernumvo.abnormalOrder=ordernumvo.abnormalOrder+1;
 				break;
 			default:
 				break;
 			}
 		}
+		ordernumvo.allOrder=polist.size();
 		return ordernumvo;
 	}
 

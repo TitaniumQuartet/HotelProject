@@ -1,6 +1,7 @@
 package tiquartet.CommonModule.vo;
 
-public class HotelFilterVO {	  
+public class HotelFilterVO {	
+	    //酒店名称
 	    public String hotelName;
 	    public int roomType;
 	    public int level;

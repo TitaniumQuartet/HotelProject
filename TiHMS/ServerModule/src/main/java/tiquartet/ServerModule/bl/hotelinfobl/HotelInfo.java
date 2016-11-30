@@ -12,19 +12,27 @@ import tiquartet.ServerModule.bl.manageorderbl.ManageOrderController;
 import tiquartet.CommonModule.vo.*;
 import tiquartet.CommonModule.blservice.hotelinfoblservice.HotelInfoBLService;
 import tiquartet.CommonModule.util.ResultMessage;
-
+import tiquartet.CommonModule.vo.OrderNumVO;
 public class HotelInfo implements HotelInfoBLService{
-	static DataFactory datafactory=new DataFactory();	
+	static DataFactory datafactory;
+	ManageOrderController manageordercontroller;
+	public HotelInfo(){
+		datafactory=new DataFactory();
+		manageordercontroller=new ManageOrderController();
+	}
 	public HotelBriefVO getHotelBrief (int hotelID,int userID)throws RemoteException{
 	    //传入酒店ID返回酒店的简略信息.
 		HotelBriefVO hotelbrief=new HotelBriefVO();
 		HotelInfoPO hp=datafactory.getHotelInfoDataHelper().getHotelInfo(hotelID);
-		hotelbrief.avgrage=hp.getavgreagegrade();
+		hotelbrief.avgragegrade=hp.getavgreagegrade();
 		hotelbrief.circleName=hp.getcircleName();
 		hotelbrief.cityName=hp.getcityName();
 		hotelbrief.hotelID=hp.gethotelId();
 		hotelbrief.hotelName=hp.gethotelName();
 		hotelbrief.star=hp.getstar();
+		OrderNumVO onp=manageordercontroller.numAtHotel(hotelID,userID);
+		hotelbrief.numOfAllOrder=onp.allOrder;
+		hotelbrief.numOfEndOrder=onp.executedOrder;
 		return hotelbrief;
 	}
 	
@@ -112,7 +120,7 @@ public class HotelInfo implements HotelInfoBLService{
 		   hotelbriefvo.cityName=hip.getcityName();
 		   hotelbriefvo.hotelID=hip.gethotelId();
 		   hotelbriefvo.star=hip.getstar();
-		   hotelbriefvo.avgrage=hip.getavgreagegrade();
+		   hotelbriefvo.avgragegrade=hip.getavgreagegrade();
 		   hotelbriefvo.hotelName=hip.gethotelName();
 		   listvo.add(hotelbriefvo);
 	   }

@@ -1,8 +1,18 @@
 package tiquartet.CommonModule.vo;
 
 public class OrderNumVO {
-	public int unexecuted;
-	public int executed;
-	public int canceled;
-	public int abnormal;
+    //酒店编号
+	public int hotelID;
+	//用户编号
+	public int uesrID;
+	//总订单数目
+	public int allOrder;
+	//未执行订单数目
+	public int unexecutedOrder;
+	//已执行订单数目
+	public int executedOrder;
+	//取消的订单数目
+	public int canceledOrder;
+	//异常订单数目
+	public int abnormalOrder;
 }

@@ -9,7 +9,6 @@ import org.junit.Test;
 
 import tiquartet.CommonModule.vo.PreOrderVO;
 import tiquartet.ServerModule.bl.createorderbl.CreateOrder;
-import tiquartet.ServerModule.bl.createorderbl.StrategyListItem;
 import tiquartet.CommonModule.vo.OrderInfoVO;
 import tiquartet.CommonModule.util.ResultMessage;
 
@@ -19,9 +18,6 @@ public class CreateOrderTest{
 	
 	@Test
 	public void testgetStrategyByID() throws RemoteException{
-		order = new CreateOrder();
-		StrategyListItem strategy = order.getStrategyByID(123456, 666666);
-		assertEquals(strategy.intro, "20% dicount");
 	}
 	
 	@Test
@@ -34,9 +30,7 @@ public class CreateOrderTest{
 	
 	@Test
 	public void testcancelPreOrder() throws RemoteException{
-		order = new CreateOrder();
-		ResultMessage result = order.cancelPreOrder();
-		assertEquals(result.result, true);
+		
 	}
 	
 	@Test
