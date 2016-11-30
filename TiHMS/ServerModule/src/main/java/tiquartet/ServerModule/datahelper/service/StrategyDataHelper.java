@@ -11,7 +11,7 @@ public interface StrategyDataHelper {
 	 * 从数据文件中读取用户数据
 	 * @return	
 	 */
-	public Map<Integer, StrategyPO> searchByHotel (int hotelID);
+	public Map<Integer, StrategyPO> searchByHotel ();
 	
 	/**
 	 * 增加策略

@@ -8,7 +8,7 @@ import tiquartet.ServerModule.po.StrategyPO;
 
 public class StrategyDataSqlHelper implements StrategyDataHelper{
 
-	public Map<Integer, StrategyPO> searchByHotel(int hotelID) {
+	public Map<Integer, StrategyPO> searchByHotel() {
 		// TODO Auto-generated method stub
 		return null;
 	}

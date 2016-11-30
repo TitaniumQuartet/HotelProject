@@ -20,18 +20,18 @@ public class ReviewDataImpl implements ReviewDataService{
 
 	private static ReviewDataImpl reviewDataServiceImpl;
 	
-	public static ReviewDataImpl getInstance(int hotelId){
+	public static ReviewDataImpl getInstance(){
 		if(reviewDataServiceImpl == null){
-			reviewDataServiceImpl = new ReviewDataImpl(hotelId);
+			reviewDataServiceImpl = new ReviewDataImpl();
 		}
 		return reviewDataServiceImpl;
 	}
 	
-	public ReviewDataImpl(int hotelId){
+	public ReviewDataImpl(){
 		if(map == null){
 			dataFactory = new DataFactory();
 			reviewDataHelper = dataFactory.getReviewDataHelper();
-			map = reviewDataHelper.searchByHotel(hotelId);
+			map = reviewDataHelper.searchByHotel();
 		}
 	}
 	

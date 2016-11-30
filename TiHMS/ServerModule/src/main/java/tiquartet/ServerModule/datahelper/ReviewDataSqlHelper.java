@@ -8,7 +8,7 @@ import tiquartet.ServerModule.po.ReviewPO;
 
 public class ReviewDataSqlHelper implements ReviewDataHelper{
 
-	public Map<Integer, ReviewPO> searchByHotel(int hotelID) {
+	public Map<Integer, ReviewPO> searchByHotel() {
 		// TODO Auto-generated method stub
 		return null;
 	}

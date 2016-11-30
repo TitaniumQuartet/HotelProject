@@ -27,18 +27,18 @@ public class CreditDataImpl implements CreditDataService{
 	
 	private Connection con;
 	
-	public static CreditDataImpl getInstance(int userId){
+	public static CreditDataImpl getInstance(){
 		if(creditDataServiceImpl == null){
-			creditDataServiceImpl = new CreditDataImpl(userId);
+			creditDataServiceImpl = new CreditDataImpl();
 		}
 		return creditDataServiceImpl;
 	}
 	
-	public CreditDataImpl(int userId){
+	public CreditDataImpl(){
 		if(map == null){
 			dataFactory = new DataFactory();
 			creditDataHelper = dataFactory.getCreditDataHelper();
-			map = creditDataHelper.getRecord(userId);
+			map = creditDataHelper.getRecord();
 		}
 	}
 	

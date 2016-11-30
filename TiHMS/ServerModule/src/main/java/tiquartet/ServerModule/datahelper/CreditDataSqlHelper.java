@@ -13,7 +13,7 @@ public class CreditDataSqlHelper implements CreditDataHelper{
 		
 	}
 
-	public Map<Integer,CreditPO> getRecord(int userId) {
+	public Map<Integer,CreditPO> getRecord() {
 		// TODO Auto-generated method stub
 		return null;
 	}

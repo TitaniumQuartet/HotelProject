@@ -17,6 +17,6 @@ public interface CreditDataHelper {
 	 * 获得信用值记录
 	 * @param 
 	 */
-	public Map<Integer,CreditPO> getRecord (int userId);
+	public Map<Integer,CreditPO> getRecord ();
 
 }

@@ -21,18 +21,18 @@ public class StrategyDataImpl implements StrategyDataService{
 
 	private static StrategyDataImpl strategyDataServiceImpl;
 	
-	public static StrategyDataImpl getInstance(int hotelID){
+	public static StrategyDataImpl getInstance(){
 		if(strategyDataServiceImpl == null){
-			strategyDataServiceImpl = new StrategyDataImpl(hotelID);
+			strategyDataServiceImpl = new StrategyDataImpl();
 		}
 		return strategyDataServiceImpl;
 	}
 	
-	public StrategyDataImpl(int hotelID){
+	public StrategyDataImpl(){
 		if(map == null){
 			dataFactory = new DataFactory();
 			strategyDataHelper = dataFactory.getStrategyDataHelper();
-			map = strategyDataHelper.searchByHotel(hotelID);
+			map = strategyDataHelper.searchByHotel();
 		}
 	}
 	

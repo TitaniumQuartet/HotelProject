@@ -11,7 +11,7 @@ public interface ReviewDataHelper {
 	 * 获得酒店评价
 	 * @param 
 	 */
-	public Map<Integer, ReviewPO> searchByHotel (int hotelID);
+	public Map<Integer, ReviewPO> searchByHotel ();
 	
 	/**
 	 * 新增评价
