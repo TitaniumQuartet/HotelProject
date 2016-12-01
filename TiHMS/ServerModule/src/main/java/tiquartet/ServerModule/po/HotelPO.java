@@ -11,11 +11,11 @@ public class HotelPO implements Serializable{
 	private String hotelName;
 	//酒店星级
 	private int star;
-	//酒店评分
-	private int average;
-	//城市名称
+	//平均分
+	private double average;
+	//城市名
 	private String cityName;
-	//商圈名称
+	//商圈名
 	private String businessDistrict;
 	//最低价格
 	private int lowestPrice;
@@ -123,7 +123,7 @@ public class HotelPO implements Serializable{
 	
 	public HotelBriefVO getBriefVO(){
 		HotelBriefVO hotelBriefVO = new HotelBriefVO();
-		hotelBriefVO.avgragegrade = this.average;
+		hotelBriefVO.averageGrade = this.average;
 		hotelBriefVO.circleName = this.businessDistrict;
 		hotelBriefVO.cityName = this.cityName;
 		hotelBriefVO.hotelID = this.hotelId;

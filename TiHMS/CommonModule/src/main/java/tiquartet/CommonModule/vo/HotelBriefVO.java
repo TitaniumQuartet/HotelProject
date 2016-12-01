@@ -1,20 +1,20 @@
 package tiquartet.CommonModule.vo;
 
 public class HotelBriefVO {
-	//閰掑簵缂栧彿
+	//酒店编号
 	public long hotelID;
-	//閰掑簵鏄熺骇
+	//酒店星级
     public int star;
     //
     public int numOfAllOrder;
     //
     public int numOfEndOrder;
-    //閰掑簵璇勫垎
-    public int avgragegrade;
-    //鍩庡競鍚嶇О
+    //平均分
+    public double averageGrade;
+    //城市名
     public String cityName;
-    //鍟嗗湀鍚嶇О
+    //商圈名
     public String circleName;
-    //閰掑簵鍚嶇О
+    //酒店名
     public String hotelName;
 }

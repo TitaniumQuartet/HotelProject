@@ -6,34 +6,34 @@ import java.sql.Date;
 import tiquartet.CommonModule.vo.UserVO;
 
 public class UserPO implements Serializable{
-	//用户编号
+	//鐢ㄦ埛缂栧彿
 	private int userId;
-	//用户名
+	//鐢ㄦ埛鍚�
 	private String userName;
-	//密码
+	//瀵嗙爜
 	private String password;
-	//用户类型
-	private int userType;
-	//真实姓名
+	//鐢ㄦ埛绫诲瀷
+	private String userType;
+	//鐪熷疄濮撳悕
 	private String realName;
-	//信用值
+	//淇＄敤鍊�
 	private int credit;
-	//生日
+	//鐢熸棩
 	private Date birthday;
-	//会员等级
+	//浼氬憳绛夌骇
 	private int memberRank;
-	//是否会员
+	//鏄惁浼氬憳
 	private boolean isMember;
-	//公司名称
+	//鍏徃鍚嶇О
 	private String company;
-	//酒店编号
+	//閰掑簵缂栧彿
 	private int hotelId;
 	
 	public UserPO(){
 		
 	}
 	
-	public UserPO(int userId,String userName,String password,int userType,String realName,int credit, Date birthday,int memberRank,boolean isMember,String company,int hotelId){
+	public UserPO(int userId,String userName,String password,String userType,String realName,int credit, Date birthday,int memberRank,boolean isMember,String company,int hotelId){
 		super();
 		this.userId=userId;
 		this.userName=userName;
@@ -87,11 +87,11 @@ public class UserPO implements Serializable{
 		this.password=password;
 	}
 	
-	public int getuserType(){
+	public String getuserType(){
 		return userType;
 	}
 	
-	public void setuserType(int userType){
+	public void setuserType(String userType){
 		this.userType=userType;
 	}
 	

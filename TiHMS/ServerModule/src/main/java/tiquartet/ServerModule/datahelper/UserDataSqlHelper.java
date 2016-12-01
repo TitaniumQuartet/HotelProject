@@ -20,7 +20,7 @@ public class UserDataSqlHelper implements UserDataHelper{
 	    String password = "";
 	    Connection conn = null;
 	    try {
-	        Class.forName(driver); //classLoader,加载对应驱动
+	        Class.forName(driver); //classLoader,鍔犺浇瀵瑰簲椹卞姩
 	        conn = (Connection) DriverManager.getConnection(url, username, password);
 	    } catch (ClassNotFoundException e) {
 	        e.printStackTrace();
@@ -34,7 +34,7 @@ public class UserDataSqlHelper implements UserDataHelper{
 	
 	ResultMessage fail=new ResultMessage(false);
 	/**
-	 * 验证用户是否存在
+	 * 楠岃瘉鐢ㄦ埛鏄惁瀛樺湪
 	 * @param 
 	 */
 	public ResultMessage userExist (String username){
@@ -56,7 +56,7 @@ public class UserDataSqlHelper implements UserDataHelper{
 	}
 	
 	/**
-	 * 验证密码是否正确
+	 * 楠岃瘉瀵嗙爜鏄惁姝ｇ‘
 	 * @param 
 	 */
 	public ResultMessage checkPassword (String username, String password){
@@ -79,7 +79,7 @@ public class UserDataSqlHelper implements UserDataHelper{
 	}
 	
 	/**
-	 * 新增用户
+	 * 鏂板鐢ㄦ埛
 	 * @param 
 	 */
 	public ResultMessage insert (UserPO user){
@@ -111,7 +111,7 @@ public class UserDataSqlHelper implements UserDataHelper{
 	}
 	
 	/**
-	 * @return	从数据库中读取用户数据
+	 * @return	浠庢暟鎹簱涓鍙栫敤鎴锋暟鎹�
 	 */
 	public Map<Integer, UserPO> getUser(){
 		Connection conn = getConn();
@@ -143,7 +143,7 @@ public class UserDataSqlHelper implements UserDataHelper{
 	}
 	
 	/**
-	 * 向数据文件中写入用户数据
+	 * 鍚戞暟鎹枃浠朵腑鍐欏叆鐢ㄦ埛鏁版嵁
 	 * @param list
 	 */
 	public ResultMessage update (UserPO userPO){
@@ -173,7 +173,7 @@ public class UserDataSqlHelper implements UserDataHelper{
 	}
 	
 	/**
-	 *搜索用户
+	 *鎼滅储鐢ㄦ埛
 	 * @param 
 	 */
 	public List<UserPO> searchUser (String username, String realName){
@@ -205,7 +205,7 @@ public class UserDataSqlHelper implements UserDataHelper{
 	}
 	
 	/**
-	 * 得到信用记录
+	 * 寰楀埌淇＄敤璁板綍
 	 * @param 
 	 */
 	public ResultMessage getCreditBalance (int userID){
@@ -214,7 +214,7 @@ public class UserDataSqlHelper implements UserDataHelper{
 	}
 	
 	/**
-	 * 增加信用记录
+	 * 澧炲姞淇＄敤璁板綍
 	 * @param 
 	 */
 	public ResultMessage addCredit (int userID, double addition){
