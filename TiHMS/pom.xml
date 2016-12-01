@@ -21,6 +21,11 @@
       <version>3.8.1</version>
       <scope>test</scope>
     </dependency>
+    <dependency>
+    	<groupId>com.oracle.jdbc</groupId>
+    	<artifactId>ojdbc7</artifactId>
+    	<scope>runtime</scope>
+    </dependency>
   </dependencies>
   <modules>
     
@@ -42,4 +47,13 @@
 			</plugin>
 		</plugins>
 	</build>
+  <dependencyManagement>
+  	<dependencies>
+  		<dependency>
+  			<groupId>com.oracle.jdbc</groupId>
+  			<artifactId>ojdbc7</artifactId>
+  			<version>12.1.0.2</version>
+  		</dependency>
+  	</dependencies>
+  </dependencyManagement>
 </project>
