@@ -1,5 +1,7 @@
 package tiquartet.CommonModule.vo;
 
+import tiquartet.CommonModule.util.RoomStatus;
+
 public class RoomVO {
 	    //房间编号
 	    public int roomID;
@@ -8,6 +10,6 @@ public class RoomVO {
 	    //房间类型
 	    public int roomType;
 	    //房间状态
-	    public int roomState;
+	    public RoomStatus roomStatus;
 
 }

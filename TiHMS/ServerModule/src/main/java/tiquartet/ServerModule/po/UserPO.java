@@ -6,34 +6,34 @@ import java.sql.Date;
 import tiquartet.CommonModule.vo.UserVO;
 
 public class UserPO implements Serializable{
-	//鐢ㄦ埛缂栧彿
+	//用户编号
 	private int userId;
-	//鐢ㄦ埛鍚�
+	//用户名
 	private String userName;
-	//瀵嗙爜
+	//密码
 	private String password;
-	//鐢ㄦ埛绫诲瀷
+	//用户类型
 	private String userType;
-	//鐪熷疄濮撳悕
+	//用户真实姓名
 	private String realName;
-	//淇＄敤鍊�
-	private int credit;
-	//鐢熸棩
-	private Date birthday;
-	//浼氬憳绛夌骇
-	private int memberRank;
-	//鏄惁浼氬憳
+	//当前信用值
+	private double credit;
+	//生日
+	private String birthday;
+	//会员等级
+	private int memberLevel;
+	//是否会员
 	private boolean isMember;
-	//鍏徃鍚嶇О
+	//公司名称（用户为会员）
 	private String company;
-	//閰掑簵缂栧彿
+	//酒店编号（用户为酒店工作人员时）
 	private int hotelId;
 	
 	public UserPO(){
 		
 	}
 	
-	public UserPO(int userId,String userName,String password,String userType,String realName,int credit, Date birthday,int memberRank,boolean isMember,String company,int hotelId){
+	public UserPO(int userId,String userName,String password,String userType,String realName,double credit, String birthday,int memberRank,boolean isMember,String company,int hotelId){
 		super();
 		this.userId=userId;
 		this.userName=userName;
@@ -42,7 +42,7 @@ public class UserPO implements Serializable{
 		this.realName=realName;
 		this.credit=credit;
 		this.birthday=birthday;
-		this.memberRank=memberRank;
+		this.memberLevel=memberRank;
 		this.isMember=isMember;
 		this.company=company;
 		this.hotelId=hotelId;
@@ -57,7 +57,7 @@ public class UserPO implements Serializable{
 		this.realName=userVO.realName;
 		this.credit=userVO.credit;
 		this.birthday=userVO.birthday;
-		this.memberRank=userVO.memberRank;
+		this.memberLevel=userVO.memberLevel;
 		this.isMember=userVO.isMember;
 		this.company=userVO.company;
 		this.hotelId=userVO.hotelID;
@@ -103,11 +103,11 @@ public class UserPO implements Serializable{
 		return this.realName;
 	}
 	
-	public void setbirthday(Date birthday){
+	public void setbirthday(String birthday){
 		this.birthday=birthday;
 	}
 	
-	public Date getbirthday(){
+	public String getbirthday(){
 		return this.birthday;
 	}
 	
@@ -115,16 +115,16 @@ public class UserPO implements Serializable{
 		this.credit=credit;
 	}
 	
-	public int getcredit(){
+	public double getcredit(){
 		return this.credit;
 	}
 	
 	public void setmemberRank(int memberRank){
-		this.memberRank=memberRank;
+		this.memberLevel=memberRank;
 	}
 	
 	public int getmemberRank(){
-		return this.memberRank ;
+		return this.memberLevel ;
 	}
 	
 	public void setisMember(boolean isMember){

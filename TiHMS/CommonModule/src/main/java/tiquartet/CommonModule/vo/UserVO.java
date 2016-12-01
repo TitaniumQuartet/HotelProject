@@ -1,28 +1,32 @@
 package tiquartet.CommonModule.vo;
 
-import java.sql.Date;
 
+/**
+ * 包含用户信息的值对象
+ * @author greatlyr
+ *
+ */
 public class UserVO {
-	//閻€劍鍩涚紓鏍у娇
+	//用户编号
     public int userID;
-    //閻€劍鍩涢崥锟�
+    //用户名
     public String userName;
-    //閻€劍鍩涚猾璇茬��
+    //用户类型
     public String userType;
-    // 閻€劍鍩涚�靛棛鐖�
+    //密码
     public String password;
-    //閻喎鐤勬慨鎾虫倳
+    //真实姓名
     public String realName;
-    
+    //是否会员
     public boolean isMember;
-    
-    public int credit;
-    
-    public Date birthday;
-    
-    public int memberRank;
-    
+    //当前信用值
+    public double credit;
+    //生日
+    public String birthday;
+    //会员等级
+    public int memberLevel;
+    //公司名称
     public String company;
-    
+    //酒店编号
     public int hotelID;
 }

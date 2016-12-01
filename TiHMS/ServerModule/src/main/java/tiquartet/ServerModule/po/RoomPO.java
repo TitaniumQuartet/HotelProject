@@ -31,7 +31,7 @@ public class RoomPO implements Serializable{
 		this.roomId = roomVO.roomID;
 		this.roomNumber = roomVO.roomNum;
 		this.roomTypeId = roomVO.roomType;
-		this.state = roomVO.roomState;
+		this.state = roomVO.roomStatus;
 	}
 	
 	public int getroomId(){
@@ -70,7 +70,7 @@ public class RoomPO implements Serializable{
 		RoomVO roomVO = new RoomVO();
 		roomVO.roomID = this.roomId;
 		roomVO.roomNum = this.roomNumber;
-		roomVO.roomState = this.state;
+		roomVO.roomStatus = this.state;
 		roomVO.roomType = this.roomTypeId;
 		
 		return roomVO;
