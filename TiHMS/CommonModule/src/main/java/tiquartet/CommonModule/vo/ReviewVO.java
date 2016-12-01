@@ -1,6 +1,5 @@
 package tiquartet.CommonModule.vo;
 
-import java.util.Calendar;
 
 public class ReviewVO {
 	    //酒店编号
@@ -14,5 +13,5 @@ public class ReviewVO {
 	    //用户评价
 	    public String  review;
 	    //评价时间
-	    public Calendar time;
+	    public String time;
 }

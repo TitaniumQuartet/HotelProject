@@ -4,6 +4,7 @@ import tiquartet.CommonModule.vo.PreOrderVO;
 import tiquartet.CommonModule.vo.StrategyVO;
 import tiquartet.ServerModule.datahelper.DataFactory;
 import tiquartet.ServerModule.dataservice.impl.StrategyDataImpl;
+import tiquartet.ServerModule.dataservice.impl.UserDataImpl;
 import tiquartet.ServerModule.po.StrategyPO;
 import tiquartet.CommonModule.vo.OrderInfoVO;
 
@@ -23,8 +24,10 @@ public class CreateOrder{
 	 */
 	static List<PreOrderVO> list=new ArrayList<PreOrderVO>();
 	StrategyDataImpl strategydataimpl;
+	UserDataImpl userdataimpl;
 	public CreateOrder(){
 		strategydataimpl=StrategyDataImpl.getInstance();
+		userdataimpl=UserDataImpl.getInstance();
 	}
 	public List<StrategyVO> getStrategyByID(int userID) throws RemoteException{
 		List<StrategyVO> volist=new ArrayList<StrategyVO>();
@@ -41,7 +44,7 @@ public class CreateOrder{
 	}
 	
 	public ResultMessage preOrder(PreOrderVO preOrder)throws RemoteException{
-		int credit=Integer.parseInt(dataFactory.getUserDataHelper().getCreditBalance(preOrder.userID).message);
+		int credit=Integer.parseInt(userdataimpl.getCreditBalance(preOrder.userID).message);
 		if(credit<0){
 			return new ResultMessage(false,"用户信用值低于0","");
 		}

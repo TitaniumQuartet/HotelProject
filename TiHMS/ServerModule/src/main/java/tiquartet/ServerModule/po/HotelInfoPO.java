@@ -26,7 +26,7 @@ public class HotelInfoPO implements Serializable{
 	//最高价格
 	private double highprice;
 	//平均评分
-	private double avgragegrade;
+	private double averageGrade;
 	//城市名称
 	private String cityName;
 	
@@ -35,11 +35,11 @@ public class HotelInfoPO implements Serializable{
 	}
 	public HotelInfoPO(HotelInfoVO hotelInfovo){
 		this.address=hotelInfovo.address;
-		this.avgragegrade=hotelInfovo.highprice;
+		this.highprice=hotelInfovo.highprice;
 		this.circleId=hotelInfovo.circleId;
 		this.circleName=hotelInfovo.circleName;
 		this.circleName=hotelInfovo.cityName;
-		this.highprice=hotelInfovo.highprice;
+		this.averageGrade=hotelInfovo.averageGrade;
 		this.hotelId=hotelInfovo.hotelID;
 		this.hotelIntroduction=hotelInfovo.hotelIntroduction;
 		this.hotelName=hotelInfovo.hotelName;
@@ -137,12 +137,12 @@ public class HotelInfoPO implements Serializable{
 	public double gethighprice(){
 		return this.highprice;
 	}
-	public void setavgragegrade(double avgragegrade){
-		this.avgragegrade=avgragegrade;
+	public void setaverageGrade(double avgrageGrade){
+		this.averageGrade=avgrageGrade;
 	}
 	
-	public double getavgreagegrade(){
-		return this.avgragegrade;
+	public double getavereageGrade(){
+		return this.averageGrade;
 	}
 	
 	public void setcityName(String cityName){
@@ -155,7 +155,7 @@ public class HotelInfoPO implements Serializable{
 	public HotelInfoVO toHotelInfoVO(){
 		HotelInfoVO vo=new HotelInfoVO();
 		vo.address=this.address;
-		vo.averagegrade=this.avgragegrade;
+		vo.averageGrade=this.averageGrade;
 		vo.circleId=this.circleId;
 		vo.circleName=this.circleName;
 		vo.cityName=this.cityName;

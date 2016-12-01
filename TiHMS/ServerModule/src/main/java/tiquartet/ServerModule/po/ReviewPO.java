@@ -18,13 +18,20 @@ public class ReviewPO implements Serializable{
 	//用户名
 	private String userName;
 	//评价时间
-	private Calendar time;
+	private String time;
 	
+	public ReviewPO(ReviewVO reviewvo){
+		this.hotelId=reviewvo.hotelID;
+		this.review=reviewvo.review;
+		this.score=reviewvo.score;
+		this.time=reviewvo.time;
+		this.userId=reviewvo.userID;
+		this.userName=reviewvo.userName;
+	}
 	public ReviewPO(){
 		
 	}
-	
-	public ReviewPO(long hotelId,int score,String review,int userId,String userName,Calendar time){
+	public ReviewPO(long hotelId,int score,String review,int userId,String userName,String time){
 		super();
 		this.hotelId=hotelId;
 		this.score=score;
@@ -74,11 +81,11 @@ public class ReviewPO implements Serializable{
 		this.userName=userName;
 	}
 	
-	public Calendar gettime(){
+	public String gettime(){
 		return time;
 	}
 	
-	public void settime(Calendar time){
+	public void settime(String time){
 		this.time=time;
 	}
 	public ReviewVO toReviewvo(){

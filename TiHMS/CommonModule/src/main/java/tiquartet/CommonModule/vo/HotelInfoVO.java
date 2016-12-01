@@ -8,7 +8,7 @@ public class HotelInfoVO {
 	    //酒店星级
 	    public int star;
 	    //酒店平均评分
-	    public double averagegrade;
+	    public double averageGrade;
 	    //酒店地址
 	    public String  address;
 	    //酒店介绍
