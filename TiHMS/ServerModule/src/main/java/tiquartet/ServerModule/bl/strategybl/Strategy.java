@@ -13,7 +13,10 @@ import tiquartet.CommonModule.util.ResultMessage;
 
 public class Strategy{
 	
-	DataFactory dataFactory = new DataFactory();
+	StrategyDataImpl strategydataimpl;
+	public Strategy(){
+		Strategydataimpl=StrategyDataImpl.getInstance();
+	}
 	//增加策略
 	public ResultMessage addStrategy(StrategyVO strategyvo)throws RemoteException{
 		StrategyPO po=new StrategyPO(strategyvo);

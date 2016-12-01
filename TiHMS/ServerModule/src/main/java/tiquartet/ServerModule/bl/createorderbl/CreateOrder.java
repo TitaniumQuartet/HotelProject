@@ -22,7 +22,10 @@ public class CreateOrder{
 	 * @throws RemoteException
 	 */
 	static List<PreOrderVO> list=new ArrayList<PreOrderVO>();
-	DataFactory dataFactory=new DataFactory();
+	StrategyDataImpl strategydataimpl;
+	public CreateOrder(){
+		strategydataimpl=StrategyDataImpl.getInstance();
+	}
 	public List<StrategyVO> getStrategyByID(int userID) throws RemoteException{
 		List<StrategyVO> volist=new ArrayList<StrategyVO>();
 		List<StrategyPO> polist;
