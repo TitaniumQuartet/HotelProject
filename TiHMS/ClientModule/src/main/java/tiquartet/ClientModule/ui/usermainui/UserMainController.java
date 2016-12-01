@@ -3,12 +3,15 @@ import java.rmi.RemoteException;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
+import tiquartet.ClientModule.ui.rmiclient.ClientApp;
 import tiquartet.ClientModule.ui.rmiclient.HMSClient;
 import tiquartet.CommonModule.vo.UserVO;
 
@@ -125,7 +128,16 @@ public class UserMainController {
 	 */
 	@FXML
 	void onSignInClicked(ActionEvent event) {
-		
+		try{
+			FXMLLoader loader=new FXMLLoader();
+			loader.setLocation(getClass().getResource("/fxml/usermainui/signin.fxml"));
+			ClientApp.mainStage.setScene(new Scene(loader.load(), 1280, 800));
+			//窗口切换至注册界面
+		}catch (Exception e) {
+			loginWarningLabel.setText("加载失败");
+			loginWarningLabel.setVisible(true);
+			e.printStackTrace();
+		}
 	}
 
 	/**

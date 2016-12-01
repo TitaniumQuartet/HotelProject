@@ -6,6 +6,7 @@ import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 
 import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
 import tiquartet.CommonModule.blservice.createorderblservice.CreateOrderBLService;
 import tiquartet.CommonModule.blservice.hotelinfoblservice.HotelInfoBLService;
 import tiquartet.CommonModule.blservice.manageorderblservice.ManageOrderBLService;
@@ -47,7 +48,7 @@ public class HMSClient {
 	 */
 	public static void main(String[] args) {
 		HMSClient client=new HMSClient();
-		client.init();
+		//client.init();
 		Application.launch(ClientApp.class, args);
 	}
 
