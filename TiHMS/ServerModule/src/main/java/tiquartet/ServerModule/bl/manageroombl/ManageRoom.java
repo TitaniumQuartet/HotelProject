@@ -1,5 +1,8 @@
 /**
+ * 管理酒店房间的类。
+ * 
  * @author Yolanda151250080
+ * 
  */
 package tiquartet.ServerModule.bl.manageroombl;
 
@@ -12,129 +15,128 @@ import tiquartet.CommonModule.util.ResultMessage;
 import tiquartet.CommonModule.vo.RoomTypeVO;
 import tiquartet.CommonModule.vo.RoomVO;
 import tiquartet.ServerModule.datahelper.DataFactory;
+import tiquartet.ServerModule.datahelper.service.RoomDataHelper;
+import tiquartet.ServerModule.dataservice.impl.RoomDataImpl;
+import tiquartet.ServerModule.dataservice.roomdataservice.RoomDataService;
+import tiquartet.ServerModule.dataservice.userdataservice.UserDataService;
 import tiquartet.ServerModule.po.RoomPO;
 import tiquartet.ServerModule.po.RoomTypePO;
 
 
 public class ManageRoom implements ManageRoomBLService {
 	
-	static DataFactory dataFactory=new DataFactory();
+	private RoomDataService roomDataService;
+	
+	public ManageRoom(){
+		roomDataService = RoomDataImpl.getInstance();
+	}
 	
 	/*
-	 * ���þƵ��Ż�ȡ�þƵ�ķ����б�
+	 * 获取酒店房间列表
 	 */
 	public List<RoomVO> getRoomList (long hotelID) {
 		
-		List<RoomPO> list = new ArrayList<RoomPO>();
-		//list.addAll(dataFactory.getRoomDataHelper().getRoom(hotelID));
+		//获取po列表
+		List<RoomPO> roomPOs = new ArrayList<RoomPO>();
+		roomPOs = roomDataService.getRoom(hotelID);
 		
-		//��poת��vo
-		List<RoomVO> roomList = new ArrayList<RoomVO>();
-		RoomVO roomvo;
-		
-		for(RoomPO roompo: list){
-			roomvo = new RoomVO();
-			//BeanUtils.copyProperties(roomvo, roompo);
-			roomList.add(roomvo);
+		//po列表转vo列表
+		List<RoomVO> roomVOs = new ArrayList<RoomVO>();
+		RoomVO roomVO;
+		for(RoomPO roomPO: roomPOs){
+			roomVO = roomPO.getRoomVO();
+			roomVOs.add(roomVO);
 		}
 		
-		return roomList;
+		return roomVOs;
 	}
 	
 	/*
-	 * �޸�ĳ���������Ϣ
+	 * 修改房间信息
 	 */
 	public ResultMessage modifyRoomInfo (RoomVO room) {
 		
-		//voתpo
-		RoomPO roompo = new RoomPO();
-		//BeanUtils.copyPropertites(roompo, room);
+		//vo转po
+		RoomPO roomPO = new RoomPO(room);
+		ResultMessage result = roomDataService.update(roomPO);
 		
-		dataFactory.getRoomDataHelper().update(roompo);
-		
-		return new ResultMessage(true);
+		return result;
 	}
 	
 	/*
-	 * ����һ���������Ϣ
+	 * 添加酒店房间
 	 */
 	public ResultMessage addRoom (RoomVO room) {
 		
-		//voתpo
-		RoomPO roompo = new RoomPO();
-		//BeanUtils.copyPropertites(roompo, room);
+		//vo转po
+		RoomPO roomPO = new RoomPO(room);
+		ResultMessage result = roomDataService.insert(roomPO);
 		
-		dataFactory.getRoomDataHelper().insert(roompo);
-		
-		return new ResultMessage(true);
+		return result;
 	}
 	
 	/*
-	 * ɾ��һ���������Ϣ
+	 * 删除酒店房间
 	 */
 	public ResultMessage deleteRoom (int roomID) {
 		
-		dataFactory.getRoomDataHelper().delete(roomID);
+		ResultMessage result = roomDataService.delete(roomID);
 		
-		return new ResultMessage(true);
+		return result;
 	}
 	
 	/*
-	 * ��ĳ���ͷ���״̬��Ϊ����ס��
+	 * 办理入住
 	 */
 	public ResultMessage checkIn (int roomID) {
 		
-		dataFactory.getRoomDataHelper().checkIn(roomID);
+		ResultMessage result = roomDataService.checkIn(roomID);
 		
-		return new ResultMessage(true);
+		return result;
 	}
 	
 	/*
-	 * ��ĳ������״̬��Ϊ�����С�
+	 * 办理退房
 	 */
 	public ResultMessage checkOut (int roomID) {
 		
-		dataFactory.getRoomDataHelper().checkOut(roomID);
+		ResultMessage result = roomDataService.checkOut(roomID);
 		
-		return new ResultMessage(true);
+		return result;
 	}
 	
 	/*
-	 * �޸ķ�������
+	 * 添加客房类型
 	 */
-	public ResultMessage modifyRoomType (int hotelID, RoomTypeVO roomType) {
+	public ResultMessage addRoomType (RoomTypeVO roomType) {
 		
-		//voתpo
-		RoomTypePO roompo = new RoomTypePO();
-		//BeanUtils.copyPropertites(roompo, roomType);
+		//vo转po
+		RoomTypePO roomTypePO = new RoomTypePO(roomType);
+		ResultMessage result = roomDataService.insertType(roomTypePO);
 		
-		dataFactory.getRoomDataHelper().updateType(hotelID, roompo);
-		
-		return new ResultMessage(true);
+		return result;
 	}
 	
 	/*
-	 * ɾ����������
+	 * 修改客房类型
+	 */
+	public ResultMessage modifyRoomType (RoomTypeVO roomType) {
+		
+		//vo转po
+		RoomTypePO roomTypePO = new RoomTypePO(roomType);
+		ResultMessage result = roomDataService.updateType(roomTypePO);
+		
+		return result;
+	}
+	
+	/*
+	 * 删除房间类型
 	 */
 	public ResultMessage deleteRoomType (int hotelID, int roomTypeID) {
 		
-		//dataFactory.getRoomDataHelper().deleteType(hotelID, roomTypeID);
+		ResultMessage result = roomDataService.deleteType(hotelID, roomTypeID);
 		
-		return new ResultMessage(true);
-	}
-
-	@Override
-	public ResultMessage addRoomType(RoomTypeVO roomType)
-			throws RemoteException {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public ResultMessage modifyRoomType(RoomTypeVO roomType)
-			throws RemoteException {
-		// TODO Auto-generated method stub
-		return null;
+		return result;
 	}
 	
 }

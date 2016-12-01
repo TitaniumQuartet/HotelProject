@@ -2,14 +2,16 @@ package tiquartet.ServerModule.po;
 
 import java.io.Serializable;
 
+import tiquartet.CommonModule.vo.HotelBriefVO;
+
 public class HotelPO implements Serializable{
 	//酒店编号
 	private long hotelId;
 	//酒店名称
 	private String hotelName;
-	//星级
+	//酒店星级
 	private int star;
-	//平均评分
+	//酒店评分
 	private int average;
 	//城市名称
 	private String cityName;
@@ -17,6 +19,12 @@ public class HotelPO implements Serializable{
 	private String businessDistrict;
 	//最低价格
 	private int lowestPrice;
+	//最高价格
+	private int highestPrice;
+	
+	private int numOfAllOrder;
+	
+	private int numOfEndOrder;
 	
 	public HotelPO(){
 		
@@ -87,5 +95,43 @@ public class HotelPO implements Serializable{
 	
 	public void setlowestPrice(int lowestPrice){
 		this.lowestPrice=lowestPrice;
+	}
+	
+	public int gethighestPrice(){
+		return highestPrice;
+	}
+	
+	public void sethighestPrice(int highestPrice){
+		this.highestPrice = highestPrice;
+	}
+	
+	public int getnumOfAllOrder(){
+		return numOfAllOrder;
+	}
+	
+	public void setnumOfAllOrder(int numOfAllOrder){
+		this.numOfAllOrder = numOfAllOrder;
+	}
+	
+	public int getnumOfEndOrder(){
+		return numOfEndOrder;
+	}
+	
+	public void setnumOfEndOrder(int numOfEndOrder){
+		this.numOfEndOrder = numOfEndOrder;
+	}
+	
+	public HotelBriefVO getBriefVO(){
+		HotelBriefVO hotelBriefVO = new HotelBriefVO();
+		hotelBriefVO.avgragegrade = this.average;
+		hotelBriefVO.circleName = this.businessDistrict;
+		hotelBriefVO.cityName = this.cityName;
+		hotelBriefVO.hotelID = this.hotelId;
+		hotelBriefVO.hotelName = this.hotelName;
+		hotelBriefVO.star = this.star;
+		hotelBriefVO.numOfAllOrder = this.numOfAllOrder;
+		hotelBriefVO.numOfEndOrder = this.numOfEndOrder;
+		
+		return hotelBriefVO;
 	}
 }

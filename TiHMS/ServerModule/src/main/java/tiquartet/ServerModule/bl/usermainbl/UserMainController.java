@@ -1,9 +1,10 @@
 package tiquartet.ServerModule.bl.usermainbl;
 
+import tiquartet.CommonModule.blservice.usermainblservice.UsermainBLService;
 import tiquartet.CommonModule.util.ResultMessage;
 import tiquartet.CommonModule.vo.UserVO;
 
-public class UserMainController {
+public class UserMainController implements UsermainBLService{
 	
 	static UserMain usermain = new UserMain();
 	
@@ -39,11 +40,4 @@ public class UserMainController {
 		return usermain.isUnregistered(username);
 	}
 	
-	/*
-	 * ÔÝÊ±²»¿¼ÂÇµÄcurrentUser
-	 */
-	public UserVO currentUser () {
-    	
-    	return usermain.currentUser();
-    }
 }

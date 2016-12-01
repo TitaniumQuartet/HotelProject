@@ -2,25 +2,36 @@ package tiquartet.ServerModule.po;
 
 import java.io.Serializable;
 
+import tiquartet.CommonModule.util.RoomStatus;
+import tiquartet.CommonModule.vo.RoomVO;
+
 public class RoomPO implements Serializable{
-	//客房编号
+	//房间编号
 	private int roomId;
-	//实际房号
+	//房间号
 	private int roomNumber;
-	//客房类型编号
+	//房间类型编号
 	private int roomTypeId;
-	//客房状态
-	private String state;
+	//房间状态
+	private RoomStatus state;
 	public RoomPO(){
 		
 	}
 	
-	public RoomPO(int roomId,int roomNumber,int roomTypeId,String state){
+	public RoomPO(int roomId,int roomNumber,int roomTypeId,RoomStatus state){
 		super();
 		this.roomId=roomId;
 		this.roomNumber=roomNumber;
 		this.roomTypeId=roomTypeId;
 		this.state=state;
+	}
+	
+	public RoomPO(RoomVO roomVO){
+		super();
+		this.roomId = roomVO.roomID;
+		this.roomNumber = roomVO.roomNum;
+		this.roomTypeId = roomVO.roomType;
+		this.state = roomVO.roomState;
 	}
 	
 	public int getroomId(){
@@ -47,11 +58,22 @@ public class RoomPO implements Serializable{
 		this.roomTypeId=roomTypeId;
 	}
 	
-	public String getstate(){
+	public RoomStatus getstate(){
 		return state;
 	}
 	
-	public void setstate(String state){
+	public void setstate(RoomStatus state){
 		this.state=state;
+	}
+	
+	public RoomVO getRoomVO(){
+		RoomVO roomVO = new RoomVO();
+		roomVO.roomID = this.roomId;
+		roomVO.roomNum = this.roomNumber;
+		roomVO.roomState = this.state;
+		roomVO.roomType = this.roomTypeId;
+		
+		return roomVO;
+		
 	}
 }

@@ -3,20 +3,22 @@ package tiquartet.ServerModule.po;
 import java.io.Serializable;
 import java.sql.Date;
 
+import tiquartet.CommonModule.vo.UserVO;
+
 public class UserPO implements Serializable{
 	//用户编号
 	private int userId;
 	//用户名
 	private String userName;
-	//用户密码
+	//密码
 	private String password;
 	//用户类型
-	private String userType;
-	//用户真实名字
+	private int userType;
+	//真实姓名
 	private String realName;
-	//用户信用值
+	//信用值
 	private int credit;
-	//用户生日
+	//生日
 	private Date birthday;
 	//会员等级
 	private int memberRank;
@@ -31,7 +33,7 @@ public class UserPO implements Serializable{
 		
 	}
 	
-	public UserPO(int userId,String userName,String password,String userType,String realName,int credit, Date birthday,int memberRank,boolean isMember,String company,int hotelId){
+	public UserPO(int userId,String userName,String password,int userType,String realName,int credit, Date birthday,int memberRank,boolean isMember,String company,int hotelId){
 		super();
 		this.userId=userId;
 		this.userName=userName;
@@ -44,6 +46,21 @@ public class UserPO implements Serializable{
 		this.isMember=isMember;
 		this.company=company;
 		this.hotelId=hotelId;
+	}
+	
+	public UserPO(UserVO userVO){
+		super();
+		this.userId=userVO.userID;
+		this.userName=userVO.userName;
+		this.password=userVO.password;
+		this.userType=userVO.userType;
+		this.realName=userVO.realName;
+		this.credit=userVO.credit;
+		this.birthday=userVO.birthday;
+		this.memberRank=userVO.memberRank;
+		this.isMember=userVO.isMember;
+		this.company=userVO.company;
+		this.hotelId=userVO.hotelID;
 	}
 	
 	public int getuserId(){
@@ -70,11 +87,11 @@ public class UserPO implements Serializable{
 		this.password=password;
 	}
 	
-	public String getuserType(){
+	public int getuserType(){
 		return userType;
 	}
 	
-	public void setuserType(String userType){
+	public void setuserType(int userType){
 		this.userType=userType;
 	}
 	
@@ -132,5 +149,16 @@ public class UserPO implements Serializable{
 	
 	public int gethotelId(){
 		return this.hotelId;
+	}
+	
+	public UserVO getVO(){
+		UserVO userVO = new UserVO();
+		userVO.password = this.password;
+		userVO.realName = this.realName;
+		userVO.userID = this.userId;
+		userVO.userName = this.userName;
+		userVO.userType = this.userType;
+		
+		return userVO;
 	}
 }

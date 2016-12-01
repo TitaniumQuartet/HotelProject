@@ -3,50 +3,49 @@ package tiquartet.ServerModule.bl.usermainbl;
 import tiquartet.CommonModule.blservice.usermainblservice.UsermainBLService;
 import tiquartet.CommonModule.util.ResultMessage;
 import tiquartet.CommonModule.vo.UserVO;
-import tiquartet.ServerModule.datahelper.DataFactory;
+import tiquartet.ServerModule.dataservice.impl.UserDataImpl;
+import tiquartet.ServerModule.dataservice.userdataservice.UserDataService;
 import tiquartet.ServerModule.po.UserPO;
 
 public class UserMain implements UsermainBLService{
 	
-	static DataFactory dataFactory=new DataFactory();
+	private UserDataService userDataService;
+	
+	public UserMain(){
+		userDataService = UserDataImpl.getInstance();
+	}
 	
 	/*
-	 * �û���¼
+	 * 用户登录
 	 */
 	public UserVO login (String username, String password){
 		
-		//���ж��û��Ƿ����
-		ResultMessage res = new ResultMessage(true); 
-		dataFactory.getUserDataHelper().userExist(username);
+		//先检查用户是否存在
+		ResultMessage exist = userDataService.userExist(username);
+		//存在则继续登录
+		if(exist.result){
+			//检查密码是否正确
+			ResultMessage isRight = userDataService.checkPassword(username, password);
+			//密码正确返回用户信息
+			if(isRight.result){
+				UserPO userPO = userDataService.getUser(username, password);
+				UserVO userVO = userPO.getVO();
 		
-		//�û�����
-		if(res.result == true){
-			//��֤�û����������Ƿ�ƥ��
-			ResultMessage match = new ResultMessage(true);
-			dataFactory.getUserDataHelper().checkPassword(username, password);
-			
-			//ƥ�䷵���û���Ϣ
-			if(match.result == true){
-				//UserPO userpo = dataFactory.getUserDataHelper().getUser(username);
-				UserVO uservo = new UserVO();
-				//BeanUtils.copyProperties(uservo, userpo);
-				
-				return uservo;
+				return userVO;
 			}
-			//��ƥ�䷵�ؿ�
+			//不正确返回空
 			else{
 				return null;
 			}
 		}
-		//�����ڷ��ؿ�
+		//用户不存在返回空
 		else{
 			return null;
 		}
-		
     }
 	
 	/*
-	 * �û��ǳ�
+	 * 用户登出
 	 */
 	public ResultMessage logout (int userID){
 		
@@ -54,7 +53,7 @@ public class UserMain implements UsermainBLService{
 	}
 	
 	/*
-	 * �û�ע��
+	 * 用户注册
 	 */
     public ResultMessage signUp(String username,String password){
     	
@@ -62,29 +61,21 @@ public class UserMain implements UsermainBLService{
     	newUser.password = password;
     	newUser.userName = username;
     	
-    	//�������ݿ�
-    	UserPO userpo = new UserPO();
-    	//BeanUtils.copyProperties(userpo, newUser);
+    	//vo转po并且添加
+    	UserPO userPO = new UserPO(newUser);
+    	ResultMessage result = userDataService.insert(userPO);
     	
-    	dataFactory.getUserDataHelper().insert(userpo);
-    	
-    	return new ResultMessage(true);
+    	return result;
     }
     
     /*
-     * �ж��û����Ƿ��Ѵ���
+     * 判断用户是否存在
      */
     public boolean isUnregistered (String username){
     	
-    	dataFactory.getUserDataHelper().userExist(username);
+    	boolean exist = userDataService.userExist(username).result;
     	
-    	return true;
-    }
-    
-    //�Ȳ������������
-    public UserVO currentUser (){
-    	UserVO user=this.login("Teki", "12345678");
-    	return user;
+    	return exist;
     }
 
 }

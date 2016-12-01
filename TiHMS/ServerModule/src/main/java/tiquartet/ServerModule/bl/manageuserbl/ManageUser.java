@@ -1,9 +1,11 @@
 /**
+ * 管理用户的类。
+ * 
  * @author Yolanda151250080
+ * 
  */
 package tiquartet.ServerModule.bl.manageuserbl;
 
-import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -16,103 +18,96 @@ import tiquartet.CommonModule.vo.CreditVO;
 import tiquartet.CommonModule.vo.MemberVO;
 import tiquartet.CommonModule.vo.UserFilterVO;
 import tiquartet.CommonModule.vo.UserVO;
-import tiquartet.ServerModule.datahelper.DataFactory;
+import tiquartet.ServerModule.dataservice.impl.UserDataImpl;
+import tiquartet.ServerModule.dataservice.userdataservice.UserDataService;
 import tiquartet.ServerModule.po.CreditPO;
 import tiquartet.ServerModule.po.UserPO;
 
 public class ManageUser implements ManageUserBLService {
 	
-	static DataFactory dataFactory=new DataFactory();
+	private UserDataService userDataService;
+	
+	public ManageUser(){
+		userDataService = UserDataImpl.getInstance();
+	}
 
 	/*
-	 * �����û�������ʵ���������û�
+	 * 精确搜索获取用户信息列表
 	 */
 	public List<UserVO> accurateSearch (String username, String realName) {
 		
-		//��ȡpo���б�
-		List<UserPO> user = new ArrayList<UserPO>();
-		user.addAll(dataFactory.getUserDataHelper().searchUser(username, realName));
+		//获得po列表
+		List<UserPO> userPOs = userDataService.searchUser(username, realName);
 		
-		//poתvo
-		List<UserVO> userList = new ArrayList<UserVO>();
-		UserVO uservo;
-		
-		for(UserPO userpo: user){
-			uservo = new UserVO();
-			//BeanUtils.copyProperties(uservo, userpo);
-			userList.add(uservo);
+		//po列表转vo列表
+		List<UserVO> userVOs = new ArrayList<UserVO>();
+		UserVO userVO;
+		for(UserPO userPO: userPOs){
+			userVO = userPO.getVO();
+			userVOs.add(userVO);
 		}
 		
-		return userList;
+		return userVOs;
 	}
 	
 	/*
-	 * ���ݳ��к���Ȧ��ȡ�Ƶ�Ա���б�
+	 * 获取酒店员工信息列表
 	 */
 	public List<UserVO> searchHotelStaff(int cityID, int districtID) {
 		
-		//��ȡpo�б�
-		//List<HotelStaffPO> hotelstaff = new ArrayList<HotelStaffPO>();
-		//hotelstaff.addAll(dataFactory.getUserDataHelper().searchHotelStaff(cityID, districtID));
+		List<UserPO> userPOs = userDataService.searchHotelStaff(cityID, districtID);
+		List<UserVO> userVOs = new ArrayList<UserVO>();
+		UserVO userVO;
+		for(UserPO userPO: userPOs){
+			userVO = userPO.getVO();
+			userVOs.add(userVO);
+		}
 		
-		//poתvo
-		List<UserVO> hotelstaffList = new ArrayList<UserVO>();
-		UserVO hotelstaffvo;
-		
-		//for(HotelStaffPO hotelstaffpo: hotelstaff){
-			hotelstaffvo = new UserVO();
-			//BeanUtils.copyProperties(hotelstaffvo, hotelstaffpo);
-			hotelstaffList.add(hotelstaffvo);
-		//}
-		
-		return hotelstaffList;
+		return userVOs;
 	}
 	
 	/*
-	 * �����û�ID��ȡ�û���Ϣ
+	 * 获得某个用户的信息
 	 */
 	public UserVO getUser (int userID) {
 		
-		UserPO userpo = new UserPO();
-		//userpo = dataFactory.getUserDataHelper().getUser(userID);
+		UserPO userPO = userDataService.getUser(userID);
+		UserVO userVO = userPO.getVO();
 		
-		UserVO uservo = new UserVO();
-		//BeanUtils.copyProperties(uservo, userpo);
-		
-		return uservo;
+		return userVO;
 	}
 	
 	/*
-	 * ����ɸѡ����������ʽ��������ȡ�û���Ϣ�б�
+	 * 按一定条件筛选用户列表
 	 */
 	public List<UserVO> search (UserFilterVO filter, 
 			UserSort sort, int rank1, int rank2) {
 		
-		//���Ȼ�ȡ�û���Ϣ�б�
-		List<UserPO> user = new ArrayList<UserPO>();
-		//user = dataFactory.getUserDataHelper().userList();
+		//获取po列表
+		List<UserPO> userPOs = new ArrayList<UserPO>();
 		
-		List<UserVO> userlist = new ArrayList<UserVO>();
-		UserVO uservo;
-		
-		for(UserPO userpo: user){
-			uservo = new UserVO();
-			//BeanUtils.copyProperties(uservo, userpo);
-			userlist.add(uservo);
+		//po列表转vo列表
+		List<UserVO> userVOs = new ArrayList<UserVO>();
+		UserVO userVO;
+		for(UserPO userPO: userPOs){
+			userVO = userPO.getVO();
+			userVOs.add(userVO);
 		}
 		
-		//����ɸѡ��������ɸѡ
+		//根据筛选条件进行筛选
 		List<UserVO> filterUser = new ArrayList<UserVO>();
-		/*for(UserVO uservos: userlist){
-			if(uservos.userName.equals(filter)
-					&& uservos.realName.equals(filter.realName)
-					&& uservos.isMember == filter.isMember){
-				filterUser.add(uservos);
+		for(UserVO userVO2: userVOs){
+			if(userVO2.userName.equals(filter.username)
+					&& userVO2.realName.equals(filter.realName)
+					&& userVO2.isMember == filter.isMember){
+				filterUser.add(userVO2);
 			}
-		}*/
+		}
+
+
+		//对列表进行排序
 		
-		//����Ҫ���������
-		//�û�����������
+		//用户名升序
 		if(sort == UserSort.USERNAMEASCEND){
 			Collections.sort(filterUser, new Comparator<UserVO>(){
 				@Override
@@ -121,19 +116,22 @@ public class ManageUser implements ManageUserBLService {
 				}
 				});
 		}
-		//�û�������
+		
+		//用户名降序
 		else if(sort == UserSort.USERNAMEDESCEND){
-			//����������
+			//先升序排列
 			Collections.sort(filterUser, new Comparator<UserVO>(){
 				@Override
 				public int compare(UserVO o1, UserVO o2) {
 				return (o1.userName).compareToIgnoreCase(o2.userName);
 				}
 				});
-			//�ٰ�����ĵ���
+			//对升序列表进行倒置
 			Collections.reverse(filterUser);
 		}
-		//��ʵ��������
+	
+		
+		//真实姓名升序
 		else if(sort == UserSort.REALNAMEASCEND){
 			Collections.sort(filterUser, new Comparator<UserVO>(){
 				@Override
@@ -142,140 +140,142 @@ public class ManageUser implements ManageUserBLService {
 				}
 				});
 		}
-		//��ʵ��������
+
+		//真实姓名降序
 		else if(sort == UserSort.REALNAMEDESCEND){
-			//����������
+			//先升序
 			Collections.sort(filterUser, new Comparator<UserVO>(){
 				@Override
 				public int compare(UserVO o1, UserVO o2) {
 				return (o1.realName).compareToIgnoreCase(o2.realName);
 				}
 				});
-			//�ٰ�����ĵ���
+			//倒置升序列表
 			Collections.reverse(filterUser);
 		}
 		
-		//����rank1��rank2֮�����Ϣ
+		//返回rank1到rank2之间的列表
+
 		return filterUser.subList(rank1, rank2);
 	}
 	
 	/*
-	 * �����û�ID�ͽ��������ó�ֵ
+	 * 信用充值
 	 */
 	public ResultMessage creditRecharge (int userID, double amount) {
 		
-		dataFactory.getUserDataHelper().addCredit(userID, amount);
+		ResultMessage result = userDataService.addCredit(userID, amount);
 		
-		return new ResultMessage(true);
+		return result;
 	}
 	
 	/*
-	 * ���ݾƵ�ID��������ӾƵ�
+	 * 添加酒店
 	 */
 	public ResultMessage addHotel (int districtID, String hotelName) {
 		
-		//dataFactory.getUserDataHelper().addHotel(districtID, hotelName);
+		ResultMessage result = userDataService.addHotel(districtID, hotelName);
 		
-		return new ResultMessage(true);
+		return result;
 	}
 	
 	/*
-	 * ���ݾƵ�ID���û�����������ӾƵ�Ա��
+	 * 添加酒店员工
 	 */
 	public ResultMessage addHotelStaff (int hotelID, 
 			String username, String password) {
+
+		//创建一个酒店员工的po对象
+		UserPO hotelStaff = new UserPO();
+		hotelStaff.setuserName(username);
+		hotelStaff.setpassword(password);
+		hotelStaff.sethotelId(hotelID);
 		
-		//dataFactory.getUserDataHelper().addHotelStaff(hotelID, username, password);
+		//调用数据层插入用户的方法
+		ResultMessage result = userDataService.insert(hotelStaff);
 		
-		return new ResultMessage(true);
+		return result;
 	}
 	
 	/*
-	 * ͨ���û���Ż�ȡ���ü�¼
+	 * 获取用户的信用记录
 	 */
 	public List<CreditVO> getCreditRecord (int userID) {
 		
-		//��ȡpo���б�
-		List<CreditPO> credit = new ArrayList<CreditPO>();
-		//credit.addAll(dataFactory.getUserDataHelper().getCreditRecord(userID));
-		
-		//poתvo
-		List<CreditVO> creditList = new ArrayList<CreditVO>();
-		CreditVO creditvo;
-		
-		for(CreditPO creditpo: credit){
-			creditvo = new CreditVO();
-			//BeanUtils.copyProperties(creditvo, creditpo);
-			creditList.add(creditvo);
+		//获取po列表
+		List<CreditPO> creditPOs = userDataService.getCreditRecord(userID);
+		//po列表转vo列表
+		List<CreditVO> creditVOs = new ArrayList<CreditVO>();
+		CreditVO creditVO;
+		for(CreditPO creditPO: creditPOs){
+			creditVO = creditPO.getVO();
+			creditVOs.add(creditVO);
 		}
-		
-		return creditList;
+				
+		return creditVOs;
 	}
 	
 	/*
-	 * ������ü�¼
+	 * 添加信用记录
 	 */
 	public List<CreditVO> addCreditItem (CreditVO creditItem) {
 		
-		CreditPO creditpo = new CreditPO();
-		//BeanUtils.copyProperties(creditpo, creditItem);
-		
-		//�������ݲ㷽������һ��PO�б�
-		List<CreditPO> credit = new ArrayList<CreditPO>();
-		//credit.addAll(dataFactory.getUserDataHelper().addCreditItem(creditpo));
-		
-		//poתvo������
-		List<CreditVO> creditList = new ArrayList<CreditVO>();
-		CreditVO creditvo;
-		
-		for(CreditPO creditpos: credit){
-			creditvo = new CreditVO();
-			//BeanUtils.copyProperties(creditvo, creditpos);
-			creditList.add(creditvo);
+		//vo转po
+		CreditPO creditPO = new CreditPO(creditItem);
+		//获取po列表
+		List<CreditPO> creditPOs = userDataService.addCreditItem(creditPO);
+		//po列表转vo列表
+		List<CreditVO> creditVOs = new ArrayList<CreditVO>();
+		CreditVO creditVO;
+		for(CreditPO creditPO2: creditPOs){
+			creditVO = creditPO2.getVO();
+			creditVOs.add(creditVO);
+
 		}
 		
-		return creditList;
+		return creditVOs;
 	}
 	
 	/*
-	 * ע���Ա��Ϣ
+	 * 注册会员
 	 */
 	public ResultMessage memberSignIn (MemberVO member) {
 		
-		//MemberPO memberpo = new MemberPO();
-		//BeanUtils.copyProperties(memberpo, member);
-		
-		//dataFactory.getUserDataHelper().memberSignIn(member);
+		UserPO memberPO = new UserPO();
+		memberPO.setmemberRank(member.memberRank);
+		ResultMessage result = userDataService.insert(memberPO);
 
-		return new ResultMessage(true);
+		return result;
 	}
 	
 	/*
-	 * ��ȡӪ����Ա��Ϣ�б�
+	 * 获取网站营销人员列表
 	 */
 	public List<UserVO> marketerList () {
 		
-		//��ȡpo�б�
-		List<UserPO> marketer = new ArrayList<UserPO>();
-		//marketer.addAll(dataFactory.getUserDataHelper().marketerList());
-		
-		//poתvo
-		List<UserVO> marketerList = new ArrayList<UserVO>();
-		UserVO marketervo;
-		
-		for(UserPO marketerpo: marketer){
-			marketervo = new UserVO();
-			//BeanUtils.copyProperties(marketervo, marketerpo);
-			marketerList.add(marketervo);
+		//获取po列表
+		List<UserPO> userPOs = userDataService.userList();
+		//po列表转vo列表
+		List<UserVO> userVOs = new ArrayList<UserVO>();
+		UserVO userVO;
+		for(UserPO userPO: userPOs){
+			userVO = userPO.getVO();
+			userVOs.add(userVO);
 		}
 		
-		return marketerList;
-	}
-
-	@Override
-	public ResultMessage addUser(UserVO user) throws RemoteException {
-		// TODO Auto-generated method stub
-		return null;
+		return userVOs;
 	}
 	
+	/*
+	 * 添加用户
+	 */
+	public ResultMessage addUser(UserVO user) {
+
+		UserPO userPO = new UserPO(user);
+		
+		ResultMessage result = userDataService.insert(userPO);
+
+		return result;
+	}
+		
 }

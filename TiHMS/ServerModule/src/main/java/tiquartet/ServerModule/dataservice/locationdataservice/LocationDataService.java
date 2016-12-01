@@ -1,6 +1,9 @@
 package tiquartet.ServerModule.dataservice.locationdataservice;
 
+import java.util.List;
+
 import tiquartet.ServerModule.po.DistrictPO;
+import tiquartet.ServerModule.po.HotelPO;
 
 /**
  * 提供更新城市和商圈数据功能的接口.
@@ -14,5 +17,7 @@ public interface LocationDataService {
 	 * @return
 	 */
 	public DistrictPO renewDistrict ();
+	
+	public List<HotelPO> getHotelList();
 
 }

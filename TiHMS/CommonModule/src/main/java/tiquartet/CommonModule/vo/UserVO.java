@@ -1,14 +1,28 @@
 package tiquartet.CommonModule.vo;
 
+import java.sql.Date;
+
 public class UserVO {
-	//用户编号
+	//鐢ㄦ埛缂栧彿
     public int userID;
-    //用户名
+    //鐢ㄦ埛鍚�
     public String userName;
-    //用户类型
+    //鐢ㄦ埛绫诲瀷
     public int userType;
-    // 用户密码
+    // 鐢ㄦ埛瀵嗙爜
     public String password;
-    //真实姓名
+    //鐪熷疄濮撳悕
     public String realName;
+    
+    public boolean isMember;
+    
+    public int credit;
+    
+    public Date birthday;
+    
+    public int memberRank;
+    
+    public String company;
+    
+    public int hotelID;
 }

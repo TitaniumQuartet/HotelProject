@@ -1,13 +1,13 @@
 package tiquartet.CommonModule.vo;
 
 public class UserFilterVO {
-	//根据用户名筛选
-	String username;
-	//根据真实姓名筛选
-	String realName;
-	//根据是否会员筛选
-	boolean isMember;
+	//用户名
+	public String username;
+	//真实姓名
+	public String realName;
+	//是否会员
+	public boolean isMember;
 	//
-	int lowerLevel;
-	int upperLevel;
+	public int lowerLevel;
+	public int upperLevel;
 }

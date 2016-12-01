@@ -2,15 +2,17 @@ package tiquartet.ServerModule.po;
 
 import java.io.Serializable;
 
+import tiquartet.CommonModule.vo.CreditVO;
+
 public class CreditPO implements Serializable{
-	//信用变化类型
-	private String changeType;
-	//信用变化值
+	//变更类型
+	private int changeType;
+	//变更数额
 	private int change;
-	//信用值余额
+	//
 	private int balance;
-	//相关订单号
-	private int orderId;
+	//订单编号
+	private long orderId;
 	//信用记录编号
 	private long creditRecordId;
 	
@@ -18,7 +20,7 @@ public class CreditPO implements Serializable{
 		
 	}
 	
-	public CreditPO(String changeType,int change,int balance,int orderId,long creditRecordId){
+	public CreditPO(int changeType,int change,int balance,int orderId,long creditRecordId){
 		super();
 		this.changeType=changeType;
 		this.change=change;
@@ -27,11 +29,20 @@ public class CreditPO implements Serializable{
 		this.creditRecordId=creditRecordId;
 	}
 	
-	public String getchangeType(){
+	public CreditPO(CreditVO creditVO){
+		super();
+		this.changeType = creditVO.changeType;
+		this.change = creditVO.change;
+		this.balance = creditVO.balance;
+		this.orderId = creditVO.orderID;
+		this.creditRecordId = creditVO.creditRecordID;
+	}
+	
+	public int getchangeType(){
 		return changeType;
 	}
 	
-	public void setchangeType(String changeType){
+	public void setchangeType(int changeType){
 		this.changeType=changeType;
 	}
 	
@@ -51,7 +62,7 @@ public class CreditPO implements Serializable{
 		this.balance=balance;
 	}
 	
-	public int getorderTd(){
+	public long getorderTd(){
 		return orderId;
 	}
 	
@@ -65,5 +76,17 @@ public class CreditPO implements Serializable{
 	
 	public long getcreditRecordId(){
 		return this.creditRecordId;
+	}
+	
+	public CreditVO getVO(){
+		CreditVO creditVO = new CreditVO();
+		creditVO.change = this.change;
+		creditVO.changeType = this.changeType;
+		creditVO.balance = this.balance;
+		creditVO.creditRecordID = this.creditRecordId;
+		creditVO.orderID = this.orderId;
+		
+		return creditVO;
+		
 	}
 }

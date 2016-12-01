@@ -3,15 +3,16 @@ package tiquartet.ServerModule.po;
 import java.io.Serializable;
 
 import tiquartet.CommonModule.vo.RoomTypeVO;
+import tiquartet.CommonModule.vo.RoomVO;
 
 public class RoomTypePO implements Serializable{
-	//瀹㈡埧绫诲瀷缂栧彿
+	//房间类型编号
 	private int roomTypeId;
-	//瀹㈡埧绫诲瀷鍚嶇О
+	//房间类型
 	private String roomType;
-	//瀹㈡埧绫诲瀷浠嬬粛
+	//类型介绍
 	private String typeIntroduction;	
-	//浠锋牸
+	//房间价格
 	private double price;
 	
 	public RoomTypePO(){
@@ -24,6 +25,15 @@ public class RoomTypePO implements Serializable{
 		this.roomType=roomType;
 		this.typeIntroduction=typeIntroduction;
 		this.price=price;
+	}
+	
+	public RoomTypePO(RoomTypeVO roomTypeVO){
+		super();
+		this.roomTypeId = roomTypeVO.roomTypeId;
+		this.roomType = roomTypeVO.roomType;
+		this.typeIntroduction = roomTypeVO.typeIntroduction;
+		this.price = roomTypeVO.price;
+		
 	}
 	
 	public int getroomTypeId(){

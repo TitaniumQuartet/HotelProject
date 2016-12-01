@@ -1,78 +1,91 @@
 /**
+ * ç®¡ç†é…’åº—æˆ¿é—´çš„controllerç±»ã€‚
+ * 
  * @author Yolanda151250080
+ * 
  */
 package tiquartet.ServerModule.bl.manageroombl;
 
 import java.util.List;
+
+import tiquartet.CommonModule.blservice.manageroomblservice.ManageRoomBLService;
 import tiquartet.CommonModule.util.ResultMessage;
-import tiquartet.CommonModule.vo.RoomVO;
 import tiquartet.CommonModule.vo.RoomTypeVO;
+import tiquartet.CommonModule.vo.RoomVO;
 
 
-public class ManageRoomController {
+public class ManageRoomController implements ManageRoomBLService{
 	
 	static ManageRoom manageroom = new ManageRoom();
 	
 	/*
-	 * ÀûÓÃ¾Æµê±àºÅ»ñÈ¡¾Æµê·¿¼äÁĞ±í
+	 * è·å–é…’åº—æˆ¿é—´åˆ—è¡¨
 	 */
-	public static List<RoomVO> getRoomList (long hotelID) {
+	public List<RoomVO> getRoomList (long hotelID) {
 		
 		return manageroom.getRoomList(hotelID);
 	}
 	
 	/*
-	 * ĞŞ¸Ä¾ÆµêÏàÓ¦·¿¼äµÄĞÅÏ¢
+	 * ä¿®æ”¹å®¢æˆ¿ä¿¡æ¯
 	 */
-	public static ResultMessage modifyRoomInfo (RoomVO room) {
+	public ResultMessage modifyRoomInfo (RoomVO room) {
 		
 		return manageroom.modifyRoomInfo(room);
 	}
 	
 	/*
-	 * Ìí¼ÓÏàÓ¦·¿¼äĞÅÏ¢
+	 * æ·»åŠ å®¢æˆ¿
 	 */
-	public static ResultMessage addRoom (RoomVO room) {
+	public ResultMessage addRoom (RoomVO room) {
 		
 		return manageroom.addRoom(room);
 	}
 	
 	/*
-	 * Í¨¹ı·¿¼ä±àºÅÉ¾³ı¾ÆµêÄ³Ò»·¿¼äĞÅÏ¢
+	 * åˆ é™¤å®¢æˆ¿
 	 */
-	public static ResultMessage deleteRoom (int roomID) {
+	public ResultMessage deleteRoom (int roomID) {
 		
 		return manageroom.deleteRoom(roomID);
 	}
 	
 	/*
-	 * Í¨¹ı¾Æµê·¿¼ä±àºÅ°ìÀíÈë×¡ÊÖĞø,¼´¸Ã¿Í·¿×´Ì¬ÉèÎª¡°Èë×¡¡±
+	 * åŠç†å…¥ä½
 	 */
-	public static ResultMessage checkIn (int roomID) {
+	public ResultMessage checkIn (int roomID) {
 		
 		return manageroom.checkIn(roomID);
 	}
 	
 	/*
-	 * Í¨¹ı¾Æµê·¿¼ä±àºÅ°ìÀíÍË·¿ÊÖĞø£¬¼´¸Ã¿Í·¿×´Ì¬ÉèÎª¡°¿ÕÏĞ¡±
+	 * åŠç†é€€æˆ¿
 	 */
-	public static ResultMessage checkOut (int roomID) {
+	public ResultMessage checkOut (int roomID) {
 		
 		return manageroom.checkOut(roomID);
 	}
 	
 	/*
-	 * ĞŞ¸Ä·¿¼äÀàĞÍ
+	 * æ·»åŠ å®¢æˆ¿ç±»å‹
 	 */
-	public static ResultMessage modifyRoomType (int hotelID, RoomTypeVO roomType) {
+	public ResultMessage addRoomType (RoomTypeVO roomType) {
 		
-		return manageroom.modifyRoomType(hotelID, roomType);
+		return manageroom.addRoomType(roomType);
 	}
 	
 	/*
-	 * É¾³ı·¿¼äÀàĞÍ
+	 * ä¿®æ”¹å®¢æˆ¿ç±»å‹
 	 */
-	public static ResultMessage deleteRoomType (int hotelID, int roomTypeID) {
+	public ResultMessage modifyRoomType (RoomTypeVO roomType) {
+		
+		return manageroom.modifyRoomType(roomType);
+	}
+	
+	/*
+	 * åˆ é™¤å®¢æˆ¿ç±»å‹
+	 */
+	public ResultMessage deleteRoomType (int hotelID, int roomTypeID) {
 		
 		return manageroom.deleteRoomType(hotelID, roomTypeID);
 	}

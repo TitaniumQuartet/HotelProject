@@ -1,35 +1,33 @@
+/**
+ * 搜索酒店的controller类。
+ * 
+ * @author Yolanda151250080
+ * 
+ */
 package tiquartet.ServerModule.bl.searchhotelbl;
 
+import java.rmi.RemoteException;
 import java.util.List;
 
+import tiquartet.CommonModule.blservice.searchhotelblservice.SearchHotelBLService;
 import tiquartet.CommonModule.util.HotelSort;
-import tiquartet.CommonModule.vo.DistrictVO;
-import tiquartet.CommonModule.vo.HotelVO;
 import tiquartet.CommonModule.vo.HotelBriefVO;
 import tiquartet.CommonModule.vo.HotelFilterVO;
 
-public class SearchHotelController {
+public class SearchHotelController implements SearchHotelBLService{
 	
 	static SearchHotel searchhotel = new SearchHotel();
 	
 	/*
-	 * ��ȡ��Ȧ��Ϣ�б�
+	 * 获取推荐酒店列表
 	 */
-	public List<DistrictVO> renewDistrict () {	
+	public List<HotelBriefVO> recommend (int userID) throws RemoteException{
 		
-		return searchhotel.renewDistrict();
+		return searchhotel.recommend(userID);
 	}
 	
 	/*
-	 * ��ȡ��վ�Ƽ��ľƵ�
-	 */
-	public List<HotelVO> recommend (){
-		
-		return searchhotel.recommend();
-	}
-	
-	/*
-	 * ��ȡ�Ƶ��б�
+	 * 筛选酒店
 	 */
 	public List<HotelBriefVO> getHotelList (HotelFilterVO filter, 
 			HotelSort sort, int rank1, int rank2){
