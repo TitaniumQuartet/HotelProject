@@ -12,13 +12,10 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
-import org.w3c.dom.css.ElementCSSInlineStyle;
-
 import tiquartet.CommonModule.blservice.searchhotelblservice.SearchHotelBLService;
 import tiquartet.CommonModule.util.HotelSort;
 import tiquartet.CommonModule.vo.HotelBriefVO;
 import tiquartet.CommonModule.vo.HotelFilterVO;
-import tiquartet.CommonModule.vo.UserVO;
 import tiquartet.ServerModule.bl.manageorderbl.ManageOrderController;
 import tiquartet.ServerModule.dataservice.impl.LocationDataImpl;
 import tiquartet.ServerModule.dataservice.locationdataservice.LocationDataService;

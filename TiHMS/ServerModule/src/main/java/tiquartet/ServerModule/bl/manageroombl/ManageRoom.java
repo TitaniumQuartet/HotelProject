@@ -6,7 +6,6 @@
  */
 package tiquartet.ServerModule.bl.manageroombl;
 
-import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,11 +13,8 @@ import tiquartet.CommonModule.blservice.manageroomblservice.ManageRoomBLService;
 import tiquartet.CommonModule.util.ResultMessage;
 import tiquartet.CommonModule.vo.RoomTypeVO;
 import tiquartet.CommonModule.vo.RoomVO;
-import tiquartet.ServerModule.datahelper.DataFactory;
-import tiquartet.ServerModule.datahelper.service.RoomDataHelper;
 import tiquartet.ServerModule.dataservice.impl.RoomDataImpl;
 import tiquartet.ServerModule.dataservice.roomdataservice.RoomDataService;
-import tiquartet.ServerModule.dataservice.userdataservice.UserDataService;
 import tiquartet.ServerModule.po.RoomPO;
 import tiquartet.ServerModule.po.RoomTypePO;
 
