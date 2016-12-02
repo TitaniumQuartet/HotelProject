@@ -8,7 +8,7 @@ public class OrderInfoVO {
    //儿童数量
    public int kids;
    //客户名字
-   public String guestname;
+   public String guestRealName;
    //最晚订单执行时间
    public String lastTime;
    //住房人数

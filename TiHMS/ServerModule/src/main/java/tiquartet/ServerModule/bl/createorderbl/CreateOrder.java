@@ -13,6 +13,7 @@ import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.List;
 
+import tiquartet.CommonModule.util.OrderStatus;
 import tiquartet.CommonModule.util.ResultMessage;
 
 public class CreateOrder{	
@@ -41,6 +42,10 @@ public class CreateOrder{
 			}
 		}
 		polist=StrategyDataImpl.getInstance().searchByHotel(vo.hotelID);
+		for(int i=0;i<polist.size();i++){
+			StrategyVO strategyvo=polist.get(i).toStrategyvo();
+			volist.add(strategyvo);
+		}
 		return volist;
 	}
 	
@@ -72,7 +77,15 @@ public class CreateOrder{
 		}
 		OrderPO order=new OrderPO();
 		order.setchild(orderInfo.kids);
-		
+		order.setclientRealName(preorder.clientRealName);
+		order.setguestRealName(orderInfo.guestRealName);
+		order.sethotelId(orderInfo.hotelID);
+		order.setlatestTime(orderInfo.lastTime);
+		order.setleaveTime(preorder.leaveTime);
+		order.setnumberOfPeople(orderInfo.numOfGuest);
+		order.setnumberOfRoom(preorder.numOfRoom);
+		order.setorderStatus(OrderStatus.UNEXECUTED);
+		order.setprice(orderInfo);
 		return new ResultMessage(true);
 	}
 	

@@ -6,9 +6,9 @@ import tiquartet.CommonModule.vo.CreditVO;
 
 public class CreditPO implements Serializable{
 	//变更类型
-	private int changeType;
+	private int changeType=-1;
 	//变更数额
-	private int change;
+	private int change=-1;
 	//
 	private int balance;
 	//订单编号
