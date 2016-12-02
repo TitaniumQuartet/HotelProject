@@ -89,7 +89,7 @@ public class ManageUserController implements ManageUserBLService{
 	/*
 	 * 添加信用记录
 	 */
-	public List<CreditVO> addCreditItem (CreditVO creditItem) {
+	public ResultMessage addCreditItem (CreditVO creditItem) {
 		
 		return manageuser.addCreditItem(creditItem);
 	}

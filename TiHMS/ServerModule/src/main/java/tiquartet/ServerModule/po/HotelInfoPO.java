@@ -142,7 +142,7 @@ public class HotelInfoPO implements Serializable{
 		this.averageGrade=avgrageGrade;
 	}
 	
-	public double getavereageGrade(){
+	public double getaverageGrade(){
 		return this.averageGrade;
 	}
 	
@@ -178,7 +178,6 @@ public class HotelInfoPO implements Serializable{
 		hotelBriefVO.hotelID = this.hotelId;
 		hotelBriefVO.hotelName = this.hotelName;
 		hotelBriefVO.star = this.star;
-		//numOfAllOrder, numOfEndOrder的值不能直接从HotelInfoPO获取
 		
 		return hotelBriefVO;
 	}

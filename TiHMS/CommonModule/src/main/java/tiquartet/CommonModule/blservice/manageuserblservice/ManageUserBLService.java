@@ -25,7 +25,7 @@ public interface ManageUserBLService extends Remote{
 	
 	public ResultMessage memberSignIn (MemberVO member) throws RemoteException;
 	
-	public List<CreditVO> addCreditItem (CreditVO creditItem) throws RemoteException;
+	public ResultMessage addCreditItem (CreditVO creditItem) throws RemoteException;
 	
 	public List<CreditVO> getCreditRecord (int userID) throws RemoteException;
 	

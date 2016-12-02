@@ -1,16 +1,30 @@
 package tiquartet.CommonModule.vo;
 
+import java.sql.Date;
+
 public class HotelFilterVO {	
-	    //酒店名称
-	    public String hotelName;
-	    public int roomType;
-	    public int level;
-	    public int orderRoomNum;
-	    public int lowestPrice;
-	    public int highestPrice;
-	    public int lowestGrade;
-	    public int highestGrade;
-	    public boolean isOrder;
-	    public long startTime;
-	    public long endTime;
+	//用户编号
+	public int userID;    
+	//城市编号
+	public int cityID;
+	//商圈编号
+	public int districtID;
+	//酒店名称
+	public String hotelName;
+	//星级下限
+	public int lowestStar;
+	//星级上限
+	public int highestStar;
+	//评分下限
+	public double lowestGrade;
+	//评分上限
+	public double highestGrade;
+	//均价下限
+	public double lowestPrice;
+	//均价上限
+	public double highestPrice;
+	//入住日期
+	public Date checkInDate;
+	//离店日期
+	public Date checkOutDate;
 }

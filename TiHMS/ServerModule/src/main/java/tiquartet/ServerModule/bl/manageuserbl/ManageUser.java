@@ -18,17 +18,26 @@ import tiquartet.CommonModule.vo.CreditVO;
 import tiquartet.CommonModule.vo.MemberVO;
 import tiquartet.CommonModule.vo.UserFilterVO;
 import tiquartet.CommonModule.vo.UserVO;
+import tiquartet.ServerModule.dataservice.creditdataservice.CreditDataService;
+import tiquartet.ServerModule.dataservice.hotelinfodataservice.HotelInfoDataService;
+import tiquartet.ServerModule.dataservice.impl.CreditDataImpl;
+import tiquartet.ServerModule.dataservice.impl.HotelInfoDataImpl;
 import tiquartet.ServerModule.dataservice.impl.UserDataImpl;
 import tiquartet.ServerModule.dataservice.userdataservice.UserDataService;
 import tiquartet.ServerModule.po.CreditPO;
+import tiquartet.ServerModule.po.HotelInfoPO;
 import tiquartet.ServerModule.po.UserPO;
 
 public class ManageUser implements ManageUserBLService {
 	
 	private UserDataService userDataService;
+	private CreditDataService creditDataService;
+	private HotelInfoDataService hotelInfoDataService;
 	
 	public ManageUser(){
 		userDataService = UserDataImpl.getInstance();
+		creditDataService = CreditDataImpl.getInstance();
+		hotelInfoDataService = HotelInfoDataImpl.getInstance();
 	}
 
 	/*
@@ -174,7 +183,12 @@ public class ManageUser implements ManageUserBLService {
 	 */
 	public ResultMessage addHotel (int districtID, String hotelName) {
 		
-		ResultMessage result = userDataService.addHotel(districtID, hotelName);
+		//新建一个HotelInfoPO
+		HotelInfoPO hotelInfoPO = new HotelInfoPO();
+		hotelInfoPO.setcircleId(districtID);
+		hotelInfoPO.sethotelName(hotelName);
+		
+		ResultMessage result = hotelInfoDataService.insert(hotelInfoPO);
 		
 		return result;
 	}
@@ -203,7 +217,7 @@ public class ManageUser implements ManageUserBLService {
 	public List<CreditVO> getCreditRecord (int userID) {
 		
 		//获取po列表
-		List<CreditPO> creditPOs = userDataService.getCreditRecord(userID);
+		List<CreditPO> creditPOs = creditDataService.getRecord(userID);
 		//po列表转vo列表
 		List<CreditVO> creditVOs = new ArrayList<CreditVO>();
 		CreditVO creditVO;
@@ -218,22 +232,14 @@ public class ManageUser implements ManageUserBLService {
 	/*
 	 * 添加信用记录
 	 */
-	public List<CreditVO> addCreditItem (CreditVO creditItem) {
+	public ResultMessage addCreditItem (CreditVO creditItem) {
 		
 		//vo转po
 		CreditPO creditPO = new CreditPO(creditItem);
-		//获取po列表
-		List<CreditPO> creditPOs = userDataService.addCreditItem(creditPO);
-		//po列表转vo列表
-		List<CreditVO> creditVOs = new ArrayList<CreditVO>();
-		CreditVO creditVO;
-		for(CreditPO creditPO2: creditPOs){
-			creditVO = creditPO2.getVO();
-			creditVOs.add(creditVO);
-
-		}
 		
-		return creditVOs;
+		ResultMessage result = creditDataService.insert(creditPO);
+		
+		return result;
 	}
 	
 	/*
@@ -254,7 +260,7 @@ public class ManageUser implements ManageUserBLService {
 	public List<UserVO> marketerList () {
 		
 		//获取po列表
-		List<UserPO> userPOs = userDataService.userList();
+		List<UserPO> userPOs = userDataService.marketerList();
 		//po列表转vo列表
 		List<UserVO> userVOs = new ArrayList<UserVO>();
 		UserVO userVO;
