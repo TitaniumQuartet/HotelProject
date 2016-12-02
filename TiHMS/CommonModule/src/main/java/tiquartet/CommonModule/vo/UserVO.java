@@ -38,6 +38,10 @@ public class UserVO {
      * @return
      */
     public UserVO getClientInstance(String username, String password, String realName){
-    	
+    	UserVO userVO = new UserVO();
+    	userVO.userName = username;
+    	userVO.password = password;
+    	userVO.realName = realName;
+    	return userVO;
     }
 }

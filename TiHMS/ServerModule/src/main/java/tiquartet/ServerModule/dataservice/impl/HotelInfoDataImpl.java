@@ -12,7 +12,6 @@ import tiquartet.ServerModule.datahelper.service.HotelInfoDataHelper;
 import tiquartet.ServerModule.datahelper.service.OrderDataHelper;
 import tiquartet.ServerModule.dataservice.hotelinfodataservice.HotelInfoDataService;
 import tiquartet.ServerModule.po.HotelInfoPO;
-import tiquartet.ServerModule.po.HotelPO;
 import tiquartet.ServerModule.po.OrderPO;
 import tiquartet.ServerModule.po.RoomTypePO;
 

@@ -21,11 +21,6 @@
       <version>3.8.1</version>
       <scope>test</scope>
     </dependency>
-    <dependency>
-    	<groupId>com.oracle.jdbc</groupId>
-    	<artifactId>ojdbc7</artifactId>
-    	<scope>runtime</scope>
-    </dependency>
   </dependencies>
   <modules>
     

@@ -2,6 +2,7 @@ package tiquartet.ServerModule.po;
 
 import java.io.Serializable;
 
+import tiquartet.CommonModule.vo.HotelBriefVO;
 import tiquartet.CommonModule.vo.HotelInfoVO;
 
 public class HotelInfoPO implements Serializable{
@@ -167,5 +168,18 @@ public class HotelInfoPO implements Serializable{
 		vo.star=this.star;
 		vo.highprice=this.highprice;
 		return vo;
+	}
+	
+	public HotelBriefVO getBriefVO(){
+		HotelBriefVO hotelBriefVO = new HotelBriefVO();
+		hotelBriefVO.averageGrade = this.averageGrade;
+		hotelBriefVO.circleName = this.circleName;
+		hotelBriefVO.cityName = this.cityName;
+		hotelBriefVO.hotelID = this.hotelId;
+		hotelBriefVO.hotelName = this.hotelName;
+		hotelBriefVO.star = this.star;
+		//numOfAllOrder, numOfEndOrder的值不能直接从HotelInfoPO获取
+		
+		return hotelBriefVO;
 	}
 }
