@@ -140,7 +140,15 @@ public class UserMainController implements Initializable {
 	 */
 	@FXML
 	void onFinishSignUpClicked(ActionEvent event) {
-		
+		String realName = realNameField.getText().trim();
+		if(realName.length()==0) realName = null;
+		UserVO client = UserVO.getClientInstance(usernameField.getText(), passwordField.getText(), realName);
+		try {
+			HMSClient.getManageUserBL().addUser(client);
+		} catch (RemoteException e) {
+			
+			e.printStackTrace();
+		}
 	}
 	
 	/**

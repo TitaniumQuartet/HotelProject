@@ -37,7 +37,7 @@ public class UserVO {
      * @param realName
      * @return
      */
-    public UserVO getClientInstance(String username, String password, String realName){
+    public static UserVO getClientInstance(String username, String password, String realName){
     	UserVO userVO = new UserVO();
     	userVO.userName = username;
     	userVO.password = password;
