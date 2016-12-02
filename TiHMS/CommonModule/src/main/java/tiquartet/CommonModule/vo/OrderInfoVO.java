@@ -1,11 +1,18 @@
 package tiquartet.CommonModule.vo;
 
 public class OrderInfoVO {
-   public long orderID;
-   public int roomNum;
-   public int roomType;
-   public int guests;
+   //客户编号
+   public int userID;
+   //酒店编号
+   public int hotelID;
+   //儿童数量
    public int kids;
+   //客户名字
    public String guestname;
-   public long lastTime;
+   //最晚订单执行时间
+   public String lastTime;
+   //住房人数
+   public int numOfGuest;
+   //策略编号
+   public int strategyID;
 }

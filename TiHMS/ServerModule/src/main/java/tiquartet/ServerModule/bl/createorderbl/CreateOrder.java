@@ -5,6 +5,7 @@ import tiquartet.CommonModule.vo.StrategyVO;
 import tiquartet.ServerModule.datahelper.DataFactory;
 import tiquartet.ServerModule.dataservice.impl.StrategyDataImpl;
 import tiquartet.ServerModule.dataservice.impl.UserDataImpl;
+import tiquartet.ServerModule.po.OrderPO;
 import tiquartet.ServerModule.po.StrategyPO;
 import tiquartet.CommonModule.vo.OrderInfoVO;
 
@@ -53,10 +54,25 @@ public class CreateOrder{
 	}
 	
 	public ResultMessage cancelPreOrder(int userID)throws RemoteException{
+		for(int i=0;i<list.size();i++){
+			if(list.get(i).userID==userID){
+				list.remove(i);
+				break;
+			}
+		}
 		return new ResultMessage(true);
 	}
 	
 	public ResultMessage confirm(OrderInfoVO orderInfo)throws RemoteException{
+		PreOrderVO preorder=new PreOrderVO();
+		for(int i=0;i<list.size();i++){
+			if(list.get(i).userID==orderInfo.userID){
+				preorder=list.get(i);
+			}
+		}
+		OrderPO order=new OrderPO();
+		order.setchild(orderInfo.kids);
+		
 		return new ResultMessage(true);
 	}
 	
