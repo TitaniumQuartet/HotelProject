@@ -14,16 +14,19 @@ public class RoomPO implements Serializable{
 	private int roomTypeId;
 	//房间状态
 	private RoomStatus state;
+	//酒店编号
+	private int hotelId;
 	public RoomPO(){
 		
 	}
 	
-	public RoomPO(int roomId,int roomNumber,int roomTypeId,RoomStatus state){
+	public RoomPO(int roomId,int roomNumber,int roomTypeId,RoomStatus state,int hotelId){
 		super();
 		this.roomId=roomId;
 		this.roomNumber=roomNumber;
 		this.roomTypeId=roomTypeId;
 		this.state=state;
+		this.hotelId=hotelId;
 	}
 	
 	public RoomPO(RoomVO roomVO){
@@ -64,6 +67,14 @@ public class RoomPO implements Serializable{
 	
 	public void setstate(RoomStatus state){
 		this.state=state;
+	}
+	
+	public int gethotelId(){
+		return hotelId;
+	}
+	
+	public void sethotelId(int hotelId){
+		this.hotelId=hotelId;
 	}
 	
 	public RoomVO getRoomVO(){

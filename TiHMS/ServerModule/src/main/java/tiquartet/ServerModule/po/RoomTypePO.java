@@ -6,25 +6,28 @@ import tiquartet.CommonModule.vo.RoomTypeVO;
 import tiquartet.CommonModule.vo.RoomVO;
 
 public class RoomTypePO implements Serializable{
-	//·¿¼äÀàĞÍ±àºÅ
+	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í±ï¿½ï¿½
 	private int roomTypeId;
-	//·¿¼äÀàĞÍ
+	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	private String roomType;
-	//ÀàĞÍ½éÉÜ
+	//ï¿½ï¿½ï¿½Í½ï¿½ï¿½ï¿½
 	private String typeIntroduction;	
-	//·¿¼ä¼Û¸ñ
+	//ï¿½ï¿½ï¿½ï¿½Û¸ï¿½
 	private double price;
+	//é…’åº—ç¼–å·
+	private int hotelId;
 	
 	public RoomTypePO(){
 		
 	}
 	
-	public RoomTypePO(int roomTypeId,String roomType,String typeIntroduction,int price){
+	public RoomTypePO(int roomTypeId,String roomType,String typeIntroduction,int price,int hotelId){
 		super();
 		this.roomTypeId=roomTypeId;
 		this.roomType=roomType;
 		this.typeIntroduction=typeIntroduction;
 		this.price=price;
+		this.hotelId=hotelId;
 	}
 	
 	public RoomTypePO(RoomTypeVO roomTypeVO){
@@ -67,6 +70,15 @@ public class RoomTypePO implements Serializable{
 	public void setprice(double price){
 		this.price=price;
 	}
+	
+	public int gethotelId(){
+		return hotelId;
+	}
+	
+	public void sethotelId(int hotelId){
+		this.hotelId=hotelId;
+	}
+	
 	public RoomTypeVO toRoomTypevo(){
 		RoomTypeVO vo=new RoomTypeVO();
 		vo.price=this.price;

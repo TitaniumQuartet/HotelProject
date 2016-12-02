@@ -96,6 +96,12 @@ public class RoomDataImpl implements RoomDataService{
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+	@Override
+	public ResultMessage deleteType(int hotelID, RoomTypePO room) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 	
 	
 	

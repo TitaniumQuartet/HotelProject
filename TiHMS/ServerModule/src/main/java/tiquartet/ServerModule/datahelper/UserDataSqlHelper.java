@@ -94,8 +94,8 @@ public class UserDataSqlHelper implements UserDataHelper{
 	        pstmt.setString(3, user.getpassword());
 	        pstmt.setString(4, user.getuserType());
 	        pstmt.setString(5, user.getrealName());
-	        pstmt.setInt(6, user.getcredit());
-	        pstmt.setDate(7, user.getbirthday());
+	        pstmt.setDouble(6, user.getcredit());
+	        pstmt.setString(7, user.getbirthday());
 	        pstmt.setInt(8, user.getmemberRank());
 	        pstmt.setBoolean(9, user.getisMember());  
 	        pstmt.setString(10, user.getcompany());  
@@ -127,8 +127,8 @@ public class UserDataSqlHelper implements UserDataHelper{
 			    String password=rs.getString(3);
 			    String userType=rs.getString(4);
 			    String realName=rs.getString(5);
-			    int credit=rs.getInt(6);
-			    Date birthday=rs.getDate(7);
+			    double credit=rs.getDouble(6);
+			    String birthday=rs.getString(7);
 			    int memberRank=rs.getInt(8);
 			    boolean isMember=rs.getBoolean(9);
 			    String company=rs.getString(10);
@@ -189,8 +189,8 @@ public class UserDataSqlHelper implements UserDataHelper{
 	        	String userName=rs.getString(2);
 			    String password=rs.getString(3);
 			    String userType=rs.getString(4);
-			    int credit=rs.getInt(6);
-			    Date birthday=rs.getDate(7);
+			    double credit=rs.getDouble(6);
+			    String birthday=rs.getString(7);
 			    int memberRank=rs.getInt(8);
 			    boolean isMember=rs.getBoolean(9);
 			    String company=rs.getString(10);
@@ -219,13 +219,13 @@ public class UserDataSqlHelper implements UserDataHelper{
 	 */
 	public ResultMessage addCredit (int userID, double addition){
 		Connection conn = getConn();
-	    String sql = "select * from students where userId =ewwrz	 " + userID;
+	    String sql = "select * from students where userId = " + userID;
 	    PreparedStatement pstmt;
 	    try {
 	        pstmt = (PreparedStatement) conn.prepareStatement(sql);
 	        ResultSet rs = pstmt.executeQuery();
-	        double credit = rs.getInt(6) + (int) addition;
-	        String sqll = "update user set credit='" + credit + " where userId = " + rs.getString(1);
+	        double credit = rs.getDouble(6) + addition;
+	        String sqll = "update user set credit=" + credit + "' where userId = " + rs.getString(1)+"'";
 	        pstmt = (PreparedStatement) conn.prepareStatement(sqll);
 	        pstmt.executeUpdate();
 	        pstmt.close();

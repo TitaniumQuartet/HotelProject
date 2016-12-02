@@ -1,5 +1,6 @@
 package tiquartet.ServerModule.datahelper.service;
 
+import tiquartet.CommonModule.util.ResultMessage;
 import tiquartet.ServerModule.po.*;
 import java.util.List;
 import java.util.Map;
@@ -9,13 +10,13 @@ public interface RoomDataHelper {
 	 * 订过的订单
 	 * @param 
 	 */
-	public void preOrder (OrderPO preOrder);
+	public ResultMessage preOrder (OrderPO preOrder);
 	
 	/**
 	 * 取消订单
 	 * @param 
 	 */
-	public void cancelPreOrder (OrderPO preOrder);
+	public ResultMessage cancelPreOrder (OrderPO preOrder);
 	
 	
 	public Map<Integer, RoomPO> getRoom ();
@@ -29,42 +30,42 @@ public interface RoomDataHelper {
 	 * 更新可用房间
 	 * @param 
 	 */
-	public void update(RoomPO room);
+	public ResultMessage update(RoomPO room);
 	
 	/**
 	 * 新增用户
 	 * @param 
 	 */
-	public void insert(RoomPO room);
+	public ResultMessage insert(RoomPO room);
 	
 	/**
 	 * 删除可用客房
 	 * @param 
 	 */
-	public void delete(int roomID);
+	public ResultMessage delete(int roomID);
 	
 	/**
 	 * 客户入住
 	 * @param 
 	 */
-	public void checkIn (int roomID);
+	public ResultMessage checkIn (int roomID);
 	
 	/**
 	 * 客户退房
 	 * @param 
 	 */
-	public void checkOut (int roomID);
+	public ResultMessage checkOut (int roomID);
 	
 	/**
 	 * 新增房间类型
 	 * @param 
 	 */
-	public void insertType (int hotelID, RoomTypePO room);
+	public ResultMessage insertType (int hotelID, RoomTypePO room);
 	
 	/**
 	 * 更新房间类型
 	 * @param 
 	 */
-	public void updateType (int hotelID, RoomTypePO room);
+	public ResultMessage updateType (int hotelID, RoomTypePO room);
 
 }
