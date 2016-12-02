@@ -3,6 +3,7 @@ package tiquartet.ServerModule.bl.createorderbl;
 import tiquartet.CommonModule.vo.PreOrderVO;
 import tiquartet.CommonModule.vo.StrategyVO;
 import tiquartet.ServerModule.datahelper.DataFactory;
+import tiquartet.ServerModule.dataservice.impl.OrderDataImpl;
 import tiquartet.ServerModule.dataservice.impl.StrategyDataImpl;
 import tiquartet.ServerModule.dataservice.impl.UserDataImpl;
 import tiquartet.ServerModule.po.OrderPO;
@@ -27,9 +28,11 @@ public class CreateOrder{
 	static List<PreOrderVO> list=new ArrayList<PreOrderVO>();
 	StrategyDataImpl strategydataimpl;
 	UserDataImpl userdataimpl;
+	OrderDataImpl orderdataimpl;
 	public CreateOrder(){
 		strategydataimpl=StrategyDataImpl.getInstance();
 		userdataimpl=UserDataImpl.getInstance();
+		orderdataimpl=OrderDataImpl.getInstance();
 	}
 	public List<StrategyVO> getStrategyByID(int userID) throws RemoteException{
 		List<StrategyVO> volist=new ArrayList<StrategyVO>();
@@ -85,8 +88,11 @@ public class CreateOrder{
 		order.setnumberOfPeople(orderInfo.numOfGuest);
 		order.setnumberOfRoom(preorder.numOfRoom);
 		order.setorderStatus(OrderStatus.UNEXECUTED);
-		order.setprice(orderInfo);
-		return new ResultMessage(true);
+		order.setprice(orderInfo.price);
+		order.setstartTime(preorder.startTime);
+		order.setuserId(orderInfo.userID);
+		order.setuserName(preorder.userName);
+		return orderdataimpl.insert(order);
 	}
 	
 }

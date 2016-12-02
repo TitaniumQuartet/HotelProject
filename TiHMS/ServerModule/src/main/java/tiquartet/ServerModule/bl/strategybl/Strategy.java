@@ -15,19 +15,18 @@ public class Strategy{
 	
 	StrategyDataImpl strategydataimpl;
 	public Strategy(){
-		Strategydataimpl=StrategyDataImpl.getInstance();
+		strategydataimpl=StrategyDataImpl.getInstance();
 	}
 	//增加策略
 	public ResultMessage addStrategy(StrategyVO strategyvo)throws RemoteException{
-		StrategyPO po=new StrategyPO(strategyvo);
-		dataFactory.getStrategyDataHelper().insert(po);
-		return new ResultMessage(true);
+		StrategyPO po=new StrategyPO(strategyvo);		
+		return strategydataimpl.insert(po);
 		//return dataFactory.getStrategyDataHelper().insert(po);
 	}
 	//删除策略
 	public ResultMessage deleteStrategy(int strategyID)throws RemoteException{
-		dataFactory.getStrategyDataHelper().delete(strategyID);
-		return new ResultMessage(true);
+		
+		return strategydataimpl.delete(strategyID);
 	}
 	//根据酒店编号搜索策略
 	public List<StrategyVO> searchByHotel(int hotelID)throws RemoteException{
@@ -42,8 +41,7 @@ public class Strategy{
 	
 	public ResultMessage modifyStrategy(StrategyVO strategyvo)throws RemoteException{
 		StrategyPO po=new StrategyPO(strategyvo);
-		dataFactory.getStrategyDataHelper().update(po);
-		return new ResultMessage(true);
+		return strategydataimpl.update(po);
 	}
 	
 }

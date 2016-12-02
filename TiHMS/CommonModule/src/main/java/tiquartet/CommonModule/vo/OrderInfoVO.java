@@ -15,4 +15,6 @@ public class OrderInfoVO {
    public int numOfGuest;
    //策略编号
    public int strategyID;
+   //价格
+   public double price;
 }
