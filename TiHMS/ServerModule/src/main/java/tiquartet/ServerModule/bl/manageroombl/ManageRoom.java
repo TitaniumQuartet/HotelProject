@@ -34,7 +34,7 @@ public class ManageRoom implements ManageRoomBLService {
 		
 		//获取po列表
 		List<RoomPO> roomPOs = new ArrayList<RoomPO>();
-		roomPOs = roomDataService.getRoom(hotelID);
+		roomPOs = roomDataService.getRoomList(hotelID);
 		
 		//po列表转vo列表
 		List<RoomVO> roomVOs = new ArrayList<RoomVO>();

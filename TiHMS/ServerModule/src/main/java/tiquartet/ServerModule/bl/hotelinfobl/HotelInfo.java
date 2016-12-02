@@ -28,10 +28,10 @@ public class HotelInfo implements HotelInfoBLService{
 		manageordercontroller=new ManageOrderController();
 	}
 	public HotelBriefVO getHotelBrief (int hotelID,int userID)throws RemoteException{
-	    //传入酒店ID返回酒店的简略信息.
+	    //浼犲叆閰掑簵ID杩斿洖閰掑簵鐨勭畝鐣ヤ俊鎭�.
 		HotelBriefVO hotelbrief=new HotelBriefVO();
-		HotelInfoPO hp=new HotelInfoPO();//此处 应该修改
-		hotelbrief.averageGrade=hp.getavereageGrade();
+		HotelInfoPO hp=new HotelInfoPO();//姝ゅ 搴旇淇敼
+		hotelbrief.averageGrade=hp.getaverageGrade();
 		hotelbrief.circleName=hp.getcircleName();
 		hotelbrief.cityName=hp.getcityName();
 		hotelbrief.hotelID=hp.gethotelId();
@@ -45,11 +45,11 @@ public class HotelInfo implements HotelInfoBLService{
 	
 		
 	public HotelDetailsVO getHotelDetails (int hotelID,int userID)throws RemoteException{	
-		//传入酒店编号，返回酒店详细信息
+		//浼犲叆閰掑簵缂栧彿锛岃繑鍥為厭搴楄缁嗕俊鎭�
 	    HotelDetailsVO hoteldetails=new HotelDetailsVO();
-	    HotelInfoPO hp=hoteldataimpl.getHotelInfo(hotelID);//此处应该修改
+	    HotelInfoPO hp=hoteldataimpl.getHotelInfo(hotelID);//姝ゅ搴旇淇敼
 	    hoteldetails.address=hp.getaddress();
-	    hoteldetails.averageg=hp.getavereageGrade();
+	    hoteldetails.averageg=hp.getaverageGrade();
 	    hoteldetails.circleName=hp.getcircleName();
 	    hoteldetails.cityName=hp.getcityName();
 	    hoteldetails.hotelID=hp.gethotelId();
@@ -58,7 +58,7 @@ public class HotelInfo implements HotelInfoBLService{
 	    hoteldetails.hotelName=hp.gethotelName();
 	    hoteldetails.serviceintro=hp.getserviceIntroduction();
 	    hoteldetails.star=hp.getstar();
-	    List<ReviewPO> list=reviewdataimpl.searchByHotel(hotelID);//此处应该修改
+	    List<ReviewPO> list=reviewdataimpl.searchByHotel(hotelID);//姝ゅ搴旇淇敼
 	    for(int i=0;i<list.size();i++){
 	    	ReviewVO rv=new ReviewVO();
 	    	rv=list.get(i).toReviewvo();
@@ -69,7 +69,7 @@ public class HotelInfo implements HotelInfoBLService{
 	}
 	
 	public List<RoomTypeVO> availableRoomType (PreOrderVO preOrder)throws RemoteException{
-		//传入入住日期，酒店，返回可用客房类型及该类型数量
+		//浼犲叆鍏ヤ綇鏃ユ湡锛岄厭搴楋紝杩斿洖鍙敤瀹㈡埧绫诲瀷鍙婅绫诲瀷鏁伴噺
 		List<RoomTypePO> list=new ArrayList<RoomTypePO>();
 		List<RoomTypeVO> listvo=new ArrayList<RoomTypeVO>();
 		for(int i=0;i<list.size();i++){
@@ -85,18 +85,18 @@ public class HotelInfo implements HotelInfoBLService{
 	}
 	
 	public ResultMessage reviewHotel(ReviewVO review)throws RemoteException{
-		//传入一个评价，把他存入数据库中
+		//浼犲叆涓�涓瘎浠凤紝鎶婁粬瀛樺叆鏁版嵁搴撲腑
 		ReviewPO reviewpo=new ReviewPO(review);
 		return reviewdataimpl.insert(reviewpo);
 	}
 	
 	public ResultMessage modifyHotelInfo (HotelInfoVO hotelInfo)throws RemoteException{
-		//修改酒店信息
+		//淇敼閰掑簵淇℃伅
 		HotelInfoPO hip=new HotelInfoPO(hotelInfo);		
 		return hoteldataimpl.update(hip);
 	}
    public List<HotelBriefVO> clientHotelList(int userId)throws RemoteException{
-	   //返回用户预订过的酒店列表
+	   //杩斿洖鐢ㄦ埛棰勮杩囩殑閰掑簵鍒楄〃
 	   List<HotelBriefVO> listvo=new ArrayList<HotelBriefVO>();	   
 	   ManageOrderController manageordercontroller=new ManageOrderController();
 	   List<Integer>  hotelID=manageordercontroller.orderedHotelID(userId);
@@ -107,7 +107,7 @@ public class HotelInfo implements HotelInfoBLService{
 		   hotelbriefvo.cityName=hip.getcityName();
 		   hotelbriefvo.hotelID=hip.gethotelId();
 		   hotelbriefvo.star=hip.getstar();
-		   hotelbriefvo.averageGrade=hip.getavereageGrade();
+		   hotelbriefvo.averageGrade=hip.getaverageGrade();
 		   hotelbriefvo.hotelName=hip.gethotelName();
 		   listvo.add(hotelbriefvo);
 	   }
