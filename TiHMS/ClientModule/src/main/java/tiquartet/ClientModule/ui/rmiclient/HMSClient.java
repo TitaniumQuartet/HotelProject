@@ -7,6 +7,8 @@ import java.rmi.registry.Registry;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
 import tiquartet.CommonModule.blservice.createorderblservice.CreateOrderBLService;
 import tiquartet.CommonModule.blservice.hotelinfoblservice.HotelInfoBLService;
 import tiquartet.CommonModule.blservice.manageorderblservice.ManageOrderBLService;
@@ -24,6 +26,9 @@ import tiquartet.CommonModule.util.ResultMessage;
  *
  */
 public class HMSClient {
+	
+	//客户端程序的主窗口
+	private static Stage mainStage = null; 
 
 	static CreateOrderBLService createOrderBLSkel;
 
@@ -53,7 +58,7 @@ public class HMSClient {
 	}
 
 	/**
-	 * 初始化客户端.
+	 * RMI服务初始化.
 	 * 
 	 * @return
 	 */
@@ -77,7 +82,32 @@ public class HMSClient {
 		}
 		return new ResultMessage(true);
 	}
-
+	
+	/**
+	 * 设置客户端的窗口.
+	 * @param primaryStage
+	 */
+	public static void setMainStage(Stage primaryStage){
+		mainStage=primaryStage;
+	}
+	
+	/**
+	 * 切换客户端窗口的内容.
+	 * @param resourcePath fxml文件资源的路径
+	 * @return
+	 */
+	public static ResultMessage switchScene(String resourcePath){
+		try{
+			FXMLLoader loader=new FXMLLoader();
+			loader.setLocation(ClientApp.class.getResource(resourcePath));
+			mainStage.setScene(new Scene(loader.load(), 1280, 800));
+			return new ResultMessage(true);
+		}catch (Exception e) {
+			e.printStackTrace();
+			return new ResultMessage(false);
+		}
+	}
+	
 	/**
 	 * 以下为获取各个RMI接口的静态方法.
 	 * 

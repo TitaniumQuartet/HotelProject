@@ -14,12 +14,10 @@ import javafx.stage.StageStyle;
  */
 public class ClientApp extends Application {
 	
-	//客户端程序的主窗口
-	public static Stage mainStage = null;
 	
 	@Override
 	public void start(Stage primaryStage) throws Exception {
-		mainStage=primaryStage;
+		HMSClient.setMainStage(primaryStage);
 		Scene loginScene = new Scene(
 				FXMLLoader
 						.load(getClass().getResource("/fxml/usermainui/login.fxml")),
@@ -30,5 +28,7 @@ public class ClientApp extends Application {
 		primaryStage.show();
 
 	}
+	
+	
 
 }

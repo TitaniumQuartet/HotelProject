@@ -29,4 +29,15 @@ public class UserVO {
     public String company;
     //酒店编号
     public int hotelID;
+    
+    /**
+     * 用注册信息建立简单的用户信息值对象.
+     * @param username
+     * @param password
+     * @param realName
+     * @return
+     */
+    public UserVO getClientInstance(String username, String password, String realName){
+    	
+    }
 }

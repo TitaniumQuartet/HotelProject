@@ -3,7 +3,7 @@ package tiquartet.CommonModule.vo;
 
 public class ReviewVO {
 	    //酒店编号
-	    public long hotelID;
+	    public int hotelID;
 	    //用户评分
 	    public int score;
 	    //用户ID

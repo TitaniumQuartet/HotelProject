@@ -38,7 +38,7 @@
             <Font name="System Bold" size="24.0" />
          </font>
       </Button>
-      <Button fx:id="signInButton" layoutX="647.0" layoutY="516.0" mnemonicParsing="false" onAction="#onSignInClicked" prefHeight="50.0" prefWidth="126.0" style="-fx-background-color: skyblue;" text="注册" textFill="WHITE">
+      <Button fx:id="signUpButton" layoutX="647.0" layoutY="516.0" mnemonicParsing="false" onAction="#onSignUpClicked" prefHeight="50.0" prefWidth="126.0" style="-fx-background-color: skyblue;" text="注册" textFill="WHITE">
          <font>
             <Font name="System Bold" size="24.0" />
          </font>
