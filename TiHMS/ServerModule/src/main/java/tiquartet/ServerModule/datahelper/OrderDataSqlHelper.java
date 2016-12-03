@@ -38,8 +38,8 @@ public class OrderDataSqlHelper implements OrderDataHelper{
 		int l=roomn.length;
 		int[] num = new int[l];
 		for(int i=0;i<l;i++){
-			num[i]=Integer.valueOf(roomn[i]);
-			map.put(num[i], roomi[i]);
+			num[i]=Integer.valueOf(roomi[i]);
+			map.put(num[i], roomn[i]);
 		}
 		return map;
 	}
@@ -86,8 +86,8 @@ public class OrderDataSqlHelper implements OrderDataHelper{
 	        pstmt.setLong(1, order.getorderId());
 	        pstmt.setInt(2,order.getorderStatusAsInt());
 	        pstmt.setString(3, order.getlatestTime());
-	        pstmt.setString(4, room[0]);
-	        pstmt.setString(5, room[1]);
+	        pstmt.setString(4, room[1]);
+	        pstmt.setString(5, room[0]);
 	        pstmt.setInt(6, order.getnumberOfRoom());
 	        pstmt.setInt(7, order.getnumberOfPeople());
 	        pstmt.setInt(8, order.getchild());
@@ -127,8 +127,8 @@ public class OrderDataSqlHelper implements OrderDataHelper{
 	    		"set leaveTime='" + order.getleaveTime() +
 	    		"set userName='" + order.getuserName() +
 	    		"set userId='" + order.getuserId() +
-	    		"set roomNumber='" + room[0] +
-	    		"set roomId='" + room[1] +
+	    		"set roomNumber='" + room[1] +
+	    		"set roomId='" + room[0] +
 	            " where orderId = " + order.getorderId() ;
 	    PreparedStatement pstmt;
 	    try {

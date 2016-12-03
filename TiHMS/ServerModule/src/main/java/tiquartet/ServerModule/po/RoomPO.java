@@ -7,9 +7,9 @@ import tiquartet.CommonModule.vo.RoomVO;
 
 public class RoomPO implements Serializable{
 	//房间编号
-	private String roomId;
+	private int roomId;
 	//房间号
-	private int roomNumber;
+	private String roomNumber;
 	//房间类型编号
 	private int roomTypeId;
 	//房间状态
@@ -20,7 +20,7 @@ public class RoomPO implements Serializable{
 		
 	}
 	
-	public RoomPO(String roomId,int roomNumber,int roomTypeId,RoomStatus state,int hotelId){
+	public RoomPO(int roomId,String roomNumber,int roomTypeId,RoomStatus state,int hotelId){
 		super();
 		this.roomId=roomId;
 		this.roomNumber=roomNumber;
@@ -37,19 +37,19 @@ public class RoomPO implements Serializable{
 		this.state = roomVO.roomStatus;
 	}
 	
-	public String getroomId(){
+	public int getroomId(){
 		return roomId;
 	}
 	
-	public void setroomId(String roomId){
+	public void setroomId(int roomId){
 		this.roomId=roomId;
 	}
 	
-	public int getroomNumber(){
+	public String getroomNumber(){
 		return roomNumber;
 	}
 	
-	public void setroomNumber(int roomNumber){
+	public void setroomNumber(String roomNumber){
 		this.roomNumber=roomNumber;
 	}
 	

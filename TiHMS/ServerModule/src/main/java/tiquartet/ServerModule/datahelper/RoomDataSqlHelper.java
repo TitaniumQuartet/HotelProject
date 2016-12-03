@@ -76,8 +76,8 @@ public class RoomDataSqlHelper implements RoomDataHelper{
 	    PreparedStatement pstmt;
 	    try {
 	        pstmt = (PreparedStatement) conn.prepareStatement(sql);
-	        pstmt.setString(1,room.getroomId());
-	        pstmt.setInt(2, room.getroomNumber());
+	        pstmt.setInt(1,room.getroomId());
+	        pstmt.setString(2, room.getroomNumber());
 	        pstmt.setInt(3,room.getroomTypeId());
 	        pstmt.setInt(4, room.getstateAsInt());
 	        pstmt.setInt(5, room.gethotelId());
@@ -156,8 +156,8 @@ public class RoomDataSqlHelper implements RoomDataHelper{
 			pstmt = (PreparedStatement) conn.prepareStatement(sql);
 	        ResultSet rs = pstmt.executeQuery();
 	        while(rs.next()){
-	        	String roomId=rs.getString(1);
-	        	int roomNumber=rs.getInt(2);
+	        	int roomId=rs.getInt(1);
+	        	String roomNumber=rs.getString(2);
 	        	int roomTypeId=rs.getInt(3);
 	        	RoomStatus state=RoomStatus.values()[rs.getInt(4)];
 	        	int hotelId=rs.getInt(5);
