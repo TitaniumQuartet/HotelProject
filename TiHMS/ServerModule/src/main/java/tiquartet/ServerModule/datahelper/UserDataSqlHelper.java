@@ -59,7 +59,7 @@ public class UserDataSqlHelper implements UserDataHelper{
 	 * 楠岃瘉瀵嗙爜鏄惁姝ｇ‘
 	 * @param 
 	 */
-	public ResultMessage checkPassword (String username, String password){
+	public UserPO checkPassword (String username, String password){
 		Connection conn = getConn();
 	    String sql = "select * from students where username ="+username;
 	    PreparedStatement pstmt;
@@ -68,13 +68,22 @@ public class UserDataSqlHelper implements UserDataHelper{
 	        ResultSet rs = pstmt.executeQuery();
 	        String name=rs.getString(1);
 	        String pass=rs.getString(3);
-	        if(username==name&&password==pass)
-	        	return success;
-	        else
-	        	return fail;
+	        if(username==name&&password==pass){
+	        	int userId=rs.getInt(1);
+		        String userType=rs.getString(4);
+		        String realName=rs.getString(5);
+		        double credit=rs.getDouble(6);
+		        String birthday=rs.getString(7);
+		        int memberRank=rs.getInt(8);
+		        boolean isMember=rs.getBoolean(9);
+		        String company=rs.getString(10);
+		        int hotelId=rs.getInt(11);
+		        UserPO userPO=new UserPO(userId,username,password,userType,realName,credit,birthday,memberRank,isMember,company,hotelId);
+	        }else
+	        	return null;
 	    } catch (SQLException e) {
 	        e.printStackTrace();
-	        return fail;
+	        return null;
 	    }
 	}
 	

@@ -111,7 +111,7 @@ public class UserPO implements Serializable{
 		return this.birthday;
 	}
 	
-	public void setcredit(int credit){
+	public void setcredit(double credit){
 		this.credit=credit;
 	}
 	

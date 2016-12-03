@@ -20,7 +20,7 @@ public interface UserDataHelper {
 	 * 验证密码是否正确
 	 * @param 
 	 */
-	public ResultMessage checkPassword (String username, String password);
+	public UserPO checkPassword (String username, String password);
 	
 	/**
 	 * 新增用户
@@ -37,7 +37,7 @@ public interface UserDataHelper {
 	 * 向数据文件中写入用户数据
 	 * @param list
 	 */
-	public ResultMessage update (Map<Integer, UserPO> map);
+	public ResultMessage update (UserPO userPO);
 	
 	/**
 	 *搜索用户

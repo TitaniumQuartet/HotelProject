@@ -42,11 +42,27 @@ public class UserDataImpl implements UserDataService{
 	ResultMessage fail=new ResultMessage(false);
 	
 	public ResultMessage userExist (String username){
-		return userDataHelper.userExist(username);
+		Iterator<Map.Entry<Integer,UserPO>> iterator = map.entrySet().iterator();
+		while(iterator.hasNext()){
+			Map.Entry<Integer,UserPO> entry = iterator.next();
+			UserPO userpo = entry.getValue();
+			if(userpo.getuserName()==username){
+				return fail;
+			}
+		}
+		return success;
 	}
 	
-	public ResultMessage checkPassword (String username, String password){
-		return userDataHelper.checkPassword(username, password);
+	public UserPO checkPassword (String username, String password){
+		Iterator<Map.Entry<Integer,UserPO>> iterator = map.entrySet().iterator();
+		while(iterator.hasNext()){
+			Map.Entry<Integer,UserPO> entry = iterator.next();
+			UserPO userpo = entry.getValue();
+			if(userpo.getuserName()==username&&userpo.getpassword()==password){
+				return userpo;
+			}
+		}
+		return null;
 	}
 	
 	public ResultMessage insert (UserPO user){
@@ -61,7 +77,7 @@ public class UserDataImpl implements UserDataService{
 		int userId = user.getuserId();
 		if(map.get(userId) != null){
 			map.put(userId,user);
-			userDataHelper.update(map);
+			userDataHelper.update(user);
 			return success;
 		}
 		return fail;
@@ -71,12 +87,19 @@ public class UserDataImpl implements UserDataService{
 		return userDataHelper.searchUser(username, realName);
 	}
 	
-	public ResultMessage getCreditBalance (int userID){
-		return userDataHelper.getCreditBalance(userID);
+	public double getCreditBalance (int userID){
+		UserPO user=map.get(userID);
+		double credit=user.getcredit();
+		return credit;
 	}
 	
 	public ResultMessage addCredit (int userID, double addition){
-		return userDataHelper.addCredit(userID, addition);
+		UserPO userPO=map.get(userID);
+		double credit=userPO.getcredit();
+		credit=credit+addition;
+		userPO.setcredit(credit);
+		map.put(userID,userPO);
+		return userDataHelper.update(userPO);
 	}
 
 	@Override
