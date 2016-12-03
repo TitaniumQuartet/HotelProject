@@ -10,7 +10,7 @@ public class HotelDetailsVO {
 	    public String address;
 	    public String  cityName;
 	    public String  circleName;
-	    public List<ReviewVO> list;
+	    public List<OrderVO> list;
 	    public String introduction;
 	    public double lowprice;
 	    public String serviceintro;

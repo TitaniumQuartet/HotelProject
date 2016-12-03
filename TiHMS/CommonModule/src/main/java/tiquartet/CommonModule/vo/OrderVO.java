@@ -1,5 +1,7 @@
 package tiquartet.CommonModule.vo;
 
+import java.util.HashMap;
+
 import tiquartet.CommonModule.util.OrderStatus;
 
 public class OrderVO {
@@ -9,6 +11,8 @@ public class OrderVO {
 		public String latestTime;
 		//房间数量
 		public int numberOfRoom;
+		//订单中的房间编号与实际房号的映射
+		public HashMap<Integer, String> roomMap;
 		//入住人数
 		public int numberOfPeople;
 		//有无儿童

@@ -1,8 +1,8 @@
 package tiquartet.ServerModule.po;
 
 import java.io.Serializable;
-import java.sql.Date;
 
+import tiquartet.CommonModule.util.UserType;
 import tiquartet.CommonModule.vo.UserVO;
 
 public class UserPO implements Serializable{
@@ -13,7 +13,7 @@ public class UserPO implements Serializable{
 	//密码
 	private String password;
 	//用户类型
-	private String userType;
+	private UserType userType;
 	//用户真实姓名
 	private String realName;
 	//当前信用值
@@ -28,12 +28,14 @@ public class UserPO implements Serializable{
 	private String company;
 	//酒店编号（用户为酒店工作人员时）
 	private int hotelId;
+	//是否已登录
+	private boolean login;
 	
 	public UserPO(){
 		
 	}
 	
-	public UserPO(int userId,String userName,String password,String userType,String realName,double credit, String birthday,int memberRank,boolean isMember,String company,int hotelId){
+	public UserPO(int userId,String userName,String password,UserType userType,String realName,double credit, String birthday,int memberRank,boolean isMember,String company,int hotelId,boolean login){
 		super();
 		this.userId=userId;
 		this.userName=userName;
@@ -61,6 +63,7 @@ public class UserPO implements Serializable{
 		this.isMember=userVO.isMember;
 		this.company=userVO.company;
 		this.hotelId=userVO.hotelID;
+		this.login=userVO.login;
 	}
 	
 	public int getuserId(){
@@ -87,12 +90,28 @@ public class UserPO implements Serializable{
 		this.password=password;
 	}
 	
-	public String getuserType(){
+	public UserType getuserType(){
 		return userType;
 	}
 	
-	public void setuserType(String userType){
+	public void setuserType(UserType userType){
 		this.userType=userType;
+	}
+	
+	/**
+	 * 得到枚举类型的序号以便在数据库中存储.
+	 * @return
+	 */
+	public int getTypeAsInt(){
+		return userType.ordinal();
+	}
+	
+	/**
+	 * 传入枚举类型序号的setter.
+	 * @param typeOrdinal
+	 */
+	public void setTypeAsInt(int typeOrdinal){
+		this.userType = UserType.values()[typeOrdinal];
 	}
 	
 	public void setrealName(String realName){
@@ -151,6 +170,14 @@ public class UserPO implements Serializable{
 		return this.hotelId;
 	}
 	
+	public boolean getLogin(){
+		return this.login;
+	}
+	
+	public void setLogin(boolean login){
+		this.login = login;
+	}
+	
 	public UserVO getVO(){
 		UserVO userVO = new UserVO();
 		userVO.password = this.password;
@@ -158,6 +185,7 @@ public class UserPO implements Serializable{
 		userVO.userID = this.userId;
 		userVO.userName = this.userName;
 		userVO.userType = this.userType;
+		userVO.login = this.login;
 		
 		return userVO;
 	}

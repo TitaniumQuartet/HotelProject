@@ -1,5 +1,6 @@
 package tiquartet.CommonModule.vo;
 
+import tiquartet.CommonModule.util.UserType;
 
 /**
  * 包含用户信息的值对象
@@ -12,7 +13,7 @@ public class UserVO {
     //用户名
     public String userName;
     //用户类型
-    public String userType;
+    public UserType userType;
     //密码
     public String password;
     //真实姓名
@@ -29,6 +30,8 @@ public class UserVO {
     public String company;
     //酒店编号
     public int hotelID;
+    //是否已登录
+    public boolean login;
     
     /**
      * 用注册信息建立简单的用户信息值对象.
@@ -42,6 +45,7 @@ public class UserVO {
     	userVO.userName = username;
     	userVO.password = password;
     	userVO.realName = realName;
+    	userVO.login = false;
     	return userVO;
     }
 }

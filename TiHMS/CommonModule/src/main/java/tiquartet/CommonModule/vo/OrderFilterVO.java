@@ -7,7 +7,7 @@ public class OrderFilterVO {
 	    //订单状态
 	    public OrderStatus orderState=null;
 	    //商圈编号	    
-	    public int circleId=-1;
+	    public int districtId=-1;
 	    //酒店星级
 	    public int star=-1;
 	    //酒店编号

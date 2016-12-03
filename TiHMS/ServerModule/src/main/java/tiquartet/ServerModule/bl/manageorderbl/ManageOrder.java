@@ -33,8 +33,8 @@ public class ManageOrder implements ManageOrderBLService {
 		List<OrderVO> volist=new ArrayList<OrderVO>();
 		List<OrderPO> polist=orderdataimpl.searchByUser(filter.hotelID, filter.userId);
 		for(int i=0;i<polist.size();i++){
-			if(filter.circleId!=-1){
-				if(polist.get(i).gethotelId()/1000!=filter.circleId){
+			if(filter.districtId!=-1){
+				if(polist.get(i).gethotelId()/1000!=filter.districtId){
 					continue;
 				}
 			}

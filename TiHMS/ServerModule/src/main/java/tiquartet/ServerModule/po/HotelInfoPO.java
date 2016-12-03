@@ -178,6 +178,7 @@ public class HotelInfoPO implements Serializable{
 		hotelBriefVO.hotelID = this.hotelId;
 		hotelBriefVO.hotelName = this.hotelName;
 		hotelBriefVO.star = this.star;
+		hotelBriefVO.introduction = this.hotelIntroduction;
 		
 		return hotelBriefVO;
 	}
