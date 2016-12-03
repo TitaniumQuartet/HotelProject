@@ -1,6 +1,9 @@
 package tiquartet.ClientModule.ui.usermainui;
 import java.net.URL;
+import java.nio.charset.Charset;
 import java.rmi.RemoteException;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.ResourceBundle;
 
 import javafx.beans.value.ChangeListener;
@@ -88,7 +91,7 @@ public class UserMainController implements Initializable {
 	void onLoginCLicked(ActionEvent event) {
 		
 		try {
-			UserVO user = HMSClient.getUserMainBL().login(usernameField.getText(), passwordField.getText());
+			UserVO user = HMSClient.getUserMainBL().login(usernameField.getText(), encript(passwordField.getText()));
 			if(user==null){
 				//登录失败
 				loginWarningLabel.setText("用户名或密码输入错误");
@@ -142,7 +145,7 @@ public class UserMainController implements Initializable {
 	void onFinishSignUpClicked(ActionEvent event) {
 		String realName = realNameField.getText().trim();
 		if(realName.length()==0) realName = null;
-		UserVO client = UserVO.getClientInstance(usernameField.getText(), passwordField.getText(), realName);
+		UserVO client = UserVO.getClientInstance(usernameField.getText(), encript(passwordField.getText()), realName);
 		try {
 			HMSClient.getManageUserBL().addUser(client);
 		} catch (RemoteException e) {
@@ -152,10 +155,29 @@ public class UserMainController implements Initializable {
 	}
 	
 	/**
+	 * 对密码用MD5算法加密，返回密文.
+	 * @param code
+	 * @return
+	 */
+	private String encript(String code) {
+		if(code==null||code.isEmpty()) return null;
+		byte[] bytes = code.getBytes(Charset.forName("UTF-8"));
+		try {
+			MessageDigest md5Digest = MessageDigest.getInstance("MD5");
+			//使用MD5算法进行转换，用UTF-8编码
+			String result = new String(md5Digest.digest(bytes),Charset.forName("UTF-8"));
+			return result;
+		} catch (NoSuchAlgorithmException e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
+	
+	/**
 	 * 检查登录页面各个输入框的文本，显示相应的提示.
 	 * 
 	 */
-	void checkLogin(){
+	private void checkLogin(){
 		boolean usernamevalid, passwordvalid;
 		String username = usernameField.getText(),
 				password = passwordField.getText();
@@ -188,7 +210,7 @@ public class UserMainController implements Initializable {
 	 * 检查注册页面各个输入框的文本，显示相应的提示.
 	 * 
 	 */
-	void checkSignUp(){
+	private void checkSignUp(){
 		
 		int l = newUsernameField.getText().length();
 		boolean usernameValid = false, passwordValid = false, confirmpwValid = false;

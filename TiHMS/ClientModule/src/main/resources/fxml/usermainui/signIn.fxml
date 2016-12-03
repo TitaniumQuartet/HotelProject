@@ -5,6 +5,7 @@
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
@@ -47,9 +48,18 @@
       <PasswordField fx:id="confirmPasswordField" layoutX="583.0" layoutY="406.0" prefHeight="38.0" prefWidth="167.0" />
       <Label fx:id="usernamePrompt" layoutX="784.0" layoutY="262.0" prefHeight="15.0" prefWidth="101.0" text="* 6-16个字符" textFill="RED" />
       <Label fx:id="passwordPrompt" layoutX="780.0" layoutY="343.0" prefHeight="15.0" prefWidth="102.0" text="* 6-16个字符" textFill="RED" />
-      <ImageView fx:id="usernameSign" fitHeight="30.0" fitWidth="30.0" layoutX="902.0" layoutY="255.0" pickOnBounds="true" preserveRatio="true" image="/image/usermainui/GreenTick.png" visible="false"/>
-      <ImageView fx:id="newPasswordSign" fitHeight="30.0" fitWidth="30.0" layoutX="902.0" layoutY="338.0" pickOnBounds="true" preserveRatio="true" image="/image/usermainui/GreenTick.png" visible="false" />
-      <ImageView fx:id="confirmPasswordSign" fitHeight="30.0" fitWidth="30.0" layoutX="781.0" layoutY="414.0" pickOnBounds="true" preserveRatio="true" image="/image/usermainui/RedCross.png" visible="false" />
+       <ImageView fx:id="usernameSign" fitHeight="30.0" fitWidth="30.0" layoutX="778.0" layoutY="255.0" pickOnBounds="true" preserveRatio="true" visible="false">
+         <image>
+            <Image url="@../../image/usermainui/GreenTick.png" />
+         </image></ImageView> 
+       <ImageView fx:id="newPasswordSign" fitHeight="30.0" fitWidth="30.0" layoutX="780.0" layoutY="335.0" pickOnBounds="true" preserveRatio="true" visible="false">
+         <image>
+            <Image url="@../../image/usermainui/GreenTick.png" />
+         </image></ImageView>
+       <ImageView fx:id="confirmPasswordSign" fitHeight="30.0" fitWidth="30.0" layoutX="780.0" layoutY="414.0" pickOnBounds="true" preserveRatio="true" visible="false">
+         <image>
+            <Image url="@../../image/usermainui/RedCross.png" />
+         </image></ImageView>
       <Label layoutX="450.0" layoutY="485.0" text="真实姓名">
          <font>
             <Font size="24.0" />
