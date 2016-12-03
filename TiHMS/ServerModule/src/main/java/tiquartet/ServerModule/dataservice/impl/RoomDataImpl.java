@@ -2,7 +2,6 @@ package tiquartet.ServerModule.dataservice.impl;
 
 import java.sql.Connection;
 import java.util.List;
-import java.util.Map;
 import tiquartet.CommonModule.util.ResultMessage;
 import tiquartet.ServerModule.datahelper.DataFactory;
 import tiquartet.ServerModule.datahelper.service.DataFactoryService;
@@ -36,62 +35,52 @@ public class RoomDataImpl implements RoomDataService{
 
 	@Override
 	public List<RoomTypePO> availableRoomType(int hotelID, String startDate, String endDate, int numOfRoom) {
-		// TODO Auto-generated method stub
-		return null;
+		return roomDataHelper.availableRoomType(hotelID, startDate, endDate, numOfRoom);
 	}
 
 	@Override
 	public ResultMessage update(RoomPO room) {
-		// TODO Auto-generated method stub
-		return null;
+		return roomDataHelper.update(room);
 	}
 
 	@Override
 	public ResultMessage insert(RoomPO room) {
-		// TODO Auto-generated method stub
-		return null;
+		return roomDataHelper.insert(room);
 	}
 
 	@Override
 	public ResultMessage delete(int roomID) {
-		// TODO Auto-generated method stub
-		return null;
+		return roomDataHelper.delete(roomID);
 	}
 
 	@Override
 	public ResultMessage checkIn(int roomID) {
-		// TODO Auto-generated method stub
-		return null;
+		return roomDataHelper.checkIn(roomID);
 	}
 
 	@Override
 	public ResultMessage checkOut(int roomID) {
-		// TODO Auto-generated method stub
-		return null;
+		return roomDataHelper.checkOut(roomID);
 	}
 
 	@Override
-	public ResultMessage insertType(int hotelID, RoomTypePO room) {
-		// TODO Auto-generated method stub
-		return null;
+	public ResultMessage insertType(RoomTypePO room) {
+		return roomDataHelper.insertType(room);
 	}
 
 	@Override
-	public ResultMessage updateType(int hotelID, RoomTypePO room) {
-		// TODO Auto-generated method stub
-		return null;
+	public ResultMessage updateType(RoomTypePO room) {
+		return roomDataHelper.updateType(room);
 	}
 
 	@Override
-	public ResultMessage deleteType(int hotelID, RoomTypePO room) {
-		// TODO Auto-generated method stub
-		return null;
+	public ResultMessage deleteType(RoomTypePO room) {
+		return roomDataHelper.deleteType(room);
 	}
 
 	@Override
 	public List<RoomPO> getRoomList(int hotelID) {
-		// TODO Auto-generated method stub
-		return null;
+		return roomDataHelper.getRoomList(hotelID);
 	}
 	
 	

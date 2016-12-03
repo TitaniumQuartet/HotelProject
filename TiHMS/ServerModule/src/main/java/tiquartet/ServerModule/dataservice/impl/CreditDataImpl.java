@@ -16,8 +16,6 @@ import tiquartet.ServerModule.po.CreditPO;
 import tiquartet.ServerModule.po.OrderPO;
 
 public class CreditDataImpl implements CreditDataService{
-
-	private Map<Integer, CreditPO> map;
 	
 	private CreditDataHelper creditDataHelper;
 	
@@ -25,7 +23,6 @@ public class CreditDataImpl implements CreditDataService{
 
 	private static CreditDataImpl creditDataServiceImpl;
 	
-	private Connection con;
 	
 	public static CreditDataImpl getInstance(){
 		if(creditDataServiceImpl == null){
@@ -35,10 +32,9 @@ public class CreditDataImpl implements CreditDataService{
 	}
 	
 	public CreditDataImpl(){
-		if(map == null){
+		if(dataFactory == null){
 			dataFactory = new DataFactory();
 			creditDataHelper = dataFactory.getCreditDataHelper();
-			map = creditDataHelper.getRecord();
 		}
 	}
 	
@@ -47,14 +43,12 @@ public class CreditDataImpl implements CreditDataService{
 	ResultMessage fail=new ResultMessage(false);
 	
 	public ResultMessage insert(CreditPO creditItem) {
-		// TODO Auto-generated method stub
-		return null;
+		return creditDataHelper.insert(creditItem);
 	}
 
 	@Override
 	public List<CreditPO> getRecord(int userID) {
-		// TODO Auto-generated method stub
-		return null;
+		return creditDataHelper.getRecord(userID);
 	}
 
 }

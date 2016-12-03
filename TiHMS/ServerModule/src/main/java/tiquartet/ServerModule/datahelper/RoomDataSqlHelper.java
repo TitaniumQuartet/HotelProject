@@ -3,15 +3,19 @@ package tiquartet.ServerModule.datahelper;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
 import tiquartet.CommonModule.util.ResultMessage;
+import tiquartet.CommonModule.util.RoomStatus;
 import tiquartet.ServerModule.datahelper.service.RoomDataHelper;
 import tiquartet.ServerModule.po.OrderPO;
 import tiquartet.ServerModule.po.RoomPO;
 import tiquartet.ServerModule.po.RoomTypePO;
+import tiquartet.ServerModule.po.UserPO;
 
 public class RoomDataSqlHelper implements RoomDataHelper{
 
@@ -36,35 +40,10 @@ public class RoomDataSqlHelper implements RoomDataHelper{
 	
 	ResultMessage fail=new ResultMessage(false);
 	
-	public ResultMessage preOrder(OrderPO preOrder) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	public ResultMessage cancelPreOrder(OrderPO preOrder) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	public List<RoomTypePO> availableRoomType(int hotelID, String startDate,
-			String endDate, int numOfRoom) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	public Map<Integer, RoomPO> getRoom(){
-		return null;
-	}
-	
-	public ResultMessage update(RoomPO room) {
+	public ResultMessage updatetable(String sql){
 		Connection conn = getConn();
-	    String sql = "update roomType set roomTypeId='" + room.getroomTypeId() +
-	    		"set typeIntro='" + room.getroomId() +
-	    		"set price='" + room.getroomNumber() +
-	    		"set roomType='" + room.getstate() +
-	            "' where hotelId='" + room.gethotelId() + "'";
-	    PreparedStatement pstmt;
-	    try {
+		PreparedStatement pstmt;
+		try {
 	        pstmt = (PreparedStatement) conn.prepareStatement(sql);
 	        pstmt.executeUpdate();
 	        pstmt.close();
@@ -72,20 +51,35 @@ public class RoomDataSqlHelper implements RoomDataHelper{
 	    } catch (SQLException e) {
 	        e.printStackTrace();
 	        return fail;
-	    }
+	    } 	
 	    return success;
+	}
+	
+	public List<RoomTypePO> availableRoomType(int hotelID, String startDate,
+			String endDate, int numOfRoom) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public ResultMessage update(RoomPO room) {
+	    String sql = "update roomType set roomTypeId='" + room.getroomTypeId() +
+	    		"set typeIntro='" + room.getroomId() +
+	    		"set price='" + room.getroomNumber() +
+	    		"set roomType='" + room.getstateAsInt() +
+	            " where hotelId='" + room.gethotelId();
+	    return updatetable(sql);
 	}
 
 	public ResultMessage insert(RoomPO room) {
 		Connection conn = getConn();
-	    String sql = "insert into room(roomId,roomNumber,roomTypeId,state,hotelId) values(?,?,?,?)";
+	    String sql = "insert into room(roomId,roomNumber,roomTypeId,state,hotelId) values(?,?,?,?,?)";
 	    PreparedStatement pstmt;
 	    try {
 	        pstmt = (PreparedStatement) conn.prepareStatement(sql);
-	        pstmt.setInt(1,room.getroomId());
+	        pstmt.setString(1,room.getroomId());
 	        pstmt.setInt(2, room.getroomNumber());
 	        pstmt.setInt(3,room.getroomTypeId());
-	        pstmt.setString(4, room.getstate());
+	        pstmt.setInt(4, room.getstateAsInt());
 	        pstmt.setInt(5, room.gethotelId());
 	        pstmt.executeUpdate();
 	        pstmt.close();
@@ -99,21 +93,24 @@ public class RoomDataSqlHelper implements RoomDataHelper{
 	}
 
 	public ResultMessage delete(int roomID) {
-		// TODO Auto-generated method stub
-		return null;
+	    String sql = "DELETE FROM room where roomId = " + roomID;
+	    return updatetable(sql);
 	}
 
 	public ResultMessage checkIn(int roomID) {
-		// TODO Auto-generated method stub
-		return null;
+		String sql = "update room set state =" + "1" +
+	            " where roomId='" + roomID;
+	    return updatetable(sql);
 	}
 
 	public ResultMessage checkOut(int roomID) {
-		// TODO Auto-generated method stub
-		return null;
+		String sql = "update room set state =" + "0" +
+	            " where roomId='" + roomID;
+	    return updatetable(sql);
 	}
 
-	public ResultMessage insertType(int hotelID, RoomTypePO room) {
+	@Override
+	public ResultMessage insertType(RoomTypePO room) {
 		Connection conn = getConn();
 	    String sql = "insert into roomType(roomTypeId,typeIntro,price,roomType) values(?,?,?,?)";
 	    PreparedStatement pstmt;
@@ -133,24 +130,47 @@ public class RoomDataSqlHelper implements RoomDataHelper{
 	    return success;
 	}
 
-	public ResultMessage updateType(int hotelID, RoomTypePO room) {
-		Connection conn = getConn();
+	@Override
+	public ResultMessage updateType(RoomTypePO room) {
 	    String sql = "update roomType set roomTypeId='" + room.getroomTypeId() +
 	    		"set typeIntro='" + room.gettypeIntroduction() +
 	    		"set price='" + room.getprice() +
 	    		"set roomType='" + room.getroomType() +
-	            "' where hotelId='" + hotelID + "'";
-	    PreparedStatement pstmt;
-	    try {
-	        pstmt = (PreparedStatement) conn.prepareStatement(sql);
-	        pstmt.executeUpdate();
-	        pstmt.close();
+	            " where hotelId='" + room.gethotelId();
+	    return updatetable(sql);
+	}
+
+	@Override
+	public ResultMessage deleteType(RoomTypePO room) {
+	    String sql = "DELETE FROM roomType where roomTypeId = " + room.getroomTypeId();
+	    return updatetable(sql);
+	}
+
+	@Override
+	public List<RoomPO> getRoomList(int hotelID) {
+		Connection conn = getConn();
+		List<RoomPO> rooms = new ArrayList<RoomPO>();
+		String sql="select * from room where hotelId =" + hotelID;
+		PreparedStatement pstmt;
+		try {
+			pstmt = (PreparedStatement) conn.prepareStatement(sql);
+	        ResultSet rs = pstmt.executeQuery();
+	        while(rs.next()){
+	        	String roomId=rs.getString(1);
+	        	int roomNumber=rs.getInt(2);
+	        	int roomTypeId=rs.getInt(3);
+	        	RoomStatus state=RoomStatus.values()[rs.getInt(4)];
+	        	int hotelId=rs.getInt(5);
+				RoomPO roompo = new RoomPO(roomId,roomNumber,roomTypeId,state,hotelId);
+				rooms.add(roompo);
+			}
+			pstmt.close();
 	        conn.close();
-	    } catch (SQLException e) {
-	        e.printStackTrace();
-	        return fail;
-	    }
-	    return success;
+			return rooms;
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}
 	}
 
 }

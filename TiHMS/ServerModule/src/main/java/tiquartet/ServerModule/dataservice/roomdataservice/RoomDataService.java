@@ -12,9 +12,9 @@ public interface RoomDataService {
 	public ResultMessage delete(int roomID);
 	public ResultMessage checkIn (int roomID);
 	public ResultMessage checkOut (int roomID);
-	public ResultMessage insertType(int hotelID, RoomTypePO room);
-	public ResultMessage updateType(int hotelID, RoomTypePO room);
-	public ResultMessage deleteType(int hotelID, RoomTypePO room);
+	public ResultMessage insertType(RoomTypePO room);
+	public ResultMessage updateType(RoomTypePO room);
+	public ResultMessage deleteType(RoomTypePO room);
 	public List<RoomPO> getRoomList (int hotelID);
 	
 }

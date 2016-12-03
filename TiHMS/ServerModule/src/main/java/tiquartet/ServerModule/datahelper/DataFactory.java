@@ -5,13 +5,11 @@ public class DataFactory implements DataFactoryService{
 	
 	public OrderDataHelper getOrderDataHelper() {
 		OrderDataHelper orderDao = new OrderDataSqlHelper();
-		//OrderDao orderDao = new OrderDataMysqlHelper();
 		return orderDao;
 	}
 
 	public UserDataHelper getUserDataHelper() {
 		UserDataHelper userDao = new UserDataSqlHelper();
-		//UserDao userDao = new UserDataMysqlHelper();
 		return userDao;
 	}
 
