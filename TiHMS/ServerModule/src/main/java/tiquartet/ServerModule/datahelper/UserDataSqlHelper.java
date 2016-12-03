@@ -2,12 +2,9 @@ package tiquartet.ServerModule.datahelper;
 
 import java.sql.*;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-
-
 import tiquartet.CommonModule.util.ResultMessage;
+import tiquartet.CommonModule.util.UserType;
 import tiquartet.ServerModule.datahelper.service.UserDataHelper;
 import tiquartet.ServerModule.po.UserPO;
 
@@ -28,6 +25,28 @@ public class UserDataSqlHelper implements UserDataHelper{
 	        e.printStackTrace();
 	    }
 	    return conn;
+	}
+	
+	public UserPO createuserpo(ResultSet rs){
+		try{
+			int userId=rs.getInt(1);
+        	String userName=rs.getString(2);
+		    String password=rs.getString(3);
+		    String userType=rs.getString(4);
+		    String realName=rs.getString(5);
+		    double credit=rs.getDouble(6);
+		    String birthday=rs.getString(7);
+		    int memberRank=rs.getInt(8);
+		    boolean isMember=rs.getBoolean(9);
+		    String company=rs.getString(10);
+		    int hotelId=rs.getInt(11);
+		    UserPO userpo=new UserPO(userId,userName,password,userType,realName,credit,birthday,memberRank,isMember,company,hotelId);
+	    	return userpo;
+		}catch (SQLException e) {
+	        e.printStackTrace();
+	        return null;
+	    }
+		
 	}
 	
 	ResultMessage success=new ResultMessage(true);
@@ -69,16 +88,8 @@ public class UserDataSqlHelper implements UserDataHelper{
 	        String name=rs.getString(1);
 	        String pass=rs.getString(3);
 	        if(username==name&&password==pass){
-	        	int userId=rs.getInt(1);
-		        String userType=rs.getString(4);
-		        String realName=rs.getString(5);
-		        double credit=rs.getDouble(6);
-		        String birthday=rs.getString(7);
-		        int memberRank=rs.getInt(8);
-		        boolean isMember=rs.getBoolean(9);
-		        String company=rs.getString(10);
-		        int hotelId=rs.getInt(11);
-		        UserPO userPO=new UserPO(userId,username,password,userType,realName,credit,birthday,memberRank,isMember,company,hotelId);
+	        	UserPO userpo=createuserpo(rs);
+	        	return userpo;
 	        }else
 	        	return null;
 	    } catch (SQLException e) {
@@ -120,38 +131,6 @@ public class UserDataSqlHelper implements UserDataHelper{
 	}
 	
 	/**
-	 * @return	浠庢暟鎹簱涓鍙栫敤鎴锋暟鎹�
-	 */
-	public Map<Integer, UserPO> getUser(){
-		Connection conn = getConn();
-		Map<Integer, UserPO> map = new HashMap<Integer, UserPO>();
-		String sql="select * from user";
-		PreparedStatement pstmt;
-		try {
-			pstmt = (PreparedStatement) conn.prepareStatement(sql);
-	        ResultSet rs = pstmt.executeQuery();
-	        while(rs.next()){
-	        	int userId=rs.getInt(1);
-	        	String userName=rs.getString(2);
-			    String password=rs.getString(3);
-			    String userType=rs.getString(4);
-			    String realName=rs.getString(5);
-			    double credit=rs.getDouble(6);
-			    String birthday=rs.getString(7);
-			    int memberRank=rs.getInt(8);
-			    boolean isMember=rs.getBoolean(9);
-			    String company=rs.getString(10);
-			    int hotelId=rs.getInt(11);
-			    UserPO userPO=new UserPO(userId,userName,password,userType,realName,credit,birthday,memberRank,isMember,company,hotelId);
-			    map.put(userId,userPO);
-	        }
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		return map;
-	}
-	
-	/**
 	 * 鍚戞暟鎹枃浠朵腑鍐欏叆鐢ㄦ埛鏁版嵁
 	 * @param list
 	 */
@@ -185,32 +164,26 @@ public class UserDataSqlHelper implements UserDataHelper{
 	 *鎼滅储鐢ㄦ埛
 	 * @param 
 	 */
-	public List<UserPO> searchUser (String username, String realName){
+	public List<UserPO> searchUser (String username, String realName, UserType type){
 		Connection conn = getConn();
 		List<UserPO> users=new ArrayList<UserPO>();
-	    String sql = "select * from students where realName =" + realName +" where userName = " + username;
+	    String sql = "select * from students where username REGEXP '" + realName +"' AND userName REGEXP '" + username +"' AND userType =";
 	    PreparedStatement pstmt;
 	    try {
 	        pstmt = (PreparedStatement)conn.prepareStatement(sql);
 	        ResultSet rs = pstmt.executeQuery();
 	        while(rs.next()){
-	        	int userId=rs.getInt(1);
-	        	String userName=rs.getString(2);
-			    String password=rs.getString(3);
-			    String userType=rs.getString(4);
-			    double credit=rs.getDouble(6);
-			    String birthday=rs.getString(7);
-			    int memberRank=rs.getInt(8);
-			    boolean isMember=rs.getBoolean(9);
-			    String company=rs.getString(10);
-			    int hotelId=rs.getInt(11);
-			    UserPO userpo=new UserPO(userId,userName,password,userType,realName,credit,birthday,memberRank,isMember,company,hotelId);
-			    users.add(userpo);
-	        }
+	        	UserPO userpo=createuserpo(rs);
+	        	users.add(userpo);
+	        } 
+	        pstmt.close();
+			conn.close();
+		    return users;
 	    } catch (SQLException e) {
 	        e.printStackTrace();
+	        return null;
 	    }
-	    return users;
+	    
 	}
 	
 	/**
@@ -218,8 +191,21 @@ public class UserDataSqlHelper implements UserDataHelper{
 	 * @param 
 	 */
 	public ResultMessage getCreditBalance (int userID){
-		
-		return success;
+		Connection conn = getConn();
+	    String sql = "select * from students where userId = " + userID;
+	    PreparedStatement pstmt;
+	    try {
+	        pstmt = (PreparedStatement) conn.prepareStatement(sql);
+	        ResultSet rs = pstmt.executeQuery();
+	        double credit = rs.getDouble(6);
+	        ResultMessage result=new ResultMessage(true,null,String.valueOf(credit));      
+	        pstmt.close();
+	        conn.close();
+	        return result;
+	    } catch (SQLException e) {
+	        e.printStackTrace();
+	        return fail;
+	    }
 	}
 	
 	/**
@@ -246,10 +232,69 @@ public class UserDataSqlHelper implements UserDataHelper{
 	    return success;
 	}
 
-	public ResultMessage update(Map<Integer, UserPO> map) {
-		// TODO Auto-generated method stub
-		return null;
+
+	@Override
+	public UserPO getUser(int userID) {
+		Connection conn = getConn();
+		String sql="select * from user where userId ="+userID;
+		PreparedStatement pstmt;
+		try {
+			pstmt = (PreparedStatement) conn.prepareStatement(sql);
+	        ResultSet rs = pstmt.executeQuery();
+	        UserPO userpo=createuserpo(rs);
+	        return userpo;
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}
 	}
+	
+	@Override
+	public List<UserPO> hotelStaffList(int cityID, int distrcitID) {
+		Connection conn = getConn();
+		List<UserPO> users=new ArrayList<UserPO>(); 
+		String sql;
+		if(distrcitID!=-1)
+	        sql = "SELECT * FROM user where user.hotelId = hotel.hotelId AND hotel.districtId = " + distrcitID;
+		else {
+			sql = "SELECT * FROM user where user.hotelId = hotel.hotelId AND hotel.cityId = " + cityID;
+		}
+	    PreparedStatement pstmt;
+	    try {
+	        pstmt = (PreparedStatement)conn.prepareStatement(sql);
+	        ResultSet rs = pstmt.executeQuery();
+	        while(rs.next()){
+	        	UserPO userpo=createuserpo(rs);
+	        	users.add(userpo);
+	        } 
+		    return users;
+	    } catch (SQLException e) {
+	        e.printStackTrace();
+	        return null;
+	    }
+	}
+
+	@Override
+	public List<UserPO> marketerList() {
+		Connection conn = getConn();
+		List<UserPO> users=new ArrayList<UserPO>(); 
+	    String sql = "SELECT * FROM user where userType =" + "2";
+	    PreparedStatement pstmt;
+	    try {
+	        pstmt = (PreparedStatement)conn.prepareStatement(sql);
+	        ResultSet rs = pstmt.executeQuery();
+	        while(rs.next()){
+	        	UserPO userpo=createuserpo(rs);
+			    users.add(userpo);
+	        } 
+		    return users;
+	    } catch (SQLException e) {
+	        e.printStackTrace();
+	        return null;
+	    }
+	}
+	
+	
 }
 	
 

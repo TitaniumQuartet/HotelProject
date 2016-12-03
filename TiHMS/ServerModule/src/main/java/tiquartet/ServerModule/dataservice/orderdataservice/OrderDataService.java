@@ -7,6 +7,8 @@ import tiquartet.ServerModule.po.OrderPO;
 
 public interface OrderDataService {
 	
+	public ResultMessage preOrder (OrderPO preOrder);
+	public ResultMessage cancelPreOrder (OrderPO preOrder);
 	public ResultMessage insert(OrderPO order);
 	public ResultMessage update(OrderPO order);
 	public List<OrderPO> searchByHotel (int hotelID, OrderStatus status);

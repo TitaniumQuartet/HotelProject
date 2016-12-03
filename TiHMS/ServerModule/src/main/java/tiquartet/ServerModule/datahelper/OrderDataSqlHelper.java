@@ -5,6 +5,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -33,13 +34,30 @@ public class OrderDataSqlHelper implements OrderDataHelper{
 	    return conn;
 	}
 	
+	public OrderPO createorderpo(ResultSet rs){
+		try{
+			long orderId=rs.getLong(1);
+        	String latestTime=rs.getString(2);
+		    int numberOfRoom=rs.getInt(3);
+		    int numberOfPeople=rs.getInt(4);
+		    int child=rs.getInt(5);
+		    String realName=rs.getString(6);
+		    int hotelId=rs.getInt(7);
+		    OrderPO orderpo=new OrderPO(orderId,latestTime,numberOfRoom,numberOfPeople,child,realName,hotelId);
+		    return orderpo;
+		}catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
+	
 	ResultMessage success = new ResultMessage(true);
 	
 	ResultMessage fail = new ResultMessage(false);
 	
 	public ResultMessage insert(OrderPO order) {
 		Connection conn = getConn();
-	    String sql = "insert into order(orderId,latestTime,numberOfRoom,numberOfPeople,child,realName,hotelId) values(?,?,?,?,?,?,?,?,?,?,?)";
+	    String sql = "insert into order(orderId,latestTime,numberOfRoom,numberOfPeople,child,realName,hotelId,status) values(?,?,?,?,?,?,?,?,?,?,?)";
 	    PreparedStatement pstmt;
 	    try {
 	        pstmt = (PreparedStatement) conn.prepareStatement(sql);
@@ -68,7 +86,7 @@ public class OrderDataSqlHelper implements OrderDataHelper{
 	    		"set child='" + order.getchild() +
 	    		"set realName='" + order.getclientRealName() +
 	    		"set hotelId='" + order.gethotelId() +
-	            "' where orderId='" + order.getorderId() + "'";
+	            " where orderId = " + order.getorderId() ;
 	    PreparedStatement pstmt;
 	    try {
 	        pstmt = (PreparedStatement) conn.prepareStatement(sql);
@@ -81,40 +99,102 @@ public class OrderDataSqlHelper implements OrderDataHelper{
 	    }
 	    return success;
 	}
-
-	public List<OrderPO> hasBeenOrdered(int hotelID, int userID) {
-		// TODO Auto-generated method stub
-		return null;
+	
+	public int countOrder(int userID, OrderStatus status) {
+		Connection conn = getConn();
+		int i=0;
+		String sql="select * from order where userId = " + userID + "AND status = " + status;
+		PreparedStatement pstmt;
+		try {
+			pstmt = (PreparedStatement) conn.prepareStatement(sql);
+			ResultSet rs = pstmt.executeQuery();
+			while(rs.next()){
+				i++;
+			}
+			pstmt.close();
+	        conn.close();
+			return i;
+		} catch (Exception e) {
+			e.printStackTrace();
+			return -1;
+		}
 	}
 
-	public Map<Long, OrderPO> getOrder() {
+	@Override
+	public ResultMessage cancelPreOrder(OrderPO preOrder) {
 		Connection conn = getConn();
-		Map<Long, OrderPO> map = new HashMap<Long, OrderPO>();
-		String sql="select * from order";
+		String sql="DELETE FROM order where orderId = " + preOrder.getorderId();
+		PreparedStatement pstmt;
+		try {
+			pstmt = (PreparedStatement) conn.prepareStatement(sql);
+	        pstmt.executeUpdate();
+	        pstmt.close();
+	        conn.close();
+			return success;
+		} catch (Exception e) {
+			e.printStackTrace();
+			return fail;
+		}
+	}
+
+	@Override
+	public List<OrderPO> searchByHotel(int hotelID, OrderStatus status) {
+		Connection conn = getConn();
+		List<OrderPO> orders=new ArrayList<OrderPO>();
+		String sql="select * from order where hotelId = " + hotelID + "AND status = " + status;
+		PreparedStatement pstmt;
+		try {
+			pstmt = (PreparedStatement) conn.prepareStatement(sql);
+			ResultSet rs = pstmt.executeQuery();
+			while(rs.next()){
+				OrderPO orderpo=createorderpo(rs);
+				orders.add(orderpo);
+			}
+			pstmt.close();
+	        conn.close();
+			return orders;
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
+
+	@Override
+	public List<OrderPO> searchByUser(int hotelID, int userID) {
+		Connection conn = getConn();
+		List<OrderPO> orders=new ArrayList<OrderPO>();
+		String sql="select * from order where hotelId = " + hotelID + "AND userId = " + userID;
+		PreparedStatement pstmt;
+		try {
+			pstmt = (PreparedStatement) conn.prepareStatement(sql);
+			ResultSet rs = pstmt.executeQuery();
+			while(rs.next()){
+				OrderPO orderpo=createorderpo(rs);
+				orders.add(orderpo);
+			}
+			pstmt.close();
+	        conn.close();
+			return orders;
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
+
+	@Override
+	public OrderPO getOrderByID(long orderID) {
+		Connection conn = getConn();
+		String sql="select * from order where orderId = " + orderID;
 		PreparedStatement pstmt;
 		try {
 			pstmt = (PreparedStatement) conn.prepareStatement(sql);
 	        ResultSet rs = pstmt.executeQuery();
-	        while(rs.next()){
-	        	long orderId=rs.getLong(1);
-	        	String latestTime=rs.getString(2);
-			    int numberOfRoom=rs.getInt(3);
-			    int numberOfPeople=rs.getInt(4);
-			    int child=rs.getInt(5);
-			    String realName=rs.getString(6);
-			    int hotelId=rs.getInt(7);
-			    OrderPO orderpo=new OrderPO(orderId,latestTime,numberOfRoom,numberOfPeople,child,realName,hotelId);
-			    map.put(orderId,orderpo);
-	        }
+			OrderPO orderpo=createorderpo(rs);
+			return orderpo;
 		} catch (Exception e) {
 			e.printStackTrace();
+			return null;
 		}
-		return map;
-	}
-
-	public int countOrder(int userID, OrderStatus status) {
-		// TODO Auto-generated method stub
-		return 0;
 	}
 
 }

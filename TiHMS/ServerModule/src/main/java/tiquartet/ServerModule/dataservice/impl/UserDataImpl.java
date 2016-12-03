@@ -1,6 +1,7 @@
 package tiquartet.ServerModule.dataservice.impl;
 
 import tiquartet.CommonModule.util.ResultMessage;
+import tiquartet.CommonModule.util.UserType;
 
 import java.sql.*;
 import java.util.*;
@@ -11,8 +12,6 @@ import tiquartet.ServerModule.dataservice.userdataservice.UserDataService;
 import tiquartet.ServerModule.po.*;
 
 public class UserDataImpl implements UserDataService{
-
-	private Map<Integer,UserPO> map;
 	
 	private UserDataHelper userDataHelper;
 	
@@ -30,10 +29,9 @@ public class UserDataImpl implements UserDataService{
 	}
 	
 	public UserDataImpl(){
-		if(map == null){
+		if(dataFactory == null){
 			dataFactory = new DataFactory();
 			userDataHelper = dataFactory.getUserDataHelper();
-			map = userDataHelper.getUser();
 		}  
 	}
 	
@@ -42,27 +40,11 @@ public class UserDataImpl implements UserDataService{
 	ResultMessage fail=new ResultMessage(false);
 	
 	public ResultMessage userExist (String username){
-		Iterator<Map.Entry<Integer,UserPO>> iterator = map.entrySet().iterator();
-		while(iterator.hasNext()){
-			Map.Entry<Integer,UserPO> entry = iterator.next();
-			UserPO userpo = entry.getValue();
-			if(userpo.getuserName()==username){
-				return fail;
-			}
-		}
-		return success;
+		return userDataHelper.userExist(username);
 	}
 	
 	public UserPO checkPassword (String username, String password){
-		Iterator<Map.Entry<Integer,UserPO>> iterator = map.entrySet().iterator();
-		while(iterator.hasNext()){
-			Map.Entry<Integer,UserPO> entry = iterator.next();
-			UserPO userpo = entry.getValue();
-			if(userpo.getuserName()==username&&userpo.getpassword()==password){
-				return userpo;
-			}
-		}
-		return null;
+		return userDataHelper.checkPassword(username, password);
 	}
 	
 	public ResultMessage insert (UserPO user){
@@ -70,48 +52,33 @@ public class UserDataImpl implements UserDataService{
 	}
 	
 	public UserPO getUser (int userID){
-		return map.get(userID);
+		return userDataHelper.getUser(userID);
 	}
 	
 	public ResultMessage update (UserPO user){
-		int userId = user.getuserId();
-		if(map.get(userId) != null){
-			map.put(userId,user);
-			userDataHelper.update(user);
-			return success;
-		}
-		return fail;
+		return	userDataHelper.update(user);
 	}
 	
-	public List<UserPO> searchUser(String username, String realName){
-		return userDataHelper.searchUser(username, realName);
+	public List<UserPO> searchUser(String username, String realName, UserType type){
+		return userDataHelper.searchUser(username, realName, type);
 	}
 	
-	public double getCreditBalance (int userID){
-		UserPO user=map.get(userID);
-		double credit=user.getcredit();
-		return credit;
+	public ResultMessage getCreditBalance (int userID){
+		return userDataHelper.getCreditBalance(userID);
 	}
 	
 	public ResultMessage addCredit (int userID, double addition){
-		UserPO userPO=map.get(userID);
-		double credit=userPO.getcredit();
-		credit=credit+addition;
-		userPO.setcredit(credit);
-		map.put(userID,userPO);
-		return userDataHelper.update(userPO);
+		return userDataHelper.addCredit(userID, addition);
 	}
 
 	@Override
-	public UserPO getUser(String username, String password) {
-		// TODO Auto-generated method stub
-		return null;
+	public List<UserPO> hotelStaffList(int cityID, int districtID) {
+		    return userDataHelper.hotelStaffList(cityID, districtID);
 	}
 
 	@Override
-	public List<UserPO> searchHotelStaff(int cityID, int districtID) {
-		// TODO Auto-generated method stub
-		return null;
+	public List<UserPO> marketerList() {
+		return userDataHelper.marketerList();
 	}
 
 }

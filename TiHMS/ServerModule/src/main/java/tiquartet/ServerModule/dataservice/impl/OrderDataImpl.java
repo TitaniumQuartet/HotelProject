@@ -11,8 +11,6 @@ import tiquartet.ServerModule.dataservice.orderdataservice.OrderDataService;
 import tiquartet.ServerModule.po.OrderPO;
 
 public class OrderDataImpl implements OrderDataService{
-
-	private Map<Long, OrderPO> map;
 	
 	private OrderDataHelper orderDataHelper;
 	
@@ -30,10 +28,9 @@ public class OrderDataImpl implements OrderDataService{
 	}
 	
 	public OrderDataImpl(){
-		if(map == null){
+		if(dataFactory == null){
 			dataFactory = new DataFactory();
 			orderDataHelper = dataFactory.getOrderDataHelper();
-			map = orderDataHelper.getOrder();
 		}
 	}
 	
@@ -46,46 +43,32 @@ public class OrderDataImpl implements OrderDataService{
 	}
 	
 	public ResultMessage update(OrderPO order){
-		long orderId = order.getorderId();
-		if(map.get(orderId) != null){
-			orderDataHelper.update(order);
-			return success;
-		}
-		return fail;
+		return orderDataHelper.update(order);
 	}
 	
 	public List<OrderPO> searchByHotel (int hotelID, OrderStatus status){
-		List<OrderPO> orderList = new ArrayList<OrderPO>();
-		Iterator<Map.Entry<Long,OrderPO>> iterator = map.entrySet().iterator();
-		while(iterator.hasNext()){
-			Map.Entry<Long, OrderPO> entry = iterator.next();
-			OrderPO orderPo = entry.getValue();
-			if(orderPo.gethotelId() == hotelID&&orderPo.getorderStatus() == status){
-				orderList.add(orderPo);
-			}
-		}
-		return orderList;
+		return orderDataHelper.searchByHotel(hotelID, status);
 	}
 	
 	public List<OrderPO> searchByUser (int hotelID, int userID){
-		List<OrderPO> orderList = new ArrayList<OrderPO>();
-		Iterator<Map.Entry<Long,OrderPO>> iterator = map.entrySet().iterator();
-		while(iterator.hasNext()){
-			Map.Entry<Long, OrderPO> entry = iterator.next();
-			OrderPO orderPo = entry.getValue();
-			if(orderPo.gethotelId() == hotelID && orderPo.getuserId() == userID){
-				orderList.add(orderPo);
-			}
-		}
-		return orderList;
+		return orderDataHelper.searchByUser(hotelID, userID);
 	}
 	
 	public OrderPO getOrderByID (long orderID){
-		OrderPO orderpo=map.get(orderID);
-		return orderpo;
+		return orderDataHelper.getOrderByID(orderID);
 	}
 	
 	public int countOrder (int userID, OrderStatus status){
-		return 0;
+		return orderDataHelper.countOrder(userID, status);
+	}
+
+	@Override
+	public ResultMessage preOrder(OrderPO preOrder) {
+		return orderDataHelper.insert(preOrder);
+	}
+
+	@Override
+	public ResultMessage cancelPreOrder(OrderPO preOrder) {
+		return orderDataHelper.cancelPreOrder(preOrder);
 	}
 }

@@ -38,18 +38,6 @@ public class RoomDataImpl implements RoomDataService{
 	}
 
 	@Override
-	public ResultMessage preOrder(OrderPO preOrder) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public ResultMessage cancelPreOrder(OrderPO preOrder) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
 	public List<RoomTypePO> availableRoomType(int hotelID, String startDate, String endDate, int numOfRoom) {
 		// TODO Auto-generated method stub
 		return null;
