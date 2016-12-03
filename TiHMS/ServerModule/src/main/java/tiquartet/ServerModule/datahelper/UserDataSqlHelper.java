@@ -32,7 +32,7 @@ public class UserDataSqlHelper implements UserDataHelper{
 			int userId=rs.getInt(1);
         	String userName=rs.getString(2);
 		    String password=rs.getString(3);
-		    String userType=rs.getString(4);
+		    UserType userType=UserType.values()[rs.getInt(4)];
 		    String realName=rs.getString(5);
 		    double credit=rs.getDouble(6);
 		    String birthday=rs.getString(7);
@@ -40,7 +40,8 @@ public class UserDataSqlHelper implements UserDataHelper{
 		    boolean isMember=rs.getBoolean(9);
 		    String company=rs.getString(10);
 		    int hotelId=rs.getInt(11);
-		    UserPO userpo=new UserPO(userId,userName,password,userType,realName,credit,birthday,memberRank,isMember,company,hotelId);
+		    boolean login=rs.getBoolean(12);
+		    UserPO userpo=new UserPO(userId,userName,password,userType,realName,credit,birthday,memberRank,isMember,company,hotelId,login);
 	    	return userpo;
 		}catch (SQLException e) {
 	        e.printStackTrace();
@@ -104,15 +105,14 @@ public class UserDataSqlHelper implements UserDataHelper{
 	 */
 	public ResultMessage insert (UserPO user){
 		Connection conn = getConn();
-	    int i = 0;
-	    String sql = "insert into user(userId,userName,password,userType,realName,credit,birthday,memberRank,isMember,company,hotelId) values(?,?,?,?,?,?,?,?,?,?,?)";
+	    String sql = "insert into user(userId,userName,password,userType,realName,credit,birthday,memberRank,isMember,company,hotelId,login) values(?,?,?,?,?,?,?,?,?,?,?,?)";
 	    PreparedStatement pstmt;
 	    try {
 	        pstmt = (PreparedStatement) conn.prepareStatement(sql);
 	        pstmt.setInt(1, user.getuserId());
 	        pstmt.setString(2, user.getuserName());
 	        pstmt.setString(3, user.getpassword());
-	        pstmt.setString(4, user.getuserType());
+	        pstmt.setInt(4, user.getTypeAsInt());
 	        pstmt.setString(5, user.getrealName());
 	        pstmt.setDouble(6, user.getcredit());
 	        pstmt.setString(7, user.getbirthday());
@@ -120,7 +120,8 @@ public class UserDataSqlHelper implements UserDataHelper{
 	        pstmt.setBoolean(9, user.getisMember());  
 	        pstmt.setString(10, user.getcompany());  
 	        pstmt.setInt(11, user.gethotelId());  
-	        i = pstmt.executeUpdate();
+	        pstmt.setBoolean(12, user.getLogin());  
+	        pstmt.executeUpdate();
 	        pstmt.close();
 	        conn.close();
 	    } catch (SQLException e) {
@@ -138,7 +139,7 @@ public class UserDataSqlHelper implements UserDataHelper{
 		Connection conn = getConn();
 	    String sql = "update user set userName='" + userPO.getuserName() +
 	    		"set password='" + userPO.getpassword() +
-	    		"set userType='" + userPO.getuserType() +
+	    		"set userType='" + userPO.getTypeAsInt() +
 	    		"set realName='" + userPO.getrealName() +
 	    		"set credit='" + userPO.getcredit() +
 	    		"set birthday='" + userPO.getbirthday() +
@@ -146,7 +147,8 @@ public class UserDataSqlHelper implements UserDataHelper{
 	    		"set isMember='" + userPO.getisMember() +
 	    		"set company='" + userPO.getcompany() +
 	    		"set hotelId='" + userPO.gethotelId() +
-	            "' where userId='" + userPO.getuserId() + "'";
+	    		"set login='" + userPO.getLogin() +
+	            " where userId='" + userPO.getuserId();
 	    PreparedStatement pstmt;
 	    try {
 	        pstmt = (PreparedStatement) conn.prepareStatement(sql);

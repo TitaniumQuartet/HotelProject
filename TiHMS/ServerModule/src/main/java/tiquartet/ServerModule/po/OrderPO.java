@@ -2,6 +2,11 @@ package tiquartet.ServerModule.po;
 
 import java.io.Serializable;
 import java.util.HashMap;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Set;
+
+import javax.swing.text.html.HTMLDocument.Iterator;
 
 import tiquartet.CommonModule.util.OrderStatus;
 import tiquartet.CommonModule.vo.OrderVO;
@@ -63,14 +68,24 @@ public class OrderPO implements Serializable{
 		
 	}
 	
-	public OrderPO(long orderId,String latestTime,int numberOfRoom,int numberOfPeople,int child,String realName,int hotelId){
+	public OrderPO(long orderId,OrderStatus orderStatus,String latestTime,HashMap<Integer, String> roomMap,int numberOfRoom,int numberOfPeople,int child,String guestRealName,String clientRealName,String hotelName,int userId,String userName,String startTime,String leaveTime,double price,int hotelId){
 		super();
 		this.orderId=orderId;
+		this.orderStatus=orderStatus;
 		this.latestTime=latestTime;
 		this.numberOfRoom=numberOfRoom;
 		this.numberOfPeople=numberOfPeople;
 		this.child=child;
-		this.clientRealName=realName;
+		this.roomMap=roomMap;
+		this.clientRealName=clientRealName;
+		this.guestRealName=guestRealName;
+		this.hotelName=hotelName;
+		this.startTime=startTime;
+		this.leaveTime=leaveTime;
+		this.price=price;
+
+		this.userId=userId;
+		this.userName=userName;
 		this.hotelId=hotelId;
 	}
 	
@@ -104,6 +119,25 @@ public class OrderPO implements Serializable{
 	
 	public void setRoomMap(HashMap<Integer, String> roomMap) {
 		this.roomMap = roomMap;
+	}
+	
+	/**
+	 * 得到房间号和房间编号组成的字符串.
+	 * @return
+	 */
+	public String getroom(){
+		String roomn = "";
+		String roomi = "";
+		java.util.Iterator<Entry<Integer, String>> i = roomMap.entrySet().iterator();  
+		while(i.hasNext()){ 
+			Map.Entry entry = (Map.Entry) i.next();  
+		    Object key = entry.getKey();  
+		    Object val = entry.getValue();
+		    roomn=roomn + key.toString();
+		    roomi = roomi + val.toString();
+		}  
+		String result=roomn + ";" + roomi;
+		return result;
 	}
 	
 	public int getnumberOfPeople(){
@@ -184,6 +218,22 @@ public class OrderPO implements Serializable{
 	
 	public OrderStatus getorderStatus(){
 		return this.orderStatus;
+	}
+	
+	/**
+	 * 得到枚举类型的序号以便在数据库中存储.
+	 * @return
+	 */
+	public int getorderStatusAsInt(){
+		return this.orderStatus.ordinal();
+	}
+	
+	public void sethotellName(String hotelName){
+		this.hotelName=hotelName;
+	}
+	
+	public String gethotelName(){
+		return this.hotelName;
 	}
 	
 	public void setclientRealName(String clientRealName){

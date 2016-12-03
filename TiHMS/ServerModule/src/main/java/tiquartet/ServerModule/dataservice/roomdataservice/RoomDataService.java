@@ -15,5 +15,6 @@ public interface RoomDataService {
 	public ResultMessage insertType(int hotelID, RoomTypePO room);
 	public ResultMessage updateType(int hotelID, RoomTypePO room);
 	public ResultMessage deleteType(int hotelID, RoomTypePO room);
+	public List<RoomPO> getRoomList (int hotelID);
 	
 }

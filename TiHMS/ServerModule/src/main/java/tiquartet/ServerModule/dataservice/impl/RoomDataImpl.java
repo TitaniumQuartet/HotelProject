@@ -12,8 +12,6 @@ import tiquartet.ServerModule.po.*;
 
 public class RoomDataImpl implements RoomDataService{
 
-	private Map<Integer, RoomPO> map;
-	
 	private RoomDataHelper roomDataHelper;
 	
 	private DataFactoryService dataFactory;
@@ -30,10 +28,9 @@ public class RoomDataImpl implements RoomDataService{
 	}
 	
 	public RoomDataImpl(){
-		if(map == null){
+		if(dataFactory == null){
 			dataFactory = new DataFactory();
 			roomDataHelper = dataFactory.getRoomDataHelper();
-			map = roomDataHelper.getRoom();
 		}
 	}
 
@@ -87,6 +84,12 @@ public class RoomDataImpl implements RoomDataService{
 
 	@Override
 	public ResultMessage deleteType(int hotelID, RoomTypePO room) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<RoomPO> getRoomList(int hotelID) {
 		// TODO Auto-generated method stub
 		return null;
 	}

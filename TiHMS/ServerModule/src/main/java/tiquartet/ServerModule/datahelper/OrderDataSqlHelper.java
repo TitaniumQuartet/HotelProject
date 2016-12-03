@@ -1,5 +1,4 @@
 package tiquartet.ServerModule.datahelper;
-
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -8,8 +7,6 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-
 import tiquartet.CommonModule.util.OrderStatus;
 import tiquartet.CommonModule.util.ResultMessage;
 import tiquartet.ServerModule.datahelper.service.OrderDataHelper;
@@ -34,16 +31,40 @@ public class OrderDataSqlHelper implements OrderDataHelper{
 	    return conn;
 	}
 	
+	public HashMap<Integer, String> transform(String roomNumber,String roomId){
+		String[] roomn=roomNumber.split(",");
+		String[] roomi=roomId.split(",");
+		HashMap<Integer, String> map=new HashMap<Integer, String>();
+		int l=roomn.length;
+		int[] num = new int[l];
+		for(int i=0;i<l;i++){
+			num[i]=Integer.valueOf(roomn[i]);
+			map.put(num[i], roomi[i]);
+		}
+		return map;
+	}
+	
 	public OrderPO createorderpo(ResultSet rs){
 		try{
 			long orderId=rs.getLong(1);
-        	String latestTime=rs.getString(2);
-		    int numberOfRoom=rs.getInt(3);
-		    int numberOfPeople=rs.getInt(4);
-		    int child=rs.getInt(5);
-		    String realName=rs.getString(6);
-		    int hotelId=rs.getInt(7);
-		    OrderPO orderpo=new OrderPO(orderId,latestTime,numberOfRoom,numberOfPeople,child,realName,hotelId);
+			OrderStatus orderStatus=OrderStatus.values()[rs.getInt(2)];
+        	String latestTime=rs.getString(3);
+        	String roomNumber=rs.getString(4);
+        	String roomId=rs.getString(5);
+		    int numberOfRoom=rs.getInt(6);
+		    int numberOfPeople=rs.getInt(7);
+		    int child=rs.getInt(8);
+		    String guestRealName=rs.getString(9);
+		    String clientRealName=rs.getString(10);
+		    String hotelName=rs.getString(11);
+		    int userId=rs.getInt(12);
+		    String userName=rs.getString(13);
+		    String startTime=rs.getString(14);
+		    String leaveTime=rs.getString(15);
+		    double price=rs.getDouble(16);
+		    int hotelId=rs.getInt(17);
+		    HashMap<Integer, String> roomMap=transform(roomNumber, roomId);
+		    OrderPO orderpo=new OrderPO(orderId,orderStatus,latestTime,roomMap,numberOfRoom,numberOfPeople,child,guestRealName,clientRealName,hotelName,userId,userName,startTime,leaveTime,price,hotelId);
 		    return orderpo;
 		}catch (Exception e) {
 			e.printStackTrace();
@@ -57,17 +78,28 @@ public class OrderDataSqlHelper implements OrderDataHelper{
 	
 	public ResultMessage insert(OrderPO order) {
 		Connection conn = getConn();
-	    String sql = "insert into order(orderId,latestTime,numberOfRoom,numberOfPeople,child,realName,hotelId,status) values(?,?,?,?,?,?,?,?,?,?,?)";
+	    String sql = "insert into order(orderId,orderStatus,latestTime,roomNumber,roomId,numberOfRoom,numberOfPeople,child,guestRealName,clientRealName,hotelName,userId,userName,startTime,leaveTime,price,hotelId) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 	    PreparedStatement pstmt;
 	    try {
+	    	String[] room=order.getroom().split(";");
 	        pstmt = (PreparedStatement) conn.prepareStatement(sql);
 	        pstmt.setLong(1, order.getorderId());
-	        pstmt.setString(2, order.getlatestTime());
-	        pstmt.setInt(3, order.getnumberOfRoom());
-	        pstmt.setInt(4, order.getnumberOfPeople());
-	        pstmt.setInt(5, order.getchild());
-	        pstmt.setString(6, order.getclientRealName());
-	        pstmt.setInt(7, order.gethotelId());
+	        pstmt.setInt(2,order.getorderStatusAsInt());
+	        pstmt.setString(3, order.getlatestTime());
+	        pstmt.setString(4, room[0]);
+	        pstmt.setString(5, room[1]);
+	        pstmt.setInt(6, order.getnumberOfRoom());
+	        pstmt.setInt(7, order.getnumberOfPeople());
+	        pstmt.setInt(8, order.getchild());
+	        pstmt.setString(9, order.getguestRealName());
+	        pstmt.setString(10, order.getclientRealName());
+	        pstmt.setString(11, order.gethotelName());
+	        pstmt.setInt(12, order.getuserId());
+	        pstmt.setString(13, order.getuserName());
+	        pstmt.setString(14, order.getstartTime());
+	        pstmt.setString(15, order.getleaveTime());
+	        pstmt.setDouble(16, order.getprice());
+	        pstmt.setInt(17, order.gethotelId());
 	        pstmt.executeUpdate();
 	        pstmt.close();
 	        conn.close();
@@ -80,12 +112,23 @@ public class OrderDataSqlHelper implements OrderDataHelper{
 
 	public ResultMessage update(OrderPO order) {
 		Connection conn = getConn();
+		String[] room=order.getroom().split(";");
 	    String sql = "update user set lastestTime='" + order.getlatestTime() +
 	    		"set numberOfRoom='" + order.getnumberOfRoom() +
 	    		"set numberOfPeople='" + order.getnumberOfPeople() +
 	    		"set child='" + order.getchild() +
 	    		"set realName='" + order.getclientRealName() +
 	    		"set hotelId='" + order.gethotelId() +
+	    		"set guestRealName='" + order.getguestRealName() +
+	    		"set hotelName='" + order.gethotelName() +
+	    		"set orderStatus='" + order.getorderStatusAsInt() +
+	    		"set price='" + order.getprice() +
+	    		"set startTime='" + order.getstartTime() +
+	    		"set leaveTime='" + order.getleaveTime() +
+	    		"set userName='" + order.getuserName() +
+	    		"set userId='" + order.getuserId() +
+	    		"set roomNumber='" + room[0] +
+	    		"set roomId='" + room[1] +
 	            " where orderId = " + order.getorderId() ;
 	    PreparedStatement pstmt;
 	    try {
@@ -103,7 +146,7 @@ public class OrderDataSqlHelper implements OrderDataHelper{
 	public int countOrder(int userID, OrderStatus status) {
 		Connection conn = getConn();
 		int i=0;
-		String sql="select * from order where userId = " + userID + "AND status = " + status;
+		String sql="select * from order where userId = " + userID + "AND orderStatus = " + status;
 		PreparedStatement pstmt;
 		try {
 			pstmt = (PreparedStatement) conn.prepareStatement(sql);
@@ -141,7 +184,7 @@ public class OrderDataSqlHelper implements OrderDataHelper{
 	public List<OrderPO> searchByHotel(int hotelID, OrderStatus status) {
 		Connection conn = getConn();
 		List<OrderPO> orders=new ArrayList<OrderPO>();
-		String sql="select * from order where hotelId = " + hotelID + "AND status = " + status;
+		String sql="select * from order where hotelId = " + hotelID + "AND orderStatus = " + status;
 		PreparedStatement pstmt;
 		try {
 			pstmt = (PreparedStatement) conn.prepareStatement(sql);
