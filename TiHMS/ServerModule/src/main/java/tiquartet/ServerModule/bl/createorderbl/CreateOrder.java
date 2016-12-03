@@ -2,7 +2,6 @@ package tiquartet.ServerModule.bl.createorderbl;
 
 import tiquartet.CommonModule.vo.PreOrderVO;
 import tiquartet.CommonModule.vo.StrategyVO;
-import tiquartet.ServerModule.datahelper.DataFactory;
 import tiquartet.ServerModule.dataservice.impl.OrderDataImpl;
 import tiquartet.ServerModule.dataservice.impl.StrategyDataImpl;
 import tiquartet.ServerModule.dataservice.impl.UserDataImpl;
@@ -14,7 +13,6 @@ import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.List;
 
-import tiquartet.CommonModule.util.OrderStatus;
 import tiquartet.CommonModule.util.ResultMessage;
 
 public class CreateOrder{	
@@ -65,10 +63,10 @@ public class CreateOrder{
 		for(int i=0;i<list.size();i++){
 			if(list.get(i).userID==userID){
 				list.remove(i);
-				break;
+				return new ResultMessage(true);
 			}
 		}
-		return new ResultMessage(true);
+		return new ResultMessage(false,"找不到该订单","");
 	}
 	
 	public ResultMessage confirm(OrderInfoVO orderInfo)throws RemoteException{
@@ -78,20 +76,7 @@ public class CreateOrder{
 				preorder=list.get(i);
 			}
 		}
-		OrderPO order=new OrderPO();
-		order.setchild(orderInfo.kids);
-		order.setclientRealName(preorder.clientRealName);
-		order.setguestRealName(orderInfo.guestRealName);
-		order.sethotelId(orderInfo.hotelID);
-		order.setlatestTime(orderInfo.lastTime);
-		order.setleaveTime(preorder.leaveTime);
-		order.setnumberOfPeople(orderInfo.numOfGuest);
-		order.setnumberOfRoom(preorder.numOfRoom);
-		order.setorderStatus(OrderStatus.UNEXECUTED);
-		order.setprice(orderInfo.price);
-		order.setstartTime(preorder.startTime);
-		order.setuserId(orderInfo.userID);
-		order.setuserName(preorder.userName);
+		OrderPO order=new OrderPO(orderInfo,preorder);
 		return orderdataimpl.insert(order);
 	}
 	
