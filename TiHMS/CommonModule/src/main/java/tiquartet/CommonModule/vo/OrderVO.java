@@ -31,6 +31,8 @@ public class OrderVO {
 		public String startTime;
 		//离店日期
 		public String leaveTime;
+		//订单生成日期
+		public String orderTime;
 		//订单价格
 		public double price;
 		//订单状态

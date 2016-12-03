@@ -43,6 +43,8 @@ public class OrderPO implements Serializable{
 	private String startTime;
 	//离店日期
 	private String leaveTime;
+	//订单生成日期
+	private String orderTime;
 	//订单价格
 	private double price;
 	
@@ -60,6 +62,7 @@ public class OrderPO implements Serializable{
 		this.clientRealName=vo.clientrealName;
 		this.guestRealName=vo.guestrealName;
 		this.startTime=vo.startTime;
+		this.orderTime=vo.orderTime;
 		this.userId=vo.userId;
 		this.userName=vo.userName;
 	}
@@ -68,7 +71,7 @@ public class OrderPO implements Serializable{
 		
 	}
 	
-	public OrderPO(long orderId,OrderStatus orderStatus,String latestTime,HashMap<Integer, String> roomMap,int numberOfRoom,int numberOfPeople,int child,String guestRealName,String clientRealName,String hotelName,int userId,String userName,String startTime,String leaveTime,double price,int hotelId){
+	public OrderPO(long orderId,OrderStatus orderStatus,String latestTime,HashMap<Integer, String> roomMap,int numberOfRoom,int numberOfPeople,int child,String guestRealName,String clientRealName,String hotelName,int userId,String userName,String startTime,String leaveTime,String orderTime,double price,int hotelId){
 		super();
 		this.orderId=orderId;
 		this.orderStatus=orderStatus;
@@ -82,6 +85,7 @@ public class OrderPO implements Serializable{
 		this.hotelName=hotelName;
 		this.startTime=startTime;
 		this.leaveTime=leaveTime;
+		this.orderTime=orderTime;
 		this.price=price;
 
 		this.userId=userId;
@@ -204,6 +208,14 @@ public class OrderPO implements Serializable{
 		return this.leaveTime;
 	}
 	
+	public void setorderTime(String orderTime){
+		this.orderTime=orderTime;
+	}
+
+	public String getorderTime(){
+		return this.orderTime;
+	}
+	
 	public void setprice(double price){
 		this.price=price;
 	}
@@ -256,6 +268,7 @@ public class OrderPO implements Serializable{
 		vo.clientrealName=this.clientRealName;
 		vo.guestrealName=this.guestRealName;
 		vo.startTime=this.startTime;
+		vo.orderTime=this.orderTime;
 		vo.userId=this.userId;
 		vo.userName=this.userName;
 		vo.orderStatus=this.orderStatus;

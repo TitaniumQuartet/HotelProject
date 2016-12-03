@@ -20,7 +20,7 @@ public class ClientApp extends Application {
 		HMSClient.setMainStage(primaryStage);
 		Scene loginScene = new Scene(
 				FXMLLoader
-						.load(getClass().getResource("/fxml/usermainui/login.fxml")),
+						.load(getClass().getResource("/fxml/adminui/adminMain.fxml")),
 				1280, 800);
 		primaryStage.initStyle(StageStyle.DECORATED);
 		primaryStage.setScene(loginScene);
