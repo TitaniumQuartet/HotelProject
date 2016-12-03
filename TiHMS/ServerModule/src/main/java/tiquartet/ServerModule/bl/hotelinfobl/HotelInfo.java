@@ -4,7 +4,6 @@ import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.List;
 
-import tiquartet.ServerModule.datahelper.DataFactory;
 import tiquartet.ServerModule.dataservice.impl.HotelInfoDataImpl;
 import tiquartet.ServerModule.dataservice.impl.ReviewDataImpl;
 import tiquartet.ServerModule.dataservice.impl.RoomDataImpl;
@@ -39,7 +38,7 @@ public class HotelInfo implements HotelInfoBLService{
 		hotelbrief.star=hp.getstar();
 		OrderNumVO onp=manageordercontroller.numAtHotel(hotelID,userID);
 		hotelbrief.numOfAllOrder=onp.allOrder;
-		hotelbrief.numOfEndOrder=onp.executedOrder;
+		hotelbrief.numOfExecutedOrder=onp.executedOrder;
 		return hotelbrief;
 	}
 	
@@ -62,7 +61,7 @@ public class HotelInfo implements HotelInfoBLService{
 	    for(int i=0;i<list.size();i++){
 	    	ReviewVO rv=new ReviewVO();
 	    	rv=list.get(i).toReviewvo();
-	    	hoteldetails.list.add(rv);
+	    	hoteldetails.reviewList.add(rv);
 	    	
 	    }
 		return hoteldetails;
