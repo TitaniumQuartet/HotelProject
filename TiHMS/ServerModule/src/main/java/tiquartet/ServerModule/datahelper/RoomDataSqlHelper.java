@@ -55,9 +55,8 @@ public class RoomDataSqlHelper implements RoomDataHelper{
 	    return success;
 	}
 	
-	public List<RoomTypePO> availableRoomType(int hotelID, String startDate,
-			String endDate, int numOfRoom) {
-		// TODO Auto-generated method stub
+	public List<RoomTypePO> availableRoomType(int hotelID, String startDate, String endDate, int numOfRoom) {
+		
 		return null;
 	}
 
@@ -112,7 +111,7 @@ public class RoomDataSqlHelper implements RoomDataHelper{
 	@Override
 	public ResultMessage insertType(RoomTypePO room) {
 		Connection conn = getConn();
-	    String sql = "insert into roomType(roomTypeId,typeIntro,price,roomType) values(?,?,?,?)";
+	    String sql = "insert into roomType(roomTypeId,typeIntro,price,roomType,hotelId) values(?,?,?,?,?)";
 	    PreparedStatement pstmt;
 	    try {
 	        pstmt = (PreparedStatement) conn.prepareStatement(sql);
@@ -120,6 +119,7 @@ public class RoomDataSqlHelper implements RoomDataHelper{
 	        pstmt.setString(2, room.gettypeIntroduction());
 	        pstmt.setDouble(3, room.getprice());
 	        pstmt.setString(4, room.getroomType()); 
+	        pstmt.setInt(5, room.gethotelId());
 	        pstmt.executeUpdate();
 	        pstmt.close();
 	        conn.close();

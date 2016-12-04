@@ -233,6 +233,21 @@ public class UserDataSqlHelper implements UserDataHelper{
 	    }
 	    return success;
 	}
+	
+	public UserPO accurateSearch (String username){
+		Connection conn = getConn();
+		String sql="select * from user where userName ="+username;
+		PreparedStatement pstmt;
+		try {
+			pstmt = (PreparedStatement) conn.prepareStatement(sql);
+	        ResultSet rs = pstmt.executeQuery();
+	        UserPO userpo=createuserpo(rs);
+	        return userpo;
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
 
 
 	@Override

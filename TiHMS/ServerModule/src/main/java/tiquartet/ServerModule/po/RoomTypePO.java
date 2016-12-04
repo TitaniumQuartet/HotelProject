@@ -21,7 +21,7 @@ public class RoomTypePO implements Serializable{
 		
 	}
 	
-	public RoomTypePO(int roomTypeId,String roomType,String typeIntroduction,int price,int hotelId){
+	public RoomTypePO(int roomTypeId,String roomType,String typeIntroduction,double price,int hotelId){
 		super();
 		this.roomTypeId=roomTypeId;
 		this.roomType=roomType;

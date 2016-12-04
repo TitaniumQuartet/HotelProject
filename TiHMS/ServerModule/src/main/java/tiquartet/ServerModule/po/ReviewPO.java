@@ -41,7 +41,7 @@ public class ReviewPO implements Serializable{
 		this.time=time;
 	}
 	
-	public long gethotelId(){
+	public int gethotelId(){
 		return hotelId;
 	}
 	

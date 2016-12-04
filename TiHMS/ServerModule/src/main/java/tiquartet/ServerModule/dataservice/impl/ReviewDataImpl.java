@@ -12,8 +12,6 @@ import tiquartet.ServerModule.po.ReviewPO;
 
 public class ReviewDataImpl implements ReviewDataService{
 
-	private Map<Integer, ReviewPO> map;
-	
 	private ReviewDataHelper reviewDataHelper;
 	
 	private DataFactoryService dataFactory;
@@ -28,26 +26,24 @@ public class ReviewDataImpl implements ReviewDataService{
 	}
 	
 	public ReviewDataImpl(){
-		if(map == null){
+		if(dataFactory == null){
 			dataFactory = new DataFactory();
 			reviewDataHelper = dataFactory.getReviewDataHelper();
-			map = reviewDataHelper.searchByHotel();
 		}
 	}
 	
 	ResultMessage success=new ResultMessage(true);
 	
 	ResultMessage fail=new ResultMessage(false);
+	
 	@Override
 	public List<ReviewPO> searchByHotel(int hotelID) {
-		// TODO Auto-generated method stub
-		return null;
+		return reviewDataHelper.searchByHotel(hotelID);
 	}
 
 	@Override
 	public ResultMessage insert(ReviewPO review) {
-		// TODO Auto-generated method stub
-		return null;
+		return reviewDataHelper.insert(review);
 	}
 
 }

@@ -23,5 +23,6 @@ public interface UserDataHelper {
 	public ResultMessage addCredit (int userID, double addition);
 	public List<UserPO> hotelStaffList(int cityID, int distrcitID);
 	public List<UserPO> marketerList();
+	public UserPO accurateSearch (String username);
 	
 }

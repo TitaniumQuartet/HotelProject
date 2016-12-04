@@ -70,6 +70,10 @@ public class UserDataImpl implements UserDataService{
 	public ResultMessage addCredit (int userID, double addition){
 		return userDataHelper.addCredit(userID, addition);
 	}
+	
+	public UserPO accurateSearch (String username){
+		return userDataHelper.accurateSearch(username);
+	}
 
 	@Override
 	public List<UserPO> hotelStaffList(int cityID, int districtID) {

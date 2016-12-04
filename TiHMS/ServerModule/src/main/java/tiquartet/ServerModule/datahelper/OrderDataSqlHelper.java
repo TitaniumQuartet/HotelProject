@@ -61,10 +61,11 @@ public class OrderDataSqlHelper implements OrderDataHelper{
 		    String userName=rs.getString(13);
 		    String startTime=rs.getString(14);
 		    String leaveTime=rs.getString(15);
-		    double price=rs.getDouble(16);
-		    int hotelId=rs.getInt(17);
+		    double price=rs.getDouble(17);
+		    int hotelId=rs.getInt(18);
+		    String orderTime=rs.getString(16);
 		    HashMap<Integer, String> roomMap=transform(roomNumber, roomId);
-		    OrderPO orderpo=new OrderPO(orderId,orderStatus,latestTime,roomMap,numberOfRoom,numberOfPeople,child,guestRealName,clientRealName,hotelName,userId,userName,startTime,leaveTime,price,hotelId);
+		    OrderPO orderpo=new OrderPO(orderId,orderStatus,latestTime,roomMap,numberOfRoom,numberOfPeople,child,guestRealName,clientRealName,hotelName,userId,userName,startTime,leaveTime,orderTime,price,hotelId);
 		    return orderpo;
 		}catch (Exception e) {
 			e.printStackTrace();
@@ -78,7 +79,7 @@ public class OrderDataSqlHelper implements OrderDataHelper{
 	
 	public ResultMessage insert(OrderPO order) {
 		Connection conn = getConn();
-	    String sql = "insert into order(orderId,orderStatus,latestTime,roomNumber,roomId,numberOfRoom,numberOfPeople,child,guestRealName,clientRealName,hotelName,userId,userName,startTime,leaveTime,price,hotelId) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+	    String sql = "insert into order(orderId,orderStatus,latestTime,roomNumber,roomId,numberOfRoom,numberOfPeople,child,guestRealName,clientRealName,hotelName,userId,userName,startTime,leaveTime,price,hotelId) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 	    PreparedStatement pstmt;
 	    try {
 	    	String[] room=order.getroom().split(";");
@@ -98,8 +99,9 @@ public class OrderDataSqlHelper implements OrderDataHelper{
 	        pstmt.setString(13, order.getuserName());
 	        pstmt.setString(14, order.getstartTime());
 	        pstmt.setString(15, order.getleaveTime());
-	        pstmt.setDouble(16, order.getprice());
-	        pstmt.setInt(17, order.gethotelId());
+	        pstmt.setString(16, order.getorderTime());
+	        pstmt.setDouble(17, order.getprice());
+	        pstmt.setInt(18, order.gethotelId());
 	        pstmt.executeUpdate();
 	        pstmt.close();
 	        conn.close();
@@ -129,6 +131,7 @@ public class OrderDataSqlHelper implements OrderDataHelper{
 	    		"set userId='" + order.getuserId() +
 	    		"set roomNumber='" + room[1] +
 	    		"set roomId='" + room[0] +
+	    		"set orderTime='" + order.getorderTime() +
 	            " where orderId = " + order.getorderId() ;
 	    PreparedStatement pstmt;
 	    try {

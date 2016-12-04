@@ -1,6 +1,5 @@
 package tiquartet.ServerModule.dataservice.impl;
 
-import java.sql.Connection;
 import java.util.List;
 import java.util.Map;
 
@@ -12,8 +11,6 @@ import tiquartet.ServerModule.dataservice.strategydataservice.StrategyDataServic
 import tiquartet.ServerModule.po.StrategyPO;
 
 public class StrategyDataImpl implements StrategyDataService{
-
-	private Map<Integer, StrategyPO> map;
 	
 	private StrategyDataHelper strategyDataHelper;
 	
@@ -29,10 +26,9 @@ public class StrategyDataImpl implements StrategyDataService{
 	}
 	
 	public StrategyDataImpl(){
-		if(map == null){
+		if(dataFactory == null){
 			dataFactory = new DataFactory();
 			strategyDataHelper = dataFactory.getStrategyDataHelper();
-			map = strategyDataHelper.searchByHotel();
 		}
 	}
 	
@@ -42,26 +38,22 @@ public class StrategyDataImpl implements StrategyDataService{
 	
 	@Override
 	public List<StrategyPO> searchByHotel(int hotelID) {
-		// TODO Auto-generated method stub
-		return null;
+		return strategyDataHelper.searchByHotel(hotelID);
 	}
 
 	@Override
 	public ResultMessage insert(StrategyPO strategy) {
-		// TODO Auto-generated method stub
-		return null;
+		return strategyDataHelper.insert(strategy);
 	}
 
 	@Override
 	public ResultMessage delete(int strategyID) {
-		// TODO Auto-generated method stub
-		return null;
+		return strategyDataHelper.delete(strategyID);
 	}
 
 	@Override
 	public ResultMessage update(StrategyPO strategy) {
-		// TODO Auto-generated method stub
-		return null;
+		return strategyDataHelper.update(strategy);
 	}
 
 }

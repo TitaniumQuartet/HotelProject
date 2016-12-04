@@ -48,7 +48,7 @@ public class HotelInfoPO implements Serializable{
 		this.serviceIntroduction=hotelInfovo.serviceIntroduction;
 		this.star=hotelInfovo.star;
 	}
-	public HotelInfoPO(int hotelId,String hotelName,int star,String address,String introduction,String service){
+	public HotelInfoPO(int hotelId,String hotelName,int star,String address,String introduction,String service,int circleId,String circleName,double lowprice,double highprice,double averageGrade,String cityName){
 		super();
 		this.hotelId=hotelId;
 		this.hotelName=hotelName;
@@ -56,6 +56,12 @@ public class HotelInfoPO implements Serializable{
 		this.address=address;
 		this.hotelIntroduction=introduction;
 		this.serviceIntroduction=service;
+		this.circleId=circleId;
+		this.circleName=circleName;
+		this.lowprice=lowprice;
+		this.highprice=highprice;
+		this.averageGrade=averageGrade;
+		this.cityName=circleName;
 	}
 	
 	public int gethotelId(){
