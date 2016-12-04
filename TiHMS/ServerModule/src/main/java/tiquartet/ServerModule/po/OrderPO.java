@@ -10,6 +10,7 @@ import javax.swing.text.html.HTMLDocument.Iterator;
 
 import tiquartet.CommonModule.util.OrderStatus;
 import tiquartet.CommonModule.vo.OrderVO;
+import tiquartet.CommonModule.vo.PreOrderVO;
 
 
 public class OrderPO implements Serializable{
@@ -70,7 +71,16 @@ public class OrderPO implements Serializable{
 	public OrderPO(){
 		
 	}
-	
+	public OrderPO(PreOrderVO preorder){
+		this.clientRealName=preorder.clientRealName;
+		this.hotelId=preorder.hotelID;
+		this.hotelName=preorder.hotelName;
+		this.leaveTime=preorder.leaveTime;
+		this.startTime=preorder.startTime;
+		this.numberOfRoom=preorder.numOfRoom;
+		this.userId=preorder.userID;
+		this.userName=preorder.userName;
+	}
 	public OrderPO(long orderId,OrderStatus orderStatus,String latestTime,HashMap<Integer, String> roomMap,int numberOfRoom,int numberOfPeople,int child,String guestRealName,String clientRealName,String hotelName,int userId,String userName,String startTime,String leaveTime,String orderTime,double price,int hotelId){
 		super();
 		this.orderId=orderId;
@@ -97,7 +107,7 @@ public class OrderPO implements Serializable{
 		return orderId;
 	}
 	
-	public void setorderId(int orderId){
+	public void setorderId(long orderId){
 		this.orderId=orderId;
 	}
 	

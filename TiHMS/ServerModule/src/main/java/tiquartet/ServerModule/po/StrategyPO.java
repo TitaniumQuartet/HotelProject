@@ -7,7 +7,7 @@ import tiquartet.CommonModule.vo.StrategyVO;
 
 public class StrategyPO implements Serializable{
 	//策略编号
-	private int strategyId;
+	private long strategyId;
 	//策略介绍
 	private String strategyIntro;
 	//酒店编号
@@ -29,7 +29,7 @@ public class StrategyPO implements Serializable{
 		
 	}
 	
-	public StrategyPO(int strategyId,String strategyIntro,int hotelId,double discount){
+	public StrategyPO(long strategyId,String strategyIntro,int hotelId,double discount){
 		super();
 		this.strategyId=strategyId;
 		this.strategyIntro=strategyIntro;
@@ -42,11 +42,11 @@ public class StrategyPO implements Serializable{
 		this.strategyId=vo.strategyID;
 		this.strategyIntro=vo.strategyIntro;
 	}
-	public int getstrategyId(){
+	public long getstrategyId(){
 		return strategyId;
 	}
 	
-	public void setrstategyId(int strategyId){
+	public void setrstategyId(long strategyId){
 		this.strategyId=strategyId;
 	}
 	

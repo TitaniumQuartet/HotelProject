@@ -18,4 +18,6 @@ public class PreOrderVO {
      public String userName;
      //订房者真实姓名
      public String clientRealName;
+     //酒店名字
+     public String hotelName;
 }

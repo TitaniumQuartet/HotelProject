@@ -17,4 +17,6 @@ public class OrderInfoVO {
    public int strategyID;
    //价格
    public double price;
+   //订单编号
+   public long orderID;
 }
