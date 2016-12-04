@@ -57,7 +57,11 @@ public class CreateOrder implements CreateOrderBLService{
 		map.put(preOrder.userID,preOrder);
 		OrderPO order=new OrderPO(preOrder);
 		order.setorderStatus(OrderStatus.PREORDER);
-		return orderdataimpl.preOrder(order);
+		OrderPO preorder=orderdataimpl.preOrder(order);
+		if(preorder!=null){
+			return new ResultMessage(true,"",String.valueOf(preorder.getorderId()));
+		}
+		return new ResultMessage(false,"存取订单失败","");
 	}
 	
 	public ResultMessage cancelPreOrder(int userID)throws RemoteException{
