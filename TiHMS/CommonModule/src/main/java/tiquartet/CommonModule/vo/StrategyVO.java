@@ -12,7 +12,7 @@ public class StrategyVO {
      //折扣
      public double discount;
      //策略编号
-     public long strategyID;
+     public int strategyID;
      //商圈特殊相应会员等级相应折扣
      public Map<Integer,Double> circelDiscount;
      //会员等级相应折扣
