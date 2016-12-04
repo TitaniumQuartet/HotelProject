@@ -14,6 +14,7 @@ import java.util.List;
 import tiquartet.CommonModule.blservice.manageuserblservice.ManageUserBLService;
 import tiquartet.CommonModule.util.ResultMessage;
 import tiquartet.CommonModule.util.UserSort;
+import tiquartet.CommonModule.util.UserType;
 import tiquartet.CommonModule.vo.CreditVO;
 import tiquartet.CommonModule.vo.MemberVO;
 import tiquartet.CommonModule.vo.UserFilterVO;
@@ -46,7 +47,7 @@ public class ManageUser implements ManageUserBLService {
 	public List<UserVO> accurateSearch (String username, String realName) {
 		
 		//获得po列表
-		List<UserPO> userPOs = userDataService.searchUser(username, realName);
+		List<UserPO> userPOs = userDataService.searchUser(username, realName, UserType.CLIENT);
 		
 		//po列表转vo列表
 		List<UserVO> userVOs = new ArrayList<UserVO>();
@@ -64,7 +65,7 @@ public class ManageUser implements ManageUserBLService {
 	 */
 	public List<UserVO> searchHotelStaff(int cityID, int districtID) {
 		
-		List<UserPO> userPOs = userDataService.searchHotelStaff(cityID, districtID);
+		List<UserPO> userPOs = userDataService.hotelStaffList(cityID, districtID);
 		List<UserVO> userVOs = new ArrayList<UserVO>();
 		UserVO userVO;
 		for(UserPO userPO: userPOs){

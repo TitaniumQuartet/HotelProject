@@ -30,7 +30,7 @@ public class ManageRoom implements ManageRoomBLService {
 	/*
 	 * 获取酒店房间列表
 	 */
-	public List<RoomVO> getRoomList (long hotelID) {
+	public List<RoomVO> getRoomList (int hotelID) {
 		
 		//获取po列表
 		List<RoomPO> roomPOs = new ArrayList<RoomPO>();
@@ -130,7 +130,15 @@ public class ManageRoom implements ManageRoomBLService {
 	 */
 	public ResultMessage deleteRoomType (int hotelID, int roomTypeID) {
 		
-		ResultMessage result = roomDataService.deleteType(hotelID, roomTypeID);
+		//获取所有房间类型
+		List<RoomTypePO> roomTypePOs = roomDataService.availableRoomType(hotelID, null, null, -1);
+		//找出对应类型的po
+		ResultMessage result = new ResultMessage(false);
+		for(RoomTypePO roomTypePO: roomTypePOs){
+			if(roomTypePO.getroomTypeId() == roomTypeID){
+				result = roomDataService.deleteType(roomTypePO);
+			}
+		}
 		
 		return result;
 	}

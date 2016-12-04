@@ -25,18 +25,12 @@ public class UserMain implements UsermainBLService{
 		//存在则继续登录
 		if(exist.result){
 			//检查密码是否正确
-			ResultMessage isRight = userDataService.checkPassword(username, password);
-			//密码正确返回用户信息
-			if(isRight.result){
-				UserPO userPO = userDataService.getUser(username, password);
-				UserVO userVO = userPO.getVO();
-		
-				return userVO;
-			}
-			//不正确返回空
-			else{
-				return null;
-			}
+			//这里如果密码错误，得到的po就为null
+			UserPO userPO = userDataService.checkPassword(username, password);
+			//po转vo
+			UserVO userVO = userPO.getVO();
+			
+			return userVO;
 		}
 		//用户不存在返回空
 		else{

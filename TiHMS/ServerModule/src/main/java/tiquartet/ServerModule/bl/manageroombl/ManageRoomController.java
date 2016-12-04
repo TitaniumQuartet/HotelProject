@@ -21,7 +21,7 @@ public class ManageRoomController implements ManageRoomBLService{
 	/*
 	 * 获取酒店房间列表
 	 */
-	public List<RoomVO> getRoomList (long hotelID) {
+	public List<RoomVO> getRoomList (int hotelID) {
 		
 		return manageroom.getRoomList(hotelID);
 	}

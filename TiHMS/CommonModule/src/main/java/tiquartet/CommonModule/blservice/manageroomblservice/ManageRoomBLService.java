@@ -9,17 +9,17 @@ import java.rmi.RemoteException;
 import java.util.List;
 
 /**
- * @author 李珍鸿
+ * @author 
  *
  */
 public interface ManageRoomBLService extends Remote{
 
-	/**获得酒店房间列表
+	/**获取酒店房间列表
 	 * @param hotelID
 	 * @return
 	 * @throws RemoteException
 	 */
-	public List<RoomVO> getRoomList (long hotelID) throws RemoteException; 
+	public List<RoomVO> getRoomList (int hotelID) throws RemoteException; 
 	
 	/**修改房间信息
 	 * @param room
@@ -42,14 +42,14 @@ public interface ManageRoomBLService extends Remote{
 	 */
 	public ResultMessage deleteRoom (int roomID) throws RemoteException; 
 	
-	/**入住
+	/**办理入住
 	 * @param roomID
 	 * @return
 	 * @throws RemoteException
 	 */
 	public ResultMessage checkIn(int roomID) throws RemoteException;
 	
-	/**离店
+	/**办理退房
 	 * @param roomID
 	 * @return
 	 * @throws RemoteException
