@@ -17,7 +17,7 @@ import tiquartet.CommonModule.util.ResultMessage;
 public class ManageRoomTest{
 	
 	private ManageRoom room;
-	
+	/*
 	@Test
 	public void testgetRoomList(){
 		room = new ManageRoom();
@@ -94,5 +94,5 @@ public class ManageRoomTest{
 		result=new ResultMessage(true);
 		assertEquals(result.result,true);
 		
-	}
+	}*/
 }
