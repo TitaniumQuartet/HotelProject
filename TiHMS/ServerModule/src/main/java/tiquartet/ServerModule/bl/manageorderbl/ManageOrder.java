@@ -196,17 +196,25 @@ public class ManageOrder implements ManageOrderBLService {
 	}
 
 	public ResultMessage checkIn(long orderID, String estLeaveTime) throws RemoteException{
-		OrderPO po=orderdataimpl.getOrderByID(orderID);
-		po.setlatestTime(estLeaveTime);
-		orderdataimpl.update(po);
+		OrderPO order=orderdataimpl.getOrderByID(orderID);
+		if(order==null){
+			return new ResultMessage(false,"此订单不存在","");
+		}
+		order.setlatestTime(estLeaveTime);
+		UserPO user=userdataimpl.getUser(order.getuserId());
+		user.setcredit(user.getcredit()+order.getprice());
+		orderdataimpl.update(order);
 		return new ResultMessage(true);
 	}
 
 	public ResultMessage checkOut(long orderID,String leaveTime) throws RemoteException{
 		OrderPO po=orderdataimpl.getOrderByID(orderID);
+		if(po==null){
+			return new ResultMessage(false,"此订单不存在","");
+		}
 		po.setleaveTime(leaveTime);
 		po.setorderStatus(OrderStatus.EXECUTED);// TODO Auto-generated method stub
-		return null;
+		return new ResultMessage(true);
 	}
 
 	public List<Integer> orderedHotelID(int userID) throws RemoteException{
@@ -226,12 +234,9 @@ public class ManageOrder implements ManageOrderBLService {
 		for(int i=0;i<polist.size();i++){
 			volist.add(polist.get(i).toOrderVO());
 		}
-		return null;
+		return volist;
 	}
 
-	/* (non-Javadoc)
-	 * @see tiquartet.CommonModule.blservice.manageorderblservice.ManageOrderBLService#numAtHotel(int, int)
-	 */
 	public OrderNumVO numAtHotel(int hotelID,int userID) throws RemoteException{
 		//返回用户在该酒店的各类订单数目；
 		List<OrderPO> polist=orderdataimpl.searchByUser(hotelID, userID);//此处应该修改
