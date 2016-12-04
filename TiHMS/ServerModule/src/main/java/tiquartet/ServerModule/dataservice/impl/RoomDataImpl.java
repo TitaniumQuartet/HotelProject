@@ -1,6 +1,5 @@
 package tiquartet.ServerModule.dataservice.impl;
 
-import java.sql.Connection;
 import java.util.List;
 import tiquartet.CommonModule.util.ResultMessage;
 import tiquartet.ServerModule.datahelper.DataFactory;
@@ -17,7 +16,6 @@ public class RoomDataImpl implements RoomDataService{
 
 	private static RoomDataImpl roomDataServiceImpl;
 	
-	private Connection con;
 	
 	public static RoomDataImpl getInstance(){
 		if(roomDataServiceImpl == null){

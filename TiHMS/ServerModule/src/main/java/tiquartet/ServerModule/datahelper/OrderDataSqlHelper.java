@@ -77,6 +77,10 @@ public class OrderDataSqlHelper implements OrderDataHelper{
 	
 	ResultMessage fail = new ResultMessage(false);
 	
+	public OrderPO preOrder(OrderPO preOrder){
+		return null;
+	}
+	
 	public ResultMessage insert(OrderPO order) {
 		Connection conn = getConn();
 	    String sql = "insert into order(orderId,orderStatus,latestTime,roomNumber,roomId,numberOfRoom,numberOfPeople,child,guestRealName,clientRealName,hotelName,userId,userName,startTime,leaveTime,price,hotelId) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";

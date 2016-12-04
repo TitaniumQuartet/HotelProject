@@ -1,6 +1,5 @@
 package tiquartet.ServerModule.dataservice.impl;
 
-import java.sql.Connection;
 import java.util.*;
 import tiquartet.CommonModule.util.OrderStatus;
 import tiquartet.CommonModule.util.ResultMessage;
@@ -17,8 +16,6 @@ public class OrderDataImpl implements OrderDataService{
 	private DataFactoryService dataFactory;
 
 	private static OrderDataImpl orderDataServiceImpl;
-	
-	private Connection con;
 	
 	public static OrderDataImpl getInstance(){
 		if(orderDataServiceImpl == null){
@@ -63,8 +60,8 @@ public class OrderDataImpl implements OrderDataService{
 	}
 
 	@Override
-	public ResultMessage preOrder(OrderPO preOrder) {
-		return orderDataHelper.insert(preOrder);
+	public OrderPO preOrder(OrderPO preOrder) {
+		return orderDataHelper.preOrder(preOrder);
 	}
 
 	@Override

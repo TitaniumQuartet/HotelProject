@@ -47,7 +47,7 @@ public class StrategyDataSqlHelper implements StrategyDataHelper{
 			pstmt = (PreparedStatement) conn.prepareStatement(sql);
 	        ResultSet rs = pstmt.executeQuery();
 	        while(rs.next()){
-	        	long strategyId=rs.getInt(1);
+	        	int strategyId=rs.getInt(1);
 	        	String strategyIntro=rs.getString(2);
 	        	int hotelId=rs.getInt(3);
 	        	double discount=rs.getDouble(4);
@@ -70,7 +70,7 @@ public class StrategyDataSqlHelper implements StrategyDataHelper{
 	    PreparedStatement pstmt;
 	    try {
 	        pstmt = (PreparedStatement) conn.prepareStatement(sql);
-	        pstmt.setLong(1, strategy.getstrategyId());
+	        pstmt.setInt(1, strategy.getstrategyId());
 	        pstmt.setString(2, strategy.getstrategyIntro());
 	        pstmt.setInt(3,strategy.gethotelId());
 	        pstmt.setDouble(4, strategy.getdiscount());

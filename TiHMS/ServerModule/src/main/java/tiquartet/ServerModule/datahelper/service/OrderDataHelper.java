@@ -9,6 +9,7 @@ import tiquartet.CommonModule.util.ResultMessage;
 
 public interface OrderDataHelper {
 
+	public OrderPO preOrder(OrderPO preOrder);
 	public ResultMessage cancelPreOrder (OrderPO preOrder);
 	public ResultMessage insert(OrderPO order);
 	public ResultMessage update(OrderPO order);
