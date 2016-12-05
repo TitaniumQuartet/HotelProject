@@ -14,7 +14,7 @@ public interface UsermainBLService extends Remote{
 	 * @return
 	 * @throws RemoteException
 	 */
-	public UserVO login (String username, String password) throws RemoteException;
+	public ResultMessage login (String username, String password) throws RemoteException;
 	/**
 	 * 登出
 	 * @param userID

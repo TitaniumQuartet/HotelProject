@@ -19,19 +19,16 @@ public class UserMain implements UsermainBLService{
 	/*
 	 * 用户登录
 	 */
-	public UserVO login (String username, String password){
+	public ResultMessage login (String username, String password){
 		
 		//先检查用户是否存在
 		ResultMessage exist = userDataService.userExist(username);
 		//存在则继续登录
 		if(exist.result){
 			//检查密码是否正确
-			//这里如果密码错误，得到的po就为null
-			UserPO userPO = userDataService.checkPassword(username, password);
-			//po转vo
-			UserVO userVO = userPO.getVO();
+			ResultMessage result = userDataService.checkPassword(username, password);
 			
-			return userVO;
+			return result;
 		}
 		//用户不存在返回空
 		else{

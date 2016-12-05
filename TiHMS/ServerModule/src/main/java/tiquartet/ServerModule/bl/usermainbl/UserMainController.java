@@ -2,7 +2,6 @@ package tiquartet.ServerModule.bl.usermainbl;
 
 import tiquartet.CommonModule.blservice.usermainblservice.UsermainBLService;
 import tiquartet.CommonModule.util.ResultMessage;
-import tiquartet.CommonModule.vo.UserVO;
 
 public class UserMainController implements UsermainBLService{
 	
@@ -11,7 +10,7 @@ public class UserMainController implements UsermainBLService{
 	/*
 	 * ÓÃ»§µÇÂ¼
 	 */
-	public UserVO login (String username, String password) {
+	public ResultMessage login (String username, String password) {
 		
 		return usermain.login(username, password);
 	}
