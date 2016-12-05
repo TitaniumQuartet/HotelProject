@@ -1,5 +1,6 @@
 package tiquartet.CommonModule.vo;
 
+import java.io.Serializable;
 import java.util.HashMap;
 
 /**
@@ -7,7 +8,7 @@ import java.util.HashMap;
  * @author greatlyr
  *
  */
-public class DistrictVO {
+public class DistrictVO implements Serializable{
 	//Key是cityID，Value是城市名称的HashMap
 	public HashMap<Integer, String> cityMap;
 	//Key是districtID，Value是商圈名称的HashMap

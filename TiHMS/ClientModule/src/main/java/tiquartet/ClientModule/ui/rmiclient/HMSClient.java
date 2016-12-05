@@ -9,6 +9,7 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import tiquartet.ClientModule.ui.datastorage.DistrictData;
 import tiquartet.CommonModule.blservice.createorderblservice.CreateOrderBLService;
 import tiquartet.CommonModule.blservice.hotelinfoblservice.HotelInfoBLService;
 import tiquartet.CommonModule.blservice.manageorderblservice.ManageOrderBLService;
@@ -54,6 +55,7 @@ public class HMSClient {
 	public static void main(String[] args) {
 		HMSClient client=new HMSClient();
 		//client.init();
+		client.loadData();
 		Application.launch(ClientApp.class, args);
 	}
 
@@ -80,6 +82,16 @@ public class HMSClient {
 			e.printStackTrace();
 			return new ResultMessage(false);
 		}
+		return new ResultMessage(true);
+	}
+	
+	/**
+	 * 读取本地的数据文件.
+	 * @return
+	 */
+	public ResultMessage loadData() {
+		//待完整实现
+		//DistrictData.loadLocalData();
 		return new ResultMessage(true);
 	}
 	
