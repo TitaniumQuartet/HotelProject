@@ -12,10 +12,12 @@ public class StrategyPO implements Serializable{
 	private String strategyIntro;
 	//酒店编号
 	private int  hotelId=-1;	
+	//商圈编号
+	private int circleID=-1;
 	//折扣比例
 	private double discount;
-	//升级门槛
-	private double[] memberThreShold=new double[10];
+	//门槛上线
+	private double[] memberThreShold=new double[9];
 	//会员等级对应折扣
 	private double[] memberDiscount=new double[10];
 	//折扣策略开始时间
@@ -24,7 +26,8 @@ public class StrategyPO implements Serializable{
 	private String endTime;
 	//策略类型
 	private StrategyType strategyType;
-	
+	//所需房间数目
+	private int numOfRoom;
 	public StrategyPO(){
 		
 	}
@@ -41,6 +44,11 @@ public class StrategyPO implements Serializable{
 		this.hotelId=vo.hotelID;
 		this.strategyId=vo.strategyID;
 		this.strategyIntro=vo.strategyIntro;
+		this.memberDiscount=vo.memberDiscount;
+		this.memberThreShold=vo.memberThreShold;
+		this.startTime=vo.startTime;
+		this.endTime=vo.endTime;
+		this.strategyType=vo.strategyType;
 	}
 	public int getstrategyId(){
 		return strategyId;
@@ -80,6 +88,11 @@ public class StrategyPO implements Serializable{
 		vo.hotelID=this.hotelId;
 		vo.strategyID=this.strategyId;
 		vo.strategyIntro=this.strategyIntro;
+		vo.memberDiscount=this.memberDiscount;
+		vo.memberThreShold=this.memberThreShold;
+		vo.endTime=this.endTime;
+		vo.startTime=this.startTime;
+		vo.strategyType=this.strategyType;
 		return vo;
 	}
 
@@ -122,5 +135,21 @@ public class StrategyPO implements Serializable{
 	
 	public double[] getMemberThreshole(){
 		return this.memberThreShold;
+	}
+    
+	public void setCircleID(int circleID){
+		this.circleID=circleID;
+	}
+	
+	public int getCircelID(){
+		return this.circleID;
+	}
+	
+	public void setnumOfRoom(int numOfRoom){
+		this.numOfRoom=numOfRoom;		
+	}
+	
+	public int getnumOfRoom(){
+		return this.numOfRoom;
 	}
 }

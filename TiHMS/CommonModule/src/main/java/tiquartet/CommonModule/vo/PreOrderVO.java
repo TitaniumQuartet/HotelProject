@@ -10,6 +10,8 @@ public class PreOrderVO {
      public int roomType;
      //房间数量
      public int numOfRoom;
+     //房间价格
+     public double price;
      //入住时间
      public String startTime;
      //离店时间

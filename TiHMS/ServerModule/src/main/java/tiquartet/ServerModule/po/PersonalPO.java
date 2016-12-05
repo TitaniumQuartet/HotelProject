@@ -94,7 +94,7 @@ public class PersonalPO implements Serializable{
 	}
 	
 	public String getcompany(){
-		return userType;
+		return this.company;
 	}
 	
 	public void setcompany(String company){

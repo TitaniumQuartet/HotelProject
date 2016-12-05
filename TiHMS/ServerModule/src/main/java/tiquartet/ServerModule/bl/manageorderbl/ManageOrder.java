@@ -94,7 +94,7 @@ public class ManageOrder implements ManageOrderBLService {
 			volist.add(polist.get(i).toOrderVO());
 		}
 		if(sort==OrderSort.DATEASCEND){
-			DateFormat format=new SimpleDateFormat("yyyy/MM/dd//HH/mm/ss");
+			DateFormat format=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 			for(int i=0;i<volist.size();i++){
 				for(int j=0;j<volist.size()-1;j++){
 					try {
@@ -111,7 +111,7 @@ public class ManageOrder implements ManageOrderBLService {
 				}
 			}
 		}else if(sort==OrderSort.DATEDESCEND){
-			DateFormat format=new SimpleDateFormat("yyyy/MM/dd//HH/mm/ss");
+			DateFormat format=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 			for(int i=0;i<volist.size();i++){
 				for(int j=0;j<volist.size()-1;j++){
 					try {
@@ -128,7 +128,7 @@ public class ManageOrder implements ManageOrderBLService {
 				}
 			}
 		}else if(sort==OrderSort.CHECKINASCEND){
-			DateFormat format=new SimpleDateFormat("yyyy/MM/dd//HH/mm/ss");
+			DateFormat format=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 			for(int i=0;i<volist.size();i++){
 				for(int j=0;j<volist.size()-1;j++){
 					try {
@@ -145,7 +145,7 @@ public class ManageOrder implements ManageOrderBLService {
 				}
 			}
 		}else if(sort==OrderSort.CHECKINDESCEND){
-			DateFormat format=new SimpleDateFormat("yyyy/MM/dd//HH/mm/ss");
+			DateFormat format=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 			for(int i=0;i<volist.size();i++){
 				for(int j=0;j<volist.size()-1;j++){
 					try {
@@ -192,7 +192,7 @@ public class ManageOrder implements ManageOrderBLService {
 		OrderPO po=orderdataimpl.getOrderByID(orderID);
 		OrderVO vo=new OrderVO();
 		vo=po.toOrderVO();
-		return vo;//未完成的返回内容，需要补充po转化为vo的方法。
+		return vo;
 	}
 
 	public List<OrderVO> hotelOrders( OrderFilterVO filter,
@@ -382,6 +382,8 @@ public class ManageOrder implements ManageOrderBLService {
 			return new ResultMessage(false,"此订单不存在","");
 		}
 		order.setlatestTime(estLeaveTime);
+		DateFormat format=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		order.setstartTime(format.format(new Date()));
 		UserPO user=userdataimpl.getUser(order.getuserId());
 		user.setcredit(user.getcredit()+order.getprice());
 		orderdataimpl.update(order);
@@ -389,12 +391,12 @@ public class ManageOrder implements ManageOrderBLService {
 	}
 
 	public ResultMessage checkOut(long orderID,String leaveTime) throws RemoteException{
-		OrderPO po=orderdataimpl.getOrderByID(orderID);
-		if(po==null){
+		OrderPO order=orderdataimpl.getOrderByID(orderID);
+		if(order==null){
 			return new ResultMessage(false,"此订单不存在","");
 		}
-		po.setleaveTime(leaveTime);
-		po.setorderStatus(OrderStatus.EXECUTED);// TODO Auto-generated method stub
+		order.setleaveTime(leaveTime);
+		order.setorderStatus(OrderStatus.EXECUTED);// TODO Auto-generated method stub
 		return new ResultMessage(true);
 	}
 
