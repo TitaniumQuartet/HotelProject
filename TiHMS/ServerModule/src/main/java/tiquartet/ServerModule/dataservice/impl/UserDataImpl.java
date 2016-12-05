@@ -2,7 +2,6 @@ package tiquartet.ServerModule.dataservice.impl;
 
 import tiquartet.CommonModule.util.ResultMessage;
 import tiquartet.CommonModule.util.UserType;
-
 import java.sql.*;
 import java.util.*;
 import tiquartet.ServerModule.datahelper.DataFactory;
@@ -18,8 +17,6 @@ public class UserDataImpl implements UserDataService{
 	private DataFactoryService dataFactory;
 
 	private static UserDataImpl userDataServiceImpl;
-	
-	private Connection con;
 	
 	public static UserDataImpl getInstance(){
 		if(userDataServiceImpl == null){
@@ -43,7 +40,7 @@ public class UserDataImpl implements UserDataService{
 		return userDataHelper.userExist(username);
 	}
 	
-	public UserPO checkPassword (String username, String password){
+	public ResultMessage checkPassword (String username, String password){
 		return userDataHelper.checkPassword(username, password);
 	}
 	

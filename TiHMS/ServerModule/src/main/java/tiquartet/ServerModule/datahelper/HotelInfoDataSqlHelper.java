@@ -1,7 +1,6 @@
 package tiquartet.ServerModule.datahelper;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -12,25 +11,16 @@ import tiquartet.ServerModule.datahelper.service.HotelInfoDataHelper;
 import tiquartet.ServerModule.po.HotelInfoPO;
 import tiquartet.ServerModule.po.RoomTypePO;
 
+/**
+ * 对hotelInfo数据库的操作.
+ * @author Teki
+ */
 public class HotelInfoDataSqlHelper implements HotelInfoDataHelper{
 
-	private static Connection getConn() {
-	    String driver = "com.mysql.jdbc.Driver";
-	    String url = "jdbc:mysql://localhost:3306/samp_db";
-	    String username = "root";
-	    String password = "";
-	    Connection conn = null;
-	    try {
-	        Class.forName(driver); //classLoader,加载对应驱动
-	        conn = (Connection) DriverManager.getConnection(url, username, password);
-	    } catch (ClassNotFoundException e) {
-	        e.printStackTrace();
-	    } catch (SQLException e) {
-	        e.printStackTrace();
-	    }
-	    return conn;
-	}
-	
+	/**
+	 * 通过数据库的数据生成HotelInfoPO.
+	 * @return
+	 */
 	public HotelInfoPO createhotel(ResultSet rs){
 		try{
 			int hotelId=rs.getInt(1);
@@ -57,9 +47,13 @@ public class HotelInfoDataSqlHelper implements HotelInfoDataHelper{
 	
 	ResultMessage fail = new ResultMessage(false);
 	
+	/**
+	 * 根据hotelID得到酒店的信息.
+	 * @return
+	 */
 	@Override
 	public HotelInfoPO getHotelInfo(int hotelID) {
-		Connection conn = getConn();
+		Connection conn = Connect.getConn();
 	    String sql = "SELECT * FROM hotelInfo where hotelId =" + hotelID;
 	    PreparedStatement pstmt;
 	    try {
@@ -75,9 +69,13 @@ public class HotelInfoDataSqlHelper implements HotelInfoDataHelper{
 	    }
 	}
 
+	/**
+	 * 向hotelInfo数据库中插入一条记录.
+	 * @return
+	 */
 	@Override
 	public ResultMessage insert(HotelInfoPO hotelInfo) {
-		Connection conn = getConn();
+		Connection conn = Connect.getConn();
 	    String sql = "insert into hotelInfo(hotelId,hotelName,star,address,hotelIntroduction,serviceIntrduction,circleId,circleName,lowPrice,highPrice,averageGrade,cityName) values(?,?,?,?,?,?,?,?,?,?,?,?)";
 	    PreparedStatement pstmt;
 	    try {
@@ -104,9 +102,13 @@ public class HotelInfoDataSqlHelper implements HotelInfoDataHelper{
 	    return success;
 	}
 
+	/**
+	 * 更新相关的酒店信息.
+	 * @return
+	 */
 	@Override
 	public ResultMessage update(HotelInfoPO hotelInfo) {
-		Connection conn = getConn();
+		Connection conn = Connect.getConn();
 	    String sql = "update hotelInfo set hotelName='" + hotelInfo.gethotelName() +
 	    		"set star='" + hotelInfo.getstar() +
 	    		"set address='" + hotelInfo.getaddress() +
@@ -132,9 +134,13 @@ public class HotelInfoDataSqlHelper implements HotelInfoDataHelper{
 	    return success;
 	}
 
+	/**
+	 * 通过hotelID得到该酒店的所有房间类型.
+	 * @return
+	 */
 	@Override
 	public List<RoomTypePO> getRoomTypes(int hotelID) {
-		Connection conn = getConn();
+		Connection conn = Connect.getConn();
 		List<RoomTypePO> roomtypes=new ArrayList<RoomTypePO>();
 	    String sql = "SELECT * FROM roomType where hotelId =" + hotelID;
 	    PreparedStatement pstmt;
@@ -159,9 +165,13 @@ public class HotelInfoDataSqlHelper implements HotelInfoDataHelper{
 	    }
 	}
 
+	/**
+	 * 得到该商圈的所有酒店列表.
+	 * @return
+	 */
 	@Override
 	public List<HotelInfoPO> getHotelList(int districtID) {
-		Connection conn = getConn();
+		Connection conn = Connect.getConn();
 		List<HotelInfoPO> hotels=new ArrayList<HotelInfoPO>();
 	    String sql = "SELECT * FROM hotelInfo where districtId =" + districtID;
 	    PreparedStatement pstmt;

@@ -14,32 +14,23 @@ import tiquartet.ServerModule.datahelper.service.StrategyDataHelper;
 import tiquartet.ServerModule.po.CreditPO;
 import tiquartet.ServerModule.po.StrategyPO;
 
+/**
+ * 对strategy数据库的操作.
+ * @author Teki
+ */
 public class StrategyDataSqlHelper implements StrategyDataHelper{
-
-	private static Connection getConn() {
-	    String driver = "com.mysql.jdbc.Driver";
-	    String url = "jdbc:mysql://localhost:3306/samp_db";
-	    String username = "root";
-	    String password = "";
-	    Connection conn = null;
-	    try {
-	        Class.forName(driver); //classLoader,驱动
-	        conn = (Connection) DriverManager.getConnection(url, username, password);
-	    } catch (ClassNotFoundException e) {
-	        e.printStackTrace();
-	    } catch (SQLException e) {
-	        e.printStackTrace();
-	    }
-	    return conn;
-	}
 	
 	ResultMessage success=new ResultMessage(true);
 	
 	ResultMessage fail=new ResultMessage(false);
 	
+	/**
+	 * 根据酒店ID搜索策略.
+	 * @return
+	 */
 	@Override
 	public List<StrategyPO> searchByHotel(int hotelID) {
-		Connection conn = getConn();
+		Connection conn = Connect.getConn();
 		List<StrategyPO> strategy = new ArrayList<StrategyPO>();
 		String sql="select * from credit where hotelId =" + hotelID + "OR where hotelId = '-1'";
 		PreparedStatement pstmt;
@@ -63,9 +54,13 @@ public class StrategyDataSqlHelper implements StrategyDataHelper{
 		}
 	}
 
+	/**
+	 * 在数据库中添加一条新的策略.
+	 * @return
+	 */
 	@Override
 	public ResultMessage insert(StrategyPO strategy) {
-		Connection conn = getConn();
+		Connection conn = Connect.getConn();
 	    String sql = "insert into strategy(strategyId,strategyIntro,hotelId,discount) values(?,?,?,?)";
 	    PreparedStatement pstmt;
 	    try {
@@ -85,9 +80,13 @@ public class StrategyDataSqlHelper implements StrategyDataHelper{
 		
 	}
 
+	/**
+	 * 根据策略ID在数据库中删除相关策略.
+	 * @return
+	 */
 	@Override
 	public ResultMessage delete(int strategyID) {
-		Connection conn = getConn();
+		Connection conn = Connect.getConn();
 		String sql="DELETE FROM strategy where strategyId = " + strategyID;
 		PreparedStatement pstmt;
 		try {
@@ -102,9 +101,13 @@ public class StrategyDataSqlHelper implements StrategyDataHelper{
 		}
 	}
 
+	/**
+	 * 更新一条策略信息.
+	 * @return
+	 */
 	@Override
 	public ResultMessage update(StrategyPO strategy) {
-		Connection conn = getConn();
+		Connection conn = Connect.getConn();
 	    String sql = "update strategy set strategyIntro='" + strategy.getstrategyIntro() +
 	    		"set hotelId='" + strategy.gethotelId() +
 	    		"set discount='" + strategy.getdiscount() +

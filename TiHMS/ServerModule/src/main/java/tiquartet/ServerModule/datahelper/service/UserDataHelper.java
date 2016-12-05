@@ -14,7 +14,7 @@ import tiquartet.ServerModule.po.UserPO;
 public interface UserDataHelper {
 
 	public ResultMessage userExist (String username);
-	public UserPO checkPassword (String username, String password);
+	public ResultMessage checkPassword (String username, String password);
 	public ResultMessage insert (UserPO user);
 	public UserPO getUser (int userID);
 	public ResultMessage update (UserPO user);

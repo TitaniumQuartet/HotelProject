@@ -8,25 +8,16 @@ import tiquartet.CommonModule.util.UserType;
 import tiquartet.ServerModule.datahelper.service.UserDataHelper;
 import tiquartet.ServerModule.po.UserPO;
 
+/**
+ * 对user数据库的操作.
+ * @author Teki
+ */
 public class UserDataSqlHelper implements UserDataHelper{
-
-	private static Connection getConn() {
-	    String driver = "com.mysql.jdbc.Driver";
-	    String url = "jdbc:mysql://localhost:3306/samp_db";
-	    String username = "root";
-	    String password = "";
-	    Connection conn = null;
-	    try {
-	        Class.forName(driver); //classLoader,鍔犺浇瀵瑰簲椹卞姩
-	        conn = (Connection) DriverManager.getConnection(url, username, password);
-	    } catch (ClassNotFoundException e) {
-	        e.printStackTrace();
-	    } catch (SQLException e) {
-	        e.printStackTrace();
-	    }
-	    return conn;
-	}
 	
+	/**
+	 * 通过数据库的数据生成UserPO.
+	 * @return
+	 */
 	public UserPO createuserpo(ResultSet rs){
 		try{
 			int userId=rs.getInt(1);
@@ -53,12 +44,14 @@ public class UserDataSqlHelper implements UserDataHelper{
 	ResultMessage success=new ResultMessage(true);
 	
 	ResultMessage fail=new ResultMessage(false);
+	
 	/**
-	 * 楠岃瘉鐢ㄦ埛鏄惁瀛樺湪
-	 * @param 
+	 * 验证用户名是否已存在.
+	 * @return
 	 */
+	@Override
 	public ResultMessage userExist (String username){
-		Connection conn = getConn();
+		Connection conn = Connect.getConn();
 	    String sql = "select * from students where username ="+username;
 	    PreparedStatement pstmt;
 	    try {
@@ -76,11 +69,12 @@ public class UserDataSqlHelper implements UserDataHelper{
 	}
 	
 	/**
-	 * 楠岃瘉瀵嗙爜鏄惁姝ｇ‘
-	 * @param 
+	 * 验证密码是否正确.
+	 * @return
 	 */
-	public UserPO checkPassword (String username, String password){
-		Connection conn = getConn();
+	@Override
+	public ResultMessage checkPassword (String username, String password){
+		Connection conn = Connect.getConn();
 	    String sql = "select * from students where username ="+username;
 	    PreparedStatement pstmt;
 	    try {
@@ -89,8 +83,7 @@ public class UserDataSqlHelper implements UserDataHelper{
 	        String name=rs.getString(1);
 	        String pass=rs.getString(3);
 	        if(username==name&&password==pass){
-	        	UserPO userpo=createuserpo(rs);
-	        	return userpo;
+	        	return success;
 	        }else
 	        	return null;
 	    } catch (SQLException e) {
@@ -100,11 +93,12 @@ public class UserDataSqlHelper implements UserDataHelper{
 	}
 	
 	/**
-	 * 鏂板鐢ㄦ埛
-	 * @param 
+	 * 向user数据表添加一条记录.
+	 * @return
 	 */
+	@Override
 	public ResultMessage insert (UserPO user){
-		Connection conn = getConn();
+		Connection conn = Connect.getConn();
 	    String sql = "insert into user(userId,userName,password,userType,realName,credit,birthday,memberRank,isMember,company,hotelId,login) values(?,?,?,?,?,?,?,?,?,?,?,?)";
 	    PreparedStatement pstmt;
 	    try {
@@ -132,11 +126,12 @@ public class UserDataSqlHelper implements UserDataHelper{
 	}
 	
 	/**
-	 * 鍚戞暟鎹枃浠朵腑鍐欏叆鐢ㄦ埛鏁版嵁
-	 * @param list
+	 * 更新user数据表里的一条记录.
+	 * @return
 	 */
+	@Override
 	public ResultMessage update (UserPO userPO){
-		Connection conn = getConn();
+		Connection conn = Connect.getConn();
 	    String sql = "update user set userName='" + userPO.getuserName() +
 	    		"set password='" + userPO.getpassword() +
 	    		"set userType='" + userPO.getTypeAsInt() +
@@ -163,11 +158,12 @@ public class UserDataSqlHelper implements UserDataHelper{
 	}
 	
 	/**
-	 *鎼滅储鐢ㄦ埛
-	 * @param 
+	 * 根据username和realName的部分信息以及用户类型搜索相关用户.
+	 * @return
 	 */
+	@Override
 	public List<UserPO> searchUser (String username, String realName, UserType type){
-		Connection conn = getConn();
+		Connection conn = Connect.getConn();
 		List<UserPO> users=new ArrayList<UserPO>();
 	    String sql = "select * from students where username REGEXP '" + realName +"' AND userName REGEXP '" + username +"' AND userType =";
 	    PreparedStatement pstmt;
@@ -189,11 +185,12 @@ public class UserDataSqlHelper implements UserDataHelper{
 	}
 	
 	/**
-	 * 寰楀埌淇＄敤璁板綍
-	 * @param 
+	 * 得到用户的信用值.
+	 * @return
 	 */
+	@Override
 	public ResultMessage getCreditBalance (int userID){
-		Connection conn = getConn();
+		Connection conn = Connect.getConn();
 	    String sql = "select * from students where userId = " + userID;
 	    PreparedStatement pstmt;
 	    try {
@@ -211,18 +208,19 @@ public class UserDataSqlHelper implements UserDataHelper{
 	}
 	
 	/**
-	 * 澧炲姞淇＄敤璁板綍
-	 * @param 
+	 * 更新用户的信用值.
+	 * @return
 	 */
+	@Override
 	public ResultMessage addCredit (int userID, double addition){
-		Connection conn = getConn();
+		Connection conn = Connect.getConn();
 	    String sql = "select * from students where userId = " + userID;
 	    PreparedStatement pstmt;
 	    try {
 	        pstmt = (PreparedStatement) conn.prepareStatement(sql);
 	        ResultSet rs = pstmt.executeQuery();
 	        double credit = rs.getDouble(6) + addition;
-	        String sqll = "update user set credit=" + credit + "' where userId = " + rs.getString(1)+"'";
+	        String sqll = "update user set credit=" + credit + " where userId = " + rs.getString(1);
 	        pstmt = (PreparedStatement) conn.prepareStatement(sqll);
 	        pstmt.executeUpdate();
 	        pstmt.close();
@@ -234,8 +232,13 @@ public class UserDataSqlHelper implements UserDataHelper{
 	    return success;
 	}
 	
+	/**
+	 * 根据用户名搜索用户.
+	 * @return
+	 */
+	@Override
 	public UserPO accurateSearch (String username){
-		Connection conn = getConn();
+		Connection conn = Connect.getConn();
 		String sql="select * from user where userName ="+username;
 		PreparedStatement pstmt;
 		try {
@@ -249,10 +252,13 @@ public class UserDataSqlHelper implements UserDataHelper{
 		}
 	}
 
-
+	/**
+	 * 根据用户ID搜索用户.
+	 * @return
+	 */
 	@Override
 	public UserPO getUser(int userID) {
-		Connection conn = getConn();
+		Connection conn = Connect.getConn();
 		String sql="select * from user where userId ="+userID;
 		PreparedStatement pstmt;
 		try {
@@ -266,9 +272,13 @@ public class UserDataSqlHelper implements UserDataHelper{
 		}
 	}
 	
+	/**
+	 * 通过城市和商圈得到酒店工作人员的列表.
+	 * @return
+	 */
 	@Override
 	public List<UserPO> hotelStaffList(int cityID, int distrcitID) {
-		Connection conn = getConn();
+		Connection conn = Connect.getConn();
 		List<UserPO> users=new ArrayList<UserPO>(); 
 		String sql;
 		if(distrcitID!=-1)
@@ -290,10 +300,14 @@ public class UserDataSqlHelper implements UserDataHelper{
 	        return null;
 	    }
 	}
-
+	
+	/**
+	 * 得到网站管理人员的列表.
+	 * @return
+	 */
 	@Override
 	public List<UserPO> marketerList() {
-		Connection conn = getConn();
+		Connection conn = Connect.getConn();
 		List<UserPO> users=new ArrayList<UserPO>(); 
 	    String sql = "SELECT * FROM user where userType =" + "2";
 	    PreparedStatement pstmt;

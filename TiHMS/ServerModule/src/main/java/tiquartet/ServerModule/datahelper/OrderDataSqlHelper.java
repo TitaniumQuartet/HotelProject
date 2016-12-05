@@ -12,26 +12,17 @@ import tiquartet.CommonModule.util.ResultMessage;
 import tiquartet.ServerModule.datahelper.service.OrderDataHelper;
 import tiquartet.ServerModule.po.OrderPO;
 
+/**
+ * 对order数据库的操作.
+ * @author Teki
+ */
 public class OrderDataSqlHelper implements OrderDataHelper{
 
-	private static Connection getConn() {
-	    String driver = "com.mysql.jdbc.Driver";
-	    String url = "jdbc:mysql://localhost:3306/samp_db";
-	    String username = "root";
-	    String password = "";
-	    Connection conn = null;
-	    try {
-	        Class.forName(driver); //classLoader,加载对应驱动
-	        conn = (Connection) DriverManager.getConnection(url, username, password);
-	    } catch (ClassNotFoundException e) {
-	        e.printStackTrace();
-	    } catch (SQLException e) {
-	        e.printStackTrace();
-	    }
-	    return conn;
-	}
-	
-	public HashMap<Integer, String> transform(String roomNumber,String roomId){
+	/**
+	 * 将order数据库中对应的房间编号和房间号解析出来.
+	 * @return
+	 */
+	public HashMap<Integer, String> transform(String roomNumber,String roomId){//订单的房间号和房间编号合为一个字符串保存在数据库中
 		String[] roomn=roomNumber.split(",");
 		String[] roomi=roomId.split(",");
 		HashMap<Integer, String> map=new HashMap<Integer, String>();
@@ -44,6 +35,10 @@ public class OrderDataSqlHelper implements OrderDataHelper{
 		return map;
 	}
 	
+	/**
+	 * 通过数据库的数据生成OrderPO.
+	 * @return
+	 */
 	public OrderPO createorderpo(ResultSet rs){
 		try{
 			long orderId=rs.getLong(1);
@@ -77,12 +72,22 @@ public class OrderDataSqlHelper implements OrderDataHelper{
 	
 	ResultMessage fail = new ResultMessage(false);
 	
+	/**
+	 * 初始的订单生成订单号.
+	 * @return
+	 */
+	@Override
 	public OrderPO preOrder(OrderPO preOrder){
 		return null;
 	}
 	
+	/**
+	 * 向数据库中插入一条新的订单记录.
+	 * @return
+	 */
+	@Override
 	public ResultMessage insert(OrderPO order) {
-		Connection conn = getConn();
+		Connection conn = Connect.getConn();
 	    String sql = "insert into order(orderId,orderStatus,latestTime,roomNumber,roomId,numberOfRoom,numberOfPeople,child,guestRealName,clientRealName,hotelName,userId,userName,startTime,leaveTime,price,hotelId) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 	    PreparedStatement pstmt;
 	    try {
@@ -116,8 +121,13 @@ public class OrderDataSqlHelper implements OrderDataHelper{
 	    return success;
 	}
 
+	/**
+	 * 更新order数据库中的一条记录.
+	 * @return
+	 */
+	@Override
 	public ResultMessage update(OrderPO order) {
-		Connection conn = getConn();
+		Connection conn = Connect.getConn();
 		String[] room=order.getroom().split(";");
 	    String sql = "update user set lastestTime='" + order.getlatestTime() +
 	    		"set numberOfRoom='" + order.getnumberOfRoom() +
@@ -150,8 +160,13 @@ public class OrderDataSqlHelper implements OrderDataHelper{
 	    return success;
 	}
 	
+	/**
+	 * 计算该用户某种状态的订单总数.
+	 * @return
+	 */
+	@Override
 	public int countOrder(int userID, OrderStatus status) {
-		Connection conn = getConn();
+		Connection conn = Connect.getConn();
 		int i=0;
 		String sql="select * from order where userId = " + userID + "AND orderStatus = " + status;
 		PreparedStatement pstmt;
@@ -170,9 +185,13 @@ public class OrderDataSqlHelper implements OrderDataHelper{
 		}
 	}
 
+	/**
+	 * 取消初始订单.
+	 * @return
+	 */
 	@Override
 	public ResultMessage cancelPreOrder(OrderPO preOrder) {
-		Connection conn = getConn();
+		Connection conn = Connect.getConn();
 		String sql="DELETE FROM order where orderId = " + preOrder.getorderId();
 		PreparedStatement pstmt;
 		try {
@@ -187,9 +206,13 @@ public class OrderDataSqlHelper implements OrderDataHelper{
 		}
 	}
 
+	/**
+	 * 根据hotelID和订单状态搜索该酒店的订单.
+	 * @return
+	 */
 	@Override
 	public List<OrderPO> searchByHotel(int hotelID, OrderStatus status) {
-		Connection conn = getConn();
+		Connection conn = Connect.getConn();
 		List<OrderPO> orders=new ArrayList<OrderPO>();
 		String sql="select * from order where hotelId = " + hotelID + "AND orderStatus = " + status;
 		PreparedStatement pstmt;
@@ -209,9 +232,13 @@ public class OrderDataSqlHelper implements OrderDataHelper{
 		}
 	}
 
+	/**
+	 * 根据hotelID和userID搜索订单.
+	 * @return
+	 */
 	@Override
 	public List<OrderPO> searchByUser(int hotelID, int userID) {
-		Connection conn = getConn();
+		Connection conn = Connect.getConn();
 		List<OrderPO> orders=new ArrayList<OrderPO>();
 		String sql="select * from order where hotelId = " + hotelID + "AND userId = " + userID;
 		PreparedStatement pstmt;
@@ -231,9 +258,13 @@ public class OrderDataSqlHelper implements OrderDataHelper{
 		}
 	}
 
+	/**
+	 * 根据订单号得到订单信息.
+	 * @return
+	 */
 	@Override
 	public OrderPO getOrderByID(long orderID) {
-		Connection conn = getConn();
+		Connection conn = Connect.getConn();
 		String sql="select * from order where orderId = " + orderID;
 		PreparedStatement pstmt;
 		try {

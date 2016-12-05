@@ -1,45 +1,32 @@
 package tiquartet.ServerModule.datahelper;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
-
 import tiquartet.CommonModule.util.ResultMessage;
 import tiquartet.ServerModule.datahelper.service.CreditDataHelper;
 import tiquartet.ServerModule.po.CreditPO;
-import tiquartet.ServerModule.po.RoomPO;
 
+/**
+ * 对credit数据库的操作.
+ * @author Teki
+ */
 public class CreditDataSqlHelper implements CreditDataHelper{
-
-	private static Connection getConn() {
-	    String driver = "com.mysql.jdbc.Driver";
-	    String url = "jdbc:mysql://localhost:3306/samp_db";
-	    String username = "root";
-	    String password = "";
-	    Connection conn = null;
-	    try {
-	        Class.forName(driver); //classLoader,驱动
-	        conn = (Connection) DriverManager.getConnection(url, username, password);
-	    } catch (ClassNotFoundException e) {
-	        e.printStackTrace();
-	    } catch (SQLException e) {
-	        e.printStackTrace();
-	    }
-	    return conn;
-	}
 	
 	ResultMessage success=new ResultMessage(true);
 	
 	ResultMessage fail=new ResultMessage(false);
 	
+	/**
+	 * 向credit数据库中插入一条记录.
+	 * @return
+	 */
 	@Override
 	public ResultMessage insert(CreditPO creditItem) {
-		Connection conn = getConn();
+		Connection conn = Connect.getConn();
 	    String sql = "insert into credit(changeType,change,balance,orderId,creditRecordId) values(?,?,?,?,?)";
 	    PreparedStatement pstmt;
 	    try {
@@ -60,9 +47,13 @@ public class CreditDataSqlHelper implements CreditDataHelper{
 		
 	}
 
+	/**
+	 * 根据userId从数据库得到用户的信用记录.
+	 * @return
+	 */
 	@Override
 	public List<CreditPO> getRecord(int userID) {
-		Connection conn = getConn();
+		Connection conn = Connect.getConn();
 		List<CreditPO> credit = new ArrayList<CreditPO>();
 		String sql="select * from credit where userId =" + userID;
 		PreparedStatement pstmt;
