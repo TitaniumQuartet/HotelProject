@@ -1,5 +1,7 @@
 package tiquartet.ClientModule.ui.rmiclient;
 
+import java.io.IOException;
+
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -16,17 +18,21 @@ public class ClientApp extends Application {
 	
 	
 	@Override
-	public void start(Stage primaryStage) throws Exception {
+	public void start(Stage primaryStage) {
 		HMSClient.setMainStage(primaryStage);
-		Scene loginScene = new Scene(
-				FXMLLoader
-						.load(getClass().getResource("/fxml/adminui/adminMain.fxml")),
-				1280, 800);
-		primaryStage.initStyle(StageStyle.DECORATED);
-		primaryStage.setScene(loginScene);
-		primaryStage.setTitle("TiHMS 酒店管理系统");
-		primaryStage.show();
-
+		try {
+			FXMLLoader loader = new FXMLLoader();
+			loader.setLocation(getClass().getResource("/fxml/adminui/adminMain.fxml"));
+			Scene loginScene = new Scene(loader.load(), 1280, 800);
+			primaryStage.initStyle(StageStyle.DECORATED);
+			primaryStage.setScene(loginScene);
+			primaryStage.setTitle("TiHMS 酒店管理系统");
+			primaryStage.show();
+		} catch (IOException e) {
+			System.out.println("界面加载失败");
+			e.printStackTrace();
+		}
+		
 	}
 	
 	
