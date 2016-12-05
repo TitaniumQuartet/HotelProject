@@ -1,6 +1,7 @@
 package tiquartet.ClientModule.ui.adminui;
 
 import java.net.URL;
+import java.rmi.RemoteException;
 import java.util.ResourceBundle;
 
 import javafx.beans.value.ChangeListener;
@@ -15,6 +16,7 @@ import javafx.scene.image.ImageView;
 import tiquartet.ClientModule.ui.rmiclient.HMSClient;
 import tiquartet.ClientModule.ui.usermainui.LoginController;
 import tiquartet.CommonModule.util.Encryptor;
+import tiquartet.CommonModule.util.ResultMessage;
 
 public class ModifyPasswordController implements Initializable{
 
@@ -51,10 +53,36 @@ public class ModifyPasswordController implements Initializable{
     @FXML
     private ImageView currentPasswordTick;
     
+    @FXML
+    private Label resultLabel;
+    
 
     @FXML
     void onConfirmModify(ActionEvent event) {
-    	//未实现方法
+    	//保存旧的密码
+    	String oldCode = LoginController.getCurrentUser().password;
+    	try {
+    		String codeEncrypted = Encryptor.encript(newPasswordField.getText());
+        	LoginController.getCurrentUser().password = codeEncrypted;
+			ResultMessage message = HMSClient.getManageUserBL().update(LoginController.getCurrentUser());
+			if(!message.result){
+				//修改密码失败
+				LoginController.getCurrentUser().password = oldCode;
+				resultLabel.setText("密码修改失败");
+				resultLabel.setVisible(true);
+			}
+			else{
+				//密码修改成功
+				resultLabel.setText("密码已修改");
+				resultLabel.setVisible(true);
+			}
+		} catch (RemoteException e) {
+			//若访问数据层失败，则取消密码的修改
+			LoginController.getCurrentUser().password = oldCode;
+			resultLabel.setText("服务器访问失败");
+			resultLabel.setVisible(true);
+			e.printStackTrace();
+		}
     }
     
     /**
@@ -117,6 +145,8 @@ public class ModifyPasswordController implements Initializable{
     	//有一项输入不合法就禁用完成注册按钮
     	if(currentLegit&&newCodeLegit&&confirmLegit) confirmModifyButton.setDisable(false);
     	else confirmModifyButton.setDisable(true);
+    	
+    	resultLabel.setVisible(false);
     }
 
 	@Override
