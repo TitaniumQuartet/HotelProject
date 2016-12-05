@@ -9,6 +9,7 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import tiquartet.ClientModule.ui.adminui.AdminMainController;
 import tiquartet.ClientModule.ui.datastorage.DistrictData;
 import tiquartet.CommonModule.blservice.createorderblservice.CreateOrderBLService;
 import tiquartet.CommonModule.blservice.hotelinfoblservice.HotelInfoBLService;
@@ -46,6 +47,8 @@ public class HMSClient {
 	static StrategyBLService strategyBLSkel;
 
 	static UsermainBLService usermainBLSkel;
+	
+	static AdminMainController adminMainController;
 
 	/**
 	 * 运行客户端程序.

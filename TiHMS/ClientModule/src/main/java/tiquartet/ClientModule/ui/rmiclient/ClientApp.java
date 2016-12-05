@@ -24,6 +24,7 @@ public class ClientApp extends Application {
 			FXMLLoader loader = new FXMLLoader();
 			loader.setLocation(getClass().getResource("/fxml/adminui/adminMain.fxml"));
 			Scene loginScene = new Scene(loader.load(), 1280, 800);
+			HMSClient.adminMainController = loader.getController();
 			primaryStage.initStyle(StageStyle.DECORATED);
 			primaryStage.setScene(loginScene);
 			primaryStage.setTitle("TiHMS 酒店管理系统");

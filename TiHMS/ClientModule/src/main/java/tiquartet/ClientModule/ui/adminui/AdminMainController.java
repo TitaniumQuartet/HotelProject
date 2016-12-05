@@ -21,6 +21,10 @@ import tiquartet.CommonModule.util.ResultMessage;
  *
  */
 public class AdminMainController implements Initializable{
+	
+	public Parent searchUserSection;
+	
+	public Parent modifyPassword;
 
     @FXML
     private Hyperlink logoutLink;
@@ -53,12 +57,12 @@ public class AdminMainController implements Initializable{
 
     @FXML
     void onModifyPassword(ActionEvent event) {
-    	
+    	showSection(modifyPassword);
     }
 
     @FXML
     void toAddHotelSection(ActionEvent event) {
-
+    	
     }
 
     @FXML
@@ -73,31 +77,33 @@ public class AdminMainController implements Initializable{
 
     @FXML
     void toSearchSection(ActionEvent event) {
-    	showSection("searchSection.fxml");
+    	showSection(searchUserSection);
     }
     
     /**
-     * 切换界面右侧主要内容
-     * @param fileName 相应内容的FXML文件名
+     * 切换界面右侧主要内容.
+     * @param section 要显示的组件
      * @return
      */
-    public ResultMessage showSection(String fileName) {
-    	FXMLLoader fxmlLoader = new FXMLLoader();
-    	fxmlLoader.setLocation(getClass().getResource("/fxml/adminui/"+fileName));
-    	try {
-			Parent section = fxmlLoader.load();
-			mainPane.getChildren().clear();
-			mainPane.getChildren().add(section);
-			return new ResultMessage(true);
-		} catch (IOException e) {
-			e.printStackTrace();
-			return new ResultMessage(false,"界面加载失败",null);
-		}
+    public ResultMessage showSection(Parent section) {
+    	mainPane.getChildren().clear();
+		mainPane.getChildren().add(section);
+		return new ResultMessage(true);
     }
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		showSection("searchSection.fxml");
+    	try {
+    		FXMLLoader fxmlLoader = new FXMLLoader();
+    		//加载搜索用户组件
+        	fxmlLoader.setLocation(getClass().getResource("/fxml/adminui/searchSection.fxml"));
+			searchUserSection = fxmlLoader.load();
+			//加载修改密码组件
+			fxmlLoader.setLocation(getClass().getResource("/fxml/adminui/modifyPassword.fxml"));
+			modifyPassword = fxmlLoader.load();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 
 }
