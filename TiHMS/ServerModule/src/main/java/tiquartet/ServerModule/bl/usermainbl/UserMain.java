@@ -3,6 +3,7 @@ package tiquartet.ServerModule.bl.usermainbl;
 import tiquartet.CommonModule.blservice.usermainblservice.UsermainBLService;
 import tiquartet.CommonModule.util.ResultMessage;
 import tiquartet.CommonModule.vo.UserVO;
+import tiquartet.ServerModule.bl.manageuserbl.ManageUserController;
 import tiquartet.ServerModule.dataservice.impl.UserDataImpl;
 import tiquartet.ServerModule.dataservice.userdataservice.UserDataService;
 import tiquartet.ServerModule.po.UserPO;
@@ -43,24 +44,17 @@ public class UserMain implements UsermainBLService{
 	 */
 	public ResultMessage logout (int userID){
 		
-		return new ResultMessage(true);
+		//先利用编号找到用户
+		UserPO user = userDataService.getUser(userID);
+		//修改用户登录状态
+		user.setLogin(false);
+		//更新用户信息
+		UserVO userVO = user.getVO();
+		ManageUserController manageUserController = new ManageUserController();
+		ResultMessage result = manageUserController.update(userVO);
+		
+		return result;
 	}
-	
-	/*
-	 * 用户注册
-	 */
-    public ResultMessage signUp(String username,String password){
-    	
-    	UserVO newUser = new UserVO();
-    	newUser.password = password;
-    	newUser.userName = username;
-    	
-    	//vo转po并且添加
-    	UserPO userPO = new UserPO(newUser);
-    	ResultMessage result = userDataService.insert(userPO);
-    	
-    	return result;
-    }
     
     /*
      * 判断用户是否存在

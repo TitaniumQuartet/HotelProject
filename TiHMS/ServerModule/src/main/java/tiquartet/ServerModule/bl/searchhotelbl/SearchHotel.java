@@ -148,7 +148,7 @@ public class SearchHotel implements SearchHotelBLService {
 		}
 		
 		//返回rank1到rank2之间的列表
-		return hotelBriefVOs.subList(rank1, rank2);
+		return hotelBriefVOs.subList(rank1, rank2+1);
 
 	}
 

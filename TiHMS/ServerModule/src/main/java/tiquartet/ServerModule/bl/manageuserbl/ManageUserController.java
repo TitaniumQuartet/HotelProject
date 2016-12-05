@@ -118,4 +118,12 @@ public class ManageUserController implements ManageUserBLService{
 		return manageuser.addUser(user);
 	}
 	
+	/*
+	 * 更新用户信息
+	 */
+	public ResultMessage update(UserVO user){
+		
+		return manageuser.update(user);
+	}
+	
 }

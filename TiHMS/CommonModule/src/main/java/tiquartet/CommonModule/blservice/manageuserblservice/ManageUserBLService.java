@@ -31,4 +31,6 @@ public interface ManageUserBLService extends Remote{
 	
 	public List<UserVO> marketerList() throws RemoteException;
 	
+	public ResultMessage update (UserVO user) throws RemoteException;
+	
 }

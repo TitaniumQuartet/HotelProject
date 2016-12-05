@@ -4,7 +4,6 @@ import java.util.List;
 
 import tiquartet.CommonModule.util.ResultMessage;
 import tiquartet.CommonModule.util.UserType;
-import tiquartet.ServerModule.po.CreditPO;
 import tiquartet.ServerModule.po.UserPO;
 
 

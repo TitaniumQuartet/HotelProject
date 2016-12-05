@@ -25,14 +25,6 @@ public class UserMainController implements UsermainBLService{
 	}
 	
 	/*
-	 * 用户注册
-	 */
-	public ResultMessage signUp(String username,String password) {
-		
-		return usermain.signUp(username, password);
-	}
-	
-	/*
 	 * 用户是否存在
 	 */
 	public boolean isUnregistered (String username) {

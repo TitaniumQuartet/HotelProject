@@ -166,7 +166,7 @@ public class ManageUser implements ManageUserBLService {
 		
 		//返回rank1到rank2之间的列表
 
-		return filterUser.subList(rank1, rank2);
+		return filterUser.subList(rank1, rank2+1);
 	}
 	
 	/*
@@ -282,6 +282,19 @@ public class ManageUser implements ManageUserBLService {
 		
 		ResultMessage result = userDataService.insert(userPO);
 
+		return result;
+	}
+	
+	/*
+	 * 更新用户信息
+	 */
+	public ResultMessage update(UserVO user){
+		
+		//vo转po
+		UserPO userPO = new UserPO(user);
+		//更新信息
+		ResultMessage result = userDataService.update(userPO);
+		
 		return result;
 	}
 		
