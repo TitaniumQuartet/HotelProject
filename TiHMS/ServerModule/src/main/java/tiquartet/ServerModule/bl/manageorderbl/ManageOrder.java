@@ -1,7 +1,11 @@
 package tiquartet.ServerModule.bl.manageorderbl;
 
 import java.rmi.RemoteException;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import tiquartet.CommonModule.blservice.manageorderblservice.ManageOrderBLService;
@@ -89,13 +93,98 @@ public class ManageOrder implements ManageOrderBLService {
 			}
 			volist.add(polist.get(i).toOrderVO());
 		}
-		//此方法可能需要修改
-	    while(volist.size()>rank2){
-	    	volist.remove(rank2);
-	    }
-	    for(int i=1;i<rank1;i++){
-	    	volist.remove(0);
-	    }
+		if(sort==OrderSort.DATEASCEND){
+			DateFormat format=new SimpleDateFormat("yyyy/MM/dd//HH/mm/ss");
+			for(int i=0;i<volist.size();i++){
+				for(int j=0;j<volist.size()-1;j++){
+					try {
+						Date time1=format.parse(volist.get(j).orderTime);
+						Date time2=format.parse(volist.get(j+1).orderTime);
+						if(!time1.before(time2)){
+							OrderVO ordertemp=volist.get(j);
+							volist.add(j,volist.get(j+1));
+							volist.add(j+1, ordertemp);
+						}
+					} catch (ParseException e) {				
+						e.printStackTrace();
+					}
+				}
+			}
+		}else if(sort==OrderSort.DATEDESCEND){
+			DateFormat format=new SimpleDateFormat("yyyy/MM/dd//HH/mm/ss");
+			for(int i=0;i<volist.size();i++){
+				for(int j=0;j<volist.size()-1;j++){
+					try {
+						Date time1=format.parse(volist.get(j).orderTime);
+						Date time2=format.parse(volist.get(j+1).orderTime);
+						if(time1.before(time2)){
+							OrderVO ordertemp=volist.get(j);
+							volist.add(j,volist.get(j+1));
+							volist.add(j+1, ordertemp);
+						}
+					} catch (ParseException e) {
+						e.printStackTrace();
+					}
+				}
+			}
+		}else if(sort==OrderSort.CHECKINASCEND){
+			DateFormat format=new SimpleDateFormat("yyyy/MM/dd//HH/mm/ss");
+			for(int i=0;i<volist.size();i++){
+				for(int j=0;j<volist.size()-1;j++){
+					try {
+						Date time1=format.parse(volist.get(j).startTime);
+						Date time2=format.parse(volist.get(j+1).startTime);
+						if(!time1.before(time2)){
+							OrderVO ordertemp=volist.get(j);
+							volist.add(j,volist.get(j+1));
+							volist.add(j+1, ordertemp);
+						}
+					} catch (ParseException e) {
+						e.printStackTrace();
+					}
+				}
+			}
+		}else if(sort==OrderSort.CHECKINDESCEND){
+			DateFormat format=new SimpleDateFormat("yyyy/MM/dd//HH/mm/ss");
+			for(int i=0;i<volist.size();i++){
+				for(int j=0;j<volist.size()-1;j++){
+					try {
+						Date time1=format.parse(volist.get(j).startTime);
+						Date time2=format.parse(volist.get(j+1).startTime);
+						if(time1.before(time2)){
+							OrderVO ordertemp=volist.get(j);
+							volist.add(j,volist.get(j+1));
+							volist.add(j+1, ordertemp);
+						}
+					} catch (ParseException e) {
+						e.printStackTrace();
+					}
+				}
+			}
+		}else if(sort==OrderSort.PRICEASCEND){
+			for(int i=0;i<volist.size();i++){
+				for(int j=0;j<volist.size()-1;j++){
+					if(volist.get(j).price>volist.get(j+1).price){
+					      OrderVO ordertemp=volist.get(j);
+					      volist.add(j, volist.get(j+1));
+					      volist.add(j+1, ordertemp);
+					}
+				}
+			}
+		}else{
+			for(int i=0;i<volist.size();i++){
+				for(int j=0;j<volist.size()-1;j++){
+					if(volist.get(j).price<volist.get(j+1).price){
+					      OrderVO ordertemp=volist.get(j);
+					      volist.add(j, volist.get(j+1));
+					      volist.add(j+1, ordertemp);
+					}
+				}
+			}
+		}
+		OrderVO orderrank2=volist.get(rank2);
+		volist=volist.subList(rank1, rank2);
+		volist.add(orderrank2);
 		return volist;
 	}
 
@@ -164,6 +253,98 @@ public class ManageOrder implements ManageOrderBLService {
 		for(int i=1;i<rank1;i++){
 			volist.remove(0);
 		}
+		if(sort==OrderSort.DATEASCEND){
+			DateFormat format=new SimpleDateFormat("yyyy/MM/dd//HH/mm/ss");
+			for(int i=0;i<volist.size();i++){
+				for(int j=0;j<volist.size()-1;j++){
+					try {
+						Date time1=format.parse(volist.get(j).orderTime);
+						Date time2=format.parse(volist.get(j+1).orderTime);
+						if(!time1.before(time2)){
+							OrderVO ordertemp=volist.get(j);
+							volist.add(j,volist.get(j+1));
+							volist.add(j+1, ordertemp);
+						}
+					} catch (ParseException e) {				
+						e.printStackTrace();
+					}
+				}
+			}
+		}else if(sort==OrderSort.DATEDESCEND){
+			DateFormat format=new SimpleDateFormat("yyyy/MM/dd//HH/mm/ss");
+			for(int i=0;i<volist.size();i++){
+				for(int j=0;j<volist.size()-1;j++){
+					try {
+						Date time1=format.parse(volist.get(j).orderTime);
+						Date time2=format.parse(volist.get(j+1).orderTime);
+						if(time1.before(time2)){
+							OrderVO ordertemp=volist.get(j);
+							volist.add(j,volist.get(j+1));
+							volist.add(j+1, ordertemp);
+						}
+					} catch (ParseException e) {
+						e.printStackTrace();
+					}
+				}
+			}
+		}else if(sort==OrderSort.CHECKINASCEND){
+			DateFormat format=new SimpleDateFormat("yyyy/MM/dd//HH/mm/ss");
+			for(int i=0;i<volist.size();i++){
+				for(int j=0;j<volist.size()-1;j++){
+					try {
+						Date time1=format.parse(volist.get(j).startTime);
+						Date time2=format.parse(volist.get(j+1).startTime);
+						if(!time1.before(time2)){
+							OrderVO ordertemp=volist.get(j);
+							volist.add(j,volist.get(j+1));
+							volist.add(j+1, ordertemp);
+						}
+					} catch (ParseException e) {
+						e.printStackTrace();
+					}
+				}
+			}
+		}else if(sort==OrderSort.CHECKINDESCEND){
+			DateFormat format=new SimpleDateFormat("yyyy/MM/dd//HH/mm/ss");
+			for(int i=0;i<volist.size();i++){
+				for(int j=0;j<volist.size()-1;j++){
+					try {
+						Date time1=format.parse(volist.get(j).startTime);
+						Date time2=format.parse(volist.get(j+1).startTime);
+						if(time1.before(time2)){
+							OrderVO ordertemp=volist.get(j);
+							volist.add(j,volist.get(j+1));
+							volist.add(j+1, ordertemp);
+						}
+					} catch (ParseException e) {
+						e.printStackTrace();
+					}
+				}
+			}
+		}else if(sort==OrderSort.PRICEASCEND){
+			for(int i=0;i<volist.size();i++){
+				for(int j=0;j<volist.size()-1;j++){
+					if(volist.get(j).price>volist.get(j+1).price){
+					      OrderVO ordertemp=volist.get(j);
+					      volist.add(j, volist.get(j+1));
+					      volist.add(j+1, ordertemp);
+					}
+				}
+			}
+		}else{
+			for(int i=0;i<volist.size();i++){
+				for(int j=0;j<volist.size()-1;j++){
+					if(volist.get(j).price<volist.get(j+1).price){
+					      OrderVO ordertemp=volist.get(j);
+					      volist.add(j, volist.get(j+1));
+					      volist.add(j+1, ordertemp);
+					}
+				}
+			}
+		}
+		OrderVO orderrank2=volist.get(rank2);
+		volist=volist.subList(rank1, rank2);
+		volist.add(orderrank2);
 		return volist;
 	}
 
