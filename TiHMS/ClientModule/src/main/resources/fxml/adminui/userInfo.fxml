@@ -1,27 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <GridPane layoutX="274.0" layoutY="221.0" prefHeight="448.0" prefWidth="723.0">
+      <GridPane layoutX="234.0" layoutY="178.0" prefHeight="553.0" prefWidth="723.0">
         <columnConstraints>
-          <ColumnConstraints hgrow="SOMETIMES" maxWidth="233.88888549804688" minWidth="10.0" prefWidth="108.55557250976562" />
-          <ColumnConstraints hgrow="SOMETIMES" maxWidth="376.1111145019531" minWidth="10.0" prefWidth="373.4444274902344" />
-            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="233.88888549804688" minWidth="10.0" prefWidth="117.33331298828125" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="376.1111145019531" minWidth="10.0" prefWidth="338.66668701171875" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="344.888916015625" minWidth="10.0" prefWidth="255.22216796875" />
         </columnConstraints>
         <rowConstraints>
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
@@ -36,29 +35,74 @@
                   <Font size="24.0" />
                </font>
             </Label>
-            <Label text="用户类型" GridPane.rowIndex="1">
+            <Label fx:id="field2" text="用户类型" GridPane.rowIndex="1">
                <font>
                   <Font size="24.0" />
                </font>
             </Label>
-            <Label prefHeight="32.0" prefWidth="256.0" text="用户类型" GridPane.columnIndex="1" GridPane.rowIndex="1">
+            <Label fx:id="data2" prefHeight="32.0" prefWidth="256.0" text="用户类型" GridPane.columnIndex="1" GridPane.rowIndex="1">
                <font>
                   <Font size="24.0" />
                </font>
             </Label>
-            <Label text="真实姓名" GridPane.rowIndex="2">
+            <Label fx:id="field3" text="真实姓名" GridPane.rowIndex="2">
                <font>
                   <Font size="24.0" />
                </font>
             </Label>
-            <Label prefHeight="32.0" prefWidth="256.0" text="真实姓名" GridPane.columnIndex="1" GridPane.rowIndex="2">
+            <Label fx:id="data3" prefHeight="32.0" prefWidth="256.0" text="真实姓名" GridPane.columnIndex="1" GridPane.rowIndex="2">
                <font>
                   <Font size="24.0" />
                </font>
             </Label>
+            <Label fx:id="field4" text="真实姓名" GridPane.rowIndex="3">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <Label fx:id="field5" text="真实姓名" GridPane.rowIndex="4">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <Label fx:id="data4" prefHeight="32.0" prefWidth="256.0" text="真实姓名" GridPane.columnIndex="1" GridPane.rowIndex="3">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <Label fx:id="data5" prefHeight="32.0" prefWidth="256.0" text="真实姓名" GridPane.columnIndex="1" GridPane.rowIndex="4">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <Button fx:id="saveButton" mnemonicParsing="false" onAction="#onSignUpClicked" prefHeight="50.0" prefWidth="126.0" style="-fx-background-color: skyblue;" text="保存" textFill="WHITE" visible="false" GridPane.columnIndex="2" GridPane.rowIndex="4">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Button>
+            <TextField fx:id="input2" maxWidth="-Infinity" prefHeight="43.0" prefWidth="258.0" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="1">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="input3" maxWidth="-Infinity" prefHeight="43.0" prefWidth="258.0" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="2">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="input4" maxWidth="-Infinity" prefHeight="43.0" prefWidth="258.0" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="3">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="input5" maxWidth="-Infinity" prefHeight="43.0" prefWidth="258.0" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="4">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </TextField>
          </children>
       </GridPane>
-      <Label layoutX="129.0" layoutY="101.0" text="用户详细信息">
+      <Label fx:id="titleLabel" layoutX="129.0" layoutY="101.0" text="用户详细信息">
          <font>
             <Font size="36.0" />
          </font>
