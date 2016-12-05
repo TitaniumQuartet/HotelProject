@@ -44,20 +44,15 @@ public class ManageUser implements ManageUserBLService {
 	/*
 	 * 精确搜索获取用户信息列表
 	 */
-	public List<UserVO> accurateSearch (String username, String realName) {
+	public UserVO accurateSearch (String username) {
 		
-		//获得po列表
-		List<UserPO> userPOs = userDataService.searchUser(username, realName, UserType.CLIENT);
+		//获得po
+		UserPO userPO = userDataService.accurateSearch(username);
 		
-		//po列表转vo列表
-		List<UserVO> userVOs = new ArrayList<UserVO>();
-		UserVO userVO;
-		for(UserPO userPO: userPOs){
-			userVO = userPO.getVO();
-			userVOs.add(userVO);
-		}
+		//po转vo
+		UserVO userVO = userPO.getVO();
 		
-		return userVOs;
+		return userVO;
 	}
 	
 	/*

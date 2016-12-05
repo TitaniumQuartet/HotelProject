@@ -9,7 +9,7 @@ import tiquartet.CommonModule.vo.*;
 
 public interface ManageUserBLService extends Remote{
 	
-	public List<UserVO> accurateSearch (String username, String realName) throws RemoteException;
+	public UserVO accurateSearch (String username) throws RemoteException;
 
 	public List<UserVO> searchHotelStaff(int cityID, int districtID) throws RemoteException;
 	

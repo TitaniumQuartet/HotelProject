@@ -23,9 +23,9 @@ public class ManageUserController implements ManageUserBLService{
 	/*
 	 * 精确查找用户
 	 */
-	public List<UserVO> accurateSearch (String username, String realName) {
+	public UserVO accurateSearch (String username) {
 		
-		return manageuser.accurateSearch(username, realName);
+		return manageuser.accurateSearch(username);
 	}
 	
 	/*
