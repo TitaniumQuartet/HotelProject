@@ -58,14 +58,14 @@ public class LoginController implements Initializable {
 	void onLoginCLicked(ActionEvent event) {
 		
 		try {
-			UserVO user = HMSClient.getUserMainBL().login(usernameField.getText(), Encryptor.encript(passwordField.getText()));
-			if(user==null){
+			ResultMessage resultMessage = HMSClient.getUserMainBL().login(usernameField.getText(), Encryptor.encript(passwordField.getText()));
+			if(!resultMessage.result){
 				//登录失败
 				loginWarningLabel.setText("用户名或密码输入错误");
 				loginWarningLabel.setVisible(true);
 			}
 			//登录成功
-			currentUser = user;
+			currentUser = HMSClient.getManageUserBL().accurateSearch(usernameField.getText());
 			/*
 			 * 界面切换的实现
 			 */
