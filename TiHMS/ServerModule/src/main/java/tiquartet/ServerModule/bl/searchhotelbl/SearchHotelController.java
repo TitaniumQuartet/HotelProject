@@ -11,6 +11,8 @@ import java.util.List;
 
 import tiquartet.CommonModule.blservice.searchhotelblservice.SearchHotelBLService;
 import tiquartet.CommonModule.util.HotelSort;
+import tiquartet.CommonModule.util.ResultMessage;
+import tiquartet.CommonModule.vo.DistrictVO;
 import tiquartet.CommonModule.vo.HotelBriefVO;
 import tiquartet.CommonModule.vo.HotelFilterVO;
 
@@ -33,5 +35,21 @@ public class SearchHotelController implements SearchHotelBLService{
 			HotelSort sort, int rank1, int rank2){
 		
 		return searchhotel.getHotelList(filter, sort, rank1, rank2);
+	}
+	
+	/*
+	 * 获取商圈信息
+	 */
+	public DistrictVO getDistricts(){
+		
+		return searchhotel.getDistricts();
+	}
+	
+	/*
+	 * 更新商圈信息
+	 */
+	public ResultMessage updateDistricts(DistrictVO district){
+		
+		return searchhotel.updateDistricts(district);
 	}
 }

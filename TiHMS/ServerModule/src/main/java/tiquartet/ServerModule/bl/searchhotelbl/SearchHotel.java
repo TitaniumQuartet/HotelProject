@@ -14,6 +14,8 @@ import java.util.List;
 
 import tiquartet.CommonModule.blservice.searchhotelblservice.SearchHotelBLService;
 import tiquartet.CommonModule.util.HotelSort;
+import tiquartet.CommonModule.util.ResultMessage;
+import tiquartet.CommonModule.vo.DistrictVO;
 import tiquartet.CommonModule.vo.HotelBriefVO;
 import tiquartet.CommonModule.vo.HotelFilterVO;
 import tiquartet.ServerModule.bl.hotelinfobl.HotelInfoController;
@@ -22,15 +24,18 @@ import tiquartet.ServerModule.dataservice.hotelinfodataservice.HotelInfoDataServ
 import tiquartet.ServerModule.dataservice.impl.HotelInfoDataImpl;
 import tiquartet.ServerModule.dataservice.impl.LocationDataImpl;
 import tiquartet.ServerModule.dataservice.locationdataservice.LocationDataService;
+import tiquartet.ServerModule.po.DistrictPO;
 import tiquartet.ServerModule.po.HotelInfoPO;
 
 
 public class SearchHotel implements SearchHotelBLService {
 	
 	HotelInfoDataService hotelInfoDataService;
+	LocationDataService locationDataService;
 	
 	public SearchHotel(){
 		hotelInfoDataService = HotelInfoDataImpl.getInstance();
+		locationDataService = LocationDataImpl.getInstance();
 	}
 	
 	/*
@@ -150,6 +155,27 @@ public class SearchHotel implements SearchHotelBLService {
 		//返回rank1到rank2之间的列表
 		return hotelBriefVOs.subList(rank1, rank2+1);
 
+	}
+	
+	/*
+	 * 获取商圈信息
+	 */
+	public DistrictVO getDistricts(){
+		
+		DistrictPO districtPO = locationDataService.renewDistrict();
+		DistrictVO districtVO = districtPO.toDistrictVO();
+		
+		return districtVO;
+	}
+	
+	/*
+	 * 更新商圈信息
+	 */
+	public ResultMessage updateDistricts(DistrictVO district){
+		
+		ResultMessage result = locationDataService.update(district);
+		
+		return result;
 	}
 
 }

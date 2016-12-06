@@ -1,6 +1,7 @@
 eclipse.preferences.version=1
 encoding//src/main/java=UTF-8
 encoding//src/main/java/tiquartet/CommonModule/blservice/manageroomblservice/ManageRoomBLService.java=UTF-8
+encoding//src/main/java/tiquartet/CommonModule/blservice/searchhotelblservice/SearchHotelBLService.java=UTF-8
 encoding//src/main/java/tiquartet/CommonModule/blservice/usermainblservice/UsermainBLService.java=UTF-8
 encoding//src/main/java/tiquartet/CommonModule/vo/UserVO.java=UTF-8
 encoding//src/test/java=UTF-8

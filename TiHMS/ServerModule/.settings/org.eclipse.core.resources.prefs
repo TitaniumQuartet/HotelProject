@@ -8,6 +8,8 @@ encoding//src/main/java/tiquartet/ServerModule/bl/manageuserbl/ManageUserControl
 encoding//src/main/java/tiquartet/ServerModule/bl/searchhotelbl/SearchHotel.java=UTF-8
 encoding//src/main/java/tiquartet/ServerModule/bl/searchhotelbl/SearchHotelController.java=UTF-8
 encoding//src/main/java/tiquartet/ServerModule/bl/usermainbl/UserMain.java=UTF-8
+encoding//src/main/java/tiquartet/ServerModule/dataservice/locationdataservice/LocationDataService.java=UTF-8
+encoding//src/main/java/tiquartet/ServerModule/po/DistrictPO.java=UTF-8
 encoding//src/main/java/tiquartet/ServerModule/po/RoomTypePO.java=UTF-8
 encoding//src/main/java/tiquartet/ServerModule/po/UserPO.java=UTF-8
 encoding//src/main/resources=UTF-8
