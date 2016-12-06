@@ -6,6 +6,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.util.ArrayList;
 import java.util.HashMap;
 
 import tiquartet.CommonModule.util.ResultMessage;
@@ -20,6 +21,18 @@ public class DistrictData {
 	
 	private static DistrictVO districtVO = null;
 	
+	private static HashMap<Integer, ArrayList<Integer>> districtCityList;
+	
+	private static void setList(){
+		for(int i:districtVO.cityMap.keySet()){
+			districtCityList.put(i, new ArrayList<Integer>());
+		}
+		for(int i:districtVO.districtMap.keySet()){
+			ArrayList<Integer> list = districtCityList.get(i/100);
+			if(list!=null) list.add(i);
+		}
+	}
+	
 	/**
 	 * 从本地的district文件加载DistrictVO值对象.
 	 * @return
@@ -30,6 +43,7 @@ public class DistrictData {
 			File binFile = new File("src/main/java/tiquartet/ClientModule/data/district");
 			ObjectInputStream inputStream = new ObjectInputStream(new FileInputStream(binFile));
 			districtVO = (DistrictVO) inputStream.readObject();
+			setList();
 			inputStream.close();
 			return new ResultMessage(true);
 		}catch (IOException | ClassNotFoundException e) {
@@ -52,7 +66,8 @@ public class DistrictData {
 			ObjectOutputStream outputStream = new ObjectOutputStream(new FileOutputStream(binFile, false));
 			outputStream.writeObject(newData);
 			outputStream.close();
-			//从本地数据文件中读取DistrictVO对象
+			districtVO = newData;
+			setList();
 			ResultMessage loadResult = loadLocalData();
 			return loadResult;
 		} catch (IOException e) {
@@ -76,5 +91,16 @@ public class DistrictData {
 	public HashMap<Integer, String> getDistrictMap(){
 		return districtVO.cityMap;
 	}
+	
+	/**
+	 * 返回该城市的所有商圈的编号的列表.
+	 * @param cityID
+	 * @return
+	 */
+	public ArrayList<Integer> districtIDListOfCity(int cityID){
+		return districtCityList.get(cityID);
+	}
+	
+	
 	
 }

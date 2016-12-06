@@ -73,9 +73,17 @@ public class HMSClient {
 		}
 		try {
 			Registry registry = LocateRegistry.getRegistry("127.0.0.1", 1099);
+			
+			createOrderBLSkel = (CreateOrderBLService) registry.lookup("createOrder");
 			hotelInfoBLSkel = (HotelInfoBLService) registry.lookup("hotelInfo");
 			manageOrderBLSkel = (ManageOrderBLService) registry
 					.lookup("manageOrder");
+			manageRoomBLSkel = (ManageRoomBLService) registry.lookup("manageRoom");
+			manageUserBLSkel = (ManageUserBLService) registry.lookup("manageUser");
+			searchHotelBLSkel = (SearchHotelBLService) registry.lookup("searchHotel");
+			strategyBLSkel = (StrategyBLService) registry.lookup("strategy");
+			usermainBLSkel = (UsermainBLService) registry.lookup("userMain");
+			
 		} catch (RemoteException e) {
 			//远程连接失败
 			e.printStackTrace();

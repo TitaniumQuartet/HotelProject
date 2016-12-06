@@ -76,7 +76,7 @@
                   <Font size="24.0" />
                </font>
             </Label>
-            <Button fx:id="modifyButton" disable="true" mnemonicParsing="false" onAction="#onSignUpClicked" prefHeight="50.0" prefWidth="138.0" style="-fx-background-color: skyblue;" text="修改" textFill="WHITE" GridPane.columnIndex="2" GridPane.rowIndex="4">
+            <Button fx:id="modifyButton" disable="true" mnemonicParsing="false" onAction="#onModifyButtonClicked" prefHeight="50.0" prefWidth="138.0" style="-fx-background-color: skyblue;" text="修改" textFill="WHITE" GridPane.columnIndex="2" GridPane.rowIndex="4">
                <font>
                   <Font name="System Bold" size="24.0" />
                </font>

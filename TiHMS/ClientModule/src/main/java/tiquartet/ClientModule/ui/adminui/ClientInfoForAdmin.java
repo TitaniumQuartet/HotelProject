@@ -9,6 +9,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.control.Tooltip;
+import tiquartet.ClientModule.ui.datastorage.MemberLevelData;
 import tiquartet.CommonModule.vo.UserVO;
 
 public class ClientInfoForAdmin implements Initializable {
@@ -73,8 +75,23 @@ public class ClientInfoForAdmin implements Initializable {
     }
 
     @FXML
-    void onSignUpClicked(ActionEvent event) {
-    	
+    void onModifyButtonClicked(ActionEvent event) {
+    	if(modifyButton.getText().equals("修改")){
+    		//显示真实姓名输入框
+    		data2.setVisible(false);
+    		input2.setText(data2.getText());
+    		input2.setVisible(true);
+    		input2.setTooltip(new Tooltip("修改用户真实姓名"));
+    		//显示会员生日/公司名称输入框
+    		data5.setVisible(false);
+    		input5.setText(data5.getText());
+    		input5.setVisible(true);
+    		input5.setTooltip(new Tooltip("修改会员"+field5.getText()));
+    		modifyButton.setText("确认");
+    	}
+    	else if(modifyButton.getText().equals("确认")){
+    		
+    	}
     }
     
     public void setData(UserVO clientInfo){
@@ -83,16 +100,28 @@ public class ClientInfoForAdmin implements Initializable {
     	data2.setText(clientInfo.realName);
     	data2.setVisible(true);
     	
-    	if(clientInfo.isMember){
-    		
-    	}
+    	data3.setText(String.valueOf(clientInfo.credit));
     	data3.setVisible(true);
     	
-    	//data4.setText(value);
+    	if(!clientInfo.isMember) data4.setText(MemberLevelData.getLevelName(0));
+    	else {
+    		//用户是会员
+    		data4.setText(MemberLevelData.getLevelName(clientInfo.memberLevel));
+    		if(clientInfo.birthday!=null&&!clientInfo.birthday.isEmpty()){
+    			//个人会员，填写了生日
+    			field5.setText("生日");
+    			data5.setText(clientInfo.birthday);
+    		}
+    		else{
+    			//企业会员，填写了公司名称
+    			field5.setText("公司名称");
+    			data5.setText(clientInfo.company);
+    		}
+    		field5.setVisible(true);
+    		data5.setVisible(true);
+    	}
     	data4.setVisible(true);
     	
-    	//data5.setText(value);
-    	data5.setVisible(true);
     }
 
 	@Override
@@ -107,10 +136,10 @@ public class ClientInfoForAdmin implements Initializable {
     	field2.setVisible(true);
     	
     	
-    	field3.setText("会员等级");
+    	field3.setText("信用值");
     	field3.setVisible(true);
     	
-    	field4.setText("信用值");
+    	field4.setText("会员等级");
     	field4.setVisible(true);
     	
 	}

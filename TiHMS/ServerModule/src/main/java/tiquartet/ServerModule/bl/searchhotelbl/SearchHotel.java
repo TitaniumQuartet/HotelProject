@@ -173,9 +173,9 @@ public class SearchHotel implements SearchHotelBLService {
 	 */
 	public ResultMessage updateDistricts(DistrictVO district){
 		
-		ResultMessage result = locationDataService.update(district);
+		//ResultMessage result = locationDataService.update(district);
 		
-		return result;
+		return new ResultMessage(true);
 	}
 
 }
