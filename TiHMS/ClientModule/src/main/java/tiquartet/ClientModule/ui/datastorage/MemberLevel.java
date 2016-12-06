@@ -1,8 +1,10 @@
 package tiquartet.ClientModule.ui.datastorage;
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.HashMap;
 
@@ -29,8 +31,21 @@ public class MemberLevel {
 		else return levelNameMap.get(level);
 	}
 	
+	/**
+	 * 从level文件读取会员等级名称的列表.
+	 * @return
+	 */
 	public static ResultMessage loadLocalData(){
-		
+		try{
+			File binFile = new File("src/main/java/tiquartet/ClientModule/data/level");
+			ObjectInputStream inputStream = new ObjectInputStream(new FileInputStream(binFile));
+			levelNameMap = (HashMap<Integer, String>) inputStream.readObject();
+			inputStream.close();
+			return new ResultMessage(true);
+		}catch (IOException | ClassNotFoundException e) {
+			e.printStackTrace();
+			return new ResultMessage(false,"数据文件读取失败",null);
+		}
 	}
 
 	/**

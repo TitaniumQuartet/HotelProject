@@ -26,7 +26,7 @@ public class DistrictData {
 	 */
 	public static ResultMessage loadLocalData(){
 		try{
-			//保存到district文件
+			//读取district文件
 			File binFile = new File("src/main/java/tiquartet/ClientModule/data/district");
 			ObjectInputStream inputStream = new ObjectInputStream(new FileInputStream(binFile));
 			districtVO = (DistrictVO) inputStream.readObject();
