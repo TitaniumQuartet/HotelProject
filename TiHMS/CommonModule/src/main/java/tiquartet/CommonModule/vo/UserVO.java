@@ -45,6 +45,7 @@ public class UserVO {
     	userVO.userName = username;
     	userVO.password = password;
     	userVO.realName = realName;
+    	userVO.userType = UserType.CLIENT;
     	userVO.login = false;
     	return userVO;
     }

@@ -156,7 +156,7 @@ public class LoginController implements Initializable {
 				checkLogin();
 			}
 		});
-		
+		currentUser = null;
 		
 	}
 
