@@ -78,28 +78,41 @@ public class ClientInfoForAdmin implements Initializable {
     }
     
     public void setData(UserVO clientInfo){
+    	data1.setText(clientInfo.userName);
     	
+    	data2.setText(clientInfo.realName);
+    	data2.setVisible(true);
+    	
+    	if(clientInfo.isMember){
+    		
+    	}
+    	data3.setVisible(true);
+    	
+    	//data4.setText(value);
+    	data4.setVisible(true);
+    	
+    	//data5.setText(value);
+    	data5.setVisible(true);
     }
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
+		
+		titleLabel.setText("用户详细信息");
+		
 		field1.setVisible(true);
     	data1.setVisible(true);
     	
     	field2.setText("真实姓名");
     	field2.setVisible(true);
-    	data2.setVisible(true);
+    	
     	
     	field3.setText("会员等级");
     	field3.setVisible(true);
-    	data3.setVisible(true);
     	
     	field4.setText("信用值");
     	field4.setVisible(true);
-    	data4.setVisible(true);
     	
-    	field5.setVisible(true);
-    	data5.setVisible(true);
 	}
 
 }

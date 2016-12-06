@@ -27,7 +27,8 @@ public class DistrictData {
 	public static ResultMessage loadLocalData(){
 		try{
 			//保存到district文件
-			ObjectInputStream inputStream = new ObjectInputStream(new FileInputStream(new File("/ClientModule/src/main/resources/data/district")));
+			File binFile = new File("src/main/java/tiquartet/ClientModule/data/district");
+			ObjectInputStream inputStream = new ObjectInputStream(new FileInputStream(binFile));
 			districtVO = (DistrictVO) inputStream.readObject();
 			inputStream.close();
 			return new ResultMessage(true);
@@ -46,7 +47,9 @@ public class DistrictData {
 	public static ResultMessage updateData(DistrictVO newData){
 		try{
 			//将传入额VO保存到本地数据文件
-			ObjectOutputStream outputStream = new ObjectOutputStream(new FileOutputStream(new File("/ClientModule/src/main/resources/data/district"), false));
+			File binFile = new File("src/main/java/tiquartet/ClientModule/data/district");
+			binFile.createNewFile();
+			ObjectOutputStream outputStream = new ObjectOutputStream(new FileOutputStream(binFile, false));
 			outputStream.writeObject(newData);
 			outputStream.close();
 			//从本地数据文件中读取DistrictVO对象
