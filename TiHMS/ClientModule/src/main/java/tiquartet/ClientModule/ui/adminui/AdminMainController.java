@@ -2,6 +2,7 @@ package tiquartet.ClientModule.ui.adminui;
 
 import java.io.IOException;
 import java.net.URL;
+import java.rmi.RemoteException;
 import java.util.ResourceBundle;
 
 import javafx.event.ActionEvent;
@@ -9,10 +10,14 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Hyperlink;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import tiquartet.ClientModule.ui.rmiclient.HMSClient;
+import tiquartet.ClientModule.ui.usermainui.LoginController;
 import tiquartet.CommonModule.util.ResultMessage;
 
 /**
@@ -52,7 +57,14 @@ public class AdminMainController implements Initializable{
 
     @FXML
     void onLogoutClicked(ActionEvent event) {
-
+    	try {
+			HMSClient.getUserMainBL().logout(LoginController.getCurrentUser().userID);
+			HMSClient.switchScene("/fxml/usermainui/login.fxml");
+		} catch (RemoteException e) {
+			Alert alert = new Alert(AlertType.ERROR, "连接服务器失败");
+			alert.showAndWait();
+			e.printStackTrace();
+		}
     }
 
     @FXML
