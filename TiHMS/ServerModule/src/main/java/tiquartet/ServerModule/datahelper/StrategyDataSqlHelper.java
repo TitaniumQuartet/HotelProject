@@ -10,6 +10,7 @@ import java.util.List;
 import java.util.Map;
 
 import tiquartet.CommonModule.util.ResultMessage;
+import tiquartet.CommonModule.util.StrategyType;
 import tiquartet.ServerModule.datahelper.service.StrategyDataHelper;
 import tiquartet.ServerModule.po.CreditPO;
 import tiquartet.ServerModule.po.StrategyPO;
@@ -19,6 +20,22 @@ import tiquartet.ServerModule.po.StrategyPO;
  * @author Teki
  */
 public class StrategyDataSqlHelper implements StrategyDataHelper{
+	
+	/**
+	 * 处理存储在数据库中的会员等级判断标准和折扣信息.
+	 * @return
+	 */
+	public double[][] transform(String member){
+		String[] str=member.split(";");//等级判断标准和折扣信息合并成一个字符串存储在数据库中，以分号隔开
+		String[] memberThreShold=str[0].split(",");
+		String[] memberDiscount=str[1].split(",");
+		double[][] mem=new double[2][str.length];
+		for(int i=0;i<str.length;i++){
+			mem[0][i]=Double.valueOf(memberThreShold[i]);
+			mem[1][i]=Double.valueOf(memberDiscount[i]);
+		}
+		return null;
+	}
 	
 	ResultMessage success=new ResultMessage(true);
 	
@@ -42,7 +59,15 @@ public class StrategyDataSqlHelper implements StrategyDataHelper{
 	        	String strategyIntro=rs.getString(2);
 	        	int hotelId=rs.getInt(3);
 	        	double discount=rs.getDouble(4);
-	        	StrategyPO strategyPO=new StrategyPO(strategyId,strategyIntro,hotelId,discount);
+	        	int circleId=rs.getInt(5);
+	        	String member=rs.getString(6);
+	        	String startTime=rs.getString(7);
+	        	String endTime=rs.getString(8);
+	        	StrategyType strategyType=StrategyType.values()[rs.getInt(9)];
+	        	int numOfRoom=rs.getInt(10);
+	        	double[] memberThreShold=transform(member)[0];
+	        	double[] memberDiscount=transform(member)[1];
+	        	StrategyPO strategyPO=new StrategyPO(strategyId,strategyIntro,hotelId,discount,circleId, memberThreShold,memberDiscount,startTime,endTime,strategyType,numOfRoom);
 				strategy.add(strategyPO);
 			}
 			pstmt.close();

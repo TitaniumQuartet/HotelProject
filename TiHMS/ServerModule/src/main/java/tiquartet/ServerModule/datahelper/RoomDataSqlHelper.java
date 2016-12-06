@@ -4,8 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 import tiquartet.CommonModule.util.ResultMessage;
 import tiquartet.CommonModule.util.RoomStatus;
 import tiquartet.ServerModule.datahelper.service.RoomDataHelper;
@@ -42,13 +41,94 @@ public class RoomDataSqlHelper implements RoomDataHelper{
 	}
 	
 	/**
+	 * 判断客房在某时间段是否可预定
+	 * @return
+	 */
+	public boolean timeConflict(String startDate, String endDate, String startTime, String leaveTime){
+		if((Integer.valueOf(startTime)<=Integer.valueOf(startDate)&&Integer.valueOf(leaveTime)>=Integer.valueOf(startDate))||
+				(Integer.valueOf(startTime)<=Integer.valueOf(endDate)&&Integer.valueOf(leaveTime)>=Integer.valueOf(endDate))){
+			return true;
+		}
+		return false;
+	}
+	
+	/**
+	 * 根据客房编号得到房间类型
+	 * @return
+	 */
+	public RoomTypePO getRoomType(int roomID){
+		Connection conn = Connect.getConn();
+	    String sql = "SELECT * FROM room where roomId =" + roomID;
+	    PreparedStatement pstmt;
+	    try {
+	        pstmt = (PreparedStatement)conn.prepareStatement(sql);
+	        ResultSet rst = pstmt.executeQuery();
+	       	int roomTypeId=rst.getInt(3);
+	       	String sqll = "SELECT * FROM roomType where roomTypeId =" + roomTypeId;
+	       	pstmt = (PreparedStatement)conn.prepareStatement(sqll);
+	        ResultSet rs = pstmt.executeQuery();
+	       	String typeIntro=rs.getString(2);
+	       	double price=rs.getDouble(3);
+	       	String roomType=rs.getString(4);
+	       	int hotelId=rs.getInt(5);
+			RoomTypePO roomtypepo = new RoomTypePO(roomTypeId,roomType,typeIntro,price,hotelId);
+			pstmt.close();
+	        conn.close();
+			return roomtypepo;
+	    } catch (SQLException e) {
+	        e.printStackTrace();
+	        return null;
+	    }
+	}
+	
+	/**
 	 * 根据信息得到可住客房.
 	 * @return
 	 */
 	@Override
 	public List<RoomTypePO> availableRoomType(int hotelID, String startDate, String endDate, int numOfRoom) {
-		
-		return null;
+		Connection conn = Connect.getConn();
+		List<RoomTypePO> rooms = new ArrayList<RoomTypePO>();//可用房间类型的po列表
+		Map<Integer, Integer> roomtAn = new HashMap<Integer, Integer>();//可用客房房间类型和数量
+		String sql="select * from order where hotelId =" + hotelID + "where state =" + "0";
+		PreparedStatement pstmt;
+		try {
+			pstmt = (PreparedStatement) conn.prepareStatement(sql);
+	        ResultSet rs = pstmt.executeQuery();
+	        while(rs.next()){
+	        	String roomId=rs.getString(5);
+	        	String startTime=rs.getString(14);
+	 		    String leaveTime=rs.getString(15);
+	 		     if(!timeConflict(startDate, endDate, startTime, leaveTime)){//判断订单时间与预定时间是否冲突
+	 		    	 String[] roomid=roomId.split(",");
+	 		    	 int[] roomID=new int[roomid.length];//得到订单上的所有房间编号
+	 		    	 for(int i=0;i<roomid.length;i++){
+	 		    		 roomID[i]=Integer.valueOf(roomid[i]);	 		    		
+	 		    		 if(!roomtAn.containsKey(roomID[i])){
+	 		    			 roomtAn.put(roomID[i], 1);
+	 		    		 }else{
+	 		    			 roomtAn.put(roomID[i], roomtAn.get(roomID[i])+1);
+	 		    		 }	 		    		   
+	 		    	 }
+	 		   	} 
+	 	    } 
+	        Iterator<Map.Entry<Integer, Integer>> iter = roomtAn.entrySet().iterator();//判断可用客房类型的数量是否足够
+	        while (iter.hasNext()) {
+	        	Map.Entry<Integer, Integer> entry = (Map.Entry<Integer, Integer>) iter.next();
+	        	int key = entry.getKey();
+	        	int val = entry.getValue();
+	        	if(val>=numOfRoom){
+	        		RoomTypePO roomType = getRoomType(key);
+	        		rooms.add(roomType);
+	        	}	        	
+	        }	        
+			pstmt.close();
+	        conn.close();
+			return rooms;
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}
 	}
 
 	/**

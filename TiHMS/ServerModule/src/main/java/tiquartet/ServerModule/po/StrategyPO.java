@@ -32,13 +32,21 @@ public class StrategyPO implements Serializable{
 		
 	}
 	
-	public StrategyPO(int strategyId,String strategyIntro,int hotelId,double discount){
+	public StrategyPO(int strategyId,String strategyIntro,int hotelId,double discount,int circleID,double[] memberThreShold,double[] memberDiscount,String startTime,String endTime,StrategyType strategyType,int numOfRoom){
 		super();
 		this.strategyId=strategyId;
 		this.strategyIntro=strategyIntro;
 		this.hotelId=hotelId;
 		this.discount=discount;
+		this.circleID=circleID;
+		this.memberThreShold=memberThreShold;
+		this.memberDiscount=memberDiscount;
+		this.startTime=startTime;
+		this.endTime=endTime;
+		this.strategyType=strategyType;
+		this.numOfRoom=numOfRoom;
 	}
+	
 	public StrategyPO(StrategyVO vo){
 		this.discount=vo.discount;
 		this.hotelId=vo.hotelID;

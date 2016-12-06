@@ -66,6 +66,7 @@ public class ReviewDataSqlHelper implements ReviewDataHelper{
 	        pstmt.setString(5, review.getuserName());
 	        pstmt.setString(6, review.gettime());
 	        pstmt.executeUpdate();
+	        average(review.getscore(), review.gethotelId());
 	        pstmt.close();
 	        conn.close();
 	    } catch (SQLException e) {
@@ -73,6 +74,37 @@ public class ReviewDataSqlHelper implements ReviewDataHelper{
 	        return new ResultMessage(false);
 	    } 	
 	    return new ResultMessage(true);
+	}
+	
+	/**
+	 * 每新增一条评分，重新计算酒店的平均评分.
+	 * @return
+	 */
+	public ResultMessage average(int addtion,int hotelId){
+		Connection conn = Connect.getConn();
+	    String sql = "select * for review where hotelId =" + hotelId;
+	    double aver=addtion;
+	    int number=0;
+	    PreparedStatement pstmt;
+	    try {
+	        pstmt = (PreparedStatement) conn.prepareStatement(sql);
+	        ResultSet rs=pstmt.executeQuery();
+	        while(rs.next()){
+	        	number++;
+	        	aver+=rs.getInt(2);
+	        }
+	        aver=aver/(number+1);
+	        String sqll="update hotelInfo set averageGrade = " + aver +
+	        		"where hotelId = " + hotelId;
+	        pstmt = (PreparedStatement) conn.prepareStatement(sqll);	        
+	        pstmt.executeUpdate();
+	        pstmt.close();
+	        conn.close();
+	        return new ResultMessage(true);
+	    } catch (SQLException e) {
+	        e.printStackTrace();
+	        return new ResultMessage(false);
+	    } 	
 	}
 
 }

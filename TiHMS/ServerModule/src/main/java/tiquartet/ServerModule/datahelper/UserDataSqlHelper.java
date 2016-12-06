@@ -52,12 +52,14 @@ public class UserDataSqlHelper implements UserDataHelper{
 	@Override
 	public ResultMessage userExist (String username){
 		Connection conn = Connect.getConn();
-	    String sql = "select * from students where username ="+username;
+	    String sql = "select * from user where username =" + username;
 	    PreparedStatement pstmt;
 	    try {
 	        pstmt = (PreparedStatement)conn.prepareStatement(sql);
 	        ResultSet rs = pstmt.executeQuery();
-	        String name=rs.getString(1);
+	        String name=rs.getString(2);
+	        pstmt.close();
+	        conn.close();
 	        if(username==name)
 	        	return success;
 	        else
@@ -69,26 +71,44 @@ public class UserDataSqlHelper implements UserDataHelper{
 	}
 	
 	/**
-	 * 验证密码是否正确.
+	 * 验证密码是否正确以及用户是否在其他地方已登陆.
 	 * @return
 	 */
 	@Override
 	public ResultMessage checkPassword (String username, String password){
 		Connection conn = Connect.getConn();
-	    String sql = "select * from students where username ="+username;
+	    String sql = "select * from user where username =" + username;
 	    PreparedStatement pstmt;
 	    try {
 	        pstmt = (PreparedStatement)conn.prepareStatement(sql);
 	        ResultSet rs = pstmt.executeQuery();
-	        String name=rs.getString(1);
+	        String name=rs.getString(2);
 	        String pass=rs.getString(3);
-	        if(username==name&&password==pass){
+	        boolean login=rs.getBoolean(12);
+	        if(username==name&&password==pass&&login==false){//若登陆成功，修改login的值为真.
+	        	String sqll="update user set login =" + "'true'" +
+	        			"where username =" + username;
+	        	pstmt = (PreparedStatement) conn.prepareStatement(sqll);
+	 	        pstmt.executeUpdate();
+	 	        pstmt.close();
+		        conn.close();
 	        	return success;
-	        }else
-	        	return null;
+	        }else if(password!=pass){
+	        	pstmt.close();
+	            conn.close();
+	        	return new ResultMessage(false,"密码不正确",null);
+	        }else if(login==true){
+	        	pstmt.close();
+		        conn.close();
+	        	return new ResultMessage(false,"用户在其他地方已登陆",null);
+	        }else {
+	        	pstmt.close();
+		        conn.close();
+				return fail;
+			}
 	    } catch (SQLException e) {
 	        e.printStackTrace();
-	        return null;
+	        return fail;
 	    }
 	}
 	
@@ -103,7 +123,7 @@ public class UserDataSqlHelper implements UserDataHelper{
 	    PreparedStatement pstmt;
 	    try {
 	        pstmt = (PreparedStatement) conn.prepareStatement(sql);
-	        pstmt.setInt(1, user.getuserId());
+	        pstmt.setInt(1, 0);
 	        pstmt.setString(2, user.getuserName());
 	        pstmt.setString(3, user.getpassword());
 	        pstmt.setInt(4, user.getTypeAsInt());
@@ -309,7 +329,7 @@ public class UserDataSqlHelper implements UserDataHelper{
 	public List<UserPO> marketerList() {
 		Connection conn = Connect.getConn();
 		List<UserPO> users=new ArrayList<UserPO>(); 
-	    String sql = "SELECT * FROM user where userType =" + "2";
+	    String sql = "SELECT * FROM user where userType =" + "'2'";
 	    PreparedStatement pstmt;
 	    try {
 	        pstmt = (PreparedStatement)conn.prepareStatement(sql);
