@@ -119,11 +119,10 @@ public class UserDataSqlHelper implements UserDataHelper{
 	@Override
 	public ResultMessage insert (UserPO user){
 		Connection conn = Connect.getConn();
-	    String sql = "insert into user(userId,userName,password,userType,realName,credit,birthday,memberRank,isMember,company,hotelId,login) values(?,?,?,?,?,?,?,?,?,?,?,?)";
+	    String sql = "insert into user(userName,password,userType,realName,credit,birthday,memberRank,isMember,company,hotelId,login) values(?,?,?,?,?,?,?,?,?,?,?,?)";
 	    PreparedStatement pstmt;
 	    try {
 	        pstmt = (PreparedStatement) conn.prepareStatement(sql);
-	        pstmt.setInt(1, 0);
 	        pstmt.setString(2, user.getuserName());
 	        pstmt.setString(3, user.getpassword());
 	        pstmt.setInt(4, user.getTypeAsInt());

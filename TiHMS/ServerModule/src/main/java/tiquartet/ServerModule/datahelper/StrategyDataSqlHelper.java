@@ -1,18 +1,14 @@
 package tiquartet.ServerModule.datahelper;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
-
 import tiquartet.CommonModule.util.ResultMessage;
 import tiquartet.CommonModule.util.StrategyType;
 import tiquartet.ServerModule.datahelper.service.StrategyDataHelper;
-import tiquartet.ServerModule.po.CreditPO;
 import tiquartet.ServerModule.po.StrategyPO;
 
 /**

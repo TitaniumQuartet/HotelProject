@@ -78,7 +78,21 @@ public class OrderDataSqlHelper implements OrderDataHelper{
 	 */
 	@Override
 	public OrderPO preOrder(OrderPO preOrder){
-		return null;
+		insert(preOrder);
+		Connection conn = Connect.getConn();
+		String sql="select * from order where userId = " ;
+		PreparedStatement pstmt;
+		try {
+			pstmt = (PreparedStatement) conn.prepareStatement(sql);
+			ResultSet rs = pstmt.executeQuery();
+			OrderPO orderpo =new OrderPO();
+			pstmt.close();
+	        conn.close();
+			return orderpo;
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}
 	}
 	
 	/**
@@ -88,12 +102,11 @@ public class OrderDataSqlHelper implements OrderDataHelper{
 	@Override
 	public ResultMessage insert(OrderPO order) {
 		Connection conn = Connect.getConn();
-	    String sql = "insert into order(orderId,orderStatus,latestTime,roomNumber,roomId,numberOfRoom,numberOfPeople,child,guestRealName,clientRealName,hotelName,userId,userName,startTime,leaveTime,price,hotelId) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+	    String sql = "insert into order(orderStatus,latestTime,roomNumber,roomId,numberOfRoom,numberOfPeople,child,guestRealName,clientRealName,hotelName,userId,userName,startTime,leaveTime,price,hotelId) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 	    PreparedStatement pstmt;
 	    try {
 	    	String[] room=order.getroom().split(";");
 	        pstmt = (PreparedStatement) conn.prepareStatement(sql);
-	        pstmt.setLong(1, order.getorderId());
 	        pstmt.setInt(2,order.getorderStatusAsInt());
 	        pstmt.setString(3, order.getlatestTime());
 	        pstmt.setString(4, room[1]);
