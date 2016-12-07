@@ -105,7 +105,8 @@ public class ManageUser implements ManageUserBLService {
 			if(userVO2.userName.equals(filter.username)
 					&& userVO2.realName.equals(filter.realName)
 					&& (userVO2.memberLevel >= filter.lowerLevel && 
-					userVO2.memberLevel <= filter.upperLevel)){
+					userVO2.memberLevel <= filter.upperLevel)
+					&& userVO2.userType.equals(filter.userType)){
 				filterUser.add(userVO2);
 			}
 		}

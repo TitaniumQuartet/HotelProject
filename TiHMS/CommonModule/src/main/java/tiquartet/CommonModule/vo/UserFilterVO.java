@@ -1,5 +1,7 @@
 package tiquartet.CommonModule.vo;
 
+import tiquartet.CommonModule.util.UserType;
+
 public class UserFilterVO {
 	//用户名
 	public String username = null;
@@ -9,6 +11,8 @@ public class UserFilterVO {
 	public int lowerLevel = -1;
 	//会员等级上限
 	public int upperLevel = -1;
+	//用户类型
+	public UserType userType;
 	
 	/**
 	 * 传入所有成员的构造函数.
