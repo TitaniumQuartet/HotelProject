@@ -71,8 +71,8 @@ public class CreateOrder implements CreateOrderBLService{
 			double price=preorder.price*preorder.numOfRoom;
 			orderstrategy.orderPrice=price;
 			if(polist.get(i).getStrategyType()==StrategyType.BIRTHDAY){
-				DateFormat format=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-				if(user.getbirthday()==format.format(new Date())){
+				DateFormat format=new SimpleDateFormat("yyyy-MM-dd");
+				if(user.getbirthday().equals(format.format(new Date()))){
 					price=price*polist.get(i).getdiscount();
 					orderstrategy.orderPrice=price;
 					orderStrategylist.add(orderstrategy);

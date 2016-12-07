@@ -383,11 +383,23 @@ public class ManageOrder implements ManageOrderBLService {
 		}
 		order.setlatestTime(estLeaveTime);
 		DateFormat format=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-		order.setstartTime(format.format(new Date()));
-		UserPO user=userdataimpl.getUser(order.getuserId());
-		user.setcredit(user.getcredit()+order.getprice());
-		orderdataimpl.update(order);
-		return new ResultMessage(true);
+		Date nowDate=new Date();
+		try {
+			Date leaveDate=format.parse(order.getleaveTime());
+			Date startDate=format.parse(order.getstartTime());
+			if(nowDate.before(leaveDate)&&nowDate.after(startDate)){
+				order.setstartTime(format.format(new Date()));
+				UserPO user=userdataimpl.getUser(order.getuserId());
+				user.setcredit(user.getcredit()+order.getprice());
+				orderdataimpl.update(order);
+				userdataimpl.update(user);
+				return new ResultMessage(true);
+			}
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return new ResultMessage(false,"订单已过期","");
 	}
 
 	public ResultMessage checkOut(long orderID,String leaveTime) throws RemoteException{
@@ -395,9 +407,20 @@ public class ManageOrder implements ManageOrderBLService {
 		if(order==null){
 			return new ResultMessage(false,"此订单不存在","");
 		}
-		order.setleaveTime(leaveTime);
-		order.setorderStatus(OrderStatus.EXECUTED);// TODO Auto-generated method stub
-		return new ResultMessage(true);
+		DateFormat format=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		try {
+			Date leaveDate=format.parse(leaveTime);
+			Date estLeaveDate=format.parse(order.getlatestTime());
+			if(leaveDate.before(estLeaveDate)){
+				order.setleaveTime(leaveTime);
+				order.setorderStatus(OrderStatus.EXECUTED);// TODO Auto-generated method stub
+				return new ResultMessage(true);
+			}
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return new ResultMessage(false,"超过订单最晚离开时间","");
 	}
 
 	public List<Integer> orderedHotelID(int userID) throws RemoteException{
