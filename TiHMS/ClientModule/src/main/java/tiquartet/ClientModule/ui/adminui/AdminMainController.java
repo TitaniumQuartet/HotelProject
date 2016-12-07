@@ -30,6 +30,8 @@ public class AdminMainController implements Initializable{
 	public Parent searchUserSection;
 	
 	public Parent modifyPassword;
+	
+	public Parent addHotelSection;
 
     @FXML
     private Hyperlink logoutLink;
@@ -74,7 +76,7 @@ public class AdminMainController implements Initializable{
 
     @FXML
     void toAddHotelSection(ActionEvent event) {
-    	
+    	showSection(addHotelSection);
     }
 
     @FXML
@@ -106,13 +108,19 @@ public class AdminMainController implements Initializable{
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
     	try {
-    		FXMLLoader fxmlLoader = new FXMLLoader();
+    		FXMLLoader fxmlLoader;
     		//加载搜索用户组件
+    		fxmlLoader = new FXMLLoader();
         	fxmlLoader.setLocation(getClass().getResource("/fxml/adminui/searchSection.fxml"));
 			searchUserSection = fxmlLoader.load();
 			//加载修改密码组件
+			fxmlLoader = new FXMLLoader();
 			fxmlLoader.setLocation(getClass().getResource("/fxml/adminui/modifyPassword.fxml"));
 			modifyPassword = fxmlLoader.load();
+			//加载增加酒店组件
+			fxmlLoader = new FXMLLoader();
+			fxmlLoader.setLocation(getClass().getResource("/fxml/adminui/addHotel.fxml"));
+			addHotelSection = fxmlLoader.load();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

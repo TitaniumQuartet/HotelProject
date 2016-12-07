@@ -7,11 +7,11 @@ import java.util.Calendar;
 import java.util.Date;
 
 /**
- * 用统一的日期格式进行字符串与日期实例间的转换.
+ * 进行字符串的转换.
  * @author greatlyr
  *
  */
-public class DateConverter {
+public class StringUtility {
 	//默认日期字符串样式.
 	public static String DateFormat = "yyyy-MM-dd HH:mm:ss";
 	private static SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
@@ -21,7 +21,7 @@ public class DateConverter {
 	 * @param date
 	 * @return
 	 */
-	public static String toString(Date date){
+	public static String dateToString(Date date){
 		return simpleDateFormat.format(date);
 	}
 	
@@ -30,7 +30,7 @@ public class DateConverter {
 	 * @param localDate
 	 * @return
 	 */
-	public static String toString(LocalDate localDate){
+	public static String dateToString(LocalDate localDate){
 		return simpleDateFormat.format(localDate);
 	}
 	
@@ -48,5 +48,20 @@ public class DateConverter {
 			return calendar;
 		}
 		return calendar;
+	}
+	
+	public static String valueOf(UserType type){
+		switch(type){
+			case CLIENT :
+				return "客户";
+			case HOTELSTAFF :
+				return "酒店工作人员";
+			case MARKETER :
+				return "网站营销人员";
+			case SITEADMIN :
+				return "网站管理人员";
+			default :
+				return null;
+		}
 	}
 }

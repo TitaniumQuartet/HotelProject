@@ -21,16 +21,54 @@ public class DistrictData {
 	
 	private static DistrictVO districtVO = null;
 	
+	private static ArrayList<Integer> cityIDList;
+	
+	private static ArrayList<String> cityNameList;
+	
 	private static HashMap<Integer, ArrayList<Integer>> districtCityList;
 	
+	private static HashMap<Integer, ArrayList<String>> districtCityNameList;
+	
+	/**
+	 * 初始化各个静态的列表实例
+	 * 
+	 */
 	private static void setList(){
+		cityIDList = new ArrayList<>();
+		cityNameList = new ArrayList<>();
+		districtCityList = new HashMap<>();
+		districtCityNameList = new HashMap<>();
 		for(int i:districtVO.cityMap.keySet()){
 			districtCityList.put(i, new ArrayList<Integer>());
+			districtCityNameList.put(i, new ArrayList<String>());
+			cityIDList.add(i);
+			cityNameList.add(districtVO.cityMap.get(i));
 		}
 		for(int i:districtVO.districtMap.keySet()){
-			ArrayList<Integer> list = districtCityList.get(i/100);
-			if(list!=null) list.add(i);
+			ArrayList<Integer> listID = districtCityList.get(i/100);
+			if(listID!=null) listID.add(i);
+			ArrayList<String> listName = districtCityNameList.get(i/100);
+			if(listName!=null) listName.add(districtVO.districtMap.get(i));
 		}
+	}
+	
+	/**
+	 * 返回初始的城市商圈列表，测试用.
+	 * @return
+	 */
+	private static DistrictVO initialData(){
+		HashMap<Integer, String> cityMap = new HashMap<>();
+		HashMap<Integer, String> districtMap = new HashMap<>();
+		cityMap.put(1, "北京");
+		cityMap.put(2, "广州");
+		cityMap.put(3, "南京");
+		districtMap.put(101, "中南海");
+		districtMap.put(102, "中关村");
+		districtMap.put(201, "中山大学");
+		districtMap.put(202, "广州大学");
+		districtMap.put(301, "仙林");
+		districtMap.put(302, "鼓楼");
+		return new DistrictVO(cityMap, districtMap);
 	}
 	
 	/**
@@ -80,7 +118,7 @@ public class DistrictData {
 	 * 获取城市编号与名称的HashMap.
 	 * @return
 	 */
-	public HashMap<Integer, String> getCityMap(){
+	public static HashMap<Integer, String> getCityMap(){
 		return districtVO.cityMap;
 	}
 	
@@ -88,7 +126,7 @@ public class DistrictData {
 	 * 获取商圈编号与名称的HashMap.
 	 * @return
 	 */
-	public HashMap<Integer, String> getDistrictMap(){
+	public static HashMap<Integer, String> getDistrictMap(){
 		return districtVO.cityMap;
 	}
 	
@@ -97,10 +135,34 @@ public class DistrictData {
 	 * @param cityID
 	 * @return
 	 */
-	public ArrayList<Integer> districtIDListOfCity(int cityID){
+	public static ArrayList<Integer> districtIDListOfCity(int cityID){
 		return districtCityList.get(cityID);
 	}
 	
+	/**
+	 * 返回该城市的所有商圈的名称的列表.
+	 * @param cityID
+	 * @return
+	 */
+	public static ArrayList<String> districtNameListOfCity(int cityID){
+		return districtCityNameList.get(cityID);
+	}
 	
+	/**
+	 * 传入城市名称，返回城市编号.
+	 * @param cityName
+	 * @return
+	 */
+	public static int getCityIDOf(String cityName){
+		return cityIDList.get(cityNameList.indexOf(cityName));
+	}
+	
+	/**
+	 * 使用初始数据生成数据文件.
+	 * @param args
+	 */
+	public static void main(String[] args){
+		updateData(initialData());
+	}
 	
 }

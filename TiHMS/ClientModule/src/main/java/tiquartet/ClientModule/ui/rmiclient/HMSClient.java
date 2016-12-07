@@ -7,10 +7,12 @@ import java.rmi.registry.Registry;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import tiquartet.ClientModule.ui.adminui.AdminMainController;
 import tiquartet.ClientModule.ui.datastorage.DistrictData;
+import tiquartet.ClientModule.ui.datastorage.MemberLevelData;
 import tiquartet.CommonModule.blservice.createorderblservice.CreateOrderBLService;
 import tiquartet.CommonModule.blservice.hotelinfoblservice.HotelInfoBLService;
 import tiquartet.CommonModule.blservice.manageorderblservice.ManageOrderBLService;
@@ -49,6 +51,12 @@ public class HMSClient {
 	static UsermainBLService usermainBLSkel;
 	
 	static AdminMainController adminMainController;
+	
+	static public Scene loginScene;
+	
+	static public Scene signUpScene;
+	
+	static public Scene adminMainScene;
 
 	/**
 	 * 运行客户端程序.
@@ -102,7 +110,8 @@ public class HMSClient {
 	 */
 	public ResultMessage loadData() {
 		//待完整实现
-		//DistrictData.loadLocalData();
+		MemberLevelData.loadLocalData();
+		DistrictData.loadLocalData();
 		return new ResultMessage(true);
 	}
 	

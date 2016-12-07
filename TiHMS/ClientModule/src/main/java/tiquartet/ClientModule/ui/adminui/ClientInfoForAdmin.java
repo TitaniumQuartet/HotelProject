@@ -261,6 +261,9 @@ public class ClientInfoForAdmin implements Initializable {
 			}
 		});
     	
+    	input1.setTooltip(new Tooltip("客户的真实姓名"));
+    	input4.setTooltip(new Tooltip("会员的必要信息"));
+    	
 	}
 
 }
