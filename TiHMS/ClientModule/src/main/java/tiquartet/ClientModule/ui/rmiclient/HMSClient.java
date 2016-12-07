@@ -124,7 +124,7 @@ public class HMSClient {
 	}
 	
 	/**
-	 * 切换客户端窗口的内容.
+	 * 先加载fxml文件，再切换客户端窗口的内容.
 	 * @param resourcePath fxml文件资源的路径
 	 * @return
 	 */
@@ -138,6 +138,14 @@ public class HMSClient {
 			e.printStackTrace();
 			return new ResultMessage(false);
 		}
+	}
+	
+	/**
+	 * 切换客户端窗口的内容.
+	 * @param scene
+	 */
+	public static void showScene(Scene scene){
+		mainStage.setScene(scene);
 	}
 	
 	/**

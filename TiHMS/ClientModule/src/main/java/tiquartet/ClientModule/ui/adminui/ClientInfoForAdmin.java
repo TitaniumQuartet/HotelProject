@@ -21,6 +21,12 @@ import tiquartet.ClientModule.ui.rmiclient.HMSClient;
 import tiquartet.CommonModule.util.ResultMessage;
 import tiquartet.CommonModule.vo.UserVO;
 
+/**
+ * 网站管理人员查看、修改单个用户的信息.
+ * 可以增加修改密码的功能
+ * @author greatlyr
+ *
+ */
 public class ClientInfoForAdmin implements Initializable {
 
     @FXML

@@ -86,7 +86,7 @@ public class AddHotelController implements Initializable {
 					confirmPasswordField.setText("");
 				}
 			}
-			Alert fail = new Alert(AlertType.ERROR, "酒店添加失败");
+			Alert fail = new Alert(AlertType.ERROR, "酒店添加失败，"+message.failInfo);
 			fail.show();
 		} catch (RemoteException e) {
 			//网络连接异常处理

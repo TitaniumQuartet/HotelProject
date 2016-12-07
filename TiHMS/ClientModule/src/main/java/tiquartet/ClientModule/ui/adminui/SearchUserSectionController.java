@@ -1,8 +1,9 @@
 package tiquartet.ClientModule.ui.adminui;
 
-import java.awt.List;
 import java.net.URL;
 import java.rmi.RemoteException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 
 import javafx.beans.value.ChangeListener;
@@ -11,11 +12,13 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import tiquartet.ClientModule.ui.rmiclient.HMSClient;
-import tiquartet.CommonModule.vo.OrderFilterVO;
+import tiquartet.CommonModule.util.UserSort;
+import tiquartet.CommonModule.util.UserType;
 import tiquartet.CommonModule.vo.UserFilterVO;
 import tiquartet.CommonModule.vo.UserVO;
 
@@ -46,6 +49,11 @@ public class SearchUserSectionController implements Initializable{
     
     @FXML
     private Label userNotFoundLabel;
+    
+    @FXML
+    private CheckBox isMemberBox;
+    
+    public AdminMainController adminMainController;
 
     @FXML
     void onAccuSearch(ActionEvent event) {
@@ -61,8 +69,35 @@ public class SearchUserSectionController implements Initializable{
 
     @FXML
     void onFuzzySearch(ActionEvent event) {
-    	UserFilterVO filterVO = new UserFilterVO(fuzzyUsernameField.getText(), realNameField.getText(), -1, -1);
-    	//List<UserVO> userList = HMSClient.getManageUserBL().search(filter, sort, rank1, rank2);
+    	
+    	try {
+    		UserFilterVO filterVO = new UserFilterVO(fuzzyUsernameField.getText(), realNameField.getText(), -1, -1);
+        	//对会员身份的筛选可能需要修改
+        	if(isMemberBox.isSelected()){
+        		filterVO.lowerLevel = 1;
+        		filterVO.upperLevel = 10;
+        	}
+        	switch (userTypeBox.getSelectionModel().getSelectedIndex()) {
+    			case 0 :
+    				filterVO.userType = UserType.CLIENT;
+    				break;
+    			case 1 :
+    				filterVO.userType = UserType.HOTELSTAFF;
+    				break;
+    			case 2 :
+    				filterVO.userType = UserType.MARKETER;
+    				break;
+    			case 3 :
+    				filterVO.userType = null;
+    				break;
+    		}
+			List<UserVO> userList = HMSClient.getManageUserBL().search(filterVO, UserSort.USERNAMEASCEND, 1, 100);
+			adminMainController.showSection(adminMainController.filterUser);
+			adminMainController.filterUserController.setData(userList);
+    	} catch (RemoteException e) {
+			//处理网络异常
+			e.printStackTrace();
+		}
     }
 
     /**

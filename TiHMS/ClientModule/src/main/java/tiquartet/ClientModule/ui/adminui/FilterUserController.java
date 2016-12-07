@@ -1,6 +1,6 @@
 package tiquartet.ClientModule.ui.adminui;
 
-import java.awt.List;
+import java.util.List;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
@@ -69,7 +69,7 @@ public class FilterUserController implements Initializable {
     	//UserFilterVO filterVO = new UserFilterVO(usernameField.getText(), realNameField.getText(), , upperLevel)
     }
     
-    public void setData(ArrayList<UserVO> users){
+    public void setData(List<UserVO> users){
     	userList.clear();
     	userList.addAll(users);
     	userListTable.getItems().clear();
