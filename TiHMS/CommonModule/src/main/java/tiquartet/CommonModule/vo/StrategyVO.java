@@ -1,9 +1,11 @@
 package tiquartet.CommonModule.vo;
 
 
+import java.io.Serializable;
+
 import tiquartet.CommonModule.util.StrategyType;
 
-public class StrategyVO {
+public class StrategyVO implements Serializable{
 	 //酒店编号
 	 public int hotelID;
 	 //商圈编号

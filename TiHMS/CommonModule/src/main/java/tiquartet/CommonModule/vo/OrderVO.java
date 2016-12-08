@@ -1,10 +1,11 @@
 package tiquartet.CommonModule.vo;
 
+import java.io.Serializable;
 import java.util.HashMap;
 
 import tiquartet.CommonModule.util.OrderStatus;
 
-public class OrderVO {
+public class OrderVO implements Serializable{
 	    //订单编号
 		public long orderId;
 		//最晚订单执行时间

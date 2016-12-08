@@ -1,6 +1,8 @@
 package tiquartet.CommonModule.vo;
 
-public class OrderInfoVO {
+import java.io.Serializable;
+
+public class OrderInfoVO implements Serializable{
    //客户编号
    public int userID;
    //酒店编号

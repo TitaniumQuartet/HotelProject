@@ -1,7 +1,8 @@
 package tiquartet.CommonModule.vo;
 
+import java.io.Serializable;
 
-public class PreOrderVO {
+public class PreOrderVO implements Serializable{
 	//用户编号
      public int userID;
      //酒店编号

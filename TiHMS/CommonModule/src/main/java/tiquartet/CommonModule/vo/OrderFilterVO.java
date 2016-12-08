@@ -1,8 +1,10 @@
 package tiquartet.CommonModule.vo;
 
+import java.io.Serializable;
+
 import tiquartet.CommonModule.util.OrderStatus;
 
-public class OrderFilterVO {
+public class OrderFilterVO implements Serializable{
 	    //初始值为-1;
 	    //订单状态
 	    public OrderStatus orderState=null;

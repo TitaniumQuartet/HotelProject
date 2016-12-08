@@ -1,7 +1,8 @@
 package tiquartet.CommonModule.vo;
 
+import java.io.Serializable;
 
-public class ReviewVO {
+public class ReviewVO implements Serializable{
 	    //酒店编号
 	    public int hotelID;
 	    //用户评分

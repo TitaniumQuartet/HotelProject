@@ -1,8 +1,10 @@
 package tiquartet.CommonModule.vo;
 
+import java.io.Serializable;
+
 import tiquartet.CommonModule.util.RoomStatus;
 
-public class RoomVO {
+public class RoomVO implements Serializable{
 	    //房间编号
 	    public int roomID;
 	    //房间数量	    

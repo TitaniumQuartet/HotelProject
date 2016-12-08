@@ -1,9 +1,11 @@
 package tiquartet.CommonModule.vo;
 
+import java.io.Serializable;
+
 import tiquartet.CommonModule.util.MemberType;
 import tiquartet.CommonModule.util.UserType;
 
-public class UserFilterVO {
+public class UserFilterVO implements Serializable{
 	//用户名
 	public String username = null;
 	//真实姓名
