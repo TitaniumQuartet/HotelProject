@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="640.0" prefWidth="930.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tiquartet.ClientModule.ui.adminui.HotelierSectionController">
+   <children>
+      <TableView fx:id="userListTable" layoutX="397.0" layoutY="30.0" prefHeight="583.0" prefWidth="494.0">
+         <columns>
+            <TableColumn fx:id="usernameColumn" editable="false" prefWidth="216.22216796875" text="用户名" />
+            <TableColumn fx:id="hotelNameColumn" editable="false" prefWidth="300.77783203125" text="酒店名称" />
+         </columns>
+      </TableView>
+      <GridPane layoutX="39.0" layoutY="53.0" prefHeight="523.0" prefWidth="341.0">
+         <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="126.888916015625" minWidth="10.0" prefWidth="84.888916015625" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="236.7777557373047" minWidth="10.0" prefWidth="212.66665649414062" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="198.88887786865234" minWidth="10.0" prefWidth="42.333343505859375" />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+         </rowConstraints>
+         <children>
+            <ChoiceBox fx:id="districtBox" prefHeight="36.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <Label text="商圈" GridPane.rowIndex="2">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Button fx:id="modifyButton" mnemonicParsing="false" onAction="#onModifyPassword" prefHeight="48.0" prefWidth="138.0" style="-fx-background-color: skyblue;" text="修改密码" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="7">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Button>
+            <Label text="城市" GridPane.rowIndex="1">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <ChoiceBox fx:id="cityBox" prefHeight="36.0" prefWidth="165.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <Label fx:id="passwordLabel" prefHeight="32.0" prefWidth="170.0" text="密码" GridPane.rowIndex="5">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <ImageView fx:id="passwordTick" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" visible="false" GridPane.columnIndex="2" GridPane.rowIndex="5">
+               <image>
+                  <Image url="@../../image/usermainui/GreenTick.png" />
+               </image>
+            </ImageView>
+            <Label fx:id="confirmPasswordLabel" prefHeight="32.0" prefWidth="170.0" text="确认密码" GridPane.rowIndex="6">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <PasswordField fx:id="passwordField" maxWidth="-Infinity" prefHeight="36.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+            <PasswordField fx:id="confirmPasswordField" maxWidth="-Infinity" prefHeight="36.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+            <ImageView fx:id="confirmPasswordTick" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" visible="false" GridPane.columnIndex="2" GridPane.rowIndex="6">
+               <image>
+                  <Image url="@../../image/usermainui/GreenTick.png" />
+               </image>
+            </ImageView>
+            <Label text="筛选">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <Separator prefWidth="200.0" GridPane.columnSpan="2" GridPane.rowIndex="3" />
+            <Label fx:id="modifyPasswordLabel" text="为用户设置新密码" GridPane.columnSpan="2" GridPane.rowIndex="4">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+         </children>
+      </GridPane>
+   </children>
+</AnchorPane>

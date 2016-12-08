@@ -73,6 +73,7 @@ public class AddHotelController implements Initializable {
 				hotelier.userType = UserType.HOTELSTAFF;
 				hotelier.login = false;
 				hotelier.hotelID = Integer.parseInt(message.message);
+				hotelier.company = hotelNameField.getText();
 				//需要数据层返回新增酒店的编号
 				ResultMessage message2 = HMSClient.getManageUserBL().addUser(hotelier);
 				if(message2.result){

@@ -285,6 +285,9 @@ public class MarketerSectionController implements Initializable{
 				if(currentSelected!=null){
 					showModifyName(currentSelected.userName, currentSelected.realName);
 				}
+				else{
+					hideModifyName();
+				}
 			}
 		});
 		
