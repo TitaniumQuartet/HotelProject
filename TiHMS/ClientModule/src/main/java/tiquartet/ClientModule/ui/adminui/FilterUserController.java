@@ -2,6 +2,7 @@ package tiquartet.ClientModule.ui.adminui;
 
 import java.util.List;
 import java.net.URL;
+import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
@@ -26,7 +27,11 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.util.Callback;
+import tiquartet.ClientModule.ui.rmiclient.HMSClient;
+import tiquartet.CommonModule.util.MemberType;
 import tiquartet.CommonModule.util.StringUtility;
+import tiquartet.CommonModule.util.UserSort;
+import tiquartet.CommonModule.util.UserType;
 import tiquartet.CommonModule.vo.UserFilterVO;
 import tiquartet.CommonModule.vo.UserVO;
 
@@ -57,8 +62,8 @@ public class FilterUserController implements Initializable {
     private ChoiceBox<String> userTypeBox;
 
     @FXML
-    private CheckBox isMemberBox;
-
+    private ChoiceBox<String> isMemberBox;
+    
     @FXML
     private Button confirmButton;
     
@@ -66,7 +71,45 @@ public class FilterUserController implements Initializable {
 
     @FXML
     void onConfirmClicked(ActionEvent event) {
-    	//UserFilterVO filterVO = new UserFilterVO(usernameField.getText(), realNameField.getText(), , upperLevel)
+    	UserFilterVO filterVO = new UserFilterVO(usernameField.getText(), realNameField.getText(), null, null);
+    	switch(isMemberBox.getSelectionModel().getSelectedIndex()) {
+    		case 0 :
+				filterVO.memberType = null;
+				break;
+    		case 1 :
+				filterVO.memberType = MemberType.NOTMEMBER;
+				break;
+    		case 2 :
+				filterVO.memberType = MemberType.PERSONMEMBER;
+				break;
+    		case 3 :
+				filterVO.memberType = MemberType.COMPANYMEMBER;
+				break;
+    	}
+    	switch (userTypeBox.getSelectionModel().getSelectedIndex()) {
+			case 0 :
+				filterVO.userType = UserType.CLIENT;
+				break;
+			case 1 :
+				filterVO.userType = UserType.HOTELSTAFF;
+				break;
+			case 2 :
+				filterVO.userType = UserType.MARKETER;
+				break;
+			case 3 :
+				filterVO.userType = null;
+				break;
+		}
+    	try {
+			List<UserVO> list = HMSClient.getManageUserBL().search(filterVO, UserSort.USERNAMEASCEND, 1, 50);
+			/*
+			 * 待添加对翻页的处理
+			 */
+			setData(list);
+		} catch (RemoteException e) {
+			// 网络异常处理
+			e.printStackTrace();
+		}
     }
     
     public void setData(List<UserVO> users){
@@ -75,7 +118,20 @@ public class FilterUserController implements Initializable {
     	userListTable.getItems().clear();
     	userListTable.getItems().addAll(userList);
     	
-    	usernameColumn.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<UserVO,String>, ObservableValue<String>>() {
+    	userListTable.setVisible(false);
+    	userListTable.setVisible(true);
+    }
+
+	@Override
+	public void initialize(URL location, ResourceBundle resources) {
+		isMemberBox.getItems().addAll("会员和非会员","非会员","个人会员","企业会员");
+		isMemberBox.getSelectionModel().select(0);
+		
+		//设置用户类型的选项
+		userTypeBox.getItems().addAll("客户","酒店工作人员","网站营销人员","全部类型");
+		userTypeBox.getSelectionModel().clearSelection();
+		
+		usernameColumn.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<UserVO,String>, ObservableValue<String>>() {
 
 			@Override
 			public ObservableValue<String> call(
@@ -120,13 +176,6 @@ public class FilterUserController implements Initializable {
 			}
 			
 		});
-    }
-
-	@Override
-	public void initialize(URL location, ResourceBundle resources) {
-		//设置用户类型的选项
-		userTypeBox.getItems().addAll("客户","酒店工作人员","网站营销人员","全部类型");
-		userTypeBox.getSelectionModel().clearSelection();
 	}
 
 }

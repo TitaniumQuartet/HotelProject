@@ -1,6 +1,8 @@
 package tiquartet.CommonModule.vo;
 
-public class HotelBriefVO {
+import java.io.Serializable;
+
+public class HotelBriefVO implements Serializable{
 	//酒店编号
 	public long hotelID;
 	//酒店星级

@@ -56,7 +56,7 @@ public class HMSClient {
 	
 	static public Scene signUpScene;
 	
-	static public Scene adminMainScene;
+	static public Scene adminMainScene = null;
 
 	/**
 	 * 运行客户端程序.

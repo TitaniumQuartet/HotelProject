@@ -1,8 +1,9 @@
 package tiquartet.CommonModule.vo;
 
+import java.io.Serializable;
 import java.sql.Date;
 
-public class HotelFilterVO {	
+public class HotelFilterVO implements Serializable{	
 	//用户编号
 	public int userID;    
 	//城市编号

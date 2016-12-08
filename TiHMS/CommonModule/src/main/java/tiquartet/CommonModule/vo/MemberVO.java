@@ -1,6 +1,8 @@
 package tiquartet.CommonModule.vo;
 
-public class MemberVO {
+import java.io.Serializable;
+
+public class MemberVO implements Serializable{
 	
 	public int memberRank;
 }

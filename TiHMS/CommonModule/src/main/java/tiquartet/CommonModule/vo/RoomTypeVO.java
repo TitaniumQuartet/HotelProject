@@ -1,6 +1,8 @@
 package tiquartet.CommonModule.vo;
 
-public class RoomTypeVO {
+import java.io.Serializable;
+
+public class RoomTypeVO implements Serializable{
         //客房类型编号 	
 	    public int roomTypeId;
 	    //客房类型名称

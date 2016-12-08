@@ -1,6 +1,8 @@
 package tiquartet.CommonModule.vo;
 
-public class OrderStrategyVO {
+import java.io.Serializable;
+
+public class OrderStrategyVO implements Serializable{
 	 //订单编号
      public long orderID;
      //策略介绍

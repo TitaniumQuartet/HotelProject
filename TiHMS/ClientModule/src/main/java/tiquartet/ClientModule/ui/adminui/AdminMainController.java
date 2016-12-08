@@ -10,12 +10,13 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Hyperlink;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import tiquartet.ClientModule.ui.rmiclient.HMSClient;
-import tiquartet.ClientModule.ui.usermainui.LoginController;
 import tiquartet.CommonModule.util.ResultMessage;
 
 /**
@@ -34,6 +35,8 @@ public class AdminMainController implements Initializable{
 	public Parent filterUser;
 	
 	public Parent marketerSection;
+	
+	public Parent hotelierSection;
 
     @FXML
     private Hyperlink logoutLink;
@@ -79,7 +82,7 @@ public class AdminMainController implements Initializable{
 
     @FXML
     void toHotelierSection(ActionEvent event) {
-
+    	showSection(hotelierSection);
     }
 
     @FXML
@@ -130,7 +133,16 @@ public class AdminMainController implements Initializable{
 			fxmlLoader = new FXMLLoader();
 			fxmlLoader.setLocation(getClass().getResource("/fxml/adminui/marketerSection.fxml"));
 			marketerSection = fxmlLoader.load();
+			//加载酒店工作人员组件
+			fxmlLoader = new FXMLLoader();
+			fxmlLoader.setLocation(getClass().getResource("/fxml/adminui/hotelierSection.fxml"));
+			hotelierSection = fxmlLoader.load();
+			
+			//默认显示搜索用户界面
+			showSection(searchUserSection);
 		} catch (IOException e) {
+			Alert fail = new Alert(AlertType.ERROR, "界面加载失败");
+			fail.show();
 			e.printStackTrace();
 		}
 	}

@@ -52,9 +52,6 @@ public class SearchUserSectionController implements Initializable{
     @FXML
     private Label userNotFoundLabel;
     
-    @FXML
-    private ChoiceBox<String> isMemberBox;
-    
     public AdminMainController adminMainController;
 
     @FXML
@@ -75,20 +72,7 @@ public class SearchUserSectionController implements Initializable{
     	try {
     		UserFilterVO filterVO = new UserFilterVO(fuzzyUsernameField.getText(), realNameField.getText(), null, null);
         	//对会员身份的筛选可能需要修改
-        	switch(isMemberBox.getSelectionModel().getSelectedIndex()) {
-        		case 0 :
-    				filterVO.memberType = null;
-    				break;
-        		case 1 :
-    				filterVO.memberType = MemberType.NOTMEMBER;
-    				break;
-        		case 2 :
-    				filterVO.memberType = MemberType.PERSONMEMBER;
-    				break;
-        		case 3 :
-    				filterVO.memberType = MemberType.COMPANYMEMBER;
-    				break;
-        	}
+        	
         	switch (userTypeBox.getSelectionModel().getSelectedIndex()) {
     			case 0 :
     				filterVO.userType = UserType.CLIENT;
@@ -132,9 +116,6 @@ public class SearchUserSectionController implements Initializable{
     
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		
-		isMemberBox.getItems().addAll("会员和非会员","非会员","个人会员","企业会员");
-		isMemberBox.getSelectionModel().select(0);
 		
 		//输入框聚焦状态改变的监听器
 		accuUsernameField.focusedProperty().addListener(new ChangeListener<Boolean>() {

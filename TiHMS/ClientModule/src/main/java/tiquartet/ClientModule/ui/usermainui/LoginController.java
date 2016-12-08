@@ -1,5 +1,6 @@
 package tiquartet.ClientModule.ui.usermainui;
 
+import java.io.IOException;
 import java.net.URL;
 import java.rmi.RemoteException;
 import java.util.ResourceBundle;
@@ -8,16 +9,20 @@ import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.image.ImageView;
 import tiquartet.ClientModule.ui.rmiclient.HMSClient;
 import tiquartet.CommonModule.util.Encryptor;
 import tiquartet.CommonModule.util.ResultMessage;
+import tiquartet.CommonModule.util.UserType;
 import tiquartet.CommonModule.vo.UserVO;
 
 /**
@@ -69,10 +74,23 @@ public class LoginController implements Initializable {
 			/*
 			 * 界面切换的实现
 			 */
+			if(currentUser.userType==UserType.SITEADMIN){
+				if(HMSClient.adminMainScene == null){
+					FXMLLoader loader = new FXMLLoader();
+					loader.setLocation(getClass().getResource("/fxml/adminui/adminMain.fxml"));
+					HMSClient.adminMainScene = loader.load();
+					HMSClient.showScene(HMSClient.adminMainScene);
+				}
+			}
 		} catch (RemoteException | NullPointerException e) {
-			//调用失败
+			//网络异常处理
 			loginWarningLabel.setText("网络连接异常");
 			loginWarningLabel.setVisible(true);
+			e.printStackTrace();
+		} catch (IOException e) {
+			//FXML加载出错
+			Alert fail = new Alert(AlertType.ERROR, "界面加载失败");
+			fail.show();
 			e.printStackTrace();
 		}
 	}

@@ -1,6 +1,8 @@
 package tiquartet.CommonModule.vo;
 
-public class CreditVO {
+import java.io.Serializable;
+
+public class CreditVO implements Serializable{
     public int changeType;
     public double change;
     public double balance;

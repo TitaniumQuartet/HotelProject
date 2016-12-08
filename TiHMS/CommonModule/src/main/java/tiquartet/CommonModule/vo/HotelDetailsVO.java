@@ -1,8 +1,9 @@
 package tiquartet.CommonModule.vo;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class HotelDetailsVO {
+public class HotelDetailsVO implements Serializable{
 	    public long hotelID;
 	    public String hotelName;
 	    public int star;

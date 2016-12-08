@@ -1,5 +1,7 @@
 package tiquartet.CommonModule.vo;
 
+import java.io.Serializable;
+
 import tiquartet.CommonModule.util.MemberType;
 import tiquartet.CommonModule.util.UserType;
 
@@ -8,7 +10,7 @@ import tiquartet.CommonModule.util.UserType;
  * @author greatlyr
  *
  */
-public class UserVO {
+public class UserVO implements Serializable{
 	//用户编号
     public int userID;
     //用户名

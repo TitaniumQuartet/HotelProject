@@ -28,6 +28,7 @@ import tiquartet.ClientModule.ui.datastorage.DistrictData;
 import tiquartet.ClientModule.ui.rmiclient.HMSClient;
 import tiquartet.CommonModule.util.Encryptor;
 import tiquartet.CommonModule.util.ResultMessage;
+import tiquartet.CommonModule.util.UserInfoUtility;
 import tiquartet.CommonModule.vo.UserVO;
 
 public class HotelierSectionController implements Initializable {
@@ -135,12 +136,21 @@ public class HotelierSectionController implements Initializable {
 	 * 检查修改密码输入是否合法.
 	 */
 	private void checkInput() {
-		
+		boolean passwordValid = UserInfoUtility.checkPassword(passwordField.getText());
+    	passwordTick.setVisible(passwordValid);
+    	boolean confirmValid = confirmPasswordField.getText().equals(passwordField.getText())&&passwordValid;
+    	confirmPasswordTick.setVisible(confirmValid);
+    	modifyButton.setDisable(!(passwordValid&&confirmValid));
 	}
 	
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
+		districtBox.setDisable(true);
+		cityBox.getItems().addAll(DistrictData.getCityMap().values());
+		cityBox.getSelectionModel().clearSelection();
+		cityID = -1;
+		
 		usernameColumn.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<UserVO,String>, ObservableValue<String>>() {
 
 			@Override
