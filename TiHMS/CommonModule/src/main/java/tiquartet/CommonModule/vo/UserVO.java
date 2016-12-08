@@ -1,5 +1,6 @@
 package tiquartet.CommonModule.vo;
 
+import tiquartet.CommonModule.util.MemberType;
 import tiquartet.CommonModule.util.UserType;
 
 /**
@@ -18,8 +19,8 @@ public class UserVO {
     public String password;
     //真实姓名
     public String realName;
-    //是否会员
-    public boolean isMember;
+    //会员类型
+    public MemberType memberType;
     //当前信用值
     public double credit;
     //生日

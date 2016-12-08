@@ -1,5 +1,6 @@
 package tiquartet.CommonModule.vo;
 
+import tiquartet.CommonModule.util.MemberType;
 import tiquartet.CommonModule.util.UserType;
 
 public class UserFilterVO {
@@ -9,6 +10,8 @@ public class UserFilterVO {
 	public String realName = null;
 	//用户类型
 	public UserType userType;
+	//会员类型
+	public MemberType memberType;
 	
 	/**
 	 * 传入所有成员的构造函数.
