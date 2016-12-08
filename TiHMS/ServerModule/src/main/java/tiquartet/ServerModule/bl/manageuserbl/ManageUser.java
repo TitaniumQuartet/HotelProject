@@ -14,7 +14,6 @@ import java.util.List;
 import tiquartet.CommonModule.blservice.manageuserblservice.ManageUserBLService;
 import tiquartet.CommonModule.util.ResultMessage;
 import tiquartet.CommonModule.util.UserSort;
-import tiquartet.CommonModule.util.UserType;
 import tiquartet.CommonModule.vo.CreditVO;
 import tiquartet.CommonModule.vo.MemberVO;
 import tiquartet.CommonModule.vo.UserFilterVO;
@@ -104,8 +103,6 @@ public class ManageUser implements ManageUserBLService {
 		for(UserVO userVO2: userVOs){
 			if(userVO2.userName.equals(filter.username)
 					&& userVO2.realName.equals(filter.realName)
-					&& (userVO2.memberLevel >= filter.lowerLevel && 
-					userVO2.memberLevel <= filter.upperLevel)
 					&& userVO2.userType.equals(filter.userType)){
 				filterUser.add(userVO2);
 			}
