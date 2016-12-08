@@ -18,6 +18,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.Tooltip;
 import tiquartet.ClientModule.ui.datastorage.MemberLevelData;
 import tiquartet.ClientModule.ui.rmiclient.HMSClient;
+import tiquartet.CommonModule.util.MemberType;
 import tiquartet.CommonModule.util.ResultMessage;
 import tiquartet.CommonModule.vo.UserVO;
 
@@ -188,7 +189,7 @@ public class ClientInfoForAdmin implements Initializable {
     	data2.setText(String.valueOf(clientInfo.credit));
     	data2.setVisible(true);
     	
-    	if(!clientInfo.isMember) data3.setText(MemberLevelData.getLevelName(0));
+    	if(clientInfo.memberType==MemberType.NOTMEMBER) data3.setText(MemberLevelData.getLevelName(0));
     	else {
     		//用户是会员
     		data3.setText(MemberLevelData.getLevelName(clientInfo.memberLevel));

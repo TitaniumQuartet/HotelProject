@@ -3,6 +3,7 @@ package tiquartet.ClientModule.ui.adminui;
 import java.net.URL;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -17,6 +18,7 @@ import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import tiquartet.ClientModule.ui.rmiclient.HMSClient;
+import tiquartet.CommonModule.util.MemberType;
 import tiquartet.CommonModule.util.UserSort;
 import tiquartet.CommonModule.util.UserType;
 import tiquartet.CommonModule.vo.UserFilterVO;
@@ -51,7 +53,7 @@ public class SearchUserSectionController implements Initializable{
     private Label userNotFoundLabel;
     
     @FXML
-    private CheckBox isMemberBox;
+    private ChoiceBox<String> isMemberBox;
     
     public AdminMainController adminMainController;
 
@@ -71,11 +73,21 @@ public class SearchUserSectionController implements Initializable{
     void onFuzzySearch(ActionEvent event) {
     	
     	try {
-    		UserFilterVO filterVO = new UserFilterVO(fuzzyUsernameField.getText(), realNameField.getText(), -1, -1);
+    		UserFilterVO filterVO = new UserFilterVO(fuzzyUsernameField.getText(), realNameField.getText(), null, null);
         	//对会员身份的筛选可能需要修改
-        	if(isMemberBox.isSelected()){
-        		filterVO.lowerLevel = 1;
-        		filterVO.upperLevel = 10;
+        	switch(isMemberBox.getSelectionModel().getSelectedIndex()) {
+        		case 0 :
+    				filterVO.memberType = null;
+    				break;
+        		case 1 :
+    				filterVO.memberType = MemberType.NOTMEMBER;
+    				break;
+        		case 2 :
+    				filterVO.memberType = MemberType.PERSONMEMBER;
+    				break;
+        		case 3 :
+    				filterVO.memberType = MemberType.COMPANYMEMBER;
+    				break;
         	}
         	switch (userTypeBox.getSelectionModel().getSelectedIndex()) {
     			case 0 :
@@ -120,6 +132,9 @@ public class SearchUserSectionController implements Initializable{
     
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
+		
+		isMemberBox.getItems().addAll("会员和非会员","非会员","个人会员","企业会员");
+		isMemberBox.getSelectionModel().select(0);
 		
 		//输入框聚焦状态改变的监听器
 		accuUsernameField.focusedProperty().addListener(new ChangeListener<Boolean>() {

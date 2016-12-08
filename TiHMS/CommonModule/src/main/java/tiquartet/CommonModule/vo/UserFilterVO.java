@@ -20,11 +20,11 @@ public class UserFilterVO {
 	 * @param lowerLevel
 	 * @param upperLevel
 	 */
-	public UserFilterVO(String username, String realName, int lowerLevel,
-			int upperLevel, UserType userType) {
+	public UserFilterVO(String username, String realName, UserType userType, MemberType memberType) {
 		super();
 		this.username = username;
 		this.realName = realName;
 		this.userType = userType;
+		this.memberType = memberType;
 	}
 }

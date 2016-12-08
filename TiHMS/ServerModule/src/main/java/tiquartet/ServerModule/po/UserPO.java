@@ -60,7 +60,7 @@ public class UserPO implements Serializable{
 		this.credit=userVO.credit;
 		this.birthday=userVO.birthday;
 		this.memberLevel=userVO.memberLevel;
-		this.isMember=userVO.isMember;
+		//this.isMember=userVO.isMember;
 		this.company=userVO.company;
 		this.hotelId=userVO.hotelID;
 		this.login=userVO.login;
