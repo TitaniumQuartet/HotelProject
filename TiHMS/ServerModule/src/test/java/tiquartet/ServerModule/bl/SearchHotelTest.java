@@ -9,7 +9,6 @@ import org.junit.Test;
 
 import tiquartet.CommonModule.vo.DistrictVO;
 import tiquartet.CommonModule.vo.HotelBriefVO;
-import tiquartet.CommonModule.vo.HotelVO;
 import tiquartet.CommonModule.vo.RoomTypeVO;
 import tiquartet.ServerModule.bl.searchhotelbl.SearchHotel;
 
@@ -26,9 +25,9 @@ public class SearchHotelTest {
 	@Test
 	public void testrecommend(){
 		hotelList=new SearchHotel();
-	    HotelVO hotel1=new HotelVO();
+	    HotelBriefVO hotel1=new HotelBriefVO();
 		hotel1.hotelID=0000000001;
-		HotelVO hotel2=new HotelVO();
+		HotelBriefVO hotel2=new HotelBriefVO();
 		hotel2.hotelID=0000000002;
 	    //List<HotelVO> hotel=hotelList.recommend(34);
 	    //hotel.add(hotel1);
