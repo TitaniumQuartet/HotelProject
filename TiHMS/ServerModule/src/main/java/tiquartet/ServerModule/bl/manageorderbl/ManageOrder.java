@@ -53,25 +53,39 @@ public class ManageOrder implements ManageOrderBLService {
 				}
 			}
 			if(filter.star!=-1){
-				//需添加
+				HotelInfoPO hotel=hoteldataimpl.getHotelInfo(filter.hotelID);
+				if(hotel.getstar()!=filter.star){
+					continue;
+				}
 			}
 			if(filter.endTime!=null){
-				int filterEndTime=Integer.parseInt(filter.endTime);
-				int orderEndTime=Integer.parseInt(polist.get(i).getleaveTime());				
-				if(orderEndTime>filterEndTime){
-					continue;
+				DateFormat format=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+				try {
+					Date endDate = format.parse(filter.endTime);
+					Date orderEndDate=format.parse(polist.get(i).getleaveTime());				
+					if(orderEndDate.before(endDate)){
+						continue;
+					}
+				} catch (ParseException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
 				}
 			}
 			if(filter.startTime!=null){
-				int filterStartTime=Integer.parseInt(filter.startTime);
-				int orderStartTime=Integer.parseInt(polist.get(i).getstartTime());
-				if(orderStartTime<filterStartTime){
-					continue;
+				DateFormat format=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+				try {
+					Date startDate = format.parse(filter.startTime);
+					Date orderStartDate=format.parse(polist.get(i).getstartTime());				
+					if(startDate.after(orderStartDate)){
+						continue;
+					}
+				} catch (ParseException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
 				}
 			}
 			if(filter.hotelName!=null){
-				HotelInfoPO hotelinfopo=new HotelInfoPO();
-				//需修改
+				HotelInfoPO hotelinfopo=hoteldataimpl.getHotelInfo(filter.hotelID);
 				if(hotelinfopo.gethotelName()!=filter.hotelName){
 					continue;
 				}
@@ -200,6 +214,7 @@ public class ManageOrder implements ManageOrderBLService {
 		// TODO Auto-generated method stub
 		List<OrderVO> volist=new ArrayList<OrderVO>();
 		List<OrderPO> polist=orderdataimpl.searchByHotel(filter.hotelID, null);
+	    //筛选订单
 		for(int i=0;i<polist.size();i++){
 			if(filter.highprice!=-1){
 				if(polist.get(i).getprice()>filter.highprice){
@@ -212,17 +227,29 @@ public class ManageOrder implements ManageOrderBLService {
 				}
 			}
 			if(filter.endTime!=null){
-				int filterEndTime=Integer.parseInt(filter.endTime);
-				int orderEndTime=Integer.parseInt(polist.get(i).getleaveTime());				
-				if(orderEndTime>filterEndTime){
-					continue;
+				DateFormat format=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+				try {
+					Date endDate = format.parse(filter.endTime);
+					Date orderEndDate=format.parse(polist.get(i).getleaveTime());				
+					if(orderEndDate.before(endDate)){
+						continue;
+					}
+				} catch (ParseException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
 				}
 			}
 			if(filter.startTime!=null){
-				int filterStartTime=Integer.parseInt(filter.startTime);
-				int orderStartTime=Integer.parseInt(polist.get(i).getstartTime());
-				if(orderStartTime<filterStartTime){
-					continue;
+				DateFormat format=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+				try {
+					Date startDate = format.parse(filter.startTime);
+					Date orderStartDate=format.parse(polist.get(i).getstartTime());				
+					if(startDate.after(orderStartDate)){
+						continue;
+					}
+				} catch (ParseException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
 				}
 			}
 			if(filter.orderState!=null){
@@ -246,12 +273,6 @@ public class ManageOrder implements ManageOrderBLService {
 				}
 			}
 			volist.add(polist.get(i).toOrderVO());
-		}
-		while(volist.size()>rank2){
-			volist.remove(rank2);
-		}
-		for(int i=1;i<rank1;i++){
-			volist.remove(0);
 		}
 		if(sort==OrderSort.DATEASCEND){
 			DateFormat format=new SimpleDateFormat("yyyy/MM/dd//HH/mm/ss");
@@ -351,6 +372,9 @@ public class ManageOrder implements ManageOrderBLService {
 	public ResultMessage clientCancel(long orderID) throws RemoteException{
 		//客户撤销订单
 		OrderPO po=orderdataimpl.getOrderByID(orderID);
+		if(po==null){
+			return new ResultMessage(false,"找不到该订单","");
+		}
 		//如果订单不为异常
 		if(po.getorderStatus()!=OrderStatus.ABNORMAL){
 			po.setorderStatus(OrderStatus.UNEXECUTED);
@@ -365,6 +389,9 @@ public class ManageOrder implements ManageOrderBLService {
 	public ResultMessage marketerCancel(long orderID, CreditRestore restore) throws RemoteException{
 		//网站营销人员撤销异常订单，并恢复一定信用值；
 		OrderPO po=orderdataimpl.getOrderByID(orderID);
+		if(po==null){
+			return new ResultMessage(false,"找不到该订单","");
+		}
 		//订单为异常
 		if(po.getorderStatus()==OrderStatus.ABNORMAL&&po.getuserId()!=-1){
 			po.setorderStatus(OrderStatus.CANCELED);

@@ -3,7 +3,6 @@ package tiquartet.ServerModule.po;
 import java.io.Serializable;
 
 import tiquartet.CommonModule.vo.RoomTypeVO;
-import tiquartet.CommonModule.vo.RoomVO;
 
 public class RoomTypePO implements Serializable{
 	//房间类型编号

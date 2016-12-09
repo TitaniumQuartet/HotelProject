@@ -27,26 +27,29 @@ public class HotelInfo implements HotelInfoBLService{
 		manageordercontroller=new ManageOrderController();
 	}
 	public HotelBriefVO getHotelBrief (int hotelID,int userID)throws RemoteException{
-	    //浼犲叆閰掑簵ID杩斿洖閰掑簵鐨勭畝鐣ヤ俊鎭�.
-		HotelBriefVO hotelbrief=new HotelBriefVO();
-		HotelInfoPO hp=new HotelInfoPO();//姝ゅ 搴旇淇敼
-		hotelbrief.averageGrade=hp.getaverageGrade();
-		hotelbrief.circleName=hp.getcircleName();
-		hotelbrief.cityName=hp.getcityName();
-		hotelbrief.hotelID=hp.gethotelId();
-		hotelbrief.hotelName=hp.gethotelName();
-		hotelbrief.star=hp.getstar();
+		HotelInfoPO hp=hoteldataimpl.getHotelInfo(hotelID);
+		if(hp==null){
+			return null;
+		}
+		HotelBriefVO hotelbrief=hp.getBriefVO();
 		OrderNumVO onp=manageordercontroller.numAtHotel(hotelID,userID);
-		hotelbrief.numOfAllOrder=onp.allOrder;
-		hotelbrief.numOfExecutedOrder=onp.executedOrder;
+		if(onp==null){
+			hotelbrief.numOfAllOrder=0;
+			hotelbrief.numOfExecutedOrder=0;
+		}else{
+			hotelbrief.numOfAllOrder=onp.allOrder;
+			hotelbrief.numOfExecutedOrder=onp.executedOrder;
+		}
 		return hotelbrief;
 	}
 	
 		
 	public HotelDetailsVO getHotelDetails (int hotelID,int userID)throws RemoteException{	
-		//浼犲叆閰掑簵缂栧彿锛岃繑鍥為厭搴楄缁嗕俊鎭�
 	    HotelDetailsVO hoteldetails=new HotelDetailsVO();
-	    HotelInfoPO hp=hoteldataimpl.getHotelInfo(hotelID);//姝ゅ搴旇淇敼
+	    HotelInfoPO hp=hoteldataimpl.getHotelInfo(hotelID);
+	    if(hp==null){
+	    	return null;
+	    }
 	    hoteldetails.address=hp.getaddress();
 	    hoteldetails.averageg=hp.getaverageGrade();
 	    hoteldetails.circleName=hp.getcircleName();
@@ -57,7 +60,7 @@ public class HotelInfo implements HotelInfoBLService{
 	    hoteldetails.hotelName=hp.gethotelName();
 	    hoteldetails.serviceintro=hp.getserviceIntroduction();
 	    hoteldetails.star=hp.getstar();
-	    List<ReviewPO> list=reviewdataimpl.searchByHotel(hotelID);//姝ゅ搴旇淇敼
+	    List<ReviewPO> list=reviewdataimpl.searchByHotel(hotelID);
 	    for(int i=0;i<list.size();i++){
 	    	ReviewVO rv=new ReviewVO();
 	    	rv=list.get(i).toReviewvo();
@@ -68,48 +71,32 @@ public class HotelInfo implements HotelInfoBLService{
 	}
 	
 	public List<RoomTypeVO> availableRoomType (PreOrderVO preOrder)throws RemoteException{
-		//浼犲叆鍏ヤ綇鏃ユ湡锛岄厭搴楋紝杩斿洖鍙敤瀹㈡埧绫诲瀷鍙婅绫诲瀷鏁伴噺
-		List<RoomTypePO> list=new ArrayList<RoomTypePO>();
-		List<RoomTypeVO> listvo=new ArrayList<RoomTypeVO>();
-		for(int i=0;i<list.size();i++){
-			RoomTypeVO rtv=new RoomTypeVO();
-			rtv.typeIntroduction=list.get(i).gettypeIntroduction();
-			rtv.roomType=list.get(i).getroomType();
-			rtv.price=list.get(i).getprice();
-			rtv.roomTypeId=list.get(i).getroomTypeId();
-			listvo.add(rtv);
+		List<RoomTypePO> polist=new ArrayList<RoomTypePO>();
+		List<RoomTypeVO> volist=new ArrayList<RoomTypeVO>();
+		for(int i=0;i<polist.size();i++){
+			RoomTypeVO rtv=polist.get(i).toRoomTypevo();
+			volist.add(rtv);
 		}
-		return listvo;
+		return volist;
 		
 	}
 	
 	public ResultMessage reviewHotel(ReviewVO review)throws RemoteException{
-		//浼犲叆涓�涓瘎浠凤紝鎶婁粬瀛樺叆鏁版嵁搴撲腑
 		ReviewPO reviewpo=new ReviewPO(review);
 		return reviewdataimpl.insert(reviewpo);
 	}
 	
 	public ResultMessage modifyHotelInfo (HotelInfoVO hotelInfo)throws RemoteException{
-		//淇敼閰掑簵淇℃伅
 		HotelInfoPO hip=new HotelInfoPO(hotelInfo);		
 		return hoteldataimpl.update(hip);
 	}
-   public List<HotelBriefVO> clientHotelList(int userId)throws RemoteException{
-	   //杩斿洖鐢ㄦ埛棰勮杩囩殑閰掑簵鍒楄〃
-	   List<HotelBriefVO> listvo=new ArrayList<HotelBriefVO>();	   
-	   ManageOrderController manageordercontroller=new ManageOrderController();
-	   List<Integer>  hotelID=manageordercontroller.orderedHotelID(userId);
+   public List<HotelBriefVO> clientHotelList(int userID)throws RemoteException{
+	   List<HotelBriefVO> volist=new ArrayList<HotelBriefVO>();
+	   List<Integer>  hotelID=manageordercontroller.orderedHotelID(userID);
 	   for(int i=0;i<hotelID.size();i++){
-		   HotelInfoPO hip=hoteldataimpl.getHotelInfo(hotelID.get(i));
-		   HotelBriefVO hotelbriefvo =new HotelBriefVO();
-		   hotelbriefvo.circleName=hip.getcircleName();
-		   hotelbriefvo.cityName=hip.getcityName();
-		   hotelbriefvo.hotelID=hip.gethotelId();
-		   hotelbriefvo.star=hip.getstar();
-		   hotelbriefvo.averageGrade=hip.getaverageGrade();
-		   hotelbriefvo.hotelName=hip.gethotelName();
-		   listvo.add(hotelbriefvo);
+		   HotelBriefVO hotelbriefvo=this.getHotelBrief(hotelID.get(i), userID);
+		   volist.add(hotelbriefvo);
 	   }
-	   return listvo;
+	   return volist;
    }
 }
