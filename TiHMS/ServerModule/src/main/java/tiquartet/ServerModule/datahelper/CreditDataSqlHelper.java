@@ -6,6 +6,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+
+import tiquartet.CommonModule.util.CreditChange;
 import tiquartet.CommonModule.util.ResultMessage;
 import tiquartet.ServerModule.datahelper.service.CreditDataHelper;
 import tiquartet.ServerModule.po.CreditPO;
@@ -31,7 +33,7 @@ public class CreditDataSqlHelper implements CreditDataHelper{
 	    PreparedStatement pstmt;
 	    try {
 	        pstmt = (PreparedStatement) conn.prepareStatement(sql);
-	        pstmt.setInt(1,creditItem.getchangeType());
+	        pstmt.setInt(1,creditItem.getchangeType().ordinal());
 	        pstmt.setDouble(2, creditItem.getchange());
 	        pstmt.setDouble(3,creditItem.getbalance());
 	        pstmt.setLong(4, creditItem.getorderId());
@@ -66,7 +68,7 @@ public class CreditDataSqlHelper implements CreditDataHelper{
 	        	double balance=rs.getDouble(3);
 	        	long orderId=rs.getLong(4);
 	        	long creditRecordId=rs.getLong(5);
-	        	CreditPO creditpo = new CreditPO(changeType,change,balance,orderId,creditRecordId);
+	        	CreditPO creditpo = new CreditPO(CreditChange.values()[changeType],change,balance,orderId,creditRecordId);
 				credit.add(creditpo);
 			}
 			pstmt.close();

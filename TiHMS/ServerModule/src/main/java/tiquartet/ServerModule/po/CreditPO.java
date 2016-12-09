@@ -2,11 +2,12 @@ package tiquartet.ServerModule.po;
 
 import java.io.Serializable;
 
+import tiquartet.CommonModule.util.CreditChange;
 import tiquartet.CommonModule.vo.CreditVO;
 
 public class CreditPO implements Serializable{
 	//变更类型
-	private int changeType=-1;
+	private CreditChange changeType;
 	//变更数额
 	private double change=-1;
 	//
@@ -20,7 +21,7 @@ public class CreditPO implements Serializable{
 		
 	}
 	
-	public CreditPO(int changeType,double change,double balance,long orderId,long creditRecordId){
+	public CreditPO(CreditChange changeType,double change,double balance,long orderId,long creditRecordId){
 		super();
 		this.changeType=changeType;
 		this.change=change;
@@ -38,11 +39,11 @@ public class CreditPO implements Serializable{
 		this.creditRecordId = creditVO.creditRecordID;
 	}
 	
-	public int getchangeType(){
+	public CreditChange getchangeType(){
 		return changeType;
 	}
 	
-	public void setchangeType(int changeType){
+	public void setchangeType(CreditChange changeType){
 		this.changeType=changeType;
 	}
 	
