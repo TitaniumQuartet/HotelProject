@@ -70,6 +70,8 @@ public class LoginController implements Initializable {
 				loginWarningLabel.setVisible(true);
 			}
 			//登录成功
+			if(rememberBox.isSelected()) UserPreferences.setLoginPref(usernameField.getText(), passwordField.getText());
+			else UserPreferences.setLoginPref(null, null);
 			currentUser = HMSClient.getManageUserBL().accurateSearch(usernameField.getText());
 			/*
 			 * 界面切换的实现
@@ -144,7 +146,17 @@ public class LoginController implements Initializable {
 		}
 	}
 	
-	
+	public void getReadyToShow(){
+		usernameField.setText("");
+		passwordField.setText("");
+		UserVO local = UserPreferences.getLoginPref();
+		if(local != null){
+			usernameField.setText(local.userName);
+			passwordField.setText(local.password);
+			rememberBox.setSelected(true);
+		}
+		else rememberBox.setSelected(false);
+	}
 
 	/**
 	 * 取得当前客户端登录的用户的信息，未登录状态下值为null.
@@ -175,6 +187,12 @@ public class LoginController implements Initializable {
 			}
 		});
 		currentUser = null;
+		
+		UserVO local = UserPreferences.getLoginPref();
+		if(local != null){
+			usernameField.setText(local.userName);
+			passwordField.setText(local.password);
+		}
 		
 	}
 
