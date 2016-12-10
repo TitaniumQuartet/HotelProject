@@ -52,7 +52,7 @@ public class CreateOrder implements CreateOrderBLService{
 		List<OrderPO> orderlist=orderdataimpl.searchByUser(preorder.hotelID, userID);
 		OrderPO order=new OrderPO();
 		for(int i=0;i<orderlist.size();i++){
-			if(orderlist.get(i).getorderStatus()==OrderStatus.PREORDER){
+			if(orderlist.get(i).getorderStatus()==OrderStatus.暂时预订){
 				order=orderlist.get(i);
 			}
 		}
@@ -123,7 +123,7 @@ public class CreateOrder implements CreateOrderBLService{
 		}
 		map.put(preOrder.userID,preOrder);
 		OrderPO order=new OrderPO(preOrder);
-		order.setorderStatus(OrderStatus.PREORDER);
+		order.setorderStatus(OrderStatus.暂时预订);
 		OrderPO preorder=orderdataimpl.preOrder(order);
 		if(preorder!=null){
 			return new ResultMessage(true,"",String.valueOf(preorder.getorderId()));
@@ -136,7 +136,7 @@ public class CreateOrder implements CreateOrderBLService{
         List<OrderPO> orderlist=orderdataimpl.searchByUser(hotelID, userID);
         OrderPO preOrder=new OrderPO();
         for(int i=0;i<orderlist.size();i++){
-        	if(orderlist.get(i).getorderStatus()==OrderStatus.PREORDER){
+        	if(orderlist.get(i).getorderStatus()==OrderStatus.暂时预订){
         	   preOrder=orderlist.get(i);
         	   map.remove(userID);
         	   return orderdataimpl.cancelPreOrder(preOrder);
@@ -160,7 +160,7 @@ public class CreateOrder implements CreateOrderBLService{
 	}
 	public List<String> offLine(PreOrderVO preOrder) throws RemoteException {
 		OrderPO order=new OrderPO(preOrder);
-		order.setorderStatus(OrderStatus.OFFLINE);
+		order.setorderStatus(OrderStatus.线下已执行订单);
 		OrderPO preorder=orderdataimpl.preOrder(order);
 		Set<Integer> roomID=preorder.getRoomMap().keySet();
 		List<String> realRoomIDList=new ArrayList<String>();

@@ -183,7 +183,7 @@ public class MarketerSectionController implements Initializable{
     			UserVO marketer = new UserVO();
         		marketer.userName = usernameField.getText();
         		marketer.password = Encryptor.encript(passwordField.getText());
-        		marketer.userType = UserType.MARKETER;
+        		marketer.userType = UserType.网站营销人员;
         		marketer.login = false;
 				ResultMessage message = HMSClient.getManageUserBL().addUser(marketer);
 				if(message.result){

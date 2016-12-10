@@ -7,5 +7,5 @@ package tiquartet.CommonModule.util;
  */
 public enum CreditRestore {
 	//恢复一半，恢复全部
-	HALF,FULL;
+	一半, 全部;
 }

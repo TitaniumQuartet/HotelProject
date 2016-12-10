@@ -76,7 +76,7 @@ public class LoginController implements Initializable {
 			/*
 			 * 界面切换的实现
 			 */
-			if(currentUser.userType==UserType.SITEADMIN){
+			if(currentUser.userType==UserType.网站管理员){
 				if(HMSClient.adminMainScene == null){
 					FXMLLoader loader = new FXMLLoader();
 					loader.setLocation(getClass().getResource("/fxml/adminui/adminMain.fxml"));

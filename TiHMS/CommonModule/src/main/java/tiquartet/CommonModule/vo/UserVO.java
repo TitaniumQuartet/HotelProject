@@ -48,7 +48,7 @@ public class UserVO implements Serializable{
     	userVO.userName = username;
     	userVO.password = password;
     	userVO.realName = realName;
-    	userVO.userType = UserType.CLIENT;
+    	userVO.userType = UserType.客户;
     	userVO.login = false;
     	return userVO;
     }

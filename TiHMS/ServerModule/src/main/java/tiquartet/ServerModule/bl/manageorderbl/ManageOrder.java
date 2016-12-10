@@ -107,7 +107,7 @@ public class ManageOrder implements ManageOrderBLService {
 			}
 			volist.add(polist.get(i).toOrderVO());
 		}
-		if(sort==OrderSort.DATEASCEND){
+		if(sort==OrderSort.生成日期升序){
 			DateFormat format=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 			for(int i=0;i<volist.size();i++){
 				for(int j=0;j<volist.size()-1;j++){
@@ -124,7 +124,7 @@ public class ManageOrder implements ManageOrderBLService {
 					}
 				}
 			}
-		}else if(sort==OrderSort.DATEDESCEND){
+		}else if(sort==OrderSort.生成日期降序){
 			DateFormat format=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 			for(int i=0;i<volist.size();i++){
 				for(int j=0;j<volist.size()-1;j++){
@@ -141,7 +141,7 @@ public class ManageOrder implements ManageOrderBLService {
 					}
 				}
 			}
-		}else if(sort==OrderSort.CHECKINASCEND){
+		}else if(sort==OrderSort.入住日期升序){
 			DateFormat format=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 			for(int i=0;i<volist.size();i++){
 				for(int j=0;j<volist.size()-1;j++){
@@ -158,7 +158,7 @@ public class ManageOrder implements ManageOrderBLService {
 					}
 				}
 			}
-		}else if(sort==OrderSort.CHECKINDESCEND){
+		}else if(sort==OrderSort.入住日期降序){
 			DateFormat format=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 			for(int i=0;i<volist.size();i++){
 				for(int j=0;j<volist.size()-1;j++){
@@ -175,7 +175,7 @@ public class ManageOrder implements ManageOrderBLService {
 					}
 				}
 			}
-		}else if(sort==OrderSort.PRICEASCEND){
+		}else if(sort==OrderSort.订单总价升序){
 			for(int i=0;i<volist.size();i++){
 				for(int j=0;j<volist.size()-1;j++){
 					if(volist.get(j).price>volist.get(j+1).price){
@@ -274,7 +274,7 @@ public class ManageOrder implements ManageOrderBLService {
 			}
 			volist.add(polist.get(i).toOrderVO());
 		}
-		if(sort==OrderSort.DATEASCEND){
+		if(sort==OrderSort.生成日期升序){
 			DateFormat format=new SimpleDateFormat("yyyy/MM/dd//HH/mm/ss");
 			for(int i=0;i<volist.size();i++){
 				for(int j=0;j<volist.size()-1;j++){
@@ -291,7 +291,7 @@ public class ManageOrder implements ManageOrderBLService {
 					}
 				}
 			}
-		}else if(sort==OrderSort.DATEDESCEND){
+		}else if(sort==OrderSort.生成日期降序){
 			DateFormat format=new SimpleDateFormat("yyyy/MM/dd//HH/mm/ss");
 			for(int i=0;i<volist.size();i++){
 				for(int j=0;j<volist.size()-1;j++){
@@ -308,7 +308,7 @@ public class ManageOrder implements ManageOrderBLService {
 					}
 				}
 			}
-		}else if(sort==OrderSort.CHECKINASCEND){
+		}else if(sort==OrderSort.入住日期升序){
 			DateFormat format=new SimpleDateFormat("yyyy/MM/dd//HH/mm/ss");
 			for(int i=0;i<volist.size();i++){
 				for(int j=0;j<volist.size()-1;j++){
@@ -325,7 +325,7 @@ public class ManageOrder implements ManageOrderBLService {
 					}
 				}
 			}
-		}else if(sort==OrderSort.CHECKINDESCEND){
+		}else if(sort==OrderSort.入住日期降序){
 			DateFormat format=new SimpleDateFormat("yyyy/MM/dd//HH/mm/ss");
 			for(int i=0;i<volist.size();i++){
 				for(int j=0;j<volist.size()-1;j++){
@@ -342,7 +342,7 @@ public class ManageOrder implements ManageOrderBLService {
 					}
 				}
 			}
-		}else if(sort==OrderSort.PRICEASCEND){
+		}else if(sort==OrderSort.订单总价升序){
 			for(int i=0;i<volist.size();i++){
 				for(int j=0;j<volist.size()-1;j++){
 					if(volist.get(j).price>volist.get(j+1).price){
@@ -376,8 +376,8 @@ public class ManageOrder implements ManageOrderBLService {
 			return new ResultMessage(false,"找不到该订单","");
 		}
 		//如果订单不为异常
-		if(po.getorderStatus()!=OrderStatus.ABNORMAL){
-			po.setorderStatus(OrderStatus.UNEXECUTED);
+		if(po.getorderStatus()!=OrderStatus.异常订单){
+			po.setorderStatus(OrderStatus.未执行订单);
 			return new ResultMessage(true);
 		}else{
 			return new ResultMessage(false);
@@ -393,8 +393,8 @@ public class ManageOrder implements ManageOrderBLService {
 			return new ResultMessage(false,"找不到该订单","");
 		}
 		//订单为异常
-		if(po.getorderStatus()==OrderStatus.ABNORMAL&&po.getuserId()!=-1){
-			po.setorderStatus(OrderStatus.CANCELED);
+		if(po.getorderStatus()==OrderStatus.异常订单&&po.getuserId()!=-1){
+			po.setorderStatus(OrderStatus.已撤销订单);
 			UserPO userpo=userdataimpl.getUser(po.getuserId());
 			userdataimpl.update(userpo);
 			return new ResultMessage(true);
@@ -440,7 +440,7 @@ public class ManageOrder implements ManageOrderBLService {
 			Date estLeaveDate=format.parse(order.getlatestTime());
 			if(leaveDate.before(estLeaveDate)){
 				order.setleaveTime(leaveTime);
-				order.setorderStatus(OrderStatus.EXECUTED);// TODO Auto-generated method stub
+				order.setorderStatus(OrderStatus.已执行订单);// TODO Auto-generated method stub
 				return new ResultMessage(true);
 			}
 		} catch (ParseException e) {
@@ -478,16 +478,16 @@ public class ManageOrder implements ManageOrderBLService {
 		ordernumvo.hotelID=hotelID;
 		for(int i=0;i<polist.size();i++){
 			switch(polist.get(i).getorderStatus()){
-			case CANCELED:
+			case 已撤销订单:
 				ordernumvo.canceledOrder=ordernumvo.canceledOrder+1;
 				break;
-			case UNEXECUTED:
+			case 未执行订单:
 				ordernumvo.unexecutedOrder=ordernumvo.unexecutedOrder+1;
 				break;
-			case EXECUTED:
+			case 已执行订单:
 				ordernumvo.executedOrder=ordernumvo.executedOrder+1;
 				break;
-			case ABNORMAL:
+			case 异常订单:
 				ordernumvo.abnormalOrder=ordernumvo.abnormalOrder+1;
 				break;
 			default:

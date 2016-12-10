@@ -7,5 +7,5 @@ package tiquartet.CommonModule.util;
  */
 public enum RoomStatus {
 	//空闲的，已入住的
-	EMPTY, OCCUPIED;
+	空闲, 已入住;
 }

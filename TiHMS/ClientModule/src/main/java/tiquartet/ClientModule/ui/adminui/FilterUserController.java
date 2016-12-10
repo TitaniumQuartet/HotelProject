@@ -77,24 +77,24 @@ public class FilterUserController implements Initializable {
 				filterVO.memberType = null;
 				break;
     		case 1 :
-				filterVO.memberType = MemberType.NOTMEMBER;
+				filterVO.memberType = MemberType.非会员;
 				break;
     		case 2 :
-				filterVO.memberType = MemberType.PERSONMEMBER;
+				filterVO.memberType = MemberType.个人会员;
 				break;
     		case 3 :
-				filterVO.memberType = MemberType.COMPANYMEMBER;
+				filterVO.memberType = MemberType.企业会员;
 				break;
     	}
     	switch (userTypeBox.getSelectionModel().getSelectedIndex()) {
 			case 0 :
-				filterVO.userType = UserType.CLIENT;
+				filterVO.userType = UserType.客户;
 				break;
 			case 1 :
-				filterVO.userType = UserType.HOTELSTAFF;
+				filterVO.userType = UserType.酒店工作人员;
 				break;
 			case 2 :
-				filterVO.userType = UserType.MARKETER;
+				filterVO.userType = UserType.网站营销人员;
 				break;
 			case 3 :
 				filterVO.userType = null;

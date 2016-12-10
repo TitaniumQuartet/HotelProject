@@ -75,13 +75,13 @@ public class SearchUserSectionController implements Initializable{
         	
         	switch (userTypeBox.getSelectionModel().getSelectedIndex()) {
     			case 0 :
-    				filterVO.userType = UserType.CLIENT;
+    				filterVO.userType = UserType.客户;
     				break;
     			case 1 :
-    				filterVO.userType = UserType.HOTELSTAFF;
+    				filterVO.userType = UserType.酒店工作人员;
     				break;
     			case 2 :
-    				filterVO.userType = UserType.MARKETER;
+    				filterVO.userType = UserType.网站营销人员;
     				break;
     			case 3 :
     				filterVO.userType = null;

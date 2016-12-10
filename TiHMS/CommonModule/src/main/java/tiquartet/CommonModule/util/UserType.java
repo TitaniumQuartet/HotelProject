@@ -6,6 +6,5 @@ package tiquartet.CommonModule.util;
  *
  */
 public enum UserType {
-	//客户，酒店工作人员，网站营销人员，网站管理人员
-	CLIENT,HOTELSTAFF,MARKETER,SITEADMIN;
+	客户,酒店工作人员,网站营销人员,网站管理员;
 }

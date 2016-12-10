@@ -84,7 +84,7 @@ public class SearchHotel implements SearchHotelBLService {
 		//运用排序方法进行排序
 		
 		//星级升序
-		if(sort == HotelSort.STARASCEND){
+		if(sort == HotelSort.星级升序){
 			Collections.sort(filterList, new Comparator<HotelInfoPO>(){
 				@Override
 				public int compare(HotelInfoPO o1, HotelInfoPO o2) {
@@ -93,7 +93,7 @@ public class SearchHotel implements SearchHotelBLService {
 				});
 		}
 		//星级降序
-		else if(sort == HotelSort.STARDESCEND){
+		else if(sort == HotelSort.星级降序){
 			Collections.sort(filterList, new Comparator<HotelInfoPO>(){
 				@Override
 				public int compare(HotelInfoPO o1, HotelInfoPO o2) {
@@ -104,7 +104,7 @@ public class SearchHotel implements SearchHotelBLService {
 			Collections.reverse(filterList);
 		}
 		//评分升序
-		else if(sort == HotelSort.RATEASCEND){
+		else if(sort == HotelSort.评分升序){
 			Collections.sort(filterList, new Comparator<HotelInfoPO>(){
 				@Override
 				public int compare(HotelInfoPO o1, HotelInfoPO o2) {
@@ -113,7 +113,7 @@ public class SearchHotel implements SearchHotelBLService {
 				});
 		}
 		//评分降序
-		else if(sort == HotelSort.RATEDESCEND){
+		else if(sort == HotelSort.评分降序){
 			Collections.sort(filterList, new Comparator<HotelInfoPO>(){
 				@Override
 				public int compare(HotelInfoPO o1, HotelInfoPO o2) {
@@ -124,7 +124,7 @@ public class SearchHotel implements SearchHotelBLService {
 			Collections.reverse(filterList);
 		}
 		//价格升序
-		else if(sort == HotelSort.PRICEASCEND){
+		else if(sort == HotelSort.均价升序){
 			Collections.sort(filterList, new Comparator<HotelInfoPO>(){
 				@Override
 				public int compare(HotelInfoPO o1, HotelInfoPO o2) {
@@ -133,7 +133,7 @@ public class SearchHotel implements SearchHotelBLService {
 				});
 		}
 		//价格降序
-		else if(sort == HotelSort.PRICEDESCEND){
+		else if(sort == HotelSort.均价降序){
 			Collections.sort(filterList, new Comparator<HotelInfoPO>(){
 				@Override
 				public int compare(HotelInfoPO o1, HotelInfoPO o2) {

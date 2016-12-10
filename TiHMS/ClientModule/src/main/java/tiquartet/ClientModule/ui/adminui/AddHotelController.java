@@ -70,7 +70,7 @@ public class AddHotelController implements Initializable {
 				UserVO hotelier = new UserVO();
 				hotelier.userName = usernameField.getText();
 				hotelier.password = Encryptor.encript(passwordField.getText());
-				hotelier.userType = UserType.HOTELSTAFF;
+				hotelier.userType = UserType.酒店工作人员;
 				hotelier.login = false;
 				hotelier.hotelID = Integer.parseInt(message.message);
 				hotelier.company = hotelNameField.getText();
