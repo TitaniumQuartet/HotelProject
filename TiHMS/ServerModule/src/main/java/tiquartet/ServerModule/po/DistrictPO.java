@@ -77,13 +77,15 @@ public class DistrictPO {
 		    Object key = entry.getKey();  
 		    district = district + key.toString() + ",";		  
 		}  
-		district = district + ";" ;
+		
+		district = district.substring(0,district.length()-1) + ";" ;
         i = cityMap.entrySet().iterator();  
 		while(i.hasNext()){ 
 			Map.Entry entry = (Map.Entry) i.next();  
 		    Object val = entry.getValue();
 		    district =district + val.toString() + ",";		  
 		}  
+		district=district.substring(0,district.length()-1);
 		return district;
 	}
 }

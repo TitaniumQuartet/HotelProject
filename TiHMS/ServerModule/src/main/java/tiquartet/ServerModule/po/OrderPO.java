@@ -150,7 +150,7 @@ public class OrderPO implements Serializable{
 		    roomn=roomn + key.toString() + ",";
 		    roomi = roomi + val.toString() + ",";
 		}  
-		String result=roomn + ";" + roomi;
+		String result=roomn.substring(0,roomn.length()-1) + ";" + roomi.substring(0,roomn.length()-1);
 		return result;
 	}
 	

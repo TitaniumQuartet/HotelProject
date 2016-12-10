@@ -19,7 +19,7 @@ public class StrategyPO implements Serializable{
 	//门槛上线
 	private double[] memberThreShold=new double[9];
 	//会员等级对应折扣
-	private double[] memberDiscount=new double[10];
+	private double[] memberDiscount=new double[9];
 	//折扣策略开始时间
 	private String startTime;
 	//折扣策略结束时间
@@ -113,6 +113,15 @@ public class StrategyPO implements Serializable{
 		return this.memberDiscount;
 	}
 	
+	public String getMemberDiscountAsString(){
+		String result="";
+		for(int i=0;i<9;i++){
+			result=result+String.valueOf(memberDiscount[i])+",";
+		}
+		result=result+String.valueOf(memberDiscount[9]);
+		return result;
+	}
+	
 	public void setStartTime(String startTime){
 		this.startTime=startTime;
 	}
@@ -141,8 +150,17 @@ public class StrategyPO implements Serializable{
 		this.memberThreShold=memberthreshold;
 	}
 	
-	public double[] getMemberThreshole(){
+	public double[] getMemberThreshold(){
 		return this.memberThreShold;
+	}
+	
+	public String getMemberThresholdAsString(){
+		String result="";
+		for(int i=0;i<9;i++){
+			result=result+String.valueOf(memberThreShold[i])+",";
+		}
+		result=result+String.valueOf(memberThreShold[9]);
+		return result;
 	}
     
 	public void setCircleID(int circleID){

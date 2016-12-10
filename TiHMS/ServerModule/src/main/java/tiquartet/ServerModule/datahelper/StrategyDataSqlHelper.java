@@ -21,16 +21,13 @@ public class StrategyDataSqlHelper implements StrategyDataHelper{
 	 * 处理存储在数据库中的会员等级判断标准和折扣信息.
 	 * @return
 	 */
-	public double[][] transform(String member){
-		String[] str=member.split(";");//等级判断标准和折扣信息合并成一个字符串存储在数据库中，以分号隔开
-		String[] memberThreShold=str[0].split(",");
-		String[] memberDiscount=str[1].split(",");
-		double[][] mem=new double[2][str.length];
-		for(int i=0;i<str.length;i++){
-			mem[0][i]=Double.valueOf(memberThreShold[i]);
-			mem[1][i]=Double.valueOf(memberDiscount[i]);
+	public double[] transform(String member){
+		String[] memberto=member.split(",");
+		double[] mem=new double[memberto.length];
+		for(int i=0;i<memberto.length;i++){
+			mem[i]=Double.valueOf(memberto[i]);
 		}
-		return null;
+		return mem;
 	}
 	
 	ResultMessage success=new ResultMessage(true);
@@ -56,13 +53,14 @@ public class StrategyDataSqlHelper implements StrategyDataHelper{
 	        	int hotelId=rs.getInt(3);
 	        	double discount=rs.getDouble(4);
 	        	int circleId=rs.getInt(5);
-	        	String member=rs.getString(6);
-	        	String startTime=rs.getString(7);
-	        	String endTime=rs.getString(8);
-	        	StrategyType strategyType=StrategyType.values()[rs.getInt(9)];
-	        	int numOfRoom=rs.getInt(10);
-	        	double[] memberThreShold=transform(member)[0];
-	        	double[] memberDiscount=transform(member)[1];
+	        	String memberT=rs.getString(6);
+	        	String memberD=rs.getString(7);
+	        	String startTime=rs.getString(8);
+	        	String endTime=rs.getString(9);
+	        	StrategyType strategyType=StrategyType.values()[rs.getInt(10)];
+	        	int numOfRoom=rs.getInt(11);
+	        	double[] memberThreShold=transform(memberT);
+	        	double[] memberDiscount=transform(memberD);
 	        	StrategyPO strategyPO=new StrategyPO(strategyId,strategyIntro,hotelId,discount,circleId, memberThreShold,memberDiscount,startTime,endTime,strategyType,numOfRoom);
 				strategy.add(strategyPO);
 			}
@@ -82,14 +80,20 @@ public class StrategyDataSqlHelper implements StrategyDataHelper{
 	@Override
 	public ResultMessage insert(StrategyPO strategy) {
 		Connection conn = Connect.getConn();
-	    String sql = "insert into strategy(strategyId,strategyIntro,hotelId,discount) values(null,?,?,?)";
+	    String sql = "insert into strategy(strategyId,strategyIntro,hotelId,discount,circleId,memberThreShold,memberDiscount,startTime,endTime,strategyType,numOfRoom) values(null,?,?,?,?,?,?,?,?,?,?)";
 	    PreparedStatement pstmt;
 	    try {
 	        pstmt = (PreparedStatement) conn.prepareStatement(sql);
-	        pstmt.setInt(1, strategy.getstrategyId());
-	        pstmt.setString(2, strategy.getstrategyIntro());
-	        pstmt.setInt(3,strategy.gethotelId());
-	        pstmt.setDouble(4, strategy.getdiscount());
+	        pstmt.setString(1, strategy.getstrategyIntro());
+	        pstmt.setInt(2,strategy.gethotelId());
+	        pstmt.setDouble(3, strategy.getdiscount());
+	        pstmt.setInt(4,strategy.getCircelID());
+	        pstmt.setString(5, strategy.getMemberThresholdAsString());
+	        pstmt.setString(6, strategy.getMemberDiscountAsString());
+	        pstmt.setString(7, strategy.getStartTime());
+	        pstmt.setString(8, strategy.getEndTime());
+	        pstmt.setInt(9,strategy.getStrategyType().ordinal());
+	        pstmt.setInt(10,strategy.getnumOfRoom());
 	        pstmt.executeUpdate();
 	        pstmt.close();
 	        conn.close();
