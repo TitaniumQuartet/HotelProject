@@ -65,14 +65,14 @@ public class ReviewDataSqlHelper implements ReviewDataHelper{
 	        pstmt.setInt(4, review.getuserId());
 	        pstmt.setString(5, review.getuserName());
 	        pstmt.setString(6, review.gettime());
-	        pstmt.executeUpdate();
-	        average(review.getscore(), review.gethotelId());
+	        pstmt.executeUpdate();	        
 	        pstmt.close();
 	        conn.close();
 	    } catch (SQLException e) {
 	        e.printStackTrace();
 	        return new ResultMessage(false);
-	    } 	
+	    }
+	    average(review.getscore(), review.gethotelId());	
 	    return new ResultMessage(true);
 	}
 	

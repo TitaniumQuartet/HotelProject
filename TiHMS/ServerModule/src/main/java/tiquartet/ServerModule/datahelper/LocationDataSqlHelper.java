@@ -25,8 +25,7 @@ public class LocationDataSqlHelper implements LocationDataHelper{
 	        	String city=rs.getString(1);
 	        	String distrcit=rs.getString(2);
 	        	String[] citys=city.split(";");
-	        	String[] districts=distrcit.split(";");
-	        	
+	        	String[] districts=distrcit.split(";");	        	
 	        	String[] cityId=citys[0].split(",");
 	        	String[] cityName=citys[1].split(",");
 	        	for(int i=0;i<citys.length;i++){

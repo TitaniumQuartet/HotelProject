@@ -57,9 +57,9 @@ public class OrderDataSqlHelper implements OrderDataHelper{
 		    String userName=rs.getString(13);
 		    String startTime=rs.getString(14);
 		    String leaveTime=rs.getString(15);
-		    double price=rs.getDouble(17);
-		    int hotelId=rs.getInt(18);
 		    String orderTime=rs.getString(16);
+		    double price=rs.getDouble(17);
+		    int hotelId=rs.getInt(18);		    
 		    HashMap<Integer, String> roomMap=transform(roomNumber, roomId);
 		    OrderPO orderpo=new OrderPO(orderId,orderStatus,latestTime,roomMap,numberOfRoom,numberOfPeople,child,guestRealName,clientRealName,hotelName,userId,userName,startTime,leaveTime,orderTime,price,hotelId);
 		    return orderpo;
@@ -80,14 +80,16 @@ public class OrderDataSqlHelper implements OrderDataHelper{
 	@Override
 	public OrderPO preOrder(OrderPO preOrder){
 		ResultMessage rMessage=insert(preOrder);
-		int orderId=Integer.valueOf(rMessage.message);
+		long orderId=Integer.valueOf(rMessage.message);
 		Connection conn = Connect.getConn();
         String sql="select * from order where orderId = "+ orderId;
 		PreparedStatement pstmt;
 		try {
 			pstmt = (PreparedStatement) conn.prepareStatement(sql);
 			ResultSet rs = pstmt.executeQuery();			
-			OrderPO orderpo=createorderpo(rs);
+			OrderPO orderpo=new OrderPO();
+			if(rs.next())
+				orderpo=createorderpo(rs);
 			pstmt.close();
 	        conn.close();
 			return orderpo;
@@ -106,7 +108,7 @@ public class OrderDataSqlHelper implements OrderDataHelper{
 		Connection conn = Connect.getConn();
 	    String sql = "insert into order(orederId,orderStatus,latestTime,roomNumber,roomId,numberOfRoom,numberOfPeople,child,guestRealName,clientRealName,hotelName,userId,userName,startTime,leaveTime,price,hotelId) values(null,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 	    PreparedStatement pstmt;
-	    int orderId=0;
+	    long orderId=0;
 	    try {
 	    	String[] room=order.getroom().split(";");
 	        pstmt = (PreparedStatement) conn.prepareStatement(sql,Statement.RETURN_GENERATED_KEYS);
@@ -188,7 +190,7 @@ public class OrderDataSqlHelper implements OrderDataHelper{
 	public int countOrder(int userID, OrderStatus status) {
 		Connection conn = Connect.getConn();
 		int i=0;
-		String sql="select * from order where userId = " + userID + "AND orderStatus = " + status;
+		String sql="select * from order where userId = " + userID + "AND orderStatus = " + status.ordinal();
 		PreparedStatement pstmt;
 		try {
 			pstmt = (PreparedStatement) conn.prepareStatement(sql);
@@ -234,7 +236,7 @@ public class OrderDataSqlHelper implements OrderDataHelper{
 	public List<OrderPO> searchByHotel(int hotelID, OrderStatus status) {
 		Connection conn = Connect.getConn();
 		List<OrderPO> orders=new ArrayList<OrderPO>();
-		String sql="select * from order where hotelId = " + hotelID + "AND orderStatus = " + status;
+		String sql="select * from order where hotelId = " + hotelID + "AND orderStatus = " + status.ordinal();
 		PreparedStatement pstmt;
 		try {
 			pstmt = (PreparedStatement) conn.prepareStatement(sql);
@@ -290,7 +292,9 @@ public class OrderDataSqlHelper implements OrderDataHelper{
 		try {
 			pstmt = (PreparedStatement) conn.prepareStatement(sql);
 	        ResultSet rs = pstmt.executeQuery();
-			OrderPO orderpo=createorderpo(rs);
+	        OrderPO orderpo=new OrderPO();
+			if(rs.next())
+				orderpo=createorderpo(rs);
 			return orderpo;
 		} catch (Exception e) {
 			e.printStackTrace();

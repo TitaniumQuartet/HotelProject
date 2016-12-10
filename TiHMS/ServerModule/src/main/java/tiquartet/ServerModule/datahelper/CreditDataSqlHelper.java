@@ -66,7 +66,7 @@ public class CreditDataSqlHelper implements CreditDataHelper{
 	        	double change=rs.getDouble(2);
 	        	double balance=rs.getDouble(3);
 	        	long orderId=rs.getLong(4);
-	        	long creditRecordId=rs.getLong(5);
+	        	int creditRecordId=rs.getInt(5);
 	        	CreditPO creditpo = new CreditPO(CreditChange.values()[changeType],change,balance,orderId,creditRecordId);
 				credit.add(creditpo);
 			}
