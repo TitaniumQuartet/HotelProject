@@ -147,8 +147,8 @@ public class OrderPO implements Serializable{
 			Map.Entry entry = (Map.Entry) i.next();  
 		    Object key = entry.getKey();  
 		    Object val = entry.getValue();
-		    roomn=roomn + key.toString();
-		    roomi = roomi + val.toString();
+		    roomn=roomn + key.toString() + ",";
+		    roomi = roomi + val.toString() + ",";
 		}  
 		String result=roomn + ";" + roomi;
 		return result;

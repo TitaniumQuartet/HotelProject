@@ -21,7 +21,7 @@ public interface UserDataHelper {
 	public List<UserPO> searchUser (String username, String realName,UserType type);
 	public ResultMessage getCreditBalance (int userID);
 	public ResultMessage addCredit (int userID, double addition);
-	public List<UserPO> hotelStaffList(int cityID, int distrcitID);
+	public List<UserPO> hotelStaffList(int cityID, int districtID);
 	public List<UserPO> marketerList();
 	public UserPO accurateSearch (String username);
 	

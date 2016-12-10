@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 import tiquartet.CommonModule.util.ResultMessage;
@@ -59,7 +60,9 @@ public class HotelInfoDataSqlHelper implements HotelInfoDataHelper{
 	    try {
 	        pstmt = (PreparedStatement)conn.prepareStatement(sql);
 	        ResultSet rs = pstmt.executeQuery();
-        	HotelInfoPO hotelInfoPO=createhotel(rs);
+	        HotelInfoPO hotelInfoPO=new HotelInfoPO();
+	        if(rs.next())
+	        	hotelInfoPO=createhotel(rs);
         	pstmt.close();
 	        conn.close();
         	return hotelInfoPO;
@@ -76,10 +79,10 @@ public class HotelInfoDataSqlHelper implements HotelInfoDataHelper{
 	@Override
 	public ResultMessage insert(HotelInfoPO hotelInfo) {
 		Connection conn = Connect.getConn();
-	    String sql = "insert into hotelInfo(hotelId,hotelName,star,address,hotelIntroduction,serviceIntrduction,circleId,circleName,lowPrice,highPrice,averageGrade,cityName) values(?,?,?,?,?,?,?,?,?,?,?,?)";
+	    String sql = "insert into hotelInfo(hotelId,hotelName,star,address,hotelIntroduction,serviceIntrduction,circleId,circleName,lowPrice,highPrice,averageGrade,cityName) values(null,?,?,?,?,?,?,?,?,?,?,?)";
 	    PreparedStatement pstmt;
 	    try {
-	        pstmt = (PreparedStatement) conn.prepareStatement(sql);
+	        pstmt = (PreparedStatement) conn.prepareStatement(sql,Statement.RETURN_GENERATED_KEYS);
 	        pstmt.setInt(1, hotelInfo.gethotelId());
 	        pstmt.setString(2, hotelInfo.gethotelName());
 	        pstmt.setInt(3, hotelInfo.getstar());
@@ -93,13 +96,18 @@ public class HotelInfoDataSqlHelper implements HotelInfoDataHelper{
 	        pstmt.setDouble(11, hotelInfo.getaverageGrade());
 	        pstmt.setString(12, hotelInfo.getcityName());
 	        pstmt.executeUpdate();
+	        ResultSet rs = pstmt.getGeneratedKeys(); //获取结果  
+	        int hotelId=0;
+	        if (rs.next()) {
+	        	hotelId = rs.getInt(1);//取得ID
+	        }
 	        pstmt.close();
 	        conn.close();
+	        return new ResultMessage(true,null,String.valueOf(hotelId));
 	    } catch (SQLException e) {
 	        e.printStackTrace();
 	        return fail;
 	    } 	
-	    return success;
 	}
 
 	/**
@@ -110,17 +118,17 @@ public class HotelInfoDataSqlHelper implements HotelInfoDataHelper{
 	public ResultMessage update(HotelInfoPO hotelInfo) {
 		Connection conn = Connect.getConn();
 	    String sql = "update hotelInfo set hotelName='" + hotelInfo.gethotelName() +
-	    		"set star='" + hotelInfo.getstar() +
-	    		"set address='" + hotelInfo.getaddress() +
-	    		"set hotelIntroduction='" + hotelInfo.gethotelIntroduction() +
-	    		"set serviceIntroduction='" + hotelInfo.getserviceIntroduction() +
-	    		"set circleId='" + hotelInfo.getcircleId() +
-	    		"set circleName='" + hotelInfo.getcircleName() +
-	    		"set lowPrice='" + hotelInfo.getlowprice() +
-	    		"set highPrice='" + hotelInfo.gethighprice() +
-	    		"set averageGrade='" + hotelInfo.getaverageGrade() +
-	    		"set cityName='" + hotelInfo.getcityName() +
-	            " where hotelId = " + hotelInfo.gethotelId() ;
+	    		"', star=" + hotelInfo.getstar() +
+	    		", address='" + hotelInfo.getaddress() +
+	    		"', hotelIntroduction='" + hotelInfo.gethotelIntroduction() +
+	    		"', serviceIntroduction='" + hotelInfo.getserviceIntroduction() +
+	    		"', circleId=" + hotelInfo.getcircleId() +
+	    		", circleName='" + hotelInfo.getcircleName() +
+	    		"', lowPrice=" + hotelInfo.getlowprice() +
+	    		", highPrice=" + hotelInfo.gethighprice() +
+	    		", averageGrade=" + hotelInfo.getaverageGrade() +
+	    		", cityName='" + hotelInfo.getcityName() +
+	            "' where hotelId = " + hotelInfo.gethotelId() ;
 	    PreparedStatement pstmt;
 	    try {
 	        pstmt = (PreparedStatement) conn.prepareStatement(sql);

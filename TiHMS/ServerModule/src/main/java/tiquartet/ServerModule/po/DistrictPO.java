@@ -1,6 +1,8 @@
 package tiquartet.ServerModule.po;
 
 import java.util.HashMap;
+import java.util.Map;
+import java.util.Map.Entry;
 
 import tiquartet.CommonModule.vo.DistrictVO;
 
@@ -31,5 +33,57 @@ public class DistrictPO {
 	public DistrictPO(HashMap<Integer, String> cityMap, HashMap<Integer, String> districtMap) {
 		this.cityMap=cityMap;
 		this.districtMap=districtMap;
+	}
+	
+	public void setcity(HashMap<Integer, String> cityMap){
+		this.cityMap=cityMap;
+	}
+	
+	public HashMap<Integer, String> getcity(){
+		return cityMap;
+	}
+	
+	public String getcityAsString(){
+		String city = "";
+		java.util.Iterator<Entry<Integer, String>> i = cityMap.entrySet().iterator();  
+		while(i.hasNext()){ 
+			Map.Entry entry = (Map.Entry) i.next();  
+		    Object key = entry.getKey();  
+		    city = city + key.toString() + ",";		  
+		}  
+		city = city + ";" ;
+        i = cityMap.entrySet().iterator();  
+		while(i.hasNext()){ 
+			Map.Entry entry = (Map.Entry) i.next();  
+		    Object val = entry.getValue();
+		    city = city + val.toString() + ",";		  
+		}  
+		return city;
+	}
+	
+	public void setdistrict(HashMap<Integer, String> districtMap){
+		this.districtMap=districtMap;
+	}
+	
+	public HashMap<Integer, String> getdistrict(){
+		return districtMap;
+	}
+	
+	public String getdistrictAsString(){
+		String district = "";
+		java.util.Iterator<Entry<Integer, String>> i = districtMap.entrySet().iterator();  
+		while(i.hasNext()){ 
+			Map.Entry entry = (Map.Entry) i.next();  
+		    Object key = entry.getKey();  
+		    district = district + key.toString() + ",";		  
+		}  
+		district = district + ";" ;
+        i = cityMap.entrySet().iterator();  
+		while(i.hasNext()){ 
+			Map.Entry entry = (Map.Entry) i.next();  
+		    Object val = entry.getValue();
+		    district =district + val.toString() + ",";		  
+		}  
+		return district;
 	}
 }

@@ -1,5 +1,5 @@
 package tiquartet.ServerModule.dataservice.locationdataservice;
-
+import tiquartet.CommonModule.util.ResultMessage;
 import tiquartet.ServerModule.po.DistrictPO;
 
 /**
@@ -14,5 +14,11 @@ public interface LocationDataService {
 	 * @return
 	 */
 	public DistrictPO renewDistrict ();
+	
+	/**
+	 * 新增商圈
+	 * @return
+	 */
+	public ResultMessage insert(DistrictPO district);
 
 }

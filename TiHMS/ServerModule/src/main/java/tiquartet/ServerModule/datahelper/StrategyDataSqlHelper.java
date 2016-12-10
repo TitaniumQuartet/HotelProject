@@ -45,7 +45,7 @@ public class StrategyDataSqlHelper implements StrategyDataHelper{
 	public List<StrategyPO> searchByHotel(int hotelID) {
 		Connection conn = Connect.getConn();
 		List<StrategyPO> strategy = new ArrayList<StrategyPO>();
-		String sql="select * from credit where hotelId =" + hotelID + "OR where hotelId = '-1'";
+		String sql="select * from strategy where hotelId =" + hotelID + "OR where hotelId = '-1'";
 		PreparedStatement pstmt;
 		try {
 			pstmt = (PreparedStatement) conn.prepareStatement(sql);
@@ -82,7 +82,7 @@ public class StrategyDataSqlHelper implements StrategyDataHelper{
 	@Override
 	public ResultMessage insert(StrategyPO strategy) {
 		Connection conn = Connect.getConn();
-	    String sql = "insert into strategy(strategyId,strategyIntro,hotelId,discount) values(?,?,?,?)";
+	    String sql = "insert into strategy(strategyId,strategyIntro,hotelId,discount) values(null,?,?,?)";
 	    PreparedStatement pstmt;
 	    try {
 	        pstmt = (PreparedStatement) conn.prepareStatement(sql);
@@ -130,8 +130,8 @@ public class StrategyDataSqlHelper implements StrategyDataHelper{
 	public ResultMessage update(StrategyPO strategy) {
 		Connection conn = Connect.getConn();
 	    String sql = "update strategy set strategyIntro='" + strategy.getstrategyIntro() +
-	    		"set hotelId='" + strategy.gethotelId() +
-	    		"set discount='" + strategy.getdiscount() +
+	    		"', hotelId=" + strategy.gethotelId() +
+	    		", discount=" + strategy.getdiscount() +
 	            " where strategyId = " + strategy.getstrategyId() ;
 	    PreparedStatement pstmt;
 	    try {

@@ -90,7 +90,7 @@ public class RoomDataSqlHelper implements RoomDataHelper{
 		Connection conn = Connect.getConn();
 		List<RoomTypePO> rooms = new ArrayList<RoomTypePO>();//可用房间类型的po列表
 		Map<Integer, Integer> roomtAn = new HashMap<Integer, Integer>();//可用客房房间类型和数量
-		String sql="select * from order where hotelId =" + hotelID + "where state =" + "0";
+		String sql="select * from order where hotelId =" + hotelID + " AND where state =" + 0;
 		PreparedStatement pstmt;
 		try {
 			pstmt = (PreparedStatement) conn.prepareStatement(sql);
@@ -136,12 +136,11 @@ public class RoomDataSqlHelper implements RoomDataHelper{
 	 * @return
 	 */
 	@Override
-	public ResultMessage update(RoomPO room) {
-	    String sql = "update roomType set roomTypeId='" + room.getroomTypeId() +
-	    		"set typeIntro='" + room.getroomId() +
-	    		"set price='" + room.getroomNumber() +
-	    		"set roomType='" + room.getstateAsInt() +
-	            " where hotelId='" + room.gethotelId();
+	public ResultMessage update(RoomPO room) {//hotelid不可修改
+	    String sql = "update roomType set roomTypeId=" + room.getroomTypeId() +
+	    		", roomNumber='" + room.getroomNumber() +
+	    		"', state=" + room.getstateAsInt() +
+	            " where roomId='" + room.getroomId();
 	    return updatetable(sql);
 	}
 
@@ -152,15 +151,14 @@ public class RoomDataSqlHelper implements RoomDataHelper{
 	@Override
 	public ResultMessage insert(RoomPO room) {
 		Connection conn = Connect.getConn();
-	    String sql = "insert into room(roomId,roomNumber,roomTypeId,state,hotelId) values(?,?,?,?,?)";
+	    String sql = "insert into room(roomId,roomNumber,roomTypeId,state,hotelId) values(null,?,?,?,?)";
 	    PreparedStatement pstmt;
 	    try {
 	        pstmt = (PreparedStatement) conn.prepareStatement(sql);
-	        pstmt.setInt(1,room.getroomId());
-	        pstmt.setString(2, room.getroomNumber());
-	        pstmt.setInt(3,room.getroomTypeId());
-	        pstmt.setInt(4, room.getstateAsInt());
-	        pstmt.setInt(5, room.gethotelId());
+	        pstmt.setString(1, room.getroomNumber());
+	        pstmt.setInt(2,room.getroomTypeId());
+	        pstmt.setInt(3, room.getstateAsInt());
+	        pstmt.setInt(4, room.gethotelId());
 	        pstmt.executeUpdate();
 	        pstmt.close();
 	        conn.close();
@@ -188,7 +186,7 @@ public class RoomDataSqlHelper implements RoomDataHelper{
 	 */
 	@Override
 	public ResultMessage checkIn(int roomID) {
-		String sql = "update room set state =" + "1" +
+		String sql = "update room set state =" + 1 +
 	            " where roomId='" + roomID;
 	    return updatetable(sql);
 	}
@@ -199,7 +197,7 @@ public class RoomDataSqlHelper implements RoomDataHelper{
 	 */
 	@Override
 	public ResultMessage checkOut(int roomID) {
-		String sql = "update room set state =" + "0" +
+		String sql = "update room set state =" + 0 +
 	            " where roomId='" + roomID;
 	    return updatetable(sql);
 	}
@@ -211,15 +209,14 @@ public class RoomDataSqlHelper implements RoomDataHelper{
 	@Override
 	public ResultMessage insertType(RoomTypePO room) {
 		Connection conn = Connect.getConn();
-	    String sql = "insert into roomType(roomTypeId,typeIntro,price,roomType,hotelId) values(?,?,?,?,?)";
+	    String sql = "insert into roomType(roomTypeId,typeIntro,price,roomType,hotelId) values(null,?,?,?,?)";
 	    PreparedStatement pstmt;
 	    try {
 	        pstmt = (PreparedStatement) conn.prepareStatement(sql);
-	        pstmt.setInt(1, room.getroomTypeId());
-	        pstmt.setString(2, room.gettypeIntroduction());
-	        pstmt.setDouble(3, room.getprice());
-	        pstmt.setString(4, room.getroomType()); 
-	        pstmt.setInt(5, room.gethotelId());
+	        pstmt.setString(1, room.gettypeIntroduction());
+	        pstmt.setDouble(2, room.getprice());
+	        pstmt.setString(3, room.getroomType()); 
+	        pstmt.setInt(4, room.gethotelId());
 	        pstmt.executeUpdate();
 	        pstmt.close();
 	        conn.close();
@@ -236,11 +233,11 @@ public class RoomDataSqlHelper implements RoomDataHelper{
 	 */
 	@Override
 	public ResultMessage updateType(RoomTypePO room) {
-	    String sql = "update roomType set roomTypeId='" + room.getroomTypeId() +
-	    		"set typeIntro='" + room.gettypeIntroduction() +
-	    		"set price='" + room.getprice() +
-	    		"set roomType='" + room.getroomType() +
-	            " where hotelId='" + room.gethotelId();
+	    String sql = "update roomType set roomTypeId=" + room.getroomTypeId() +
+	    		", typeIntro='" + room.gettypeIntroduction() +
+	    		"', price=" + room.getprice() +
+	    		", roomType='" + room.getroomType() +
+	            "' where roomTypeId='" + room.getroomTypeId();
 	    return updatetable(sql);
 	}
 

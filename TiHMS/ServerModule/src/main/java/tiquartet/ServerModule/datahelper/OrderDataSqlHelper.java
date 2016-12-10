@@ -4,6 +4,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -78,14 +79,15 @@ public class OrderDataSqlHelper implements OrderDataHelper{
 	 */
 	@Override
 	public OrderPO preOrder(OrderPO preOrder){
-		insert(preOrder);
+		ResultMessage rMessage=insert(preOrder);
+		int orderId=Integer.valueOf(rMessage.message);
 		Connection conn = Connect.getConn();
-		String sql="select * from order where userId = " ;
+        String sql="select * from order where orderId = "+ orderId;
 		PreparedStatement pstmt;
 		try {
 			pstmt = (PreparedStatement) conn.prepareStatement(sql);
-			ResultSet rs = pstmt.executeQuery();
-			OrderPO orderpo =new OrderPO();
+			ResultSet rs = pstmt.executeQuery();			
+			OrderPO orderpo=createorderpo(rs);
 			pstmt.close();
 	        conn.close();
 			return orderpo;
@@ -102,36 +104,41 @@ public class OrderDataSqlHelper implements OrderDataHelper{
 	@Override
 	public ResultMessage insert(OrderPO order) {
 		Connection conn = Connect.getConn();
-	    String sql = "insert into order(orderStatus,latestTime,roomNumber,roomId,numberOfRoom,numberOfPeople,child,guestRealName,clientRealName,hotelName,userId,userName,startTime,leaveTime,price,hotelId) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+	    String sql = "insert into order(orederId,orderStatus,latestTime,roomNumber,roomId,numberOfRoom,numberOfPeople,child,guestRealName,clientRealName,hotelName,userId,userName,startTime,leaveTime,price,hotelId) values(null,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 	    PreparedStatement pstmt;
+	    int orderId=0;
 	    try {
 	    	String[] room=order.getroom().split(";");
-	        pstmt = (PreparedStatement) conn.prepareStatement(sql);
-	        pstmt.setInt(2,order.getorderStatusAsInt());
-	        pstmt.setString(3, order.getlatestTime());
-	        pstmt.setString(4, room[1]);
-	        pstmt.setString(5, room[0]);
-	        pstmt.setInt(6, order.getnumberOfRoom());
-	        pstmt.setInt(7, order.getnumberOfPeople());
-	        pstmt.setInt(8, order.getchild());
-	        pstmt.setString(9, order.getguestRealName());
-	        pstmt.setString(10, order.getclientRealName());
-	        pstmt.setString(11, order.gethotelName());
-	        pstmt.setInt(12, order.getuserId());
-	        pstmt.setString(13, order.getuserName());
-	        pstmt.setString(14, order.getstartTime());
-	        pstmt.setString(15, order.getleaveTime());
-	        pstmt.setString(16, order.getorderTime());
-	        pstmt.setDouble(17, order.getprice());
-	        pstmt.setInt(18, order.gethotelId());
+	        pstmt = (PreparedStatement) conn.prepareStatement(sql,Statement.RETURN_GENERATED_KEYS);
+	        pstmt.setInt(1,order.getorderStatusAsInt());
+	        pstmt.setString(2, order.getlatestTime());
+	        pstmt.setString(3, room[1]);
+	        pstmt.setString(4, room[0]);
+	        pstmt.setInt(5, order.getnumberOfRoom());
+	        pstmt.setInt(6, order.getnumberOfPeople());
+	        pstmt.setInt(7, order.getchild());
+	        pstmt.setString(8, order.getguestRealName());
+	        pstmt.setString(9, order.getclientRealName());
+	        pstmt.setString(10, order.gethotelName());
+	        pstmt.setInt(11, order.getuserId());
+	        pstmt.setString(12, order.getuserName());
+	        pstmt.setString(13, order.getstartTime());
+	        pstmt.setString(14, order.getleaveTime());
+	        pstmt.setString(15, order.getorderTime());
+	        pstmt.setDouble(16, order.getprice());
+	        pstmt.setInt(17, order.gethotelId());
 	        pstmt.executeUpdate();
+	        ResultSet rs = pstmt.getGeneratedKeys(); //获取结果  	        
+	        if (rs.next()) {
+	        	orderId = rs.getInt(1);//取得ID
+	        }
 	        pstmt.close();
 	        conn.close();
 	    } catch (SQLException e) {
 	        e.printStackTrace();
 	        return fail;
 	    } 	
-	    return success;
+	    return new ResultMessage(true,null,String.valueOf(orderId));
 	}
 
 	/**
@@ -143,23 +150,23 @@ public class OrderDataSqlHelper implements OrderDataHelper{
 		Connection conn = Connect.getConn();
 		String[] room=order.getroom().split(";");
 	    String sql = "update user set lastestTime='" + order.getlatestTime() +
-	    		"set numberOfRoom='" + order.getnumberOfRoom() +
-	    		"set numberOfPeople='" + order.getnumberOfPeople() +
-	    		"set child='" + order.getchild() +
-	    		"set realName='" + order.getclientRealName() +
-	    		"set hotelId='" + order.gethotelId() +
-	    		"set guestRealName='" + order.getguestRealName() +
-	    		"set hotelName='" + order.gethotelName() +
-	    		"set orderStatus='" + order.getorderStatusAsInt() +
-	    		"set price='" + order.getprice() +
-	    		"set startTime='" + order.getstartTime() +
-	    		"set leaveTime='" + order.getleaveTime() +
-	    		"set userName='" + order.getuserName() +
-	    		"set userId='" + order.getuserId() +
-	    		"set roomNumber='" + room[1] +
-	    		"set roomId='" + room[0] +
-	    		"set orderTime='" + order.getorderTime() +
-	            " where orderId = " + order.getorderId() ;
+	    		"', numberOfRoom=" + order.getnumberOfRoom() +
+	    		", numberOfPeople=" + order.getnumberOfPeople() +
+	    		", child=" + order.getchild() +
+	    		", realName='" + order.getclientRealName() +
+	    		"', hotelId=" + order.gethotelId() +
+	    		", guestRealName='" + order.getguestRealName() +
+	    		"', hotelName='" + order.gethotelName() +
+	    		"', orderStatus=" + order.getorderStatusAsInt() +
+	    		", price=" + order.getprice() +
+	    		", startTime='" + order.getstartTime() +
+	    		"', leaveTime='" + order.getleaveTime() +
+	    		"', userName='" + order.getuserName() +
+	    		"', userId=" + order.getuserId() +
+	    		", roomNumber='" + room[1] +
+	    		"', roomId='" + room[0] +
+	    		"', orderTime='" + order.getorderTime() +
+	            "' where orderId = " + order.getorderId() ;
 	    PreparedStatement pstmt;
 	    try {
 	        pstmt = (PreparedStatement) conn.prepareStatement(sql);
