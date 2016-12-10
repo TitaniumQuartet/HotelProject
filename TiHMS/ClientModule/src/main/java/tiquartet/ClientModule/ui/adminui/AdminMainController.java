@@ -17,6 +17,7 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import tiquartet.ClientModule.ui.rmiclient.HMSClient;
+import tiquartet.ClientModule.ui.usermainui.LoginController;
 import tiquartet.CommonModule.util.ResultMessage;
 
 /**
@@ -63,11 +64,19 @@ public class AdminMainController implements Initializable{
     private AnchorPane mainPane;
     
     public SearchUserSectionController searchUserSectionController;
+    
     public FilterUserController filterUserController;
 
     @FXML
     void onLogoutClicked(ActionEvent event) {
-    	HMSClient.showScene(HMSClient.loginScene);
+    	try {
+			HMSClient.getUserMainBL().logout(LoginController.getCurrentUser().userID);
+			HMSClient.showScene(HMSClient.loginScene);
+		} catch (RemoteException e) {
+			//网络连接错误
+			e.printStackTrace();
+		}
+    	
     }
 
     @FXML

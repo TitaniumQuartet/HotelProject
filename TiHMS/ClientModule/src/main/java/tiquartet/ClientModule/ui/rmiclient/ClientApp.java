@@ -22,9 +22,9 @@ public class ClientApp extends Application {
 		HMSClient.setMainStage(primaryStage);
 		try {
 			FXMLLoader loader = new FXMLLoader();
-			loader.setLocation(getClass().getResource("/fxml/adminui/adminMain.fxml"));
+			loader.setLocation(getClass().getResource("/fxml/clientui/clientMain.fxml"));
 			Scene loginScene = new Scene(loader.load(), 1280, 800);
-			HMSClient.adminMainController = loader.getController();
+			//HMSClient.adminMainController = loader.getController();
 			primaryStage.initStyle(StageStyle.DECORATED);
 			primaryStage.setScene(loginScene);
 			primaryStage.setTitle("TiHMS 酒店管理系统");

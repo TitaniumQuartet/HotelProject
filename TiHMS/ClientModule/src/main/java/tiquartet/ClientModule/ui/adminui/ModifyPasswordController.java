@@ -17,6 +17,7 @@ import tiquartet.ClientModule.ui.rmiclient.HMSClient;
 import tiquartet.ClientModule.ui.usermainui.LoginController;
 import tiquartet.CommonModule.util.Encryptor;
 import tiquartet.CommonModule.util.ResultMessage;
+import tiquartet.CommonModule.vo.UserVO;
 
 public class ModifyPasswordController implements Initializable{
 
@@ -34,6 +35,9 @@ public class ModifyPasswordController implements Initializable{
 
     @FXML
     private Label newPasswordPrompt;
+    
+    @FXML
+    private Label titleLabel;
     
     @FXML
     private ImageView newPasswordSign;
@@ -56,18 +60,20 @@ public class ModifyPasswordController implements Initializable{
     @FXML
     private Label resultLabel;
     
+    public UserVO current = null;
+    
 
     @FXML
     void onConfirmModify(ActionEvent event) {
     	//保存旧的密码
-    	String oldCode = LoginController.getCurrentUser().password;
+    	String oldCode = current.password;
     	try {
     		String codeEncrypted = Encryptor.encript(newPasswordField.getText());
-        	LoginController.getCurrentUser().password = codeEncrypted;
+        	current.password = codeEncrypted;
 			ResultMessage message = HMSClient.getManageUserBL().update(LoginController.getCurrentUser());
 			if(!message.result){
 				//修改密码失败
-				LoginController.getCurrentUser().password = oldCode;
+				current.password = oldCode;
 				resultLabel.setText("密码修改失败");
 				resultLabel.setVisible(true);
 			}
@@ -78,7 +84,7 @@ public class ModifyPasswordController implements Initializable{
 			}
 		} catch (RemoteException e) {
 			//若访问数据层失败，则取消密码的修改
-			LoginController.getCurrentUser().password = oldCode;
+			current.password = oldCode;
 			resultLabel.setText("服务器访问失败");
 			resultLabel.setVisible(true);
 			e.printStackTrace();
@@ -151,6 +157,9 @@ public class ModifyPasswordController implements Initializable{
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
+		current = LoginController.getCurrentUser();
+		titleLabel.setText("修改"+current.userType.name()+current.userName+"的密码");
+		
 		currentPasswordField.focusedProperty().addListener(new ChangeListener<Boolean>() {
 			@Override
 			public void changed(ObservableValue<? extends Boolean> observable,

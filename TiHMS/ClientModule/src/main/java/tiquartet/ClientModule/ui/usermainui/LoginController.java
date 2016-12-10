@@ -11,6 +11,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
@@ -77,12 +78,12 @@ public class LoginController implements Initializable {
 			 * 界面切换的实现
 			 */
 			if(currentUser.userType==UserType.网站管理员){
-				if(HMSClient.adminMainScene == null){
-					FXMLLoader loader = new FXMLLoader();
-					loader.setLocation(getClass().getResource("/fxml/adminui/adminMain.fxml"));
-					HMSClient.adminMainScene = loader.load();
-					HMSClient.showScene(HMSClient.adminMainScene);
-				}
+				FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/adminui/adminMain.fxml"));
+				HMSClient.showScene(new Scene(loader.load(),1280,800));
+			}
+			else if(currentUser.userType==UserType.客户){
+				FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/adminui/adminMain.fxml"));
+				HMSClient.showScene(new Scene(loader.load(),1280,800));
 			}
 		} catch (RemoteException | NullPointerException e) {
 			//网络异常处理
