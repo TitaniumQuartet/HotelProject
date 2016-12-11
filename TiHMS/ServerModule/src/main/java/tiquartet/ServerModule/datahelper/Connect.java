@@ -14,7 +14,7 @@ public class Connect {
 	    String driver = "com.mysql.jdbc.Driver";
 	    String url = "jdbc:mysql://127.0.0.1:3306/hotelmanage?useUnicode=true&characterEncoding=UTF-8&useSSL=true";
 	    String username = "root";
-	    String password = "jjmoon05";
+	    String password = "857142";
 	    Connection conn = null;
 	    try {
 	        Class.forName(driver); //classLoader

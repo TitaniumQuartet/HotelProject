@@ -46,48 +46,43 @@ public class HMSServer {
 	 * @return 启动服务器的结果信息
 	 */
 	public ResultMessage init() {
-		if (System.getSecurityManager() == null) {
-			System.setSecurityManager(new SecurityManager());
-		}
+		
 		try {
-			Registry registry = LocateRegistry.getRegistry();
+			Registry registry = LocateRegistry.createRegistry(1099);
 			
-			//CreateOrderBLService createOrderStub = (CreateOrderBLService) UnicastRemoteObject
-					//.exportObject(new CreateOrderController(), 0);
-			//registry.bind("createOrder", createOrderStub);
+			CreateOrderBLService createOrderStub = (CreateOrderBLService) UnicastRemoteObject
+					.exportObject(new CreateOrderController(), 0);
+			registry.rebind("createOrder", createOrderStub);
 			
 			HotelInfoBLService hotelInfoStub = (HotelInfoBLService) UnicastRemoteObject
 					.exportObject(new HotelInfoController(), 0);
-			registry.bind("hotelInfo", hotelInfoStub);
+			registry.rebind("hotelInfo", hotelInfoStub);
 			
 			ManageOrderBLService manageOrderStub = (ManageOrderBLService) UnicastRemoteObject
 					.exportObject(new ManageOrderController(), 0);
-			registry.bind("manageOrder", manageOrderStub);
+			registry.rebind("manageOrder", manageOrderStub);
 			
 			ManageRoomBLService manageRoomStub = (ManageRoomBLService) UnicastRemoteObject
 					.exportObject(new ManageRoomController(), 0);
-			registry.bind("manageRoom", manageRoomStub);
+			registry.rebind("manageRoom", manageRoomStub);
 			
 			ManageUserBLService manageUserStub = (ManageUserBLService) UnicastRemoteObject
 					.exportObject(new ManageUserController(), 0);
-			registry.bind("manageUser", manageUserStub);
+			registry.rebind("manageUser", manageUserStub);
 			
 			SearchHotelBLService searchHotelStub = (SearchHotelBLService) UnicastRemoteObject
 					.exportObject(new SearchHotelController(), 0);
-			registry.bind("searchHotel", searchHotelStub);
+			registry.rebind("searchHotel", searchHotelStub);
 			
 			StrategyBLService strategyStub = (StrategyBLService) UnicastRemoteObject
 					.exportObject(new StrategyController(), 0);
-			registry.bind("strategy", strategyStub);
+			registry.rebind("strategy", strategyStub);
 			
 			UsermainBLService userMainStub = (UsermainBLService) UnicastRemoteObject
 					.exportObject(new UserMainController(), 0);
-			registry.bind("userMain", userMainStub);
+			registry.rebind("userMain", userMainStub);
 			
 		} catch (RemoteException e) {
-			e.printStackTrace();
-			return new ResultMessage(false);
-		} catch (AlreadyBoundException e) {
 			e.printStackTrace();
 			return new ResultMessage(false);
 		}

@@ -22,7 +22,7 @@ public class ClientApp extends Application {
 		HMSClient.setMainStage(primaryStage);
 		try {
 			FXMLLoader loader = new FXMLLoader();
-			loader.setLocation(getClass().getResource("/fxml/clientui/clientMain.fxml"));
+			loader.setLocation(getClass().getResource("/fxml/usermainui/login.fxml"));
 			Scene loginScene = new Scene(loader.load(), 1280, 800);
 			//HMSClient.adminMainController = loader.getController();
 			primaryStage.initStyle(StageStyle.DECORATED);

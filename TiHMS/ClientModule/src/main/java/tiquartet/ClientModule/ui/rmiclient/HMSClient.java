@@ -64,8 +64,8 @@ public class HMSClient {
 	 */
 	public static void main(String[] args) {
 		HMSClient client=new HMSClient();
-		//client.init();
-		client.loadData();
+		client.init();
+		//client.loadData();
 		Application.launch(ClientApp.class, args);
 	}
 
@@ -75,9 +75,7 @@ public class HMSClient {
 	 * @return
 	 */
 	public ResultMessage init() {
-		if (System.getSecurityManager() == null) {
-			System.setSecurityManager(new SecurityManager());
-		}
+		
 		try {
 			Registry registry = LocateRegistry.getRegistry("127.0.0.1", 1099);
 			
@@ -109,8 +107,13 @@ public class HMSClient {
 	 */
 	public ResultMessage loadData() {
 		//待完整实现
-		MemberLevelData.loadLocalData();
-		DistrictData.loadLocalData();
+		//MemberLevelData
+		try {
+			DistrictData.updateData(HMSClient.getSearchHotelBL().getDistricts());
+		} catch (RemoteException e) {
+			//网络连接错误
+			e.printStackTrace();
+		}
 		return new ResultMessage(true);
 	}
 	
