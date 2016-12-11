@@ -54,6 +54,8 @@ public class ClientMainController implements Initializable{
     private Parent modifyPasswordPane = null;
     
     private Parent HomePage = null;
+    
+    private Parent MyHotelList = null;
 
     @FXML
     void goBack1(ActionEvent event) {
@@ -101,7 +103,7 @@ public class ClientMainController implements Initializable{
 
     }
     
-    void showHomePage(){
+    public void showHomePage(){
     	if(HomePage == null){
     		try {
     			FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/clientui/homePage.fxml"));
@@ -115,6 +117,25 @@ public class ClientMainController implements Initializable{
     	}
     	mainFlowPane.getChildren().clear();
     	mainFlowPane.getChildren().add(HomePage);
+    }
+    
+    public void showMyHotelList(){
+    	if(MyHotelList == null){
+    		try {
+    			FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/clientui/hotelList.fxml"));
+				MyHotelList = loader.load();
+				HotelListController hotelListController = loader.getController();
+				hotelListController.clientMainController = this;
+				hotelListController.setHotelList();
+				mainFlowPane.getChildren().clear();
+				mainFlowPane.getChildren().add(MyHotelList);
+				//设置返回按钮
+				
+			} catch (IOException e) {
+				// 界面加载失败
+				e.printStackTrace();
+			}
+    	}
     }
     
     public void renewMemberButton(){
