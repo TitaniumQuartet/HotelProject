@@ -1,5 +1,13 @@
 eclipse.preferences.version=1
 encoding//src/main/java=UTF-8
+encoding//src/main/java/tiquartet/ClientModule/ui/adminui/AddHotelController.java=UTF-8
+encoding//src/main/java/tiquartet/ClientModule/ui/adminui/ClientInfoForAdmin.java=UTF-8
+encoding//src/main/java/tiquartet/ClientModule/ui/adminui/FilterUserController.java=UTF-8
+encoding//src/main/java/tiquartet/ClientModule/ui/adminui/MarketerSectionController.java=UTF-8
+encoding//src/main/java/tiquartet/ClientModule/ui/adminui/SearchUserSectionController.java=UTF-8
+encoding//src/main/java/tiquartet/ClientModule/ui/clientui/ClientMainController.java=UTF-8
+encoding//src/main/java/tiquartet/ClientModule/ui/clientui/HomePageController.java=UTF-8
+encoding//src/main/java/tiquartet/ClientModule/ui/usermainui/LoginController.java=UTF-8
 encoding//src/main/resources=UTF-8
 encoding//src/test/java=UTF-8
 encoding/<project>=UTF-8

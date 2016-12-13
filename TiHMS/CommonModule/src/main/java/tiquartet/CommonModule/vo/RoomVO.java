@@ -13,5 +13,7 @@ public class RoomVO implements Serializable{
 	    public int roomType;
 	    //房间状态
 	    public RoomStatus roomStatus;
+	    //酒店编号
+	    public int hotelId;
 
 }

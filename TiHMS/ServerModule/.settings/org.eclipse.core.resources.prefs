@@ -1,6 +1,8 @@
 eclipse.preferences.version=1
 encoding//src/main/java=UTF-8
+encoding//src/main/java/tiquartet/ServerModule/bl/createorderbl/CreateOrder.java=UTF-8
 encoding//src/main/java/tiquartet/ServerModule/bl/hotelinfobl/HotelInfo.java=UTF-8
+encoding//src/main/java/tiquartet/ServerModule/bl/manageorderbl/ManageOrder.java=UTF-8
 encoding//src/main/java/tiquartet/ServerModule/bl/manageroombl/ManageRoom.java=UTF-8
 encoding//src/main/java/tiquartet/ServerModule/bl/manageroombl/ManageRoomController.java=UTF-8
 encoding//src/main/java/tiquartet/ServerModule/bl/manageuserbl/ManageUser.java=UTF-8
@@ -10,6 +12,7 @@ encoding//src/main/java/tiquartet/ServerModule/bl/searchhotelbl/SearchHotelContr
 encoding//src/main/java/tiquartet/ServerModule/bl/usermainbl/UserMain.java=UTF-8
 encoding//src/main/java/tiquartet/ServerModule/dataservice/locationdataservice/LocationDataService.java=UTF-8
 encoding//src/main/java/tiquartet/ServerModule/po/DistrictPO.java=UTF-8
+encoding//src/main/java/tiquartet/ServerModule/po/RoomPO.java=UTF-8
 encoding//src/main/java/tiquartet/ServerModule/po/RoomTypePO.java=UTF-8
 encoding//src/main/java/tiquartet/ServerModule/po/UserPO.java=UTF-8
 encoding//src/main/resources=UTF-8
