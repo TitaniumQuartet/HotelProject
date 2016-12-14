@@ -38,5 +38,7 @@ public class OrderVO implements Serializable{
 		public double price;
 		//订单状态
 		public OrderStatus orderStatus;
+		//酒店名称
+		public String hotelName;
 		
 }

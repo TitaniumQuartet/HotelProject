@@ -19,7 +19,7 @@ public class HotelInfoTest {
 
 	@Test
 	public void testgetHotelBrief() {
-   
+           
 	}
 	
 	@Test

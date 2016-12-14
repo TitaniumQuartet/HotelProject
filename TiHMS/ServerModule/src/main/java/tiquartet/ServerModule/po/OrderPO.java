@@ -282,6 +282,7 @@ public class OrderPO implements Serializable{
 		vo.userId=this.userId;
 		vo.userName=this.userName;
 		vo.orderStatus=this.orderStatus;
+		vo.hotelName=this.hotelName;
 		return vo;
 	}
 	

@@ -117,6 +117,13 @@ public class CreateOrder implements CreateOrderBLService{
 	}
 	
 	public ResultMessage preOrder(PreOrderVO preOrder) throws RemoteException{
+		if(preOrder.userID==-1){
+			return new ResultMessage(false,"订单用户为空","");
+		}
+		
+		if(!userdataimpl.getCreditBalance(preOrder.userID).result){
+			return userdataimpl.getCreditBalance(preOrder.userID);
+		}
 		int credit=Integer.parseInt(userdataimpl.getCreditBalance(preOrder.userID).message);
 		if(credit<0){
 			return new ResultMessage(false,"用户信用值低于0","");
@@ -156,6 +163,7 @@ public class CreateOrder implements CreateOrderBLService{
 		order.setlatestTime(orderInfo.lastTime);
 		DateFormat format=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		order.setorderTime(format.format(new Date()));
+		order.setorderStatus(OrderStatus.未执行订单);
 		return orderdataimpl.update(order);
 	}
 	public List<String> offLine(PreOrderVO preOrder) throws RemoteException {

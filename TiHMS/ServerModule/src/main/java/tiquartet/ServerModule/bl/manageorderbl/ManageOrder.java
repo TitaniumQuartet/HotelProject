@@ -9,6 +9,7 @@ import java.util.Date;
 import java.util.List;
 
 import tiquartet.CommonModule.blservice.manageorderblservice.ManageOrderBLService;
+import tiquartet.CommonModule.util.CreditChange;
 import tiquartet.CommonModule.util.CreditRestore;
 import tiquartet.CommonModule.util.OrderSort;
 import tiquartet.CommonModule.util.OrderStatus;
@@ -16,9 +17,11 @@ import tiquartet.CommonModule.util.ResultMessage;
 import tiquartet.CommonModule.vo.OrderFilterVO;
 import tiquartet.CommonModule.vo.OrderNumVO;
 import tiquartet.CommonModule.vo.OrderVO;
+import tiquartet.ServerModule.dataservice.impl.CreditDataImpl;
 import tiquartet.ServerModule.dataservice.impl.HotelInfoDataImpl;
 import tiquartet.ServerModule.dataservice.impl.OrderDataImpl;
 import tiquartet.ServerModule.dataservice.impl.UserDataImpl;
+import tiquartet.ServerModule.po.CreditPO;
 import tiquartet.ServerModule.po.HotelInfoPO;
 import tiquartet.ServerModule.po.OrderPO;
 import tiquartet.ServerModule.po.UserPO;
@@ -27,10 +30,12 @@ public class ManageOrder implements ManageOrderBLService {
 	 OrderDataImpl orderdataimpl;
 	 HotelInfoDataImpl hoteldataimpl;
 	 UserDataImpl userdataimpl;
+	 CreditDataImpl creditdataimpl;
     public ManageOrder(){
     	orderdataimpl=new OrderDataImpl();
     	hoteldataimpl=new HotelInfoDataImpl();
     	userdataimpl=new UserDataImpl();
+    	creditdataimpl=new CreditDataImpl();
     }
 	public List<OrderVO> orderHistory(OrderFilterVO filter,
 			OrderSort sort, int rank1, int rank2) throws RemoteException{
@@ -375,9 +380,9 @@ public class ManageOrder implements ManageOrderBLService {
 		if(po==null){
 			return new ResultMessage(false,"找不到该订单","");
 		}
-		//如果订单不为异常
+		//如果订单为异常则返回错误
 		if(po.getorderStatus()!=OrderStatus.异常订单){
-			po.setorderStatus(OrderStatus.未执行订单);
+			po.setorderStatus(OrderStatus.已撤销订单);
 			return new ResultMessage(true);
 		}else{
 			return new ResultMessage(false);
@@ -388,15 +393,27 @@ public class ManageOrder implements ManageOrderBLService {
 
 	public ResultMessage marketerCancel(long orderID, CreditRestore restore) throws RemoteException{
 		//网站营销人员撤销异常订单，并恢复一定信用值；
-		OrderPO po=orderdataimpl.getOrderByID(orderID);
-		if(po==null){
+		OrderPO order=orderdataimpl.getOrderByID(orderID);
+		if(order==null){
 			return new ResultMessage(false,"找不到该订单","");
 		}
 		//订单为异常
-		if(po.getorderStatus()==OrderStatus.异常订单&&po.getuserId()!=-1){
-			po.setorderStatus(OrderStatus.已撤销订单);
-			UserPO userpo=userdataimpl.getUser(po.getuserId());
-			userdataimpl.update(userpo);
+		if(order.getorderStatus()==OrderStatus.异常订单&&order.getuserId()!=-1){
+			order.setorderStatus(OrderStatus.已撤销订单);
+			UserPO user=userdataimpl.getUser(order.getuserId());
+			CreditPO credit=new CreditPO();
+			if(restore==CreditRestore.一半){
+				user.setcredit(user.getcredit()+order.getprice()/2);
+				credit.setchangeType(CreditChange.撤销异常订单时恢复一半信用值);
+				credit.setchange(order.getprice()/2);
+			}else{
+				user.setcredit(user.getcredit()+order.getprice());
+				credit.setchangeType(CreditChange.撤销异常订单时恢复全部信用值);
+				credit.setchange(order.getprice());
+			}
+			credit.setbalance(user.getcredit());
+			credit.setorderId(order.getorderId());
+			userdataimpl.update(user);
 			return new ResultMessage(true);
 			
 		}
@@ -418,8 +435,14 @@ public class ManageOrder implements ManageOrderBLService {
 				order.setstartTime(format.format(new Date()));
 				UserPO user=userdataimpl.getUser(order.getuserId());
 				user.setcredit(user.getcredit()+order.getprice());
+				CreditPO credit=new CreditPO();
+				credit.setbalance(user.getcredit());
+				credit.setchange(order.getprice());
+				credit.setchangeType(CreditChange.订单执行时自动增加信用值);
+				credit.setorderId(order.getorderId());
 				orderdataimpl.update(order);
 				userdataimpl.update(user);
+				creditdataimpl.insert(credit);
 				return new ResultMessage(true);
 			}
 		} catch (ParseException e) {

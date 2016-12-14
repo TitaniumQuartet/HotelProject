@@ -4,7 +4,7 @@ import java.io.Serializable;
 
 public class PreOrderVO implements Serializable{
 	//用户编号
-     public int userID;
+     public int userID=-1;
      //酒店编号
      public int hotelID;
      //房间类型
@@ -23,4 +23,6 @@ public class PreOrderVO implements Serializable{
      public String clientRealName;
      //酒店名字
      public String hotelName;
+     //客房类型名称
+     public String roomTypeName;
 }
