@@ -11,19 +11,19 @@ public class HotelFilterVO implements Serializable{
 	//商圈编号
 	public int districtID;
 	//酒店名称
-	public String hotelName;
+	public String hotelName = null;
 	//星级下限
-	public int lowestStar;
+	public int lowestStar = -1;
 	//星级上限
-	public int highestStar;
+	public int highestStar = -1;
 	//评分下限
-	public double lowestGrade;
+	public double lowestGrade = -1;
 	//评分上限
-	public double highestGrade;
+	public double highestGrade = -1;
 	//均价下限
-	public double lowestPrice;
+	public double lowestPrice = -1;
 	//均价上限
-	public double highestPrice;
+	public double highestPrice = -1;
 	//入住日期
 	public Date checkInDate;
 	//离店日期

@@ -76,6 +76,7 @@ public class SignUpController implements Initializable {
     	String realName = realNameField.getText().trim();
 		if(realName.length()==0) realName = null;
 		UserVO client = UserVO.getClientInstance(newUsernameField.getText(), Encryptor.encript(newPasswordField.getText()), realName);
+		client.credit=0;
 		try {
 			HMSClient.getManageUserBL().addUser(client);
 		} catch (RemoteException e) {
