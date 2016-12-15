@@ -23,6 +23,7 @@ public class HotelBriefPane extends AnchorPane{
 		ImageView imageView = new ImageView();
 		imageView.setFitHeight(239.0);
 		imageView.setFitWidth(239.0);
+		
 		getChildren().addAll(hotelNameLabel, introLabel, rateLabel, imageView);
 		setLeftAnchor(hotelNameLabel, 260.0);
 		setTopAnchor(hotelNameLabel, 26.0);

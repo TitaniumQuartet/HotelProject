@@ -4,12 +4,8 @@ import static org.junit.Assert.*;
 
 import java.rmi.RemoteException;
 import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Iterator;
 import java.util.List;
-import java.util.ListIterator;
 
-import javax.naming.spi.DirStateFactory.Result;
 
 import org.junit.Test;
 
@@ -28,10 +24,10 @@ public class ManageRoomTest{
 	@Test
 	public void testgetRoomList(){
 		room = new ManageRoom();
-		//Êµ¼Ê·¿¼äÁĞ±í
+		//Êµï¿½Ê·ï¿½ï¿½ï¿½ï¿½Ğ±ï¿½
 		List<RoomVO> roomVOs = room.getRoomList(000101032);
-		//Ô¤ÆÚ·¿¼äÁĞ±í
-		RoomPO roomPO = new RoomPO(111, "413", 3, RoomStatus.¿ÕÏĞ, 000101032);
+		//Ô¤ï¿½Ú·ï¿½ï¿½ï¿½ï¿½Ğ±ï¿½
+		RoomPO roomPO = new RoomPO(111, "413", 3, RoomStatus.ç©ºé—², 000101032);
 		List<RoomVO> rooms = new ArrayList<RoomVO>();
 		rooms.add(roomPO.getRoomVO());
 		assertEquals(rooms, roomVOs);
@@ -40,7 +36,7 @@ public class ManageRoomTest{
 	@Test
 	public void testmodifyRoomInfo(){
 		room = new ManageRoom();
-		RoomPO roomPO = new RoomPO(111, "413", 3, RoomStatus.¿ÕÏĞ, 000101032);
+		RoomPO roomPO = new RoomPO(111, "413", 3, RoomStatus.ç©ºé—², 000101032);
 		RoomVO roomVO = roomPO.getRoomVO();
 		ResultMessage result = room.modifyRoomInfo(roomVO);
 		assertEquals(new ResultMessage(true), result);
@@ -49,7 +45,7 @@ public class ManageRoomTest{
 	@Test
 	public void testaddRoom(){
 		room = new ManageRoom();
-		RoomPO roomPO = new RoomPO(111, "413", 3, RoomStatus.¿ÕÏĞ, 000101032);
+		RoomPO roomPO = new RoomPO(111, "413", 3, RoomStatus.ç©ºé—², 000101032);
 		RoomVO roomVO = roomPO.getRoomVO();
 		ResultMessage result = room.addRoom(roomVO);
 		assertEquals(new ResultMessage(true), result);
@@ -79,7 +75,7 @@ public class ManageRoomTest{
 	@Test
 	public void addRoomType() throws RemoteException{
 		room = new ManageRoom();
-		RoomTypePO roomTypePO = new RoomTypePO(3, "±ê×¼¼ä", "Á½ÕÅ´²µÄË«ÈË¼ä", 180, 000101032);
+		RoomTypePO roomTypePO = new RoomTypePO(3, "æ ‡å‡†å•äººé—´", "æœ‰ä¸€å¼ åºŠçš„æˆ¿é—´", 180, 000101032);
 		RoomTypeVO roomTypeVO = roomTypePO.toRoomTypevo();
 		ResultMessage result = room.addRoomType(roomTypeVO);
 		assertEquals(new ResultMessage(true), result);
@@ -88,7 +84,7 @@ public class ManageRoomTest{
 	@Test
 	public void modifyRoomType() throws RemoteException{
 		room = new ManageRoom();
-		RoomTypePO roomTypePO = new RoomTypePO(3, "µ¥ÈË¼ä", "Ò»ÕÅµ¥ÈË´²µÄ·¿¼ä", 150, 000101032);
+		RoomTypePO roomTypePO = new RoomTypePO(3, "æ ‡å‡†åŒäººé—´", "æœ‰ä¸¤å¼ åºŠçš„æˆ¿é—´ï¼ŒåŸºæœ¬è®¾æ–½é½å…¨", 150, 000101032);
 		RoomTypeVO roomTypeVO = roomTypePO.toRoomTypevo();
 		ResultMessage result = room.modifyRoomType(roomTypeVO);
 		assertEquals(new ResultMessage(true), result);

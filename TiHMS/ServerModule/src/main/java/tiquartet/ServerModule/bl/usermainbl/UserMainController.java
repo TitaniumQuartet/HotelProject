@@ -8,7 +8,7 @@ public class UserMainController implements UsermainBLService{
 	static UserMain usermain = new UserMain();
 	
 	/*
-	 * ÓÃ»§µÇÂ¼
+	 * ç”¨æˆ·ç™»å½•.
 	 */
 	public ResultMessage login (String username, String password) {
 		
@@ -16,7 +16,7 @@ public class UserMainController implements UsermainBLService{
 	}
 	
 	/*
-	 * ÓÃ»§µÇ³ö
+	 * ç”¨æˆ·é€€å‡ºç™»å½•.
 	 */
 	public ResultMessage logout (int userID) {
 		
@@ -24,7 +24,7 @@ public class UserMainController implements UsermainBLService{
 	}
 	
 	/*
-	 * ÓÃ»§ÊÇ·ñ´æÔÚ
+	 * åˆ¤æ–­è¯¥ç”¨æˆ·åæ˜¯å¦å·²ç»è¢«æ³¨å†Œ.
 	 */
 	public boolean isUnregistered (String username) {
 		

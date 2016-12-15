@@ -42,4 +42,13 @@ public class ResultMessage implements Serializable {
 		this.message = message;
 	}
 	
+
+	@Override
+	public boolean equals(Object obj) {
+		if(obj instanceof ResultMessage){
+			ResultMessage message = (ResultMessage) obj;
+			if(result==message.result) return true;
+		}
+		return true;
+	}
 }
