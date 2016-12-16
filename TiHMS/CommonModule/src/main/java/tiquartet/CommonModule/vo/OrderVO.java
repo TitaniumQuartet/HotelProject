@@ -40,5 +40,6 @@ public class OrderVO implements Serializable{
 		public OrderStatus orderStatus;
 		//酒店名称
 		public String hotelName;
-		
+		//房间类型名称
+		public String roomTypeName;
 }

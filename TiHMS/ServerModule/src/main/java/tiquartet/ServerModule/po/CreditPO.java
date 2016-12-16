@@ -15,7 +15,7 @@ public class CreditPO implements Serializable {
 	// 订单编号
 	private long orderId;
 	// 信用记录编号
-	private long creditRecordId;
+	private  long creditRecordId;
 	// 用户编号
 	private int userID;
 

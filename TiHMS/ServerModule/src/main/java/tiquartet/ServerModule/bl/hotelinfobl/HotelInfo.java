@@ -15,88 +15,91 @@ import tiquartet.CommonModule.vo.*;
 import tiquartet.CommonModule.blservice.hotelinfoblservice.HotelInfoBLService;
 import tiquartet.CommonModule.util.ResultMessage;
 import tiquartet.CommonModule.vo.OrderNumVO;
-public class HotelInfo implements HotelInfoBLService{
+
+public class HotelInfo implements HotelInfoBLService {
 	HotelInfoDataImpl hoteldataimpl;
 	ReviewDataImpl reviewdataimpl;
 	RoomDataImpl roomdataimpl;
 	ManageOrderController manageordercontroller;
-	public HotelInfo(){
-		hoteldataimpl=HotelInfoDataImpl.getInstance();
-		reviewdataimpl=ReviewDataImpl.getInstance();
-		roomdataimpl=RoomDataImpl.getInstance();
-		manageordercontroller=new ManageOrderController();
+
+	public HotelInfo() {
+		hoteldataimpl = HotelInfoDataImpl.getInstance();
+		reviewdataimpl = ReviewDataImpl.getInstance();
+		roomdataimpl = RoomDataImpl.getInstance();
+		manageordercontroller = new ManageOrderController();
 	}
-	public HotelBriefVO getHotelBrief (int hotelID,int userID)throws RemoteException{
-		HotelInfoPO hp=hoteldataimpl.getHotelInfo(hotelID);
-		if(hp==null){
+
+	public HotelBriefVO getHotelBrief(int hotelID, int userID) throws RemoteException {
+		HotelInfoPO hp = hoteldataimpl.getHotelInfo(hotelID);
+		if (hp == null) {
 			return null;
 		}
-		HotelBriefVO hotelbrief=hp.getBriefVO();
-		OrderNumVO onp=manageordercontroller.numAtHotel(hotelID,userID);
-		if(onp==null){
-			hotelbrief.numOfAllOrder=0;
-			hotelbrief.numOfExecutedOrder=0;
-		}else{
-			hotelbrief.numOfAllOrder=onp.allOrder;
-			hotelbrief.numOfExecutedOrder=onp.executedOrder;
+		HotelBriefVO hotelbrief = hp.getBriefVO();
+		OrderNumVO onp = manageordercontroller.numAtHotel(hotelID, userID);
+		if (onp == null) {
+			hotelbrief.numOfAllOrder = 0;
+			hotelbrief.numOfExecutedOrder = 0;
+		} else {
+			hotelbrief.numOfAllOrder = onp.allOrder;
+			hotelbrief.numOfExecutedOrder = onp.executedOrder;
 		}
 		return hotelbrief;
 	}
-	
-		
-	public HotelDetailsVO getHotelDetails (int hotelID,int userID)throws RemoteException{	
-	    HotelDetailsVO hoteldetails=new HotelDetailsVO();
-	    HotelInfoPO hp=hoteldataimpl.getHotelInfo(hotelID);
-	    if(hp==null){
-	    	return null;
-	    }
-	    hoteldetails.address=hp.getaddress();
-	    hoteldetails.averageg=hp.getaverageGrade();
-	    hoteldetails.circleName=hp.getcircleName();
-	    hoteldetails.cityName=hp.getcityName();
-	    hoteldetails.hotelID=hp.gethotelId();
-	    hoteldetails.introduction=hp.gethotelIntroduction();
-	    hoteldetails.lowprice=hp.getlowprice();
-	    hoteldetails.hotelName=hp.gethotelName();
-	    hoteldetails.serviceintro=hp.getserviceIntroduction();
-	    hoteldetails.star=hp.getstar();
-	    List<ReviewPO> list=reviewdataimpl.searchByHotel(hotelID);
-	    for(int i=0;i<list.size();i++){
-	    	ReviewVO rv=new ReviewVO();
-	    	rv=list.get(i).toReviewvo();
-	    	hoteldetails.reviewList.add(rv);
-	    	
-	    }
+
+	public HotelDetailsVO getHotelDetails(int hotelID, int userID) throws RemoteException {
+		HotelDetailsVO hoteldetails = new HotelDetailsVO();
+		HotelInfoPO hp = hoteldataimpl.getHotelInfo(hotelID);
+		if (hp == null) {
+			return null;
+		}
+		hoteldetails.address = hp.getaddress();
+		hoteldetails.averageg = hp.getaverageGrade();
+		hoteldetails.circleName = hp.getcircleName();
+		hoteldetails.cityName = hp.getcityName();
+		hoteldetails.hotelID = hp.gethotelId();
+		hoteldetails.introduction = hp.gethotelIntroduction();
+		hoteldetails.lowprice = hp.getlowprice();
+		hoteldetails.hotelName = hp.gethotelName();
+		hoteldetails.serviceintro = hp.getserviceIntroduction();
+		hoteldetails.star = hp.getstar();
+		List<ReviewPO> list = reviewdataimpl.searchByHotel(hotelID);
+		for (int i = 0; i < list.size(); i++) {
+			ReviewVO rv = new ReviewVO();
+			rv = list.get(i).toReviewvo();
+			hoteldetails.reviewList.add(rv);
+
+		}
 		return hoteldetails;
 	}
-	
-	public List<RoomTypeVO> availableRoomType (PreOrderVO preOrder)throws RemoteException{
-		List<RoomTypePO> polist=new ArrayList<RoomTypePO>();
-		List<RoomTypeVO> volist=new ArrayList<RoomTypeVO>();
-		for(int i=0;i<polist.size();i++){
-			RoomTypeVO rtv=polist.get(i).toRoomTypevo();
+
+	public List<RoomTypeVO> availableRoomType(PreOrderVO preOrder) throws RemoteException {
+		List<RoomTypePO> polist = new ArrayList<RoomTypePO>();
+		List<RoomTypeVO> volist = new ArrayList<RoomTypeVO>();
+		for (int i = 0; i < polist.size(); i++) {
+			RoomTypeVO rtv = polist.get(i).toRoomTypevo();
 			volist.add(rtv);
 		}
 		return volist;
-		
+
 	}
-	
-	public ResultMessage reviewHotel(ReviewVO review)throws RemoteException{
-		ReviewPO reviewpo=new ReviewPO(review);
+
+	public ResultMessage reviewHotel(ReviewVO review) throws RemoteException {
+		ReviewPO reviewpo = new ReviewPO(review);
 		return reviewdataimpl.insert(reviewpo);
 	}
-	
-	public ResultMessage modifyHotelInfo (HotelInfoVO hotelInfo)throws RemoteException{
-		HotelInfoPO hip=new HotelInfoPO(hotelInfo);		
+
+	public ResultMessage modifyHotelInfo(HotelInfoVO hotelInfo) throws RemoteException {
+		HotelInfoPO hip = new HotelInfoPO(hotelInfo);
 		return hoteldataimpl.update(hip);
 	}
-   public List<HotelBriefVO> clientHotelList(int userID)throws RemoteException{
-	   List<HotelBriefVO> volist=new ArrayList<HotelBriefVO>();
-	   List<Integer>  hotelID=manageordercontroller.orderedHotelID(userID);
-	   for(int i=0;i<hotelID.size();i++){
-		   HotelBriefVO hotelbriefvo=this.getHotelBrief(hotelID.get(i), userID);
-		   volist.add(hotelbriefvo);
-	   }
-	   return volist;
-   }
+
+	public List<HotelBriefVO> clientHotelList(int userID) throws RemoteException {
+		List<HotelBriefVO> volist = new ArrayList<HotelBriefVO>();
+		List<Integer> hotelID = manageordercontroller.orderedHotelID(userID);
+		for (int i = 0; i < hotelID.size(); i++) {
+			HotelBriefVO hotelbriefvo = this.getHotelBrief(hotelID.get(i), userID);
+			volist.add(hotelbriefvo);
+		}
+		return volist;
+	}
 }

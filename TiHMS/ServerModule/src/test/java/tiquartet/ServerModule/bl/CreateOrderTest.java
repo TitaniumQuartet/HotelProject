@@ -58,9 +58,29 @@ public class CreateOrderTest{
 	
 	@Test
 	public void testconfirm() throws RemoteException{
-		createorder = new CreateOrder();
-		OrderInfoVO vo = new OrderInfoVO();
-		//ResultMessage result = order.confirm(vo);
-		assertEquals(true, true);
+		PreOrderVO preorder=new PreOrderVO();
+		preorder.userID = 123456;
+		preorder.hotelID = 123456;
+		preorder.clientRealName = "qinliu";
+		preorder.hotelName = "nanda";
+		preorder.leaveTime = "2016-12-10 12:30:00";
+		preorder.numOfRoom = 1;
+		preorder.price = 100;
+		preorder.userName = "qinliu";
+		preorder.roomType = 1;
+		preorder.startTime = "2016-12-09 12:30:00";
+		ResultMessage result1=createorder.preOrder(preorder);
+		OrderInfoVO order=new OrderInfoVO();
+		order.orderID=Integer.parseInt(result1.message);
+		order.userID=preorder.userID;
+		order.hotelID=preorder.hotelID;
+		order.kids=1;
+		order.guestRealName="qinliu";
+		order.numOfGuest=1;
+		order.price=100;
+		order.lastTime="2016-12-09 19:30:00";
+		order.strategyID=0;
+		ResultMessage result=createorder.confirm(order);
+		assertEquals(result.result, true);
 	}
 }

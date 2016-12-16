@@ -4,9 +4,6 @@ import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Map.Entry;
-import java.util.Set;
-
-import javax.swing.text.html.HTMLDocument.Iterator;
 
 import tiquartet.CommonModule.util.OrderStatus;
 import tiquartet.CommonModule.vo.OrderVO;
@@ -48,6 +45,8 @@ public class OrderPO implements Serializable{
 	private String orderTime;
 	//订单价格
 	private double price;
+	//房间类型名称
+	private String roomTypeName;
 	
 	public OrderPO(OrderVO vo){
 		this.child=vo.child;
@@ -266,6 +265,14 @@ public class OrderPO implements Serializable{
 		return this.clientRealName;
 	}
 	
+	
+	public void setRoomTypeName(String roomTypeName){
+		this.roomTypeName=roomTypeName;
+	}
+	
+	public String getRoomTypeName(){
+		return this.roomTypeName;
+	}
 	public OrderVO toOrderVO(){
 		OrderVO vo=new OrderVO();
 		vo.child=this.child;
