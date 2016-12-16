@@ -25,7 +25,7 @@ public class HotelFilterVO implements Serializable{
 	//均价上限
 	public double highestPrice = -1;
 	//入住日期
-	public Date checkInDate;
+	public String checkInDate;
 	//离店日期
-	public Date checkOutDate;
+	public String checkOutDate;
 }
