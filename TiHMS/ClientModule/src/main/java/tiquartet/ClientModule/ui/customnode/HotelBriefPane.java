@@ -11,13 +11,16 @@ public class HotelBriefPane extends AnchorPane{
 	
 	private HotelBriefVO hotelBriefVO;
 	
-	public HotelBriefPane(HotelBriefVO hotelBriefVO){
+	public HotelBriefPane(HotelBriefVO vo){
 		super();
-		this.hotelBriefVO = hotelBriefVO;
+		this.hotelBriefVO = vo;
 		Hyperlink hotelNameLabel = new Hyperlink(hotelBriefVO.hotelName);
 		hotelNameLabel.setFont(new Font(24));
-		Label introLabel = new Label("<html><body>"+hotelBriefVO.introduction+"<br />我有"+String.valueOf(hotelBriefVO.numOfAllOrder)+"笔订单，已执行"+String.valueOf(hotelBriefVO.numOfAllOrder)+"笔</body></html>");
+		Label introLabel = new Label(hotelBriefVO.introduction);
+		introLabel.setWrapText(true);
 		introLabel.setFont(new Font(18));
+		Label orderLabel = new Label("我有"+String.valueOf(hotelBriefVO.numOfAllOrder)+"笔订单，已执行"+String.valueOf(hotelBriefVO.numOfAllOrder)+"笔");
+		orderLabel.setFont(new Font(18));
 		Label rateLabel = new Label(String.format(".1%f", hotelBriefVO.averageGrade)+"分");
 		rateLabel.setFont(new Font("System Italic", 24));
 		ImageView imageView = new ImageView();
@@ -31,6 +34,8 @@ public class HotelBriefPane extends AnchorPane{
 		setTopAnchor(rateLabel, 64.0);
 		setLeftAnchor(introLabel, 260.0);
 		setTopAnchor(introLabel, 120.0);
+		setLeftAnchor(orderLabel, 260.0);
+		setBottomAnchor(orderLabel, 26.0);
 		setLeftAnchor(imageView, 5.0);
 		setTopAnchor(imageView, 5.0);
 	}
