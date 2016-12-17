@@ -71,6 +71,28 @@ public class HotelInfoDataSqlHelper implements HotelInfoDataHelper{
 	        return null;
 	    }
 	}
+	
+	/**
+	 * 根据某个商圈的酒店编号得到新酒店的酒店编号，酒店编号前7位为商圈编号，后三位为该商圈内部编号.
+	 * @return
+	 */
+	public int getHotelId(HotelInfoPO hotel){
+		Connection conn=Connect.getConn();
+		int hotelId=0;
+		String sql="select * from hotelInfo where circleId =" + hotel.getcircleId();
+		PreparedStatement pstmt;
+		try{
+			pstmt=(PreparedStatement) conn.prepareStatement(sql);
+			ResultSet rs=pstmt.executeQuery();
+			while(rs.next()){
+				hotelId++;
+			}
+			hotelId=hotelId+hotel.getcircleId()*1000;
+		}catch(SQLException e){
+			e.printStackTrace();
+		}
+		return hotelId;
+	}
 
 	/**
 	 * 向hotelInfo数据库中插入一条记录.
@@ -79,11 +101,12 @@ public class HotelInfoDataSqlHelper implements HotelInfoDataHelper{
 	@Override
 	public ResultMessage insert(HotelInfoPO hotelInfo) {
 		Connection conn = Connect.getConn();
-	    String sql = "insert into hotelInfo(hotelId,hotelName,star,address,hotelIntroduction,serviceIntrduction,circleId,circleName,lowPrice,highPrice,averageGrade,cityName) values(null,?,?,?,?,?,?,?,?,?,?,?)";
+	    String sql = "insert into hotelInfo(hotelId,hotelName,star,address,hotelIntroduction,serviceIntrduction,circleId,circleName,lowPrice,highPrice,averageGrade,cityName) values(?,?,?,?,?,?,?,?,?,?,?,?)";
 	    PreparedStatement pstmt;
 	    try {
-	        pstmt = (PreparedStatement) conn.prepareStatement(sql,Statement.RETURN_GENERATED_KEYS);
-	        pstmt.setInt(1, hotelInfo.gethotelId());
+	        pstmt = (PreparedStatement) conn.prepareStatement(sql);
+	        int hotelId=getHotelId(hotelInfo);
+	        pstmt.setInt(1, hotelId);
 	        pstmt.setString(2, hotelInfo.gethotelName());
 	        pstmt.setInt(3, hotelInfo.getstar());
 	        pstmt.setString(4, hotelInfo.getaddress());
@@ -96,11 +119,6 @@ public class HotelInfoDataSqlHelper implements HotelInfoDataHelper{
 	        pstmt.setDouble(11, hotelInfo.getaverageGrade());
 	        pstmt.setString(12, hotelInfo.getcityName());
 	        pstmt.executeUpdate();
-	        ResultSet rs = pstmt.getGeneratedKeys(); //获取结果  
-	        int hotelId=0;
-	        if (rs.next()) {
-	        	hotelId = rs.getInt(1);//取得ID
-	        }
 	        pstmt.close();
 	        conn.close();
 	        return new ResultMessage(true,null,String.valueOf(hotelId));

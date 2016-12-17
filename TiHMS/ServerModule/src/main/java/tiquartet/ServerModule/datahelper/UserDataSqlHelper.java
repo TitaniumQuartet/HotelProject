@@ -206,8 +206,7 @@ public class UserDataSqlHelper implements UserDataHelper{
 	    } catch (SQLException e) {
 	        e.printStackTrace();
 	        return null;
-	    }
-	    
+	    }    
 	}
 	
 	/**

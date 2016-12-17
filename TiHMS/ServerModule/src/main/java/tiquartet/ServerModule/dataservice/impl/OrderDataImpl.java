@@ -68,4 +68,9 @@ public class OrderDataImpl implements OrderDataService{
 	public ResultMessage cancelPreOrder(OrderPO preOrder) {
 		return orderDataHelper.cancelPreOrder(preOrder);
 	}
+
+	@Override
+	public ResultMessage updateState(int hotelId) {
+		return orderDataHelper.updateState(hotelId);
+	}
 }

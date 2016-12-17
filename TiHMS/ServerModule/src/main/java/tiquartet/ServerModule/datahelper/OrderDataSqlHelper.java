@@ -1,6 +1,5 @@
 package tiquartet.ServerModule.datahelper;
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -300,6 +299,24 @@ public class OrderDataSqlHelper implements OrderDataHelper{
 			e.printStackTrace();
 			return null;
 		}
+	}
+
+	@Override
+	public ResultMessage updateState(int hotelId) {
+		Connection conn = Connect.getConn();
+		String sql="select * from order where hotelId = " + hotelId;
+		PreparedStatement pstmt;
+		try {
+			pstmt = (PreparedStatement) conn.prepareStatement(sql);
+	        ResultSet rs = pstmt.executeQuery();
+			while(rs.next()){
+				
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			return fail;
+		}
+		return success;
 	}
 
 }
