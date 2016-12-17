@@ -1,10 +1,14 @@
 package tiquartet.ServerModule.datahelper;
+import java.awt.event.MouseWheelEvent;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import tiquartet.CommonModule.util.OrderStatus;
@@ -301,16 +305,24 @@ public class OrderDataSqlHelper implements OrderDataHelper{
 		}
 	}
 
+	/**
+	 * 判断酒店未执行订单是否过时，若是，则置为异常订单，并扣除信用值.
+	 * @return
+	 */
 	@Override
 	public ResultMessage updateState(int hotelId) {
 		Connection conn = Connect.getConn();
-		String sql="select * from order where hotelId = " + hotelId;
+		String sql="select * from order where hotelId = " + hotelId + "AND where orderStatus = " + 3;
 		PreparedStatement pstmt;
 		try {
 			pstmt = (PreparedStatement) conn.prepareStatement(sql);
 	        ResultSet rs = pstmt.executeQuery();
 			while(rs.next()){
-				
+				if(!isvalid(rs.getString(3))){
+					changeState(rs.getLong(1));
+					UserDataSqlHelper userDataSqlHelper=new UserDataSqlHelper();
+					userDataSqlHelper.addCredit(rs.getInt(12),rs.getDouble(17));
+				}
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -318,5 +330,37 @@ public class OrderDataSqlHelper implements OrderDataHelper{
 		}
 		return success;
 	}
+	
+	/**
+	 * 判断订单时间是否过时.
+	 * @return
+	 */
+	public boolean isvalid(String latestTime) throws ParseException{
+		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		Date latest=df.parse(latestTime);
+		Date now=new Date();
+		if(latest.getTime()<now.getTime())
+			return false;
+		return true;
+	}
+
+	/**
+	 * 若置为异常订单则扣除信用值.
+	 * @return
+	 */
+	public void changeState(long orderId){
+		Connection conn = Connect.getConn();
+		String sql="update order set orderStatus = " + 2 + "where orderId = " + orderId;
+		PreparedStatement pstmt;
+		try {
+			pstmt = (PreparedStatement) conn.prepareStatement(sql);
+	        pstmt.executeUpdate();
+	        pstmt.close();
+	        conn.close();
+		} catch (Exception e) {
+			e.printStackTrace();	
+		}
+	}
+	
 
 }
