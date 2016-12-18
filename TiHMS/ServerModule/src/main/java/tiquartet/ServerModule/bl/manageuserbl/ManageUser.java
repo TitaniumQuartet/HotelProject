@@ -245,7 +245,8 @@ public class ManageUser implements ManageUserBLService {
 		
 		UserPO memberPO = new UserPO();
 		memberPO.setmemberRank(member.memberRank);
-		ResultMessage result = userDataService.insert(memberPO);
+		memberPO.setisMember(true);
+		ResultMessage result = userDataService.update(memberPO);
 
 		return result;
 	}

@@ -17,4 +17,6 @@ encoding//src/main/java/tiquartet/ServerModule/po/RoomTypePO.java=UTF-8
 encoding//src/main/java/tiquartet/ServerModule/po/UserPO.java=UTF-8
 encoding//src/main/resources=UTF-8
 encoding//src/test/java=UTF-8
+encoding//src/test/java/tiquartet/ServerModule/bl/ManageRoomTest.java=UTF-8
+encoding//src/test/java/tiquartet/ServerModule/bl/ManageUserTest.java=UTF-8
 encoding/<project>=UTF-8
