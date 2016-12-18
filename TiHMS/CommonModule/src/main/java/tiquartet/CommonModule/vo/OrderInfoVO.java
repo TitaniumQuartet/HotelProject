@@ -12,7 +12,7 @@ public class OrderInfoVO implements Serializable{
    //客户名字
    public String guestRealName;
    //最晚订单执行时间
-   public String lastTime;
+   public String latestTime;
    //住房人数
    public int numOfGuest;
    //策略编号

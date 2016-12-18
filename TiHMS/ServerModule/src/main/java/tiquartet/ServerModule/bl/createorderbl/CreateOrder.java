@@ -162,7 +162,7 @@ public class CreateOrder implements CreateOrderBLService {
 		order.setnumberOfPeople(orderInfo.numOfGuest);
 		order.setprice(orderInfo.price);
 		order.setchild(orderInfo.kids);
-		order.setlatestTime(orderInfo.lastTime);
+		order.setlatestTime(orderInfo.latestTime);
 		DateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		order.setorderTime(format.format(new Date()));
 		order.setorderStatus(OrderStatus.未执行订单);
