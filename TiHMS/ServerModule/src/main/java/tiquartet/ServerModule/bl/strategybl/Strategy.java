@@ -18,7 +18,6 @@ public class Strategy{
 	public ResultMessage addStrategy(StrategyVO strategyvo)throws RemoteException{
 		StrategyPO po=new StrategyPO(strategyvo);		
 		return strategydataimpl.insert(po);
-		//return dataFactory.getStrategyDataHelper().insert(po);
 	}
 	//删除策略
 	public ResultMessage deleteStrategy(int strategyID)throws RemoteException{
