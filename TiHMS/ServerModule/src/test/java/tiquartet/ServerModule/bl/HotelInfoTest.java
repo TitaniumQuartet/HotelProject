@@ -8,6 +8,7 @@ import java.rmi.RemoteException;
 import org.junit.Test;
 
 import tiquartet.ServerModule.bl.hotelinfobl.HotelInfo;
+import tiquartet.ServerModule.bl.manageuserbl.ManageUserController;
 import tiquartet.CommonModule.util.ResultMessage;
 import tiquartet.CommonModule.vo.HotelInfoVO;
 import tiquartet.CommonModule.vo.PreOrderVO;
@@ -15,11 +16,14 @@ import tiquartet.CommonModule.vo.ReviewVO;
 
 public class HotelInfoTest {
 	
-	private HotelInfo hotel;	
-
+	private HotelInfo hotelinfo=new HotelInfo();	
+    private ManageUserController manageuser=new ManageUserController();
 	@Test
 	public void testgetHotelBrief() {
-           
+         int districtID=12345;
+         String hotelName="nandaheyuan";
+         manageuser.addHotel(districtID, hotelName);
+         
 	}
 	
 	@Test

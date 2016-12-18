@@ -14,19 +14,18 @@ import tiquartet.CommonModule.util.ResultMessage;
 
 public class CreateOrderTest{
 	
-	private CreateOrder createorder;
+	private CreateOrder createorder = new CreateOrder();
 	@Test
 	public void testgetStrategyByID() throws RemoteException{
 	}
 	
 	@Test
 	public void testpreOrder() throws RemoteException{
-		createorder = new CreateOrder();
 		PreOrderVO preorder=new PreOrderVO();
 		ResultMessage result = createorder.preOrder(preorder);
 		assertEquals(result.result, false);
 		preorder.userID = 123456;
-		preorder.hotelID = 123456;
+		preorder.hotelID = 12034056;
 		preorder.clientRealName = "qinliu";
 		preorder.hotelName = "nanda";
 		preorder.leaveTime = "2016-12-10 12:30:00";
@@ -42,7 +41,7 @@ public class CreateOrderTest{
 	public void testcancelPreOrder() throws RemoteException{
 		PreOrderVO preorder=new PreOrderVO();
 		preorder.userID = 123456;
-		preorder.hotelID = 123456;
+		preorder.hotelID = 12034056;
 		preorder.clientRealName = "qinliu";
 		preorder.hotelName = "nanda";
 		preorder.leaveTime = "2016-12-10 12:30:00";
@@ -60,7 +59,7 @@ public class CreateOrderTest{
 	public void testconfirm() throws RemoteException{
 		PreOrderVO preorder=new PreOrderVO();
 		preorder.userID = 123456;
-		preorder.hotelID = 123456;
+		preorder.hotelID = 12034056;
 		preorder.clientRealName = "qinliu";
 		preorder.hotelName = "nanda";
 		preorder.leaveTime = "2016-12-10 12:30:00";

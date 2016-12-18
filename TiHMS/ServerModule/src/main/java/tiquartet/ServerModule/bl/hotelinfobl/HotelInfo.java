@@ -46,6 +46,9 @@ public class HotelInfo implements HotelInfoBLService {
 		return hotelbrief;
 	}
 
+	/* (non-Javadoc)
+     * 获取酒店详细信息
+	 */
 	public HotelDetailsVO getHotelDetails(int hotelID, int userID) throws RemoteException {
 		HotelDetailsVO hoteldetails = new HotelDetailsVO();
 		HotelInfoPO hp = hoteldataimpl.getHotelInfo(hotelID);
@@ -71,9 +74,11 @@ public class HotelInfo implements HotelInfoBLService {
 		}
 		return hoteldetails;
 	}
-
+	/* 
+	 * 可用房型
+	 */
 	public List<RoomTypeVO> availableRoomType(PreOrderVO preOrder) throws RemoteException {
-		List<RoomTypePO> polist = new ArrayList<RoomTypePO>();
+		List<RoomTypePO> polist = roomdataimpl.availableRoomType(preOrder.hotelID, preOrder.startTime, preOrder.leaveTime, preOrder.numOfRoom);
 		List<RoomTypeVO> volist = new ArrayList<RoomTypeVO>();
 		for (int i = 0; i < polist.size(); i++) {
 			RoomTypeVO rtv = polist.get(i).toRoomTypevo();
