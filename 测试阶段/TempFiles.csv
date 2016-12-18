@@ -1,0 +1,101 @@
+GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
+ServerModule (3) (2016-12-18 22:46:19)/ServerModule/src/main/java,tiquartet.ServerModule,App,7,0,0,0,3,0,2,0,2,0
+ServerModule (3) (2016-12-18 22:46:19)/ServerModule/src/main/java,tiquartet.ServerModule.po,ReviewPO,78,45,0,0,30,14,9,7,9,7
+ServerModule (3) (2016-12-18 22:46:19)/ServerModule/src/main/java,tiquartet.ServerModule.po,HotelInfoPO,168,98,0,0,57,32,13,16,13,16
+ServerModule (3) (2016-12-18 22:46:19)/ServerModule/src/main/java,tiquartet.ServerModule.po,UserPO,33,177,0,0,15,60,8,22,8,22
+ServerModule (3) (2016-12-18 22:46:19)/ServerModule/src/main/java,tiquartet.ServerModule.po,PersonalPO,86,0,0,0,36,0,18,0,18,0
+ServerModule (3) (2016-12-18 22:46:19)/ServerModule/src/main/java,tiquartet.ServerModule.po,OrderPO,427,0,2,0,132,0,44,0,43,0
+ServerModule (3) (2016-12-18 22:46:19)/ServerModule/src/main/java,tiquartet.ServerModule.po,CreditPO,33,95,0,0,15,29,8,8,8,8
+ServerModule (3) (2016-12-18 22:46:19)/ServerModule/src/main/java,tiquartet.ServerModule.po,DistrictPO,183,0,8,0,38,0,12,0,8,0
+ServerModule (3) (2016-12-18 22:46:19)/ServerModule/src/main/java,tiquartet.ServerModule.po,RoomPO,26,75,0,0,13,24,7,8,7,8
+ServerModule (3) (2016-12-18 22:46:19)/ServerModule/src/main/java,tiquartet.ServerModule.po,StrategyPO,247,70,4,0,63,21,24,6,22,6
+ServerModule (3) (2016-12-18 22:46:19)/ServerModule/src/main/java,tiquartet.ServerModule.po,RoomTypePO,23,74,0,0,12,24,6,8,6,8
+ServerModule (3) (2016-12-18 22:46:19)/ServerModule/src/main/java,tiquartet.ServerModule.bl.createorderbl,CreateOrder,502,31,39,1,90,9,24,2,4,2
+ServerModule (3) (2016-12-18 22:46:19)/ServerModule/src/main/java,tiquartet.ServerModule.bl.createorderbl,CreateOrderController,33,0,0,0,7,0,6,0,6,0
+ServerModule (3) (2016-12-18 22:46:19)/ServerModule/src/main/java,tiquartet.ServerModule.bl.rmiinit,HMSServer,116,0,0,0,33,0,3,0,3,0
+ServerModule (3) (2016-12-18 22:46:19)/ServerModule/src/main/java,tiquartet.ServerModule.bl.strategybl,StrategyController,28,0,0,0,6,0,5,0,5,0
+ServerModule (3) (2016-12-18 22:46:19)/ServerModule/src/main/java,tiquartet.ServerModule.bl.strategybl,Strategy,48,11,2,0,10,4,4,2,3,2
+ServerModule (3) (2016-12-18 22:46:19)/ServerModule/src/main/java,tiquartet.ServerModule.datahelper,UserDataSqlHelper,485,382,39,9,129,103,27,11,3,11
+ServerModule (3) (2016-12-18 22:46:19)/ServerModule/src/main/java,tiquartet.ServerModule.datahelper,LocationDataSqlHelper,161,0,6,0,41,0,6,0,3,0
+ServerModule (3) (2016-12-18 22:46:19)/ServerModule/src/main/java,tiquartet.ServerModule.datahelper,Connect,16,21,0,0,6,9,1,1,1,1
+ServerModule (3) (2016-12-18 22:46:19)/ServerModule/src/main/java,tiquartet.ServerModule.datahelper,DataFactory,6,45,0,0,2,15,1,8,1,8
+ServerModule (3) (2016-12-18 22:46:19)/ServerModule/src/main/java,tiquartet.ServerModule.datahelper,OrderDataSqlHelper,772,15,20,0,198,3,23,1,13,1
+ServerModule (3) (2016-12-18 22:46:19)/ServerModule/src/main/java,tiquartet.ServerModule.datahelper,HotelInfoDataSqlHelper,253,202,7,1,73,48,8,4,4,4
+ServerModule (3) (2016-12-18 22:46:19)/ServerModule/src/main/java,tiquartet.ServerModule.datahelper,CreditDataSqlHelper,64,78,2,0,17,21,1,3,0,3
+ServerModule (3) (2016-12-18 22:46:19)/ServerModule/src/main/java,tiquartet.ServerModule.datahelper,StrategyDataSqlHelper,262,43,4,0,68,10,6,2,4,2
+ServerModule (3) (2016-12-18 22:46:19)/ServerModule/src/main/java,tiquartet.ServerModule.datahelper,ReviewDataSqlHelper,171,49,4,0,45,13,4,2,2,2
+ServerModule (3) (2016-12-18 22:46:19)/ServerModule/src/main/java,tiquartet.ServerModule.datahelper,RoomDataSqlHelper,303,265,21,1,68,68,14,11,3,11
+ServerModule (3) (2016-12-18 22:46:19)/ServerModule/src/main/java,tiquartet.ServerModule.bl.manageorderbl,ManageOrderController,51,8,0,0,10,2,10,2,10,2
+ServerModule (3) (2016-12-18 22:46:19)/ServerModule/src/main/java,tiquartet.ServerModule.bl.manageorderbl,ManageOrder,1626,23,201,0,310,6,112,1,10,1
+ServerModule (3) (2016-12-18 22:46:19)/ServerModule/src/main/java,tiquartet.ServerModule.bl.searchhotelbl,SearchHotel,226,0,34,0,50,0,22,0,5,0
+ServerModule (3) (2016-12-18 22:46:19)/ServerModule/src/main/java,tiquartet.ServerModule.bl.searchhotelbl,SearchHotelController,26,0,0,0,6,0,6,0,6,0
+ServerModule (3) (2016-12-18 22:46:19)/ServerModule/src/main/java,tiquartet.ServerModule.bl.searchhotelbl,SearchHotel.new Comparator() {...},12,0,0,0,3,0,2,0,2,0
+ServerModule (3) (2016-12-18 22:46:19)/ServerModule/src/main/java,tiquartet.ServerModule.bl.searchhotelbl,SearchHotel.new Comparator() {...},12,0,0,0,3,0,2,0,2,0
+ServerModule (3) (2016-12-18 22:46:19)/ServerModule/src/main/java,tiquartet.ServerModule.bl.searchhotelbl,SearchHotel.new Comparator() {...},14,0,0,0,3,0,2,0,2,0
+ServerModule (3) (2016-12-18 22:46:19)/ServerModule/src/main/java,tiquartet.ServerModule.bl.searchhotelbl,SearchHotel.new Comparator() {...},14,0,0,0,3,0,2,0,2,0
+ServerModule (3) (2016-12-18 22:46:19)/ServerModule/src/main/java,tiquartet.ServerModule.bl.searchhotelbl,SearchHotel.new Comparator() {...},12,0,0,0,3,0,2,0,2,0
+ServerModule (3) (2016-12-18 22:46:19)/ServerModule/src/main/java,tiquartet.ServerModule.bl.searchhotelbl,SearchHotel.new Comparator() {...},12,0,0,0,3,0,2,0,2,0
+ServerModule (3) (2016-12-18 22:46:19)/ServerModule/src/main/java,tiquartet.ServerModule.dataservice.impl,CreditDataImpl,0,46,1,3,0,12,1,5,0,4
+ServerModule (3) (2016-12-18 22:46:19)/ServerModule/src/main/java,tiquartet.ServerModule.dataservice.impl,RoomDataImpl,5,72,1,3,1,17,2,12,1,11
+ServerModule (3) (2016-12-18 22:46:19)/ServerModule/src/main/java,tiquartet.ServerModule.dataservice.impl,HotelInfoDataImpl,15,46,1,3,3,12,4,5,3,4
+ServerModule (3) (2016-12-18 22:46:19)/ServerModule/src/main/java,tiquartet.ServerModule.dataservice.impl,UserDataImpl,19,76,1,3,3,18,4,11,3,10
+ServerModule (3) (2016-12-18 22:46:19)/ServerModule/src/main/java,tiquartet.ServerModule.dataservice.impl,OrderDataImpl,48,36,1,3,9,10,10,3,9,2
+ServerModule (3) (2016-12-18 22:46:19)/ServerModule/src/main/java,tiquartet.ServerModule.dataservice.impl,LocationDataImpl,45,0,4,0,12,0,6,0,4,0
+ServerModule (3) (2016-12-18 22:46:19)/ServerModule/src/main/java,tiquartet.ServerModule.dataservice.impl,StrategyDataImpl,20,36,1,3,4,10,5,3,4,2
+ServerModule (3) (2016-12-18 22:46:19)/ServerModule/src/main/java,tiquartet.ServerModule.dataservice.impl,ReviewDataImpl,5,41,1,3,1,11,2,4,1,3
+ServerModule (3) (2016-12-18 22:46:19)/ServerModule/src/main/java,tiquartet.ServerModule.bl.manageuserbl,ManageUser.new Comparator() {...},12,0,0,0,3,0,2,0,2,0
+ServerModule (3) (2016-12-18 22:46:19)/ServerModule/src/main/java,tiquartet.ServerModule.bl.manageuserbl,ManageUser.new Comparator() {...},12,0,0,0,3,0,2,0,2,0
+ServerModule (3) (2016-12-18 22:46:19)/ServerModule/src/main/java,tiquartet.ServerModule.bl.manageuserbl,ManageUser,156,181,22,4,34,48,14,13,1,13
+ServerModule (3) (2016-12-18 22:46:19)/ServerModule/src/main/java,tiquartet.ServerModule.bl.manageuserbl,ManageUser.new Comparator() {...},6,6,0,0,1,2,1,1,1,1
+ServerModule (3) (2016-12-18 22:46:19)/ServerModule/src/main/java,tiquartet.ServerModule.bl.manageuserbl,ManageUserController,54,13,0,0,12,3,12,3,12,3
+ServerModule (3) (2016-12-18 22:46:19)/ServerModule/src/main/java,tiquartet.ServerModule.bl.manageuserbl,ManageUser.new Comparator() {...},12,0,0,0,3,0,2,0,2,0
+ServerModule (3) (2016-12-18 22:46:19)/ServerModule/src/main/java,tiquartet.ServerModule.bl.hotelinfobl,HotelInfo,189,37,12,0,44,10,10,3,4,3
+ServerModule (3) (2016-12-18 22:46:19)/ServerModule/src/main/java,tiquartet.ServerModule.bl.hotelinfobl,HotelInfoController,34,0,0,0,8,0,8,0,8,0
+ServerModule (3) (2016-12-18 22:46:19)/ServerModule/src/main/java,tiquartet.ServerModule.bl.usermainbl,UserMainController,21,0,0,0,5,0,5,0,5,0
+ServerModule (3) (2016-12-18 22:46:19)/ServerModule/src/main/java,tiquartet.ServerModule.bl.usermainbl,UserMain,14,39,1,1,4,12,1,4,0,4
+ServerModule (3) (2016-12-18 22:46:19)/ServerModule/src/main/java,tiquartet.ServerModule.bl.manageroombl,ManageRoom,33,110,5,1,6,28,3,10,0,10
+ServerModule (3) (2016-12-18 22:46:19)/ServerModule/src/main/java,tiquartet.ServerModule.bl.manageroombl,ManageRoomController,45,0,0,0,11,0,11,0,11,0
+ServerModule (3) (2016-12-18 22:46:19)/ServerModule/src/test/java,tiquartet.ServerModule,AppTest,0,12,0,0,0,5,0,3,0,3
+ServerModule (3) (2016-12-18 22:46:19)/ServerModule/src/test/java,tiquartet.ServerModule.bl,ManageRoomTest,145,173,1,1,20,33,1,10,0,10
+ServerModule (3) (2016-12-18 22:46:19)/ServerModule/src/test/java,tiquartet.ServerModule.bl,UserMainTest,33,29,0,0,7,6,0,4,0,4
+ServerModule (3) (2016-12-18 22:46:19)/ServerModule/src/test/java,tiquartet.ServerModule.bl,ManageUserTest,567,278,7,1,70,44,4,15,0,15
+ServerModule (3) (2016-12-18 22:46:19)/ServerModule/src/test/java,tiquartet.ServerModule.bl,CreateOrderTest,83,122,0,0,21,38,0,5,0,5
+ServerModule (3) (2016-12-18 22:46:19)/ServerModule/src/test/java,tiquartet.ServerModule.bl,StrategyTest,93,90,0,0,24,28,0,5,0,5
+ServerModule (3) (2016-12-18 22:46:19)/ServerModule/src/test/java,tiquartet.ServerModule.bl,HotelInfoTest,27,106,0,0,6,34,0,6,0,6
+ServerModule (3) (2016-12-18 22:46:19)/ServerModule/src/test/java,tiquartet.ServerModule.bl,SearchHotelTest,0,7,0,0,0,5,0,5,0,5
+ServerModule (3) (2016-12-18 22:46:19)/CommonModule/src/main/java,tiquartet.CommonModule.util,StringUtility,49,0,5,0,17,0,10,0,6,0
+ServerModule (3) (2016-12-18 22:46:19)/CommonModule/src/main/java,tiquartet.CommonModule.util,StrategyType,21,49,0,0,1,2,2,2,2,2
+ServerModule (3) (2016-12-18 22:46:19)/CommonModule/src/main/java,tiquartet.CommonModule.util,DigitToChinese,62,0,4,0,4,0,5,0,3,0
+ServerModule (3) (2016-12-18 22:46:19)/CommonModule/src/main/java,tiquartet.CommonModule.util,RoomStatus,21,29,0,0,1,3,2,2,2,2
+ServerModule (3) (2016-12-18 22:46:19)/CommonModule/src/main/java,tiquartet.CommonModule.util,OrderStatus,90,0,0,0,3,0,4,0,4,0
+ServerModule (3) (2016-12-18 22:46:19)/CommonModule/src/main/java,tiquartet.CommonModule.util,UserInfoUtility,35,0,12,0,3,0,9,0,3,0
+ServerModule (3) (2016-12-18 22:46:19)/CommonModule/src/main/java,tiquartet.CommonModule.util,HotelSort,90,0,0,0,3,0,4,0,4,0
+ServerModule (3) (2016-12-18 22:46:19)/CommonModule/src/main/java,tiquartet.CommonModule.util,CreditChange,21,79,0,0,1,2,2,2,2,2
+ServerModule (3) (2016-12-18 22:46:19)/CommonModule/src/main/java,tiquartet.CommonModule.util,UserType,21,49,0,0,1,2,2,2,2,2
+ServerModule (3) (2016-12-18 22:46:19)/CommonModule/src/main/java,tiquartet.CommonModule.util,ResultMessage,15,24,4,0,4,10,3,2,1,2
+ServerModule (3) (2016-12-18 22:46:19)/CommonModule/src/main/java,tiquartet.CommonModule.util,UserSort,21,49,0,0,1,3,2,2,2,2
+ServerModule (3) (2016-12-18 22:46:19)/CommonModule/src/main/java,tiquartet.CommonModule.util,MemberType,21,39,0,0,1,3,2,2,2,2
+ServerModule (3) (2016-12-18 22:46:19)/CommonModule/src/main/java,tiquartet.CommonModule.util,OrderSort,90,0,0,0,3,0,4,0,4,0
+ServerModule (3) (2016-12-18 22:46:19)/CommonModule/src/main/java,tiquartet.CommonModule.util,Encryptor,34,0,4,0,9,0,4,0,2,0
+ServerModule (3) (2016-12-18 22:46:19)/CommonModule/src/main/java,tiquartet.CommonModule.util,CreditRestore,50,0,0,0,4,0,4,0,4,0
+ServerModule (3) (2016-12-18 22:46:19)/CommonModule/src/main/java,tiquartet.CommonModule.vo,RoomTypeVO,0,3,0,0,0,1,0,1,0,1
+ServerModule (3) (2016-12-18 22:46:19)/CommonModule/src/main/java,tiquartet.CommonModule.vo,HotelFilterVO,24,0,0,0,8,0,1,0,1,0
+ServerModule (3) (2016-12-18 22:46:19)/CommonModule/src/main/java,tiquartet.CommonModule.vo,OrderVO,3,0,0,0,1,0,1,0,1,0
+ServerModule (3) (2016-12-18 22:46:19)/CommonModule/src/main/java,tiquartet.CommonModule.vo,RoomVO,0,3,0,0,0,1,0,1,0,1
+ServerModule (3) (2016-12-18 22:46:19)/CommonModule/src/main/java,tiquartet.CommonModule.vo,HotelInfoVO,0,3,0,0,0,1,0,1,0,1
+ServerModule (3) (2016-12-18 22:46:19)/CommonModule/src/main/java,tiquartet.CommonModule.vo,StrategyVO,0,3,0,0,0,1,0,1,0,1
+ServerModule (3) (2016-12-18 22:46:19)/CommonModule/src/main/java,tiquartet.CommonModule.vo,CreditVO,0,3,0,0,0,1,0,1,0,1
+ServerModule (3) (2016-12-18 22:46:19)/CommonModule/src/main/java,tiquartet.CommonModule.vo,UserVO,21,3,0,0,7,1,1,1,1,1
+ServerModule (3) (2016-12-18 22:46:19)/CommonModule/src/main/java,tiquartet.CommonModule.vo,PreOrderVO,0,6,0,0,0,2,0,1,0,1
+ServerModule (3) (2016-12-18 22:46:19)/CommonModule/src/main/java,tiquartet.CommonModule.vo,OrderNumVO,3,0,0,0,1,0,1,0,1,0
+ServerModule (3) (2016-12-18 22:46:19)/CommonModule/src/main/java,tiquartet.CommonModule.vo,HotelDetailsVO,3,0,0,0,1,0,1,0,1,0
+ServerModule (3) (2016-12-18 22:46:19)/CommonModule/src/main/java,tiquartet.CommonModule.vo,HotelBriefVO,3,0,0,0,1,0,1,0,1,0
+ServerModule (3) (2016-12-18 22:46:19)/CommonModule/src/main/java,tiquartet.CommonModule.vo,ReviewVO,0,3,0,0,0,1,0,1,0,1
+ServerModule (3) (2016-12-18 22:46:19)/CommonModule/src/main/java,tiquartet.CommonModule.vo,OrderFilterVO,42,0,0,0,14,0,1,0,1,0
+ServerModule (3) (2016-12-18 22:46:19)/CommonModule/src/main/java,tiquartet.CommonModule.vo,UserFilterVO,0,21,0,0,0,8,0,1,0,1
+ServerModule (3) (2016-12-18 22:46:19)/CommonModule/src/main/java,tiquartet.CommonModule.vo,MemberVO,0,3,0,0,0,1,0,1,0,1
+ServerModule (3) (2016-12-18 22:46:19)/CommonModule/src/main/java,tiquartet.CommonModule.vo,DistrictVO,9,0,0,0,4,0,1,0,1,0
+ServerModule (3) (2016-12-18 22:46:19)/CommonModule/src/main/java,tiquartet.CommonModule.vo,OrderInfoVO,3,0,0,0,1,0,1,0,1,0
+ServerModule (3) (2016-12-18 22:46:19)/CommonModule/src/main/java,tiquartet.CommonModule.vo,OrderStrategyVO,3,0,0,0,1,0,1,0,1,0
+ServerModule (3) (2016-12-18 22:46:19)/CommonModule/src/main/java,tiquartet.CommonModule,App,7,0,0,0,3,0,2,0,2,0
+ServerModule (3) (2016-12-18 22:46:19)/CommonModule/src/test/java,tiquartet.CommonModule,AppTest,12,0,0,0,5,0,3,0,3,0
