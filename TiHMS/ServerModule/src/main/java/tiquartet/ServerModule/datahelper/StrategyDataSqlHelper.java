@@ -42,7 +42,7 @@ public class StrategyDataSqlHelper implements StrategyDataHelper{
 	public List<StrategyPO> searchByHotel(int hotelID) {
 		Connection conn = Connect.getConn();
 		List<StrategyPO> strategy = new ArrayList<StrategyPO>();
-		String sql="select * from strategy where hotelId =" + hotelID + "OR where hotelId = '-1'";
+		String sql="select * from strategy where hotelId =" + hotelID + "OR where hotelId = -1";
 		PreparedStatement pstmt;
 		try {
 			pstmt = (PreparedStatement) conn.prepareStatement(sql);

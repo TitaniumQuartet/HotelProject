@@ -109,7 +109,7 @@ public class OrderDataSqlHelper implements OrderDataHelper{
 	@Override
 	public ResultMessage insert(OrderPO order) {
 		Connection conn = Connect.getConn();
-	    String sql = "insert into order(orederId,orderStatus,latestTime,roomNumber,roomId,numberOfRoom,numberOfPeople,child,guestRealName,clientRealName,hotelName,userId,userName,startTime,leaveTime,price,hotelId) values(null,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+	    String sql = "insert into order(orederId,orderStatus,latestTime,roomNumber,roomId,numberOfRoom,numberOfPeople,child,guestRealName,clientRealName,hotelName,userId,userName,startTime,leaveTime,orderTime,price,hotelId) values(null,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 	    PreparedStatement pstmt;
 	    long orderId=0;
 	    try {
