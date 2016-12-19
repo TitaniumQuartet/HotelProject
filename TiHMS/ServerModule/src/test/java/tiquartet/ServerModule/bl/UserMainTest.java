@@ -15,23 +15,23 @@ public class UserMainTest {
 	public void testlogin() {
 		user=new UserMain();
 		
-		ResultMessage resultMessage = user.login("Yolanda", "123123");
-		assertEquals(new ResultMessage(true).result, resultMessage.result);
+		ResultMessage resultMessage = user.login("Tekkie", "1234567");
+		assertEquals(true, resultMessage.result);
 	}
 	
 	@Test
 	public void testlogout(){
 		user=new UserMain();
 		
-		ResultMessage resultMessage = user.logout(3);
-		assertEquals(new ResultMessage(true).result, resultMessage.result);
+		ResultMessage resultMessage = user.logout(2);
+		assertEquals(true, resultMessage.result);
 	}
 	
 	@Test
 	public void testisUnregistered(){
 		user=new UserMain();
 		
-		boolean result = user.isUnregistered("Yolanda");
+		boolean result = user.isUnregistered("Tom");
 		assertEquals(true, result);
 		
 	}

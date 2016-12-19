@@ -18,46 +18,108 @@ import tiquartet.CommonModule.util.ResultMessage;
 import tiquartet.CommonModule.vo.DistrictVO;
 import tiquartet.CommonModule.vo.HotelBriefVO;
 import tiquartet.CommonModule.vo.HotelFilterVO;
+import tiquartet.CommonModule.vo.HotelInfoVO;
+import tiquartet.CommonModule.vo.OrderVO;
 import tiquartet.ServerModule.bl.hotelinfobl.HotelInfoController;
 import tiquartet.ServerModule.bl.manageorderbl.ManageOrderController;
 import tiquartet.ServerModule.dataservice.hotelinfodataservice.HotelInfoDataService;
 import tiquartet.ServerModule.dataservice.impl.HotelInfoDataImpl;
 import tiquartet.ServerModule.dataservice.impl.LocationDataImpl;
+import tiquartet.ServerModule.dataservice.impl.OrderDataImpl;
 import tiquartet.ServerModule.dataservice.locationdataservice.LocationDataService;
+import tiquartet.ServerModule.dataservice.orderdataservice.OrderDataService;
 import tiquartet.ServerModule.po.DistrictPO;
 import tiquartet.ServerModule.po.HotelInfoPO;
+import tiquartet.ServerModule.po.OrderPO;
 
 
 public class SearchHotel implements SearchHotelBLService {
 	
 	HotelInfoDataService hotelInfoDataService;
 	LocationDataService locationDataService;
+	OrderDataService orderDataService;
 	
 	public SearchHotel(){
 		hotelInfoDataService = HotelInfoDataImpl.getInstance();
 		locationDataService = LocationDataImpl.getInstance();
+		orderDataService = OrderDataImpl.getInstance();
 	}
 	
 	/*
-	 * 获取推荐酒店列表
+	 * 获取推荐酒店列表   
 	 */
 	public List<HotelBriefVO> recommend (int userID) throws RemoteException {
 
-		//先调用ManageOrder中的方法获取酒店编号列表
-		ManageOrderController manageOrderController = new ManageOrderController();
-		List<Integer> hotelIDs = manageOrderController.orderedHotelID(userID);
+		//先调用数据层的方法获取用户订单列表
+		List<OrderPO> orderPOs = orderDataService.searchByUser(-1, userID);
 		
-		List<HotelBriefVO> hotelBriefVOs = new ArrayList<HotelBriefVO>();
-		HotelBriefVO hotelBriefVO;
+		List<HotelBriefVO> recommend = new ArrayList<HotelBriefVO>();
 		
-		//调用HotelInfo的getHotelBrief方法
-		HotelInfoController hotelInfoController = new HotelInfoController();
-		for(int i = 0; i < hotelIDs.size(); i++){
-			hotelBriefVO = hotelInfoController.getHotelBrief(hotelIDs.get(i), userID);
-			hotelBriefVOs.add(hotelBriefVO);
+		//找出最近预定的酒店,即找订单编号最大的
+		long max = orderPOs.get(0).getorderId();
+		int hotelId = orderPOs.get(0).gethotelId();
+		
+		for(int i = 0; i < orderPOs.size(); i++){
+			if(max < orderPOs.get(i).getorderId()){
+				max = orderPOs.get(i).getorderId();
+				hotelId = orderPOs.get(i).gethotelId();
+			}
 		}
+		HotelInfoPO hotelInfoPO = hotelInfoDataService.getHotelInfo(hotelId);
 		
-		return hotelBriefVOs;
+		HotelBriefVO hotelBriefVO;
+		hotelBriefVO = hotelInfoPO.getBriefVO();
+		recommend.add(hotelBriefVO);
+		
+		//找出预定最多的
+		long most = orderPOs.get(0).getorderId();
+		int hotelId2 = orderPOs.get(0).gethotelId();
+		int c1 = 0;
+		int c2 = 0;
+		int mostIndex = 0;
+		
+		for(int i = 0; i < orderPOs.size(); i++){
+			for(int j = i+1; j < orderPOs.size(); j++){
+				if(orderPOs.get(i).getorderId() == orderPOs.get(j).getorderId()){
+					c1++;
+				}
+				if(c1 > c2){
+					c2 = c1;
+					most = orderPOs.get(i).getorderId();
+					mostIndex = i;
+				}
+				c1 = 0;
+			}
+		}
+		HotelInfoPO hotelInfoPO2 = hotelInfoDataService.getHotelInfo(hotelId2);
+		hotelBriefVO = hotelInfoPO2.getBriefVO();
+		recommend.add(hotelBriefVO);
+		
+		//找出次多的
+		//先删除最多的再筛选
+		orderPOs.remove(mostIndex);
+		long secondMost = orderPOs.get(0).getorderId();
+		int hotelId3 = orderPOs.get(0).gethotelId();
+		int c3 = 0;
+		int c4 = 0;
+		
+		for(int i = 0; i < orderPOs.size(); i++){
+			for(int j = i+1; j <orderPOs.size(); j++){
+				if(orderPOs.get(i).getorderId() == orderPOs.get(j).getorderId()){
+					c3++;
+				}
+				if(c3 > c4){
+					c4 = c3;
+					most = orderPOs.get(i).getorderId();
+				}
+				c3 = 0;
+			}
+		}
+		HotelInfoPO hotelInfoPO3 = hotelInfoDataService.getHotelInfo(hotelId3);
+		hotelBriefVO = hotelInfoPO3.getBriefVO();
+		recommend.add(hotelBriefVO);
+		
+		return recommend;
 	}
 	
 	/*
@@ -117,7 +179,7 @@ public class SearchHotel implements SearchHotelBLService {
 			Collections.sort(filterList, new Comparator<HotelInfoPO>(){
 				@Override
 				public int compare(HotelInfoPO o1, HotelInfoPO o2) {
-				return (o1.getstar()-o2.getstar());
+				return ((int)o1.getaverageGrade()-(int)o2.getaverageGrade());
 				}
 				});
 			//升序后倒置
@@ -137,7 +199,7 @@ public class SearchHotel implements SearchHotelBLService {
 			Collections.sort(filterList, new Comparator<HotelInfoPO>(){
 				@Override
 				public int compare(HotelInfoPO o1, HotelInfoPO o2) {
-				return (o1.getstar()-o2.getstar());
+				return ((int)(o1.getlowprice())-(int)(o2.getlowprice()));
 				}
 				});
 			//升序后倒置
@@ -146,6 +208,7 @@ public class SearchHotel implements SearchHotelBLService {
 		
 		//现将筛选排序后的HotelPO列表转成HotelBriefVO列表
 		List<HotelBriefVO> hotelBriefVOs = new ArrayList<HotelBriefVO>();
+		
 		HotelBriefVO hotelBriefVO;
 		for(HotelInfoPO hotelInfoPO: filterList){
 			hotelBriefVO = hotelInfoPO.getBriefVO();
@@ -153,7 +216,17 @@ public class SearchHotel implements SearchHotelBLService {
 		}
 		
 		//返回rank1到rank2之间的列表
-		return hotelBriefVOs.subList(rank1, rank2+1);
+		//判断rank2是否越界
+		if(rank2-1 > hotelBriefVOs.size()){
+			rank2 = hotelBriefVOs.size()+1;
+		}
+		for(int i = 0; i < hotelBriefVOs.size(); i++){
+			if(i < rank1-1 || i > rank2-1){
+				hotelBriefVOs.remove(i);
+				hotelBriefVOs.add(i, null);
+			}
+		}
+		return hotelBriefVOs;
 
 	}
 	
@@ -173,9 +246,9 @@ public class SearchHotel implements SearchHotelBLService {
 	 */
 	public ResultMessage updateDistricts(DistrictVO district){
 		
-		//ResultMessage result = locationDataService.update(district);
+		ResultMessage result = locationDataService.update(district);
 		
-		return new ResultMessage(true);
+		return result;
 	}
 
 }

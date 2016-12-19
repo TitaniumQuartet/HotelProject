@@ -88,7 +88,7 @@ public class ManageUser implements ManageUserBLService {
 			UserSort sort, int rank1, int rank2) {
 		
 		//获取po列表
-		List<UserPO> userPOs = new ArrayList<UserPO>();
+		List<UserPO> userPOs = userDataService.searchUser(null, null, null);
 		
 		//po列表转vo列表
 		List<UserVO> userVOs = new ArrayList<UserVO>();
@@ -160,8 +160,17 @@ public class ManageUser implements ManageUserBLService {
 		}
 		
 		//返回rank1到rank2之间的列表
+		if(rank2-1 > filterUser.size()){
+			rank2 = filterUser.size()+1;
+		}
+		for(int i = 0; i < filterUser.size(); i++){
+			if(i < rank1-1 || i > rank2-1){
+				filterUser.remove(i);
+				filterUser.add(i, null);
+			}
+		}
 
-		return filterUser.subList(rank1, rank2+1);
+		return filterUser;
 	}
 	
 	/*
@@ -243,9 +252,16 @@ public class ManageUser implements ManageUserBLService {
 	 */
 	public ResultMessage memberSignIn (MemberVO member) {
 		
-		UserPO memberPO = new UserPO();
+		UserPO memberPO = userDataService.getUser(member.userID);
 		memberPO.setmemberRank(member.memberRank);
 		memberPO.setisMember(true);
+		//判断用户类型
+		if(member.birthday == null){
+			//会员类型设为企业会员
+		}
+		else if(member.companyName == null){
+			//会员类型设为个人会员
+		}
 		ResultMessage result = userDataService.update(memberPO);
 
 		return result;

@@ -24,9 +24,9 @@ public class ManageRoomTest{
 	public void testgetRoomList(){
 		room = new ManageRoom();
 		
-		List<RoomVO> roomVOs = room.getRoomList(000101032);
+		List<RoomVO> roomVOs = room.getRoomList(000101001);
 
-		RoomPO roomPO = new RoomPO(111, "413", 3, RoomStatus.空闲, 000101032);
+		RoomPO roomPO = new RoomPO(111, "413", 3, RoomStatus.空闲, 000101001);
 		List<RoomVO> rooms = new ArrayList<RoomVO>();
 		rooms.add(roomPO.getRoomVO());
 		for(int i = 0; i < roomVOs.size(); i++){
@@ -41,68 +41,68 @@ public class ManageRoomTest{
 	@Test
 	public void testmodifyRoomInfo(){
 		room = new ManageRoom();
-		RoomPO roomPO = new RoomPO(111, "413", 3, RoomStatus.空闲, 000101032);
+		RoomPO roomPO = new RoomPO(111, "413", 3, RoomStatus.空闲, 000101001);
 		RoomVO roomVO = roomPO.getRoomVO();
 		ResultMessage resultMessage = room.modifyRoomInfo(roomVO);
-		assertEquals(new ResultMessage(true).result, resultMessage.result);
+		assertEquals(true, resultMessage.result);
 	}
 	
 	@Test
 	public void testaddRoom(){
 		room = new ManageRoom();
-		RoomPO roomPO = new RoomPO(111, "413", 3, RoomStatus.空闲, 000101032);
+		RoomPO roomPO = new RoomPO(111, "413", 3, RoomStatus.空闲, 000101001);
 		RoomVO roomVO = roomPO.getRoomVO();
 		ResultMessage resultMessage = room.addRoom(roomVO);
-		assertEquals(new ResultMessage(true).result, resultMessage.result);
+		assertEquals(true, resultMessage.result);
 	}
 	
 	@Test
 	public void testdeleteRoom(){
 		room = new ManageRoom();
 		ResultMessage resultMessage = room.deleteRoom(111);
-		assertEquals(new ResultMessage(true).result, resultMessage.result);
+		assertEquals(true, resultMessage.result);
 	}
 	
 	@Test
 	public void testcheckIn(){
 		room = new ManageRoom();
 		ResultMessage resultMessage = room.checkIn(111);
-		assertEquals(new ResultMessage(true).result, resultMessage.result);
+		assertEquals(true, resultMessage.result);
 	}
 	
 	@Test
 	public void testcheckOut(){
 		room = new ManageRoom();
 		ResultMessage resultMessage = room.checkOut(111);
-		assertEquals(new ResultMessage(true).result, resultMessage.result);
+		assertEquals(true, resultMessage.result);
 	}
 	
 	@Test
 	public void addRoomType() throws RemoteException{
 		room = new ManageRoom();
 
-		RoomTypePO roomTypePO = new RoomTypePO(3, "双人间", "有两张床的房间", 180, 000101032);
+		RoomTypePO roomTypePO = new RoomTypePO(3, "双人间", "有两张床的房间", 180, 000101001);
 
 		RoomTypeVO roomTypeVO = roomTypePO.toRoomTypevo();
 		ResultMessage resultMessage = room.addRoomType(roomTypeVO);
-		assertEquals(new ResultMessage(true).result, resultMessage.result);
+		assertEquals(true, resultMessage.result);
 	}
 	
 	@Test
 	public void modifyRoomType() throws RemoteException{
 		room = new ManageRoom();
 
-		RoomTypePO roomTypePO = new RoomTypePO(3, "单人间", "只有一张单人床的房间", 150, 000101032);
+		RoomTypePO roomTypePO = new RoomTypePO(3, "单人间", "只有一张单人床的房间", 150, 000101001);
 
 		RoomTypeVO roomTypeVO = roomTypePO.toRoomTypevo();
 		ResultMessage resultMessage = room.modifyRoomType(roomTypeVO);
-		assertEquals(new ResultMessage(true).result, resultMessage.result);
+		assertEquals(true, resultMessage.result);
 	}
 	
 	@Test
 	public void deleteRoomType(){
 		room = new ManageRoom();
-		ResultMessage resultMessage = room.deleteRoomType(000101032, 3);
-		assertEquals(new ResultMessage(true).result, resultMessage.result);
+		ResultMessage resultMessage = room.deleteRoomType(000101001, 3);
+		assertEquals(true, resultMessage.result);
 	}
 }

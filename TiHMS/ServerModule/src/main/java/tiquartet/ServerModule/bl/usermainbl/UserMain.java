@@ -54,13 +54,13 @@ public class UserMain implements UsermainBLService{
 	}
     
     /*
-     * 判断用户是否存在
+     * 判断用户是否被注册
      */
     public boolean isUnregistered (String username){
     	
     	boolean exist = userDataService.userExist(username).result;
     	
-    	return exist;
+    	return (!exist);
     }
 
 }

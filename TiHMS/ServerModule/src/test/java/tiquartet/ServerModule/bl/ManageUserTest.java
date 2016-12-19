@@ -28,8 +28,8 @@ public class ManageUserTest {
 	public void testaccurateSearch(){
 		user = new ManageUser();
 		
-		UserVO userVO = user.accurateSearch("XueRuihahaha");
-		UserVO user = new UserPO(1, "XueRuihahaha", "123456", UserType.网站营销人员, "XueRui", 0, "1998-02-14", 0, false, null, -1, false).getVO();
+		UserVO userVO = user.accurateSearch("Teki");
+		UserVO user = new UserPO(1, "Teki", "123456", UserType.客户, "ccc", 0, "1997/05/05", 0, false, null, -1, false).getVO();
 		
 		assertEquals(userVO.userName, user.userName);
 		assertEquals(userVO.password, user.password);
@@ -42,7 +42,7 @@ public class ManageUserTest {
 		List<UserVO> staffs = user.searchHotelStaff(0001, 01);
 		
 		List<UserVO> userVOs = new ArrayList<UserVO>();
-		UserPO staff = new UserPO(3, "Yolanda", "123123", UserType.酒店工作人员, "Yolanda", 0, null, 0, false, null, 000101032, true);
+		UserPO staff = new UserPO(3, "Alex", "12345678", UserType.酒店工作人员, "aaa", -1, null, -1, false, null, 000101001, false);
 		userVOs.add(staff.getVO());
 		
 		for(int i = 0; i < staffs.size(); i++){
@@ -56,21 +56,21 @@ public class ManageUserTest {
 	public void testgetUser(){
 		user = new ManageUser();
 		
-		UserPO userPO = new UserPO(2, "shisugara", "654321", UserType.客户, "Tang Yufen", 0, "1998-01-25", 0, false, null, -1, true);
+		UserPO userPO = new UserPO(1, "Teki", "123456", UserType.客户, "aaa", 0, "1997-05-05", 0, false, null, -1, false);
 		UserVO userVO = userPO.getVO();
 		
-		UserVO userVO2 = user.getUser(2);
+		UserVO userVO2 = user.getUser(1);
 		assertEquals(userVO.realName, userVO2.realName);
 	}
 	
 	@Test
 	public void testsearch(){
 		user = new ManageUser();
-		UserFilterVO userFilterVO = new UserFilterVO("shisugara", "Tang Yufen", UserType.客户, MemberType.非会员);
+		UserFilterVO userFilterVO = new UserFilterVO("Teki", "aaa", UserType.客户, MemberType.非会员);
 		
 		List<UserVO> userVOs = user.search(userFilterVO, UserSort.USERNAMEASCEND , 0, 10);
 		
-		UserPO userPO = new UserPO(2, "shisugara", "654321", UserType.客户, "Tang Yufen", 0, "1998-01-25", 0, false, null, -1, true);
+		UserPO userPO = new UserPO(1, "Teki", "123456", UserType.客户, "aaa", 0, "1997-05-05", 0, false, null, -1, false);
 		UserVO userVO = userPO.getVO();
 		List<UserVO> users = new ArrayList<UserVO>();
 		users.add(userVO);
@@ -97,7 +97,7 @@ public class ManageUserTest {
 		user = new ManageUser();
 		
 		ResultMessage resultMessage = user.creditRecharge(2, 5);
-		assertEquals(new ResultMessage(true).result, resultMessage.result);
+		assertEquals(true, resultMessage.result);
 	}
 	
 	@Test
@@ -105,15 +105,15 @@ public class ManageUserTest {
 		user = new ManageUser();
 		
 		ResultMessage resultMessage = user.addHotel(01, "Titanium Hotel");
-		assertEquals(new ResultMessage(true).result, resultMessage.result);
+		assertEquals(true, resultMessage.result);
 	}
 	
 	@Test
 	public void testaddhotelStaff(){
 		user = new ManageUser();
 		
-		ResultMessage resultMessage = user.addHotelStaff(000101032, "Yolanda", "123123");
-		assertEquals(new ResultMessage(true).result, resultMessage.result);
+		ResultMessage resultMessage = user.addHotelStaff(000101001, "Alex", "12345678");
+		assertEquals(true, resultMessage.result);
 	}
 	
 	@Test
@@ -140,7 +140,7 @@ public class ManageUserTest {
 		CreditVO creditVO = creditPO.getVO();
 		
 		ResultMessage resultMessage = user.addCreditItem(creditVO);
-		assertEquals(new ResultMessage(true).result, resultMessage.result);
+		assertEquals(true, resultMessage.result);
 	}
 	
 	@Test
@@ -149,7 +149,7 @@ public class ManageUserTest {
 		MemberVO memberVO = new MemberVO();
 		memberVO.memberRank = 1;
 		ResultMessage resultMessage = user.memberSignIn(memberVO);
-		assertEquals(new ResultMessage(true).result, resultMessage.result);
+		assertEquals(true, resultMessage.result);
 	}
 	
 	@Test
@@ -157,7 +157,7 @@ public class ManageUserTest {
 		user = new ManageUser();
 		List<UserVO> userVOs = user.marketerList();
 		
-		UserPO userPO = new UserPO(1, "XueRuihahaha", "123456", UserType.网站营销人员, "XueRui", 0, "1998-02-14", 0, false, null, -1, false);
+		UserPO userPO = new UserPO(4, "Jerry", "123456789", UserType.网站营销人员, "ddd", -1, null, -1, false, null, -1, false);
 		List<UserVO> users = new ArrayList<UserVO>();
 		users.add(userPO.getVO());
 		for(int i = 0; i < userVOs.size(); i++){
@@ -179,28 +179,28 @@ public class ManageUserTest {
 	public void testaddUser1(){
 		user = new ManageUser();
 		//添加营销人员
-		UserPO userPO = new UserPO(1, "XueRuihahaha", "123456", UserType.网站营销人员, "Xue Rui", 0, "1998-02-14", 0, false, null, -1, false);
+		UserPO userPO = new UserPO(6, "XueRuihahaha", "123456", UserType.网站营销人员, "Xue Rui", -1, null, -1, false, null, -1, false);
 		UserVO userVO = userPO.getVO();
 		ResultMessage resultMessage = user.addUser(userVO);
-		assertEquals(new ResultMessage(true).result, resultMessage.result);
+		assertEquals(true, resultMessage.result);
 	}
 	
 	@Test
 	public void testaddUser2(){
 		user = new ManageUser();
 		//添加客户
-		UserPO userPO = new UserPO(2, "shisugara", "654321", UserType.客户, "Tang Yufen", 0, "1998-01-25", 0, false, null, -1, true);
+		UserPO userPO = new UserPO(7, "shisugara", "654321", UserType.客户, "Tang Yufen", 0, "1998-01-25", 0, false, null, -1, false);
 		UserVO userVO = userPO.getVO();
 		ResultMessage resultMessage = user.addUser(userVO);
-		assertEquals(new ResultMessage(true).result, resultMessage.result);
+		assertEquals(true, resultMessage.result);
 	}
 	
 	@Test
 	public void testupdate(){
 		user = new ManageUser();
-		UserPO userPO = new UserPO(2, "shisugara", "654321", UserType.客户, "Tang Yufen", 100, "1998-01-25", 0, false, null, -1, true);
+		UserPO userPO = new UserPO(7, "shisugara", "654321", UserType.客户, "Tang Yufen", 100, "1998-01-25", 0, false, null, -1, false);
 		UserVO userVO = userPO.getVO();
 		ResultMessage resultMessage = user.update(userVO);
-		assertEquals(new ResultMessage(true).result, resultMessage.result);
+		assertEquals(true, resultMessage.result);
 	}
 }
