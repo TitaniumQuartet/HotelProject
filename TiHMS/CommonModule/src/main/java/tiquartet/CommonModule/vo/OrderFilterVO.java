@@ -8,8 +8,8 @@ public class OrderFilterVO implements Serializable{
 	    //初始值为-1;
 	    //订单状态
 	    public OrderStatus orderState=null;
-	    //商圈编号	    
-	    public int districtId=-1;
+	    //城市编号	    
+	    public int cityId=-1;
 	    //酒店星级
 	    public int star=-1;
 	    //酒店编号

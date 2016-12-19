@@ -16,6 +16,14 @@ import tiquartet.CommonModule.blservice.hotelinfoblservice.HotelInfoBLService;
 import tiquartet.CommonModule.util.ResultMessage;
 import tiquartet.CommonModule.vo.OrderNumVO;
 
+/**
+ * @author 李珍鸿
+ *
+ */
+/**
+ * @author 李珍鸿
+ *
+ */
 public class HotelInfo implements HotelInfoBLService {
 	HotelInfoDataImpl hoteldataimpl;
 	ReviewDataImpl reviewdataimpl;
@@ -28,7 +36,7 @@ public class HotelInfo implements HotelInfoBLService {
 		roomdataimpl = RoomDataImpl.getInstance();
 		manageordercontroller = new ManageOrderController();
 	}
-
+    //获得酒店简单信息
 	public HotelBriefVO getHotelBrief(int hotelID, int userID) throws RemoteException {
 		HotelInfoPO hp = hoteldataimpl.getHotelInfo(hotelID);
 		if (hp == null) {
@@ -46,7 +54,7 @@ public class HotelInfo implements HotelInfoBLService {
 		return hotelbrief;
 	}
 
-	/* (non-Javadoc)
+	/* 
      * 获取酒店详细信息
 	 */
 	public HotelDetailsVO getHotelDetails(int hotelID, int userID) throws RemoteException {
@@ -88,16 +96,25 @@ public class HotelInfo implements HotelInfoBLService {
 
 	}
 
+	/* 
+	 * 评论酒店
+	 */
 	public ResultMessage reviewHotel(ReviewVO review) throws RemoteException {
 		ReviewPO reviewpo = new ReviewPO(review);
 		return reviewdataimpl.insert(reviewpo);
 	}
-
+    
+	/* 
+	 * 修改酒店信息
+	 */
 	public ResultMessage modifyHotelInfo(HotelInfoVO hotelInfo) throws RemoteException {
 		HotelInfoPO hip = new HotelInfoPO(hotelInfo);
 		return hoteldataimpl.update(hip);
 	}
-
+    
+	/* 
+	 * 预定过得酒店列表
+	 */
 	public List<HotelBriefVO> clientHotelList(int userID) throws RemoteException {
 		List<HotelBriefVO> volist = new ArrayList<HotelBriefVO>();
 		List<Integer> hotelID = manageordercontroller.orderedHotelID(userID);
