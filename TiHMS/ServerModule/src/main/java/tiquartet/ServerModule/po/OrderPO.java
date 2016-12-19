@@ -47,6 +47,8 @@ public class OrderPO implements Serializable{
 	private double price;
 	//房间类型名称
 	private String roomTypeName;
+	//联系方式
+	private String phone;
 	
 	public OrderPO(OrderVO vo){
 		this.child=vo.child;
@@ -80,7 +82,7 @@ public class OrderPO implements Serializable{
 		this.userId=preorder.userID;
 		this.userName=preorder.userName;
 	}
-	public OrderPO(long orderId,OrderStatus orderStatus,String latestTime,HashMap<Integer, String> roomMap,int numberOfRoom,int numberOfPeople,int child,String guestRealName,String clientRealName,String hotelName,int userId,String userName,String startTime,String leaveTime,String orderTime,double price,int hotelId){
+	public OrderPO(long orderId,OrderStatus orderStatus,String latestTime,HashMap<Integer, String> roomMap,int numberOfRoom,int numberOfPeople,int child,String guestRealName,String clientRealName,String hotelName,int userId,String userName,String startTime,String leaveTime,String orderTime,double price,int hotelId,String phone){
 		super();
 		this.orderId=orderId;
 		this.orderStatus=orderStatus;
@@ -96,10 +98,10 @@ public class OrderPO implements Serializable{
 		this.leaveTime=leaveTime;
 		this.orderTime=orderTime;
 		this.price=price;
-
 		this.userId=userId;
 		this.userName=userName;
 		this.hotelId=hotelId;
+		this.phone=phone;
 	}
 	
 	public long getorderId(){
@@ -275,6 +277,14 @@ public class OrderPO implements Serializable{
 	
 	public String getRoomTypeName(){
 		return this.roomTypeName;
+	}
+	
+	public void setphone(String phone){
+		this.phone=phone;
+	}
+	
+	public String getphone(){
+		return this.phone;
 	}
 	public OrderVO toOrderVO(){
 		OrderVO vo=new OrderVO();

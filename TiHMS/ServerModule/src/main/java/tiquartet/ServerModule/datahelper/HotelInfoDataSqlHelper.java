@@ -179,7 +179,8 @@ public class HotelInfoDataSqlHelper implements HotelInfoDataHelper{
 	        	double price=rs.getDouble(3);
 	        	String roomType=rs.getString(4);
 	        	int hotelId=rs.getInt(5);
-				RoomTypePO roomtypepo = new RoomTypePO(roomTypeId,roomType,typeIntro,price,hotelId);
+	        	int number=rs.getInt(6);
+				RoomTypePO roomtypepo = new RoomTypePO(roomTypeId,roomType,typeIntro,price,hotelId,number);
 				roomtypes.add(roomtypepo);
 			}
 			pstmt.close();

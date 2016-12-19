@@ -368,19 +368,24 @@ public class UserDataSqlHelper implements UserDataHelper{
 	public List<UserPO> hotelStaffList(int cityID, int districtID) {//还未测试！！！！！！
 		Connection conn = Connect.getConn();
 		List<UserPO> users=new ArrayList<UserPO>(); 
-		String sql;
-		if(districtID!=-1)
-	        sql = "SELECT * FROM user where user.hotelId = hotel.hotelId AND hotel.districtId = " + districtID;
-		else {
-			sql = "SELECT * FROM user where user.hotelId = hotel.hotelId AND hotel.cityId = " + cityID;
-		}
+		String sql = "SELECT * FROM user ";
 	    PreparedStatement pstmt;
 	    try {
 	        pstmt = (PreparedStatement)conn.prepareStatement(sql);
 	        ResultSet rs = pstmt.executeQuery();
 	        while(rs.next()){
-	        	UserPO userpo=createuserpo(rs);
-	        	users.add(userpo);
+	        	int hotelId=rs.getInt(11);
+	        	if(districtID!=-1){
+	        		if(hotelId>districtID*1000&&hotelId<(districtID+1)*1000){
+	        			UserPO userpo=createuserpo(rs);
+	        			users.add(userpo);
+	        		}		
+	        	}else{
+	        		if(hotelId>cityID*100000&&hotelId<(cityID+1)*100000){
+	        			UserPO userpo=createuserpo(rs);
+	        			users.add(userpo);
+	        		}
+	        	}     	
 	        } 
 		    return users;
 	    } catch (SQLException e) {

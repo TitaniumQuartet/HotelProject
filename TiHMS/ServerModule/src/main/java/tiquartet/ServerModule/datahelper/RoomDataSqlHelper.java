@@ -71,7 +71,8 @@ public class RoomDataSqlHelper implements RoomDataHelper{
 	       	double price=rs.getDouble(3);
 	       	String roomType=rs.getString(4);
 	       	int hotelId=rs.getInt(5);
-			RoomTypePO roomtypepo = new RoomTypePO(roomTypeId,roomType,typeIntro,price,hotelId);
+	       	int number=rs.getInt(6);
+			RoomTypePO roomtypepo = new RoomTypePO(roomTypeId,roomType,typeIntro,price,hotelId,number);
 			pstmt.close();
 	        conn.close();
 			return roomtypepo;
@@ -90,7 +91,7 @@ public class RoomDataSqlHelper implements RoomDataHelper{
 		Connection conn = Connect.getConn();
 		List<RoomTypePO> rooms = new ArrayList<RoomTypePO>();//可用房间类型的po列表
 		Map<Integer, Integer> roomtAn = new HashMap<Integer, Integer>();//可用客房房间类型和数量
-		String sql="select * from order where hotelId =" + hotelID + " AND where state =" + 0;
+		String sql="select * from ordertable where hotelId =" + hotelID + " AND where state =" + 3;
 		PreparedStatement pstmt;
 		try {
 			pstmt = (PreparedStatement) conn.prepareStatement(sql);
@@ -209,7 +210,7 @@ public class RoomDataSqlHelper implements RoomDataHelper{
 	@Override
 	public ResultMessage insertType(RoomTypePO room) {
 		Connection conn = Connect.getConn();
-	    String sql = "insert into roomType(roomTypeId,typeIntro,price,roomType,hotelId) values(null,?,?,?,?)";
+	    String sql = "insert into roomType(roomTypeId,typeIntro,price,roomType,hotelId,number) values(null,?,?,?,?,?)";
 	    PreparedStatement pstmt;
 	    try {
 	        pstmt = (PreparedStatement) conn.prepareStatement(sql);
@@ -217,7 +218,9 @@ public class RoomDataSqlHelper implements RoomDataHelper{
 	        pstmt.setDouble(2, room.getprice());
 	        pstmt.setString(3, room.getroomType()); 
 	        pstmt.setInt(4, room.gethotelId());
+	        pstmt.setInt(5, room.getnumber());
 	        pstmt.executeUpdate();
+	        updateLow(room.getprice(),room.gethotelId());
 	        pstmt.close();
 	        conn.close();
 	    } catch (SQLException e) {
@@ -225,6 +228,48 @@ public class RoomDataSqlHelper implements RoomDataHelper{
 	        return fail;
 	    } 	
 	    return success;
+	}
+	
+	/**
+	 * 修改酒店最低价格和最高价格
+	 * @return
+	 */
+	public void updateLow(double price,int hotelId){
+		Connection conn = Connect.getConn();
+	    String sql = "select from hotelInfo where hotelId =" + hotelId;
+	    PreparedStatement pstmt;
+	    try {
+	        pstmt = (PreparedStatement) conn.prepareStatement(sql);
+	        ResultSet rs=pstmt.executeQuery();
+	        String sqll="update hotelInfo set lowPrice ="+price+"where hotelId ="+hotelId;
+	        String sqlll="update hotelInfo set highPrice ="+price+"where hotelId ="+hotelId;
+	        if(rs.next()){
+	        	if(rs.getInt(9)==-1){
+	        		 PreparedStatement pstmt1=(PreparedStatement) conn.prepareStatement(sqll);
+	        		 pstmt.executeUpdate();
+	        	}else{
+	        		if(rs.getDouble(9)>price){
+	        			PreparedStatement pstmt1=(PreparedStatement) conn.prepareStatement(sqll);
+		        		 pstmt.executeUpdate();
+	        		}
+	        	}
+	        	if(rs.getDouble(10)==-1){
+	        		PreparedStatement pstmt1=(PreparedStatement) conn.prepareStatement(sqlll);
+	        		 pstmt.executeUpdate();
+	        	}else{
+	        		if(rs.getDouble(10)<price){
+	        			PreparedStatement pstmt1=(PreparedStatement) conn.prepareStatement(sqlll);
+		        		 pstmt.executeUpdate();
+	        		}
+	        	}
+	        	
+	        }
+	        pstmt.close();
+	        conn.close();
+	    } catch (SQLException e) {
+	        e.printStackTrace();
+	       
+	    } 	
 	}
 
 	/**
@@ -237,7 +282,8 @@ public class RoomDataSqlHelper implements RoomDataHelper{
 	    		", typeIntro='" + room.gettypeIntroduction() +
 	    		"', price=" + room.getprice() +
 	    		", roomType='" + room.getroomType() +
-	            "' where roomTypeId='" + room.getroomTypeId();
+	    		"', number=" + room.getnumber() +
+	            " where roomTypeId='" + room.getroomTypeId();
 	    return updatetable(sql);
 	}
 

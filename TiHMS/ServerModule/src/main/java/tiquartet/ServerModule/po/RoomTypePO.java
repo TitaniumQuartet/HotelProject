@@ -15,18 +15,21 @@ public class RoomTypePO implements Serializable{
 	private double price;
 	//酒店编号
 	private int hotelId;
+	//可预房间数量
+	private int number;
 	
 	public RoomTypePO(){
 		
 	}
 	
-	public RoomTypePO(int roomTypeId,String roomType,String typeIntroduction,double price,int hotelId){
+	public RoomTypePO(int roomTypeId,String roomType,String typeIntroduction,double price,int hotelId,int number){
 		super();
 		this.roomTypeId=roomTypeId;
 		this.roomType=roomType;
 		this.typeIntroduction=typeIntroduction;
 		this.price=price;
 		this.hotelId=hotelId;
+		this.number=number;
 	}
 	
 	public RoomTypePO(RoomTypeVO roomTypeVO){
@@ -76,6 +79,14 @@ public class RoomTypePO implements Serializable{
 	
 	public void sethotelId(int hotelId){
 		this.hotelId=hotelId;
+	}
+	
+	public int getnumber(){
+		return number;
+	}
+	
+	public void setnumber(int number){
+		this.number=number;
 	}
 	
 	public RoomTypeVO toRoomTypevo(){
