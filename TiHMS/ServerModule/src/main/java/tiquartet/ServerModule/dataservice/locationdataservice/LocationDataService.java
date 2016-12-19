@@ -16,9 +16,9 @@ public interface LocationDataService {
 	public DistrictPO renewDistrict ();
 	
 	/**
-	 * 新增商圈
+	 * 更新商圈
 	 * @return
 	 */
-	public ResultMessage insert(DistrictPO district);
+	public ResultMessage update(DistrictPO district);
 
 }

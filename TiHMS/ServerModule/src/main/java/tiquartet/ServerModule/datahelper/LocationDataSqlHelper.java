@@ -48,16 +48,15 @@ public class LocationDataSqlHelper implements LocationDataHelper{
 	}
 
 	@Override
-	public ResultMessage insert(DistrictPO district) {
+	public ResultMessage update(DistrictPO district) {
 		Connection conn = Connect.getConn();
-	    String sql = "insert into district(city,district) values(?,?)";
+	    
 	    String cityMap=district.getcityAsString();
 	    String districtMap=district.getdistrictAsString();
+	    String sql = "update location set city =" + cityMap +"set district ="+districtMap + "where Id ="+1;
 	    PreparedStatement pstmt;
 	    try {
 	        pstmt = (PreparedStatement) conn.prepareStatement(sql);
-	        pstmt.setString(1, cityMap);
-	        pstmt.setString(2,districtMap);
 	        pstmt.executeUpdate();
 	        pstmt.close();
 	        conn.close();

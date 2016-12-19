@@ -82,7 +82,7 @@ public class OrderPO implements Serializable{
 		this.userId=preorder.userID;
 		this.userName=preorder.userName;
 	}
-	public OrderPO(long orderId,OrderStatus orderStatus,String latestTime,HashMap<Integer, String> roomMap,int numberOfRoom,int numberOfPeople,int child,String guestRealName,String clientRealName,String hotelName,int userId,String userName,String startTime,String leaveTime,String orderTime,double price,int hotelId,String phone){
+	public OrderPO(long orderId,OrderStatus orderStatus,String latestTime,HashMap<Integer, String> roomMap,int numberOfRoom,int numberOfPeople,int child,String guestRealName,String clientRealName,String hotelName,int userId,String userName,String startTime,String leaveTime,String orderTime,double price,int hotelId,String phone,String roomType){
 		super();
 		this.orderId=orderId;
 		this.orderStatus=orderStatus;
@@ -102,6 +102,7 @@ public class OrderPO implements Serializable{
 		this.userName=userName;
 		this.hotelId=hotelId;
 		this.phone=phone;
+		this.roomTypeName=roomType;
 	}
 	
 	public long getorderId(){

@@ -156,10 +156,10 @@ public class StrategyPO implements Serializable{
 	
 	public String getMemberThresholdAsString(){
 		String result="";
-		for(int i=0;i<9;i++){
+		for(int i=0;i<8;i++){
 			result=result+String.valueOf(memberThreShold[i])+",";
 		}
-		result=result+String.valueOf(memberThreShold[9]);
+		result=result+String.valueOf(memberThreShold[8]);
 		return result;
 	}
     

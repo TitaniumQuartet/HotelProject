@@ -39,8 +39,8 @@ public class LocationDataImpl implements LocationDataService{
 	}
 
 	@Override
-	public ResultMessage insert(DistrictPO district) {
-		return locationDataHelper.insert(district);
+	public ResultMessage update(DistrictPO district) {
+		return locationDataHelper.update(district);
 	}
 
 }
