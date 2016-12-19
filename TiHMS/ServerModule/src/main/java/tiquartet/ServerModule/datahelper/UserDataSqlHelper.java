@@ -3,6 +3,8 @@ package tiquartet.ServerModule.datahelper;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+
+import tiquartet.CommonModule.util.MemberType;
 import tiquartet.CommonModule.util.ResultMessage;
 import tiquartet.CommonModule.util.UserType;
 import tiquartet.ServerModule.datahelper.service.UserDataHelper;
@@ -32,7 +34,9 @@ public class UserDataSqlHelper implements UserDataHelper{
 		    String company=rs.getString(10);
 		    int hotelId=rs.getInt(11);
 		    boolean login=rs.getBoolean(12);
-		    UserPO userpo=new UserPO(userId,userName,password,userType,realName,credit,birthday,memberRank,isMember,company,hotelId,login);
+		    MemberType memberType=MemberType.values()[rs.getInt(13)];
+		    String phone=rs.getString(14);
+		    UserPO userpo=new UserPO(userId,userName,password,userType,realName,credit,birthday,memberRank,isMember,company,hotelId,login,memberType,phone);
 	    	return userpo;
 		}catch (SQLException e) {
 	        e.printStackTrace();
@@ -126,7 +130,7 @@ public class UserDataSqlHelper implements UserDataHelper{
 	@Override
 	public ResultMessage insert (UserPO user){
 		Connection conn = Connect.getConn();
-	    String sql = "insert into user(userId,userName,password,userType,realName,credit,birthday,memberRank,isMember,company,hotelId,login) values(null,?,?,?,?,?,?,?,?,?,?,?)";
+	    String sql = "insert into user(userId,userName,password,userType,realName,credit,birthday,memberRank,isMember,company,hotelId,login,memberType,phone) values(null,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 	    PreparedStatement pstmt;
 	    try {
 	        pstmt = (PreparedStatement) conn.prepareStatement(sql);
@@ -140,7 +144,9 @@ public class UserDataSqlHelper implements UserDataHelper{
 	        pstmt.setBoolean(8, user.getisMember());  
 	        pstmt.setString(9, user.getcompany());  
 	        pstmt.setInt(10, user.gethotelId());  
-	        pstmt.setBoolean(11, user.getLogin());  
+	        pstmt.setBoolean(11, user.getLogin());
+	        pstmt.setInt(12, user.getmemberType().ordinal());
+	        pstmt.setString(13, user.getphone());
 	        pstmt.executeUpdate();
 	        pstmt.close();
 	        conn.close();
@@ -169,7 +175,9 @@ public class UserDataSqlHelper implements UserDataHelper{
 	    		", company='" + userPO.getcompany() +
 	    		"', hotelId=" + userPO.gethotelId() +
 	    		", login=" + userPO.getLogin() +
-	            " where userId='" + userPO.getuserId() + "'";
+	    		", memberType=" + userPO.getmemberType() +
+	    		", phone='" + userPO.getphone() +
+	            "' where userId='" + userPO.getuserId() + "'";
 	    PreparedStatement pstmt;
 	    try {
 	        pstmt = (PreparedStatement) conn.prepareStatement(sql);

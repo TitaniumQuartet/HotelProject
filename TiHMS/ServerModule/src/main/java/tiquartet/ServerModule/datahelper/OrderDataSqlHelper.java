@@ -85,7 +85,7 @@ public class OrderDataSqlHelper implements OrderDataHelper{
 		ResultMessage rMessage=insert(preOrder);
 		long orderId=Long.valueOf(rMessage.message);
 		Connection conn = Connect.getConn();
-        String sql="select * from order where orderId = "+ orderId;
+        String sql="select * from ordertable where orderId = "+ orderId;
 		PreparedStatement pstmt;
 		try {
 			pstmt = (PreparedStatement) conn.prepareStatement(sql);
@@ -193,7 +193,7 @@ public class OrderDataSqlHelper implements OrderDataHelper{
 	public int countOrder(int userID, OrderStatus status) {
 		Connection conn = Connect.getConn();
 		int i=0;
-		String sql="select * from order where userId = " + userID + "AND orderStatus = " + status.ordinal();
+		String sql="select * from ordertable where userId = " + userID + "AND orderStatus = " + status.ordinal();
 		PreparedStatement pstmt;
 		try {
 			pstmt = (PreparedStatement) conn.prepareStatement(sql);
@@ -217,7 +217,7 @@ public class OrderDataSqlHelper implements OrderDataHelper{
 	@Override
 	public ResultMessage cancelPreOrder(OrderPO preOrder) {
 		Connection conn = Connect.getConn();
-		String sql="DELETE FROM order where orderId = " + preOrder.getorderId();
+		String sql="DELETE FROM ordertable where orderId = " + preOrder.getorderId();
 		PreparedStatement pstmt;
 		try {
 			pstmt = (PreparedStatement) conn.prepareStatement(sql);
@@ -239,7 +239,7 @@ public class OrderDataSqlHelper implements OrderDataHelper{
 	public List<OrderPO> searchByHotel(int hotelID, OrderStatus status) {
 		Connection conn = Connect.getConn();
 		List<OrderPO> orders=new ArrayList<OrderPO>();
-		String sql="select * from order where hotelId = " + hotelID + "AND orderStatus = " + status.ordinal();
+		String sql="select * from ordertable where hotelId = " + hotelID + "AND orderStatus = " + status.ordinal();
 		PreparedStatement pstmt;
 		try {
 			pstmt = (PreparedStatement) conn.prepareStatement(sql);
@@ -265,7 +265,7 @@ public class OrderDataSqlHelper implements OrderDataHelper{
 	public List<OrderPO> searchByUser(int userID) {
 		Connection conn = Connect.getConn();
 		List<OrderPO> orders=new ArrayList<OrderPO>();
-		String sql="select * from order where userId = " + userID;
+		String sql="select * from ordertable where userId = " + userID;
 		PreparedStatement pstmt;
 		try {
 			pstmt = (PreparedStatement) conn.prepareStatement(sql);
@@ -290,7 +290,7 @@ public class OrderDataSqlHelper implements OrderDataHelper{
 	@Override
 	public OrderPO getOrderByID(long orderID) {
 		Connection conn = Connect.getConn();
-		String sql="select * from order where orderId = " + orderID;
+		String sql="select * from ordertable where orderId = " + orderID;
 		PreparedStatement pstmt;
 		try {
 			pstmt = (PreparedStatement) conn.prepareStatement(sql);
@@ -312,7 +312,7 @@ public class OrderDataSqlHelper implements OrderDataHelper{
 	@Override
 	public ResultMessage updateState(int hotelId) {
 		Connection conn = Connect.getConn();
-		String sql="select * from order where hotelId = " + hotelId + "AND where orderStatus = " + 3;
+		String sql="select * from ordertable where hotelId = " + hotelId + "AND where orderStatus = " + 3;
 		PreparedStatement pstmt;
 		try {
 			pstmt = (PreparedStatement) conn.prepareStatement(sql);
@@ -350,7 +350,7 @@ public class OrderDataSqlHelper implements OrderDataHelper{
 	 */
 	public void changeState(long orderId){
 		Connection conn = Connect.getConn();
-		String sql="update order set orderStatus = " + 2 + "where orderId = " + orderId;
+		String sql="update ordertable set orderStatus = " + 2 + "where orderId = " + orderId;
 		PreparedStatement pstmt;
 		try {
 			pstmt = (PreparedStatement) conn.prepareStatement(sql);

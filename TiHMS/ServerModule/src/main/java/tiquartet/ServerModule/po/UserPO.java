@@ -2,6 +2,7 @@ package tiquartet.ServerModule.po;
 
 import java.io.Serializable;
 
+import tiquartet.CommonModule.util.MemberType;
 import tiquartet.CommonModule.util.UserType;
 import tiquartet.CommonModule.vo.UserVO;
 
@@ -16,6 +17,10 @@ public class UserPO implements Serializable{
 	private UserType userType;
 	//用户真实姓名
 	private String realName;
+	//联系方式
+	private String phone;
+	//会员类型
+	private MemberType memberType;
 	//当前信用值
 	private double credit;
 	//生日
@@ -35,7 +40,7 @@ public class UserPO implements Serializable{
 		
 	}
 	
-	public UserPO(int userId,String userName,String password,UserType userType,String realName,double credit, String birthday,int memberRank,boolean isMember,String company,int hotelId,boolean login){
+	public UserPO(int userId,String userName,String password,UserType userType,String realName,double credit, String birthday,int memberRank,boolean isMember,String company,int hotelId,boolean login,MemberType memberType,String phone){
 		super();
 		this.userId=userId;
 		this.userName=userName;
@@ -48,6 +53,8 @@ public class UserPO implements Serializable{
 		this.isMember=isMember;
 		this.company=company;
 		this.hotelId=hotelId;
+		this.memberType=memberType;
+		this.phone=phone;
 	}
 	
 	public UserPO(UserVO userVO){
@@ -57,10 +64,10 @@ public class UserPO implements Serializable{
 		this.password=userVO.password;
 		this.userType=userVO.userType;
 		this.realName=userVO.realName;
+		this.memberType=userVO.memberType;
 		this.credit=userVO.credit;
 		this.birthday=userVO.birthday;
 		this.memberLevel=userVO.memberLevel;
-		//this.isMember=userVO.isMember;
 		this.company=userVO.company;
 		this.hotelId=userVO.hotelID;
 		this.login=userVO.login;
@@ -178,6 +185,22 @@ public class UserPO implements Serializable{
 		this.login = login;
 	}
 	
+	public void setmemberType(MemberType memberType){
+		this.memberType=memberType;
+	}
+	
+	public MemberType getmemberType(){
+		return this.memberType;
+	}
+	
+	public void setphone(String phone){
+		this.phone=phone;
+	}
+	
+	public String getphone(){
+		return this.phone;
+	}
+	
 	public UserVO getVO(){
 		UserVO userVO = new UserVO();
 		userVO.password = this.password;
@@ -185,8 +208,14 @@ public class UserPO implements Serializable{
 		userVO.userID = this.userId;
 		userVO.userName = this.userName;
 		userVO.userType = this.userType;
-		userVO.login = this.login;
-		
+		userVO.login = this.login;	
+		userVO.realName=this.realName;
+		userVO.memberType=this.memberType;
+		userVO.credit=this.credit;
+		userVO.birthday=this.birthday;
+		userVO.memberLevel=this.memberLevel;
+		userVO.company=this.company;
+		userVO.hotelID=this.hotelId;
 		return userVO;
 	}
 }
