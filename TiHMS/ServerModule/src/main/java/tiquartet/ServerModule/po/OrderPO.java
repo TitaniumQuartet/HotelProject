@@ -20,7 +20,7 @@ public class OrderPO implements Serializable{
 	//房间数量
 	private int numberOfRoom;
 	//订单中的房间编号与实际房号的映射
-	private HashMap<Integer, String> roomMap;
+	private HashMap<Integer, String> roomMap=new HashMap<Integer,String>();
 	//入住人数
 	private int numberOfPeople;
 	//有无儿童
@@ -149,7 +149,10 @@ public class OrderPO implements Serializable{
 		    roomn=roomn + key.toString() + ",";
 		    roomi = roomi + val.toString() + ",";
 		}  
-		String result=roomn.substring(0,roomn.length()-1) + ";" + roomi.substring(0,roomn.length()-1);
+		if(roomi.equals("")){
+			roomi=" ";
+		}
+		String result=roomn + ";" + roomi;
 		return result;
 	}
 	

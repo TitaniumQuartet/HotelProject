@@ -47,8 +47,8 @@ public class OrderDataImpl implements OrderDataService{
 		return orderDataHelper.searchByHotel(hotelID, status);
 	}
 	
-	public List<OrderPO> searchByUser (int hotelID, int userID){
-		return orderDataHelper.searchByUser(hotelID, userID);
+	public List<OrderPO> searchByUser (int userID){
+		return orderDataHelper.searchByUser(userID);
 	}
 	
 	public OrderPO getOrderByID (long orderID){

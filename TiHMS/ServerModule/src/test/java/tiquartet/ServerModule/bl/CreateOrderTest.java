@@ -32,6 +32,7 @@ public class CreateOrderTest{
 		assertEquals(result.result, false);
 		preorder.userID = 123456;
 		preorder.hotelID = 12034056;
+	
 		preorder.clientRealName = "qinliu";
 		preorder.hotelName = "nanda";
 		preorder.leaveTime = "2016-12-10 12:30:00";

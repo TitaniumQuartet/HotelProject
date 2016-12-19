@@ -83,7 +83,7 @@ public class OrderDataSqlHelper implements OrderDataHelper{
 	@Override
 	public OrderPO preOrder(OrderPO preOrder){
 		ResultMessage rMessage=insert(preOrder);
-		long orderId=Integer.valueOf(rMessage.message);
+		long orderId=Long.valueOf(rMessage.message);
 		Connection conn = Connect.getConn();
         String sql="select * from order where orderId = "+ orderId;
 		PreparedStatement pstmt;
@@ -109,7 +109,7 @@ public class OrderDataSqlHelper implements OrderDataHelper{
 	@Override
 	public ResultMessage insert(OrderPO order) {
 		Connection conn = Connect.getConn();
-	    String sql = "insert into order(orederId,orderStatus,latestTime,roomNumber,roomId,numberOfRoom,numberOfPeople,child,guestRealName,clientRealName,hotelName,userId,userName,startTime,leaveTime,orderTime,price,hotelId) values(null,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+	    String sql = "insert into ordertable(orderId,orderStatus,latestTime,roomNumber,roomId,numberOfRoom,numberOfPeople,child,guestRealName,clientRealName,hotelName,userId,userName,startTime,leaveTime,orderTime,price,hotelId) values (null,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 	    PreparedStatement pstmt;
 	    long orderId=0;
 	    try {
@@ -154,7 +154,7 @@ public class OrderDataSqlHelper implements OrderDataHelper{
 	public ResultMessage update(OrderPO order) {
 		Connection conn = Connect.getConn();
 		String[] room=order.getroom().split(";");
-	    String sql = "update user set lastestTime='" + order.getlatestTime() +
+	    String sql = "update ordertable set lastestTime='" + order.getlatestTime() +
 	    		"', numberOfRoom=" + order.getnumberOfRoom() +
 	    		", numberOfPeople=" + order.getnumberOfPeople() +
 	    		", child=" + order.getchild() +
@@ -262,10 +262,10 @@ public class OrderDataSqlHelper implements OrderDataHelper{
 	 * @return
 	 */
 	@Override
-	public List<OrderPO> searchByUser(int hotelID, int userID) {
+	public List<OrderPO> searchByUser(int userID) {
 		Connection conn = Connect.getConn();
 		List<OrderPO> orders=new ArrayList<OrderPO>();
-		String sql="select * from order where hotelId = " + hotelID + "AND userId = " + userID;
+		String sql="select * from order where userId = " + userID;
 		PreparedStatement pstmt;
 		try {
 			pstmt = (PreparedStatement) conn.prepareStatement(sql);

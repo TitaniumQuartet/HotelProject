@@ -14,7 +14,7 @@ public interface OrderDataHelper {
 	public ResultMessage insert(OrderPO order);
 	public ResultMessage update(OrderPO order);
 	public List<OrderPO> searchByHotel (int hotelID, OrderStatus status);
-	public List<OrderPO> searchByUser (int hotelID, int userID);
+	public List<OrderPO> searchByUser (int userID);
 	public OrderPO getOrderByID (long orderID);
 	public int countOrder (int userID, OrderStatus status);
 	public ResultMessage updateState(int hotelId);
