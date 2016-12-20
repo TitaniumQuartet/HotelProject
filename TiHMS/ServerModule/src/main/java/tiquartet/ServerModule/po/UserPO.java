@@ -67,10 +67,12 @@ public class UserPO implements Serializable{
 		this.memberType=userVO.memberType;
 		this.credit=userVO.credit;
 		this.birthday=userVO.birthday;
+		this.phone=userVO.phone;
 		this.memberLevel=userVO.memberLevel;
 		this.company=userVO.company;
 		this.hotelId=userVO.hotelID;
 		this.login=userVO.login;
+		this.isMember=userVO.isMember;
 	}
 	
 	public int getuserId(){

@@ -21,12 +21,16 @@ public class UserVO implements Serializable{
     public String password;
     //真实姓名
     public String realName;
+    //联系方式
+    public String phone;
     //会员类型
     public MemberType memberType;
     //当前信用值
     public double credit;
     //生日
     public String birthday;
+    //是否会员
+    public boolean isMember;
     //会员等级
     public int memberLevel;
     //公司名称
