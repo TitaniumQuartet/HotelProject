@@ -23,24 +23,22 @@ public class UserDataSqlHelper implements UserDataHelper{
 	public UserPO createuserpo(ResultSet rs){
 		UserPO userpo=new UserPO();
 		try{
-			if(rs.next()){
-				int userId=rs.getInt(1);
-	        	String userName=rs.getString(2);
-			    String password=rs.getString(3);
-			    UserType userType=UserType.values()[rs.getInt(4)];
-			    String realName=rs.getString(5);
-			    double credit=rs.getDouble(6);
-			    String birthday=rs.getString(7);
-			    int memberRank=rs.getInt(8);
-			    boolean isMember=rs.getBoolean(9);
-			    String company=rs.getString(10);
-			    int hotelId=rs.getInt(11);
-			    boolean login=rs.getBoolean(12);
-			    MemberType memberType=MemberType.values()[rs.getInt(13)];
-			    String phone=rs.getString(14);
-			    userpo=new UserPO(userId,userName,password,userType,realName,credit,birthday,memberRank,isMember,company,hotelId,login,memberType,phone);
-			}
-		    	return userpo;
+			int userId=rs.getInt(1);
+        	String userName=rs.getString(2);
+		    String password=rs.getString(3);
+		    UserType userType=UserType.values()[rs.getInt(4)];
+		    String realName=rs.getString(5);
+		    double credit=rs.getDouble(6);
+		    String birthday=rs.getString(7);
+		    int memberRank=rs.getInt(8);
+		    boolean isMember=rs.getBoolean(9);
+		    String company=rs.getString(10);
+		    int hotelId=rs.getInt(11);
+		    boolean login=rs.getBoolean(12);
+		    MemberType memberType=MemberType.values()[rs.getInt(13)];
+		    String phone=rs.getString(14);
+		    userpo=new UserPO(userId,userName,password,userType,realName,credit,birthday,memberRank,isMember,company,hotelId,login,memberType,phone);
+		   	return userpo;
 		}catch (SQLException e) {
 	        e.printStackTrace();
 	        return null;
@@ -177,9 +175,9 @@ public class UserDataSqlHelper implements UserDataHelper{
 	    		", company='" + userPO.getcompany() +
 	    		"', hotelId=" + userPO.gethotelId() +
 	    		", login=" + userPO.getLogin() +
-	    		", memberType=" + userPO.getmemberType() +
+	    		", memberType=" + userPO.getTypeAsInt() +
 	    		", phone='" + userPO.getphone() +
-	            "' where userId='" + userPO.getuserId() + "'";
+	            "' where userId=" + userPO.getuserId() ;
 	    PreparedStatement pstmt;
 	    try {
 	        pstmt = (PreparedStatement) conn.prepareStatement(sql);

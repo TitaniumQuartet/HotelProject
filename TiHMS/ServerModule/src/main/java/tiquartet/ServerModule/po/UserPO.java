@@ -211,13 +211,14 @@ public class UserPO implements Serializable{
 		userVO.userName = this.userName;
 		userVO.userType = this.userType;
 		userVO.login = this.login;	
-		userVO.realName=this.realName;
 		userVO.memberType=this.memberType;
 		userVO.credit=this.credit;
 		userVO.birthday=this.birthday;
 		userVO.memberLevel=this.memberLevel;
 		userVO.company=this.company;
 		userVO.hotelID=this.hotelId;
+		userVO.phone=this.phone;
+		userVO.isMember=this.isMember;
 		return userVO;
 	}
 }
