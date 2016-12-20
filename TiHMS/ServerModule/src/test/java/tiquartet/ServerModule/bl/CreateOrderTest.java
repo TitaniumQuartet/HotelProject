@@ -95,4 +95,52 @@ public class CreateOrderTest{
 		assertEquals((int)hotelList.get(0),orderInfo.hotelID);
 		assertEquals((int)hotelList.get(1),orderInfo1.hotelID);
 	}
+	@Test
+	public void testpreOrder() throws RemoteException{
+		PreOrderVO preorder=new PreOrderVO();
+		preorder.userID = 1;
+		preorder.hotelID = 101001;
+		preorder.clientRealName="ccc";
+		preorder.hotelName = "NumOne";
+		preorder.startTime = "2017-01-04 12:00:00";
+		preorder.leaveTime = "2017-01-05 12:00:00";
+		preorder.roomType = 1;
+		preorder.roomTypeName = "";
+		preorder.userName = "Teki";
+		preorder.price = 300;
+		preorder.numOfRoom = 1;
+		ResultMessage result1=createorder.preOrder(preorder);
+		assertEquals(result1.result,true);
+	}
+	@Test
+	public void testconfirm() throws RemoteException{
+		PreOrderVO preorder=new PreOrderVO();
+		preorder.userID = 1;
+		preorder.hotelID = 101001;
+		preorder.clientRealName="ccc";
+		preorder.hotelName = "NumOne";
+		preorder.startTime = "2017-01-05 12:00:00";
+		preorder.leaveTime = "2017-01-06 12:00:00";
+		preorder.roomType = 1;
+		preorder.roomTypeName = "";
+		preorder.userName = "Teki";
+		preorder.price = 300;
+		preorder.numOfRoom = 1;
+		ResultMessage result1=createorder.preOrder(preorder);
+		assertEquals(result1.result,true);
+		OrderStrategyVO orderstrategy=createorder.getStrategy(preorder.userID);
+		OrderInfoVO orderInfo=new OrderInfoVO();
+		orderInfo.strategyID=orderstrategy.strategyID;
+		orderInfo.orderID=orderstrategy.orderID;
+		orderInfo.price=orderstrategy.orderPrice;
+		orderInfo.userID=preorder.userID;
+		orderInfo.hotelID=preorder.hotelID;
+		orderInfo.numOfGuest=1;
+		orderInfo.kids=0;
+		orderInfo.guestRealName="lq";
+		orderInfo.latestTime="2017-01-05 16:00:00";
+		ResultMessage result2=createorder.confirm(orderInfo);
+		assertEquals(result2.result,true);
+		
+	}
 }
