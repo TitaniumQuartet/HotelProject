@@ -51,7 +51,12 @@ public class CreateOrder implements CreateOrderBLService {
     //获得最优惠订单
 	public OrderStrategyVO getStrategy(int userID) throws RemoteException {
 		PreOrderVO preorder = map.get(userID);
-		List<OrderPO> orderlist = orderdataimpl.searchByUser(preorder.hotelID, userID);
+		List<OrderPO> orderlist = orderdataimpl.searchByUser(userID);
+		for(int i = 0 ;i< orderlist.size();i++){
+			if(orderlist.get(i).gethotelId()!=preorder.hotelID){
+				orderlist.remove(i);
+			}
+		}
 		OrderPO order = new OrderPO();
 		for (int i = 0; i < orderlist.size(); i++) {
 			if (orderlist.get(i).getorderStatus() == OrderStatus.暂时预订) {
@@ -149,7 +154,12 @@ public class CreateOrder implements CreateOrderBLService {
     //取消暂时订单
 	public ResultMessage cancelPreOrder(int userID) throws RemoteException {
 		int hotelID = map.get(userID).hotelID;
-		List<OrderPO> orderlist = orderdataimpl.searchByUser(hotelID, userID);
+		List<OrderPO> orderlist = orderdataimpl.searchByUser(userID);
+		for(int i=0;i<orderlist.size();i++){
+			if(orderlist.get(i).gethotelId()!=hotelID){
+				orderlist.remove(i);
+			}
+		}
 		OrderPO preOrder = new OrderPO();
 		for (int i = 0; i < orderlist.size(); i++) {
 			if (orderlist.get(i).getorderStatus() == OrderStatus.暂时预订) {

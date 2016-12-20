@@ -42,7 +42,12 @@ public class ManageOrder implements ManageOrderBLService {
 	public List<OrderVO> orderHistory(OrderFilterVO filter, OrderSort sort, int rank1, int rank2)
 			throws RemoteException {
 		List<OrderVO> volist = new ArrayList<OrderVO>();
-		List<OrderPO> polist = orderdataimpl.searchByUser(filter.hotelID, filter.userId);
+		List<OrderPO> polist = orderdataimpl.searchByUser( filter.userId);
+		for(int i=0;i<polist.size();i++){
+			if(polist.get(i).gethotelId()!=filter.hotelID){
+				polist.remove(i);
+			}
+		}
 		for (int i = 0; i < polist.size(); i++) {
 			//筛选订单
 			if (filter.cityId != -1) {
@@ -405,9 +410,12 @@ public class ManageOrder implements ManageOrderBLService {
 			DateFormat format=new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
 			Date nowtime=new Date();
 			try {
-				Date orderdate=format.parse(order.getstartTime());
-				long timeInterval=nowtime.getTime()-orderdate.getTime();
-				timeInterval=timeInterval/1000/60/60;
+				Date orderstartdate=format.parse(order.getstartTime());
+				if(orderstartdate.before(nowtime)){
+					return new ResultMessage(false,"已经过了订单开始时间","");
+				}
+				long timeInterval=orderstartdate.getTime()-nowtime.getTime();
+				timeInterval=timeInterval/1000/60/60;				
 				if(timeInterval<6){
 					UserPO user=userdataimpl.getUser(order.getuserId());
 					user.setcredit(user.getcredit()-order.getprice()/2);
@@ -418,6 +426,7 @@ public class ManageOrder implements ManageOrderBLService {
 					credit.setorderId(order.getorderId());
 					credit.setchangeType(CreditChange.客户较晚撤销订单时扣除信用值);
 					userdataimpl.update(user);
+					creditdataimpl.insert(credit);
 				}
 			} catch (ParseException e) {
 				// TODO Auto-generated catch block
@@ -472,9 +481,9 @@ public class ManageOrder implements ManageOrderBLService {
 		DateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		Date nowDate = new Date();
 		try {
-			Date leaveDate = format.parse(order.getleaveTime());
+			Date latestDate = format.parse(order.getlatestTime());
 			Date startDate = format.parse(order.getstartTime());
-			if (nowDate.before(leaveDate) && nowDate.after(startDate)) {
+			if (nowDate.before(latestDate) && nowDate.after(startDate)) {
 				order.setstartTime(format.format(new Date()));
 				UserPO user = userdataimpl.getUser(order.getuserId());
 				user.setcredit(user.getcredit() + order.getprice());
@@ -500,26 +509,15 @@ public class ManageOrder implements ManageOrderBLService {
 		if (order == null) {
 			return new ResultMessage(false, "此订单不存在", "");
 		}
-		DateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-		try {
-			Date leaveDate = format.parse(leaveTime);
-			Date estLeaveDate = format.parse(order.getlatestTime());
-			if (leaveDate.before(estLeaveDate)) {
-				order.setleaveTime(leaveTime);
-				orderdataimpl.update(order);
-				return new ResultMessage(true);
-			}
-		} catch (ParseException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		return new ResultMessage(false, "超过订单最晚离开时间", "");
+		order.setleaveTime(leaveTime);
+		orderdataimpl.update(order);
+		return new ResultMessage(true);
 	}
 
 	public List<Integer> orderedHotelID(int userID) throws RemoteException {
 		// 返回用户预订过的酒店编号列表
 		List<Integer> hotelIdlist = new ArrayList<Integer>();
-		List<OrderPO> orderlist = orderdataimpl.searchByUser(0, userID);
+		List<OrderPO> orderlist = orderdataimpl.searchByUser(userID);
 		if(orderlist.size()==0){
 			return null;
 		}
@@ -530,7 +528,7 @@ public class ManageOrder implements ManageOrderBLService {
 					break;
 				}
 				if(j==hotelIdlist.size()-1){
-					hotelIdlist.add(orderlist.get(i).getchild());
+					hotelIdlist.add(orderlist.get(i).gethotelId());
 				}
 			}
 		}
@@ -540,7 +538,12 @@ public class ManageOrder implements ManageOrderBLService {
 	public List<OrderVO> clientAtHotel(int userID, int hotelID) throws RemoteException {
 		// 返回该用户在该酒店预定过得订单列表
 		List<OrderVO> volist = new ArrayList<OrderVO>();
-		List<OrderPO> polist = orderdataimpl.searchByUser(hotelID, userID);// 此处应该修改；
+		List<OrderPO> polist = orderdataimpl.searchByUser(userID);
+		for(int i =0;i<polist.size();i++){
+			if(polist.get(i).gethotelId()!=hotelID){
+				polist.remove(i);
+			}
+		}
 		for (int i = 0; i < polist.size(); i++) {
 			volist.add(polist.get(i).toOrderVO());
 		}
@@ -549,7 +552,12 @@ public class ManageOrder implements ManageOrderBLService {
 
 	public OrderNumVO numAtHotel(int hotelID, int userID) throws RemoteException {
 		// 返回用户在该酒店的各类订单数目；
-		List<OrderPO> polist = orderdataimpl.searchByUser(hotelID, userID);// 此处应该修改
+		List<OrderPO> polist = orderdataimpl.searchByUser( userID);
+		for(int i =0;i<polist.size();i++ ){
+			if(polist.get(i).gethotelId()!=hotelID){
+				polist.remove(i);
+			}
+		}
 		OrderNumVO ordernumvo = new OrderNumVO();
 		ordernumvo.uesrID = userID;
 		ordernumvo.hotelID = hotelID;
