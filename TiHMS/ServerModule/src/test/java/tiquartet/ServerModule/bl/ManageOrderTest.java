@@ -28,4 +28,12 @@ public class ManageOrderTest {
 			assertEquals(true,false);
 		}
 	}
+	@Test
+	public void testclientCancekl() throws RemoteException{
+		ResultMessage result=manageorder.clientCancel(6);
+		assertEquals(result.result,true);
+		ResultMessage result1=manageorder.clientCancel(3);
+		assertEquals(result1.result,false);
+	}
+	
 }

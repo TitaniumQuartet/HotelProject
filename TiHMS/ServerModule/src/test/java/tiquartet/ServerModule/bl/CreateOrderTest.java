@@ -91,8 +91,6 @@ public class CreateOrderTest{
 		assertEquals(result5.result,true);
 		ResultMessage result6=manageorder.checkOut(orderInfo.orderID,"2016-12-10 11:00:00");
 		assertEquals(result6.result,true);
-		ResultMessage result7=manageorder.clientCancel(orderInfo.orderID);
-		assertEquals(result7.result,true);
 		List<Integer> hotelList=manageorder.orderedHotelID(orderInfo.userID);
 		assertEquals((int)hotelList.get(0),orderInfo.hotelID);
 		assertEquals((int)hotelList.get(1),orderInfo1.hotelID);
