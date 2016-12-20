@@ -114,8 +114,10 @@ public class CreateOrder implements CreateOrderBLService {
 				}
 
 			}else {
-			    double[] memberDiscount = polist.get(i).getMemberDiscount(); 
-				price = price * memberDiscount[user.getmemberRank()];
+				if(user.getisMember()){
+					double[] memberDiscount = polist.get(i).getMemberDiscount(); 
+					price = price * memberDiscount[user.getmemberRank()-1];
+				}
 			}
 
 		}
@@ -123,7 +125,7 @@ public class CreateOrder implements CreateOrderBLService {
 		OrderStrategyVO nowOrderStrategy = orderStrategylist.get(0);
 		for (int i = 0; i < orderStrategylist.size(); i++) {
 			if (orderStrategylist.get(i).orderPrice < nowOrderStrategy.orderPrice) {
-				orderstrategy = orderStrategylist.get(i);
+				nowOrderStrategy = orderStrategylist.get(i);
 			}
 		}
 
