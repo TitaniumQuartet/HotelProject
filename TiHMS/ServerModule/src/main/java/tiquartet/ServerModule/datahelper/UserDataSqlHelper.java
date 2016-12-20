@@ -21,28 +21,30 @@ public class UserDataSqlHelper implements UserDataHelper{
 	 * @return
 	 */
 	public UserPO createuserpo(ResultSet rs){
+		UserPO userpo=new UserPO();
 		try{
-			int userId=rs.getInt(1);
-        	String userName=rs.getString(2);
-		    String password=rs.getString(3);
-		    UserType userType=UserType.values()[rs.getInt(4)];
-		    String realName=rs.getString(5);
-		    double credit=rs.getDouble(6);
-		    String birthday=rs.getString(7);
-		    int memberRank=rs.getInt(8);
-		    boolean isMember=rs.getBoolean(9);
-		    String company=rs.getString(10);
-		    int hotelId=rs.getInt(11);
-		    boolean login=rs.getBoolean(12);
-		    MemberType memberType=MemberType.values()[rs.getInt(13)];
-		    String phone=rs.getString(14);
-		    UserPO userpo=new UserPO(userId,userName,password,userType,realName,credit,birthday,memberRank,isMember,company,hotelId,login,memberType,phone);
-	    	return userpo;
+			if(rs.next()){
+				int userId=rs.getInt(1);
+	        	String userName=rs.getString(2);
+			    String password=rs.getString(3);
+			    UserType userType=UserType.values()[rs.getInt(4)];
+			    String realName=rs.getString(5);
+			    double credit=rs.getDouble(6);
+			    String birthday=rs.getString(7);
+			    int memberRank=rs.getInt(8);
+			    boolean isMember=rs.getBoolean(9);
+			    String company=rs.getString(10);
+			    int hotelId=rs.getInt(11);
+			    boolean login=rs.getBoolean(12);
+			    MemberType memberType=MemberType.values()[rs.getInt(13)];
+			    String phone=rs.getString(14);
+			    userpo=new UserPO(userId,userName,password,userType,realName,credit,birthday,memberRank,isMember,company,hotelId,login,memberType,phone);
+			}
+		    	return userpo;
 		}catch (SQLException e) {
 	        e.printStackTrace();
 	        return null;
-	    }
-		
+	    }		
 	}
 	
 	ResultMessage success=new ResultMessage(true);

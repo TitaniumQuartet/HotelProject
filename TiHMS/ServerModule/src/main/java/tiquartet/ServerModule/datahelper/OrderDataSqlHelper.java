@@ -43,31 +43,34 @@ public class OrderDataSqlHelper implements OrderDataHelper{
 	 * @return
 	 */
 	public OrderPO createorderpo(ResultSet rs){
+		OrderPO orderpo=new OrderPO();
 		try{
-			long orderId=rs.getLong(1);
-			OrderStatus orderStatus=OrderStatus.values()[rs.getInt(2)];
-        	String latestTime=rs.getString(3);
-        	String roomNumber=rs.getString(4);
-        	String roomId=rs.getString(5);
-		    int numberOfRoom=rs.getInt(6);
-		    int numberOfPeople=rs.getInt(7);
-		    int child=rs.getInt(8);
-		    String guestRealName=rs.getString(9);
-		    String clientRealName=rs.getString(10);
-		    String hotelName=rs.getString(11);
-		    int userId=rs.getInt(12);
-		    String userName=rs.getString(13);
-		    String startTime=rs.getString(14);
-		    String leaveTime=rs.getString(15);
-		    String orderTime=rs.getString(16);
-		    double price=rs.getDouble(17);
-		    int hotelId=rs.getInt(18);	
-		    String phone=rs.getString(19);
-		    String roomType=rs.getString(20);
-		    HashMap<Integer, String> roomMap=transform(roomNumber, roomId);
-		    OrderPO orderpo=new OrderPO(orderId,orderStatus,latestTime,roomMap,numberOfRoom,numberOfPeople,child,guestRealName,clientRealName,hotelName,userId,userName,startTime,leaveTime,orderTime,price,hotelId,phone,roomType);
-		    return orderpo;
-		}catch (Exception e) {
+			if(rs.next()){
+				long orderId=rs.getLong(1);
+				OrderStatus orderStatus=OrderStatus.values()[rs.getInt(2)];
+	        	String latestTime=rs.getString(3);
+	        	String roomNumber=rs.getString(4);
+	        	String roomId=rs.getString(5);
+			    int numberOfRoom=rs.getInt(6);
+			    int numberOfPeople=rs.getInt(7);
+			    int child=rs.getInt(8);
+			    String guestRealName=rs.getString(9);
+			    String clientRealName=rs.getString(10);
+			    String hotelName=rs.getString(11);
+			    int userId=rs.getInt(12);
+			    String userName=rs.getString(13);
+			    String startTime=rs.getString(14);
+			    String leaveTime=rs.getString(15);
+			    String orderTime=rs.getString(16);
+			    double price=rs.getDouble(17);
+			    int hotelId=rs.getInt(18);	
+			    String phone=rs.getString(19);
+			    String roomType=rs.getString(20);
+			    HashMap<Integer, String> roomMap=transform(roomNumber, roomId);
+			    orderpo=new OrderPO(orderId,orderStatus,latestTime,roomMap,numberOfRoom,numberOfPeople,child,guestRealName,clientRealName,hotelName,userId,userName,startTime,leaveTime,orderTime,price,hotelId,phone,roomType);
+			}
+			return orderpo;
+		}catch (SQLException e) {
 			e.printStackTrace();
 			return null;
 		}

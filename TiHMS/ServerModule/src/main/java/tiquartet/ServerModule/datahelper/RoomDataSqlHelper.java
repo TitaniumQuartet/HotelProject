@@ -41,7 +41,7 @@ public class RoomDataSqlHelper implements RoomDataHelper{
 	}
 	
 	/**
-	 * 判断客房在某时间段是否可预定
+	 * 判断客房在某时间段是否可预定.
 	 * @return
 	 */
 	public boolean timeConflict(String startDate, String endDate, String startTime, String leaveTime){
@@ -53,7 +53,30 @@ public class RoomDataSqlHelper implements RoomDataHelper{
 	}
 	
 	/**
-	 * 根据客房编号得到房间类型
+	 * 根据数据库里的数据创建roomtypepo.
+	 * @return
+	 */
+	public RoomTypePO createroomTypePO(ResultSet rs){
+		RoomTypePO roomtypepo=new RoomTypePO();
+		try{
+			if(rs.next()){
+				int roomTypeId=rs.getInt(1);
+		       	String typeIntro=rs.getString(2);
+		       	double price=rs.getDouble(3);
+		       	String roomType=rs.getString(4);
+		       	int hotelId=rs.getInt(5);
+		       	int number=rs.getInt(6);
+				roomtypepo = new RoomTypePO(roomTypeId,roomType,typeIntro,price,hotelId,number);
+		        }
+		}catch (SQLException e) {
+			  e.printStackTrace();
+		        return null;
+		}
+		return roomtypepo;
+	}
+	
+	/**
+	 * 根据客房编号得到房间类型.
 	 * @return
 	 */
 	public RoomTypePO getRoomType(int roomID){
@@ -67,12 +90,7 @@ public class RoomDataSqlHelper implements RoomDataHelper{
 	       	String sqll = "SELECT * FROM roomType where roomTypeId =" + roomTypeId;
 	       	pstmt = (PreparedStatement)conn.prepareStatement(sqll);
 	        ResultSet rs = pstmt.executeQuery();
-	       	String typeIntro=rs.getString(2);
-	       	double price=rs.getDouble(3);
-	       	String roomType=rs.getString(4);
-	       	int hotelId=rs.getInt(5);
-	       	int number=rs.getInt(6);
-			RoomTypePO roomtypepo = new RoomTypePO(roomTypeId,roomType,typeIntro,price,hotelId,number);
+	        RoomTypePO roomtypepo=createroomTypePO(rs);
 			pstmt.close();
 	        conn.close();
 			return roomtypepo;
@@ -90,6 +108,7 @@ public class RoomDataSqlHelper implements RoomDataHelper{
 	public List<RoomTypePO> availableRoomType(int hotelID, String startDate, String endDate, int numOfRoom) {
 		Connection conn = Connect.getConn();
 		List<RoomTypePO> rooms = new ArrayList<RoomTypePO>();//可用房间类型的po列表
+		List<RoomTypePO> allroom=new ArrayList<RoomTypePO>();//所有可用客房
 		Map<Integer, Integer> roomtAn = new HashMap<Integer, Integer>();//可用客房房间类型和数量
 		String sql="select * from ordertable where hotelId =" + hotelID + " AND where state =" + 3;
 		PreparedStatement pstmt;
@@ -113,16 +132,26 @@ public class RoomDataSqlHelper implements RoomDataHelper{
 	 		    	 }
 	 		   	} 
 	 	    } 
-	        Iterator<Map.Entry<Integer, Integer>> iter = roomtAn.entrySet().iterator();//判断可用客房类型的数量是否足够
-	        while (iter.hasNext()) {
-	        	Map.Entry<Integer, Integer> entry = (Map.Entry<Integer, Integer>) iter.next();
-	        	int key = entry.getKey();
-	        	int val = entry.getValue();
-	        	if(val>=numOfRoom){
-	        		RoomTypePO roomType = getRoomType(key);
-	        		rooms.add(roomType);
-	        	}	        	
-	        }	        
+	        String sqll="select * from roomtype where hotelId ="+hotelID;//得到酒店所有房间类型
+	        pstmt = (PreparedStatement) conn.prepareStatement(sqll);
+	        rs = pstmt.executeQuery();
+	        RoomTypePO roomTypePO=new RoomTypePO();
+	        while(rs.next()){
+	        	roomTypePO=createroomTypePO(rs);
+	        	allroom.add(roomTypePO);
+	        }
+	        Iterator<Map.Entry<Integer, Integer>> iter;
+	       for(int i=0;i<allroom.size();i++){
+	            iter= roomtAn.entrySet().iterator();//判断可用客房类型的数量是否足够
+		        while (iter.hasNext()) {
+		        	Map.Entry<Integer, Integer> entry = (Map.Entry<Integer, Integer>) iter.next();
+		        	int key = entry.getValue();
+		        	int val = entry.getValue();
+		        	if((allroom.get(i).getroomTypeId()==key)&&(allroom.get(i).getnumber()-val)>=numOfRoom){//用房间类型的总量减去被预定了的房间数量
+		        		rooms.add(allroom.get(i));
+		        	}	        	
+		        }
+	        }
 			pstmt.close();
 	        conn.close();
 			return rooms;
@@ -168,7 +197,6 @@ public class RoomDataSqlHelper implements RoomDataHelper{
 	        return fail;
 	    } 	
 	    return success;
-		
 	}
 
 	/**
