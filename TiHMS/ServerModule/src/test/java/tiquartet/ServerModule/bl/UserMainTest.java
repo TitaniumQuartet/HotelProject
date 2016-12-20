@@ -13,12 +13,11 @@ public class UserMainTest {
 
 	@Test
 	public void testlogin() {
-		user=new UserMain();
-		
+		user=new UserMain();	
 		ResultMessage resultMessage = user.login("Tekkie", "1234567");
 		assertEquals(true, resultMessage.result);
 	}
-/*	
+
 	@Test
 	public void testlogout(){
 		user=new UserMain();
@@ -35,5 +34,5 @@ public class UserMainTest {
 		assertEquals(true, result);
 		
 	}
-*/
+
 }
