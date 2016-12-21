@@ -251,13 +251,13 @@ public class UserDataSqlHelper implements UserDataHelper{
 		String level=null;
 		if(memberRank!=-1){
 			Connection conn = Connect.getConn();
-			String sql = "select * from member";
+			String sql = "select * from strategy";
 			PreparedStatement pstmt;
 			try {
 				pstmt = (PreparedStatement) conn.prepareStatement(sql);	
 				ResultSet rs = pstmt.executeQuery();				
 				if(rs.next()){
-					level=rs.getString(1);
+					level=rs.getString(6);
 				}				
 				pstmt.close();
 				conn.close();
@@ -304,7 +304,7 @@ public class UserDataSqlHelper implements UserDataHelper{
 	        	memberRank=rs.getInt(8);
 	        }
 	        memberRank=memberRank(credit,memberRank);	        
-	        String sqll = "update user set credit=" + credit + ",set memberRank="+memberRank+" where userId = " + rs.getInt(1);
+	        String sqll = "update user set credit=" + credit + ", memberRank="+memberRank+" where userId = " + userID;
 	        pstmt = (PreparedStatement) conn.prepareStatement(sqll);
 	        pstmt.executeUpdate();
 	        pstmt.close();

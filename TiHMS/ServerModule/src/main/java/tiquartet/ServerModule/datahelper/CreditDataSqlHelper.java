@@ -29,7 +29,7 @@ public class CreditDataSqlHelper implements CreditDataHelper{
 	@Override
 	public ResultMessage insert(CreditPO creditItem) {
 		Connection conn = Connect.getConn();
-	    String sql = "insert into credit(changeType,change,balance,orderId,creditRecordId,userId) values(?,?,?,?,null,?)";
+	    String sql = "insert into credit(changeType,addition,balance,orderId,creditRecordId,userId) values(?,?,?,?,null,?)";
 	    PreparedStatement pstmt;
 	    try {
 	        pstmt = (PreparedStatement) conn.prepareStatement(sql);

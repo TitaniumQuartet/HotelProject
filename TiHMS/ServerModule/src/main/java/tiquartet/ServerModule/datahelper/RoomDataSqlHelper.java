@@ -167,10 +167,10 @@ public class RoomDataSqlHelper implements RoomDataHelper{
 	 */
 	@Override
 	public ResultMessage update(RoomPO room) {//hotelid不可修改
-	    String sql = "update roomType set roomTypeId=" + room.getroomTypeId() +
+	    String sql = "update room set roomTypeId=" + room.getroomTypeId() +
 	    		", roomNumber='" + room.getroomNumber() +
 	    		"', state=" + room.getstateAsInt() +
-	            " where roomId='" + room.getroomId();
+	            " where roomId=" + room.getroomId();
 	    return updatetable(sql);
 	}
 
@@ -216,7 +216,7 @@ public class RoomDataSqlHelper implements RoomDataHelper{
 	@Override
 	public ResultMessage checkIn(int roomID) {
 		String sql = "update room set state =" + 1 +
-	            " where roomId='" + roomID;
+	            " where roomId=" + roomID;
 	    return updatetable(sql);
 	}
 
@@ -227,7 +227,7 @@ public class RoomDataSqlHelper implements RoomDataHelper{
 	@Override
 	public ResultMessage checkOut(int roomID) {
 		String sql = "update room set state =" + 0 +
-	            " where roomId='" + roomID;
+	            " where roomId=" + roomID;
 	    return updatetable(sql);
 	}
 
@@ -311,7 +311,7 @@ public class RoomDataSqlHelper implements RoomDataHelper{
 	    		"', price=" + room.getprice() +
 	    		", roomType='" + room.getroomType() +
 	    		"', number=" + room.getnumber() +
-	            " where roomTypeId='" + room.getroomTypeId();
+	            " where roomTypeId=" + room.getroomTypeId();
 	    return updatetable(sql);
 	}
 

@@ -37,7 +37,19 @@ public class UserPO implements Serializable{
 	private boolean login;
 	
 	public UserPO(){
-		
+		this.userId=-1;
+		this.userName=null;
+		this.password=null;
+		this.userType=UserType.客户;
+		this.realName=null;
+		this.credit=0;
+		this.birthday=null;
+		this.memberLevel=-1;
+		this.isMember=false;
+		this.company=null;
+		this.hotelId=-1;
+		this.memberType=MemberType.非会员;
+		this.phone=null;
 	}
 	
 	public UserPO(int userId,String userName,String password,UserType userType,String realName,double credit, String birthday,int memberRank,boolean isMember,String company,int hotelId,boolean login,MemberType memberType,String phone){

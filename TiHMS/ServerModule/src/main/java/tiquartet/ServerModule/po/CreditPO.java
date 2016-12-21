@@ -41,6 +41,7 @@ public class CreditPO implements Serializable {
 		this.balance = creditVO.balance;
 		this.orderId = creditVO.orderID;
 		this.creditRecordId = creditVO.creditRecordID;
+		this.userID = userID;
 	}
 
 	public CreditChange getchangeType() {

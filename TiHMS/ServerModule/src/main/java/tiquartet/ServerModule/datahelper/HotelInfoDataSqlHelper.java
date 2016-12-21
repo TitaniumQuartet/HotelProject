@@ -101,7 +101,7 @@ public class HotelInfoDataSqlHelper implements HotelInfoDataHelper{
 	@Override
 	public ResultMessage insert(HotelInfoPO hotelInfo) {
 		Connection conn = Connect.getConn();
-	    String sql = "insert into hotelInfo(hotelId,hotelName,star,address,hotelIntroduction,serviceIntrduction,circleId,circleName,lowPrice,highPrice,averageGrade,cityName) values(?,?,?,?,?,?,?,?,?,?,?,?)";
+	    String sql = "insert into hotelInfo(hotelId,hotelName,star,address,hotelIntroduction,serviceIntroduction,circleId,circleName,lowPrice,highPrice,averageGrade,cityName) values(?,?,?,?,?,?,?,?,?,?,?,?)";
 	    PreparedStatement pstmt;
 	    try {
 	        pstmt = (PreparedStatement) conn.prepareStatement(sql);
