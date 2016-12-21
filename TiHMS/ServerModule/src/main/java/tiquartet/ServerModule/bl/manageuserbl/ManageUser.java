@@ -89,7 +89,7 @@ public class ManageUser implements ManageUserBLService {
 			UserSort sort, int rank1, int rank2) {
 		
 		//获取po列表
-		List<UserPO> userPOs = userDataService.searchUser(null, null, null);
+		List<UserPO> userPOs = userDataService.searchUser(filter.username, filter.realName, filter.userType);
 		
 		//po列表转vo列表
 		List<UserVO> userVOs = new ArrayList<UserVO>();
@@ -102,10 +102,7 @@ public class ManageUser implements ManageUserBLService {
 		//根据筛选条件进行筛选
 		List<UserVO> filterUser = new ArrayList<UserVO>();
 		for(UserVO userVO2: userVOs){
-			if(userVO2.userName.equals(filter.username)
-					&& userVO2.realName.equals(filter.realName)
-					&& userVO2.userType.equals(filter.userType)
-					&& userVO2.memberType.equals(filter.memberType)){
+			if(userVO2.memberType.equals(filter.memberType)){
 				filterUser.add(userVO2);
 			}
 		}

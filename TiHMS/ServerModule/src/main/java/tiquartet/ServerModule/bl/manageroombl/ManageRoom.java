@@ -6,6 +6,7 @@
  */
 package tiquartet.ServerModule.bl.manageroombl;
 
+import java.security.PrivilegedActionException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,6 +14,8 @@ import tiquartet.CommonModule.blservice.manageroomblservice.ManageRoomBLService;
 import tiquartet.CommonModule.util.ResultMessage;
 import tiquartet.CommonModule.vo.RoomTypeVO;
 import tiquartet.CommonModule.vo.RoomVO;
+import tiquartet.ServerModule.dataservice.hotelinfodataservice.HotelInfoDataService;
+import tiquartet.ServerModule.dataservice.impl.HotelInfoDataImpl;
 import tiquartet.ServerModule.dataservice.impl.RoomDataImpl;
 import tiquartet.ServerModule.dataservice.roomdataservice.RoomDataService;
 import tiquartet.ServerModule.po.RoomPO;
@@ -22,9 +25,11 @@ import tiquartet.ServerModule.po.RoomTypePO;
 public class ManageRoom implements ManageRoomBLService {
 	
 	private RoomDataService roomDataService;
+	private HotelInfoDataService hotelInfoDataService;
 	
 	public ManageRoom(){
 		roomDataService = RoomDataImpl.getInstance();
+		hotelInfoDataService = HotelInfoDataImpl.getInstance();
 	}
 	
 	/*
@@ -131,7 +136,7 @@ public class ManageRoom implements ManageRoomBLService {
 	public ResultMessage deleteRoomType (int hotelID, int roomTypeID) {
 		
 		//获取所有房间类型
-		List<RoomTypePO> roomTypePOs = roomDataService.availableRoomType(hotelID, null, null, -1);
+		List<RoomTypePO> roomTypePOs = hotelInfoDataService.getRoomTypes(hotelID);
 		//找出对应类型的po
 		ResultMessage result = new ResultMessage(false);
 		for(RoomTypePO roomTypePO: roomTypePOs){

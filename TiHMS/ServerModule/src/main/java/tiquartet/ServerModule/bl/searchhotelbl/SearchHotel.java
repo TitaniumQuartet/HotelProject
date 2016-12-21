@@ -130,7 +130,7 @@ public class SearchHotel implements SearchHotelBLService {
 		//将HotelInfoPO列表进行筛选
 		List<HotelInfoPO> filterList = new ArrayList<HotelInfoPO>();
 		for(HotelInfoPO hotelInfoPO: hotelInfoPOs){
-			if((hotelInfoPO.gethotelName().equals(filter.hotelName))
+			if((hotelInfoPO.gethotelName().contains(filter.hotelName))
 					&& (hotelInfoPO.getaverageGrade() >= filter.lowestGrade && hotelInfoPO.getaverageGrade() <= filter.highestGrade)
 					&& (hotelInfoPO.getstar() >= filter.lowestStar && hotelInfoPO.getstar() <= filter.highestStar)
 					&& (hotelInfoPO.getlowprice() >= filter.lowestPrice && hotelInfoPO.gethighprice() <= filter.highestPrice)
@@ -166,7 +166,7 @@ public class SearchHotel implements SearchHotelBLService {
 			Collections.sort(filterList, new Comparator<HotelInfoPO>(){
 				@Override
 				public int compare(HotelInfoPO o1, HotelInfoPO o2) {
-				return ((int)(o1.getaverageGrade())-(int)(o2.getaverageGrade()));
+				return ((int)(o1.getaverageGrade()*10)-(int)(o2.getaverageGrade()*10));
 				}
 				});
 		}
@@ -175,7 +175,7 @@ public class SearchHotel implements SearchHotelBLService {
 			Collections.sort(filterList, new Comparator<HotelInfoPO>(){
 				@Override
 				public int compare(HotelInfoPO o1, HotelInfoPO o2) {
-				return ((int)o1.getaverageGrade()-(int)o2.getaverageGrade());
+				return ((int)(o1.getaverageGrade()*10)-(int)(o2.getaverageGrade()*10));
 				}
 				});
 			//升序后倒置
