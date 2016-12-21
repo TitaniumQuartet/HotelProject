@@ -12,6 +12,7 @@ import java.util.Comparator;
 import java.util.List;
 
 import tiquartet.CommonModule.blservice.manageuserblservice.ManageUserBLService;
+import tiquartet.CommonModule.util.MemberType;
 import tiquartet.CommonModule.util.ResultMessage;
 import tiquartet.CommonModule.util.UserSort;
 import tiquartet.CommonModule.vo.CreditVO;
@@ -258,9 +259,11 @@ public class ManageUser implements ManageUserBLService {
 		//判断用户类型
 		if(member.birthday == null){
 			//会员类型设为企业会员
+			memberPO.setmemberType(MemberType.企业会员);
 		}
 		else if(member.companyName == null){
 			//会员类型设为个人会员
+			memberPO.setmemberType(MemberType.个人会员);
 		}
 		ResultMessage result = userDataService.update(memberPO);
 

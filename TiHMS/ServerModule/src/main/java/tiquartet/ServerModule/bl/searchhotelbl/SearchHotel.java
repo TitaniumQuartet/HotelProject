@@ -18,10 +18,6 @@ import tiquartet.CommonModule.util.ResultMessage;
 import tiquartet.CommonModule.vo.DistrictVO;
 import tiquartet.CommonModule.vo.HotelBriefVO;
 import tiquartet.CommonModule.vo.HotelFilterVO;
-import tiquartet.CommonModule.vo.HotelInfoVO;
-import tiquartet.CommonModule.vo.OrderVO;
-import tiquartet.ServerModule.bl.hotelinfobl.HotelInfoController;
-import tiquartet.ServerModule.bl.manageorderbl.ManageOrderController;
 import tiquartet.ServerModule.dataservice.hotelinfodataservice.HotelInfoDataService;
 import tiquartet.ServerModule.dataservice.impl.HotelInfoDataImpl;
 import tiquartet.ServerModule.dataservice.impl.LocationDataImpl;
@@ -51,7 +47,7 @@ public class SearchHotel implements SearchHotelBLService {
 	public List<HotelBriefVO> recommend (int userID) throws RemoteException {
 
 		//先调用数据层的方法获取用户订单列表
-		List<OrderPO> orderPOs = orderDataService.searchByUser(-1, userID);
+		List<OrderPO> orderPOs = orderDataService.searchByUser(userID);
 		
 		List<HotelBriefVO> recommend = new ArrayList<HotelBriefVO>();
 		
@@ -246,7 +242,8 @@ public class SearchHotel implements SearchHotelBLService {
 	 */
 	public ResultMessage updateDistricts(DistrictVO district){
 		
-		ResultMessage result = locationDataService.update(district);
+		DistrictPO districtPO = new DistrictPO(district);
+		ResultMessage result = locationDataService.update(districtPO);
 		
 		return result;
 	}

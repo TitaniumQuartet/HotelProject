@@ -26,6 +26,14 @@ public class DistrictPO {
 	}
 	
 	/**
+	 * vo转po
+	 */
+	public DistrictPO(DistrictVO districtVO){
+		this.cityMap = districtVO.cityMap;
+		this.districtMap = districtVO.districtMap;
+	}
+	
+	/**
 	 * 使用两个HashMap来构造新的DistrictPO.
 	 * @param cityMap
 	 * @param districtMap
