@@ -7,15 +7,15 @@ import tiquartet.CommonModule.vo.RoomVO;
 
 public class RoomPO implements Serializable{
 	//房间编号
-	private int roomId=0;
+	private int roomId=-1;
 	//房间号
 	private String roomNumber="";
 	//房间类型编号
-	private int roomTypeId=0;
+	private int roomTypeId=-1;
 	//房间状态
 	private RoomStatus state=RoomStatus.空闲;
 	//酒店编号
-	private int hotelId;
+	private int hotelId=-1;
 	public RoomPO(){
 		
 	}
