@@ -66,6 +66,8 @@ public class SearchHotelTest {
 		hotelFilterVO.highestStar=5;
 		hotelFilterVO.lowestGrade=0;
 		hotelFilterVO.highestGrade=5;
+		
+		hotelFilterVO.hotelName = "NumTwo";
 		List<HotelBriefVO> hotelBriefVOs = hotel.getHotelList(hotelFilterVO, HotelSort.星级升序, 1, 10);
 		
 		HotelBriefVO hotelBriefVO = new HotelBriefVO();
@@ -78,10 +80,10 @@ public class SearchHotelTest {
 		
 		List<HotelBriefVO> hotelBriefVOs2 = new ArrayList<HotelBriefVO>();
 		hotelBriefVOs2.add(hotelBriefVO);
-		System.out.println(hotelBriefVOs.size());
+		System.out.println(hotelBriefVOs2.get(0).hotelID);
 		for(int i = 0; i < hotelBriefVOs.size(); i++){
 			assertEquals(hotelBriefVOs.get(i).circleName, hotelBriefVOs2.get(i).circleName);
-			assertEquals(hotelBriefVOs.get(i).cityName, hotelBriefVOs2.get(i).cityName);
+			assertEquals(hotelBriefVOs.get(i).cityName, hotelBriefVOs2.get(i).cityName);			
 			assertEquals(hotelBriefVOs.get(i).hotelID, hotelBriefVOs2.get(i).hotelID);
 			assertEquals(hotelBriefVOs.get(i).hotelName, hotelBriefVOs2.get(i).hotelName);
 			assertEquals(hotelBriefVOs.get(i).introduction, hotelBriefVOs2.get(i).introduction);

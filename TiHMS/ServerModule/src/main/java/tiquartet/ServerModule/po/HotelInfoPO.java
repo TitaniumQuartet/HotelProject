@@ -61,7 +61,7 @@ public class HotelInfoPO implements Serializable{
 		this.lowprice=lowprice;
 		this.highprice=highprice;
 		this.averageGrade=averageGrade;
-		this.cityName=circleName;
+		this.cityName=cityName;
 	}
 	
 	public int gethotelId(){
