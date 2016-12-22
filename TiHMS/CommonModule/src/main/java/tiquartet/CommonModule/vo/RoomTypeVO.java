@@ -11,4 +11,8 @@ public class RoomTypeVO implements Serializable{
 	    public String  typeIntroduction = "";
 	    //客房价格
 	    public double price = -1;
+	    //酒店编号
+	    public int hotelID = -1;
+	    //可预订房间数量
+	    public int number = -1;
 }

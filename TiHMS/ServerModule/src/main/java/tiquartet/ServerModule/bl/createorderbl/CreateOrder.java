@@ -22,8 +22,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import javax.imageio.ImageReader;
-
 import tiquartet.CommonModule.blservice.createorderblservice.CreateOrderBLService;
 import tiquartet.CommonModule.util.OrderStatus;
 import tiquartet.CommonModule.util.ResultMessage;
