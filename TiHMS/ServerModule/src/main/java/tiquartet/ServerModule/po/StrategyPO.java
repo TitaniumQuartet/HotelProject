@@ -7,15 +7,15 @@ import tiquartet.CommonModule.vo.StrategyVO;
 
 public class StrategyPO implements Serializable{
 	//策略编号
-	private int strategyId=-1;
+	private int strategyId=0;
 	//策略介绍
 	private String strategyIntro="";
 	//酒店编号
-	private int  hotelId=-1;	
+	private int  hotelId=0;	
 	//商圈编号
-	private int circleID=-1;
+	private int circleID=0;
 	//折扣比例
-	private double discount=-1;
+	private double discount=0;
 	//门槛上线
 	private double[] memberThreShold={0,0,0,0,0,0,0,0,0};
 	//会员等级对应折扣
@@ -27,7 +27,7 @@ public class StrategyPO implements Serializable{
 	//策略类型
 	private StrategyType strategyType=StrategyType.TIME;
 	//所需房间数目
-	private int numOfRoom=-1;
+	private int numOfRoom=0;
 	public StrategyPO(){
 		
 	}

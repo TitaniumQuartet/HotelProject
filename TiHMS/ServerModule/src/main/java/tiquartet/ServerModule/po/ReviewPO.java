@@ -8,13 +8,13 @@ import tiquartet.CommonModule.vo.ReviewVO;
 
 public class ReviewPO implements Serializable{
 	//酒店编号
-	private int hotelId=-1;
+	private int hotelId=0;
 	//评分
-	private int score=-1;
+	private int score=0;
 	//评价内容
 	private String review="";
 	//用户编号
-	private int userId=-1;
+	private int userId=0;
 	//用户名
 	private String userName="";
 	//评价时间

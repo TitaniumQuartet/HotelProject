@@ -11,13 +11,13 @@ public class CreditPO implements Serializable {
 	// 变更数额
 	private double change = -1;
 	// 变化后的余额
-	private double balance = -1;
+	private double balance = 0;
 	// 订单编号
-	private long orderId = -1;
+	private long orderId = 0;
 	// 信用记录编号
-	private  long creditRecordId = -1;
+	private  long creditRecordId = 0;
 	// 用户编号
-	private int userID = -1;
+	private int userID = 0;
 
 	public CreditPO() {
 

@@ -163,7 +163,7 @@ public class OrderDataSqlHelper implements OrderDataHelper{
 	public ResultMessage update(OrderPO order) {
 		Connection conn = Connect.getConn();
 		String[] room=order.getroom().split(";");
-	    String sql = "update ordertable set latestTime='" + order.getlatestTime() +
+	    String sql = "update ordertable set lastestTime='" + order.getlatestTime() +
 	    		"', numberOfRoom=" + order.getnumberOfRoom() +
 	    		", numberOfPeople=" + order.getnumberOfPeople() +
 	    		", child=" + order.getchild() +

@@ -8,7 +8,7 @@ import tiquartet.CommonModule.vo.UserVO;
 
 public class UserPO implements Serializable{
 	//用户编号
-	private int userId=-1;
+	private int userId=0;
 	//用户名
 	private String userName="";
 	//密码
@@ -22,17 +22,17 @@ public class UserPO implements Serializable{
 	//会员类型
 	private MemberType memberType=MemberType.非会员;
 	//当前信用值
-	private double credit=-1;
+	private double credit=0;
 	//生日
 	private String birthday="";
 	//会员等级
-	private int memberLevel=-1;
+	private int memberLevel=0;
 	//是否会员
 	private boolean isMember=false;
 	//公司名称（用户为会员）
 	private String company="";
 	//酒店编号（用户为酒店工作人员时）
-	private int hotelId=-1;
+	private int hotelId=0;
 	//是否已登录
 	private boolean login=false;
 	
