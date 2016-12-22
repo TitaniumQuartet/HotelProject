@@ -57,6 +57,8 @@ public class StrategyPO implements Serializable{
 		this.startTime=vo.startTime;
 		this.endTime=vo.endTime;
 		this.strategyType=vo.strategyType;
+		this.circleID=vo.circleID;
+		this.numOfRoom=vo.numOfRoom;
 	}
 	public int getstrategyId(){
 		return strategyId;
@@ -101,6 +103,8 @@ public class StrategyPO implements Serializable{
 		vo.endTime=this.endTime;
 		vo.startTime=this.startTime;
 		vo.strategyType=this.strategyType;
+		vo.circleID=this.circleID;
+		vo.numOfRoom=this.numOfRoom;
 		return vo;
 	}
 
