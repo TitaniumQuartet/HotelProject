@@ -48,12 +48,13 @@ public class CreateOrder implements CreateOrderBLService {
 		orderdataimpl = OrderDataImpl.getInstance();
 		roomdataimpl = RoomDataImpl.getInstance();
 	}
-    //获得最优惠订单
+
+	// 获得最优惠订单
 	public OrderStrategyVO getStrategy(int userID) throws RemoteException {
 		PreOrderVO preorder = map.get(userID);
 		List<OrderPO> orderlist = orderdataimpl.searchByUser(userID);
-		for(int i = 0 ;i< orderlist.size();i++){
-			if(orderlist.get(i).gethotelId()!=preorder.hotelID){
+		for (int i = 0; i < orderlist.size(); i++) {
+			if (orderlist.get(i).gethotelId() != preorder.hotelID) {
 				orderlist.remove(i);
 			}
 		}
@@ -68,10 +69,10 @@ public class CreateOrder implements CreateOrderBLService {
 		List<StrategyPO> polist1 = strategydataimpl.searchByHotel(0);
 		polist.addAll(polist1);
 		List<OrderStrategyVO> orderStrategylist = new ArrayList<OrderStrategyVO>();
-		OrderStrategyVO orderstrategy ;
+		OrderStrategyVO orderstrategy;
 		// 计算价格
 		for (int i = 0; i < polist.size(); i++) {
-			orderstrategy=new OrderStrategyVO();
+			orderstrategy = new OrderStrategyVO();
 			orderstrategy.orderID = order.getorderId();
 			orderstrategy.strategyID = polist.get(i).getstrategyId();
 			orderstrategy.strategyIntroduce = polist.get(i).getstrategyIntro();
@@ -92,12 +93,23 @@ public class CreateOrder implements CreateOrderBLService {
 					orderStrategylist.add(orderstrategy);
 				}
 			} else if (polist.get(i).getStrategyType() == StrategyType.ROOMNUM) {
-				if (preorder.numOfRoom >= polist.get(i).getnumOfRoom()) {
-					price = price * polist.get(i).getdiscount();
-					orderstrategy.orderPrice = price;
-					orderStrategylist.add(orderstrategy);
+				DateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+				Date nowdate = new Date();
+				try {
+					Date startdate = format.parse(polist.get(i).getStartTime());
+					Date enddate = format.parse(polist.get(i).getEndTime());
+					if (preorder.numOfRoom >= polist.get(i).getnumOfRoom() && startdate.before(nowdate)
+							&& enddate.after(nowdate)) {
+						price = price * polist.get(i).getdiscount();
+						orderstrategy.orderPrice = price;
+						orderStrategylist.add(orderstrategy);
+					}
+				} catch (ParseException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
 				}
-			}else if(polist.get(i).getStrategyType() == StrategyType.TIME) {
+
+			} else if (polist.get(i).getStrategyType() == StrategyType.TIME) {
 				DateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 				Date nowdate = new Date();
 				try {
@@ -113,10 +125,10 @@ public class CreateOrder implements CreateOrderBLService {
 					e.printStackTrace();
 				}
 
-			}else {
-				if(user.getisMember()){
-					double[] memberDiscount = polist.get(i).getMemberDiscount(); 
-					price = price * memberDiscount[user.getmemberRank()-1];
+			} else {
+				if (user.getisMember()) {
+					double[] memberDiscount = polist.get(i).getMemberDiscount();
+					price = price * memberDiscount[user.getmemberRank() - 1];
 				}
 			}
 
@@ -131,7 +143,8 @@ public class CreateOrder implements CreateOrderBLService {
 
 		return nowOrderStrategy;
 	}
-    //处理暂时预定的订单
+
+	// 处理暂时预定的订单
 	public ResultMessage preOrder(PreOrderVO preOrder) throws RemoteException {
 		if (preOrder.userID == -1) {
 			return new ResultMessage(false, "订单用户为空", "");
@@ -153,12 +166,13 @@ public class CreateOrder implements CreateOrderBLService {
 		}
 		return new ResultMessage(false, "预定失败", "");
 	}
-    //取消暂时订单
+
+	// 取消暂时订单
 	public ResultMessage cancelPreOrder(int userID) throws RemoteException {
 		int hotelID = map.get(userID).hotelID;
 		List<OrderPO> orderlist = orderdataimpl.searchByUser(userID);
-		for(int i=0;i<orderlist.size();i++){
-			if(orderlist.get(i).gethotelId()!=hotelID){
+		for (int i = 0; i < orderlist.size(); i++) {
+			if (orderlist.get(i).gethotelId() != hotelID) {
 				orderlist.remove(i);
 			}
 		}
@@ -172,7 +186,8 @@ public class CreateOrder implements CreateOrderBLService {
 		}
 		return new ResultMessage(false, "找不到该订单", "");
 	}
-    //完成订单。
+
+	// 完成订单。
 	public ResultMessage confirm(OrderInfoVO orderInfo) throws RemoteException {
 		PreOrderVO preorder = map.get(orderInfo.userID);
 		OrderPO order = new OrderPO(preorder);
@@ -187,7 +202,8 @@ public class CreateOrder implements CreateOrderBLService {
 		order.setorderStatus(OrderStatus.未执行订单);
 		return orderdataimpl.update(order);
 	}
-    //线下入住
+
+	// 线下入住
 	public List<String> offLine(PreOrderVO preOrder) throws RemoteException {
 		OrderPO order = new OrderPO(preOrder);
 		order.setorderStatus(OrderStatus.线下已执行订单);

@@ -22,7 +22,7 @@ public class StrategyTest {
 		vo.discount = 0.8;
 		vo.startTime = "2016-11-11 00:00:00";
 		vo.endTime = "2016-11-11 24:00:00";
-		vo.hotelID = 01023004;
+		vo.hotelID = 101001;
 		vo.strategyType = StrategyType.TIME;
 		ResultMessage result = strategy.addStrategy(vo);
 		assertEquals(result.result, true);
@@ -30,37 +30,29 @@ public class StrategyTest {
 
 	@Test
 	public void testdeleteStrategy() throws RemoteException {
-		StrategyVO vo = new StrategyVO();
-		vo.discount = 0.8;
-		vo.startTime = "2016-11-11 00:00:00";
-		vo.endTime = "2016-11-11 24:00:00";
-		vo.hotelID = 01023004;
-		vo.strategyType = StrategyType.TIME;
-		vo.strategyID = 00001111;
-	    strategy.addStrategy(vo);
-		ResultMessage result = strategy.deleteStrategy(00001111);
+		ResultMessage result = strategy.deleteStrategy(7);
 		assertEquals(result.result, true);
 	}
 
 	@Test
 	public void testgetStrategy() throws RemoteException {
-		StrategyVO vo = new StrategyVO();
-		vo.discount = 0.8;
-		vo.startTime = "2016-11-11 00:00:00";
-		vo.endTime = "2016-11-11 24:00:00";
-		vo.hotelID = 01023004;
-		vo.strategyType = StrategyType.TIME;
-		strategy.addStrategy(vo);
-		StrategyVO vo2 = new StrategyVO();
-		vo2.discount = 0.6;
-		vo2.startTime = "2016-12-12 00:00:00";
-		vo2.endTime = "2016-12-12 24:00:00";
-		vo2.hotelID = 01023004;
-		vo2.strategyType = StrategyType.TIME;
 		List<StrategyVO> list = new ArrayList<>();
-		list = strategy.searchByHotel(01023004);
-		assertEquals(vo, list.get(0));
-		assertEquals(vo2, list.get(1));
+		list = strategy.searchByHotel(101001);
+		for(int i=10;i<list.size();i++){
+			if(list.get(i).strategyID==4){
+				if(list.get(i).discount==0.98){
+					assertEquals(true,true);
+				}else{
+					assertEquals(true,false);
+				}
+			}else if(list.get(i).strategyID==8){
+				if(list.get(i).discount==0.97){
+					assertEquals(true,true);
+				}else{
+					assertEquals(true,false);
+				}
+			}
+		}
 	}
 
 	@Test
@@ -69,11 +61,10 @@ public class StrategyTest {
 		vo.discount = 0.8;
 		vo.startTime = "2016-11-11 00:00:00";
 		vo.endTime = "2016-11-11 24:00:00";
-		vo.hotelID = 01023004;
-		vo.strategyType = StrategyType.TIME;
-		vo.strategyID = 00001111;
-	    strategy.addStrategy(vo);
-	    vo.discount = 0.8;
+		vo.hotelID = 101001;
+		vo.strategyType = StrategyType.ROOMNUM;
+		vo.numOfRoom = 3;
+		vo.strategyID = 4;
 		ResultMessage result = strategy.modifyStrategy(vo);
 		assertEquals(result.result,true);
 	}

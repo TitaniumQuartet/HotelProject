@@ -26,4 +26,6 @@ public class StrategyVO implements Serializable{
      public String endTime;
      //折扣类型
      public StrategyType strategyType;
+     //所需房间数量
+     public int numOfRoom;
 }
