@@ -45,8 +45,8 @@ public class RoomDataSqlHelper implements RoomDataHelper{
 	 * @return
 	 */
 	public boolean timeConflict(String startDate, String endDate, String startTime, String leaveTime){
-		if((Integer.valueOf(startTime)<=Integer.valueOf(startDate)&&Integer.valueOf(leaveTime)>=Integer.valueOf(startDate))||
-				(Integer.valueOf(startTime)<=Integer.valueOf(endDate)&&Integer.valueOf(leaveTime)>=Integer.valueOf(endDate))){
+		if((Integer.valueOf(startTime)<=Integer.valueOf(startDate)&&Integer.valueOf(endDate)>=Integer.valueOf(startTime))||
+				(Integer.valueOf(leaveTime)<=Integer.valueOf(endDate)&&Integer.valueOf(leaveTime)>=Integer.valueOf(startDate))){
 			return true;
 		}
 		return false;
@@ -110,7 +110,7 @@ public class RoomDataSqlHelper implements RoomDataHelper{
 		List<RoomTypePO> rooms = new ArrayList<RoomTypePO>();//可用房间类型的po列表
 		List<RoomTypePO> allroom=new ArrayList<RoomTypePO>();//所有可用客房
 		Map<Integer, Integer> roomtAn = new HashMap<Integer, Integer>();//可用客房房间类型和数量
-		String sql="select * from ordertable where hotelId =" + hotelID + " AND where orderStatus = " + 3;
+		String sql="select * from ordertable where hotelId =" + hotelID + " AND where orderStatus = " + 3+" OR "+1+"OR"+5;
 		PreparedStatement pstmt;
 		try {
 			pstmt = (PreparedStatement) conn.prepareStatement(sql);
@@ -119,20 +119,21 @@ public class RoomDataSqlHelper implements RoomDataHelper{
 	        	String roomId=rs.getString(5);
 	        	String startTime=rs.getString(14);
 	 		    String leaveTime=rs.getString(15);
-	 		     if(!timeConflict(startDate, endDate, startTime, leaveTime)){//判断订单时间与预定时间是否冲突
+	 		     if(timeConflict(startDate, endDate, startTime, leaveTime)){//判断订单时间与预定时间是否冲突
 	 		    	 String[] roomid=roomId.split(",");
 	 		    	 int[] roomID=new int[roomid.length];//得到订单上的所有房间编号
 	 		    	 for(int i=0;i<roomid.length;i++){
-	 		    		 roomID[i]=Integer.valueOf(roomid[i]);	 		    		
-	 		    		 if(!roomtAn.containsKey(roomID[i])){
-	 		    			 roomtAn.put(roomID[i], 1);
+	 		    		 roomID[i]=Integer.valueOf(roomid[i]);
+	 		    		 int roomTypeId=this.getRoomType(roomID[i]).getroomTypeId();
+	 		    		 if(!roomtAn.containsKey(roomTypeId)){
+	 		    			 roomtAn.put(roomTypeId, 1);
 	 		    		 }else{
-	 		    			 roomtAn.put(roomID[i], roomtAn.get(roomID[i])+1);
+	 		    			 roomtAn.put(roomTypeId, roomtAn.get(roomTypeId)+1);
 	 		    		 }	 		    		   
 	 		    	 }
 	 		   	} 
 	 	    } 
-	        String sqll="select * from roomtype where hotelId ="+hotelID;//得到酒店所有房间类型
+	        String sqll="select * from roomType where hotelId ="+hotelID;//得到酒店所有房间类型
 	        pstmt = (PreparedStatement) conn.prepareStatement(sqll);
 	        rs = pstmt.executeQuery();
 	        RoomTypePO roomTypePO=new RoomTypePO();
@@ -141,7 +142,7 @@ public class RoomDataSqlHelper implements RoomDataHelper{
 	        	allroom.add(roomTypePO);
 	        }
 	        Iterator<Map.Entry<Integer, Integer>> iter;
-	       for(int i=0;i<allroom.size();i++){
+	        for(int i=0;i<allroom.size();i++){
 	            iter= roomtAn.entrySet().iterator();//判断可用客房类型的数量是否足够
 		        while (iter.hasNext()) {
 		        	Map.Entry<Integer, Integer> entry = (Map.Entry<Integer, Integer>) iter.next();

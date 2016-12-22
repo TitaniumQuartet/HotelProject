@@ -4,7 +4,9 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import tiquartet.CommonModule.util.CreditChange;
@@ -31,6 +33,7 @@ public class CreditDataSqlHelper implements CreditDataHelper{
 		Connection conn = Connect.getConn();
 	    String sql = "insert into credit(changeType,addition,balance,orderId,creditRecordId,userId,time) values(?,?,?,?,null,?,?)";
 	    PreparedStatement pstmt;
+		Date now=new Date();
 	    try {
 	        pstmt = (PreparedStatement) conn.prepareStatement(sql);
 	        pstmt.setInt(1,creditItem.getchangeType().ordinal());
@@ -38,7 +41,7 @@ public class CreditDataSqlHelper implements CreditDataHelper{
 	        pstmt.setDouble(3,creditItem.getbalance());
 	        pstmt.setLong(4, creditItem.getorderId());
 	        pstmt.setInt(5, creditItem.getuserID());
-	        pstmt.setString(6, creditItem.gettime());
+	        pstmt.setString(6, now.toString());
 	        pstmt.executeUpdate();
 	        pstmt.close();
 	        conn.close();
