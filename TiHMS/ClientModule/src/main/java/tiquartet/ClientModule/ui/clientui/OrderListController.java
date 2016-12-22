@@ -148,10 +148,10 @@ public class OrderListController implements Initializable {
 		page = 1;
 		int index = cityBox.getSelectionModel().getSelectedIndex();
 		if (index < 1)
-			filter.districtId = -1;
+			filter.cityId = -1;
 		else {
 			String city = cityBox.getItems().get(index);
-			filter.districtId = DistrictData.getCityIDOf(city);
+			filter.cityId = DistrictData.getCityIDOf(city);
 		}
 		index = priceBox.getSelectionModel().getSelectedIndex();
 		switch (index) {

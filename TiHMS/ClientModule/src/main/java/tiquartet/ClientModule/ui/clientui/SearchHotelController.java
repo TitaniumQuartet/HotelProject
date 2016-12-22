@@ -48,10 +48,10 @@ public class SearchHotelController implements Initializable {
 	private TextField hotelNameField;
 
 	@FXML
-	private DatePicker inDateBox;
+	public DatePicker inDateBox;
 
 	@FXML
-	private DatePicker outDateBox;
+	public DatePicker outDateBox;
 
 	@FXML
 	private MenuItem priceDescend;

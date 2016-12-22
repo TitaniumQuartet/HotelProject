@@ -4,7 +4,7 @@ import java.io.Serializable;
 
 public class HotelBriefVO implements Serializable {
 	// 酒店编号
-	public long hotelID = -1;
+	public int hotelID = -1;
 	// 酒店星级
 	public int star = -1;
 	// 用户在该酒店全部订单数量
