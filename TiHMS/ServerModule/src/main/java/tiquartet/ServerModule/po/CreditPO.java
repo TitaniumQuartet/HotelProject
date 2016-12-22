@@ -18,13 +18,15 @@ public class CreditPO implements Serializable {
 	private  long creditRecordId = -1;
 	// 用户编号
 	private int userID = -1;
+	//时间
+	private String time="";
 
 	public CreditPO() {
 
 	}
 
 	public CreditPO(CreditChange changeType, double change, double balance, long orderId, long creditRecordId,
-			int userID) {
+			int userID,String time) {
 		super();
 		this.changeType = changeType;
 		this.change = change;
@@ -32,6 +34,7 @@ public class CreditPO implements Serializable {
 		this.orderId = orderId;
 		this.creditRecordId = creditRecordId;
 		this.userID = userID;
+		this.time=time;
 	}
 
 	public CreditPO(CreditVO creditVO) {
@@ -41,7 +44,8 @@ public class CreditPO implements Serializable {
 		this.balance = creditVO.balance;
 		this.orderId = creditVO.orderID;
 		this.creditRecordId = creditVO.creditRecordID;
-		this.userID = userID;
+		this.userID = creditVO.userID;
+		this.time= creditVO.time;
 	}
 
 	public CreditChange getchangeType() {
@@ -91,6 +95,14 @@ public class CreditPO implements Serializable {
 	public int getuserID() {
 		return this.userID;
 	}
+	
+	public void settime(String time){
+		this.time=time;
+	}
+	
+	public String gettime(){
+		return this.time;
+	}
 
 	public CreditVO getVO() {
 		CreditVO creditVO = new CreditVO();
@@ -100,6 +112,7 @@ public class CreditPO implements Serializable {
 		creditVO.creditRecordID = this.creditRecordId;
 		creditVO.orderID = this.orderId;
 		creditVO.userID = this.userID;
+		creditVO.time=this.time;
 		return creditVO;
 
 	}

@@ -17,4 +17,6 @@ public class CreditVO implements Serializable {
 	public long creditRecordID = -1;
 	// 用户编号
 	public int userID = -1;
+	//时间
+	public String time="";
 }
