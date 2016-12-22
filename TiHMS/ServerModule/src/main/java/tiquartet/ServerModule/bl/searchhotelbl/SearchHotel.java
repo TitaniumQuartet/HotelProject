@@ -86,13 +86,14 @@ public class SearchHotel implements SearchHotelBLService {
 				}
 				c1 = 0;
 			}
-		}
+		}		
 		HotelInfoPO hotelInfoPO2 = hotelInfoDataService.getHotelInfo(hotelId2);
 		hotelBriefVO = hotelInfoPO2.getBriefVO();
 		recommend.add(hotelBriefVO);
 		
 		//找出次多的
 		//先删除最多的再筛选
+		
 		orderPOs.remove(mostIndex);
 		long secondMost = orderPOs.get(0).getorderId();
 		int hotelId3 = orderPOs.get(0).gethotelId();
