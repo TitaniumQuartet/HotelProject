@@ -3,6 +3,9 @@ package tiquartet.ServerModule.bl;
 import static org.junit.Assert.assertEquals;
 
 import java.rmi.RemoteException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import org.junit.Test;
 
@@ -35,5 +38,10 @@ public class ManageOrderTest {
 		ResultMessage result1=manageorder.clientCancel(3);
 		assertEquals(result1.result,false);
 	}
-	
+	public void testcheckIn() throws RemoteException{
+		DateFormat format=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		String estLeaveTime = format.format(new Date());
+		ResultMessage result = manageorder.checkIn(2, estLeaveTime);
+		assertEquals(result.result,false);
+	}
 }

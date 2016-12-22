@@ -5,13 +5,11 @@ import static org.junit.Assert.assertEquals;
 
 import java.rmi.RemoteException;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
 import org.junit.Test;
 
 import tiquartet.CommonModule.util.HotelSort;
-import tiquartet.CommonModule.vo.DistrictVO;
 import tiquartet.CommonModule.vo.HotelBriefVO;
 import tiquartet.CommonModule.vo.HotelFilterVO;
 import tiquartet.ServerModule.bl.searchhotelbl.SearchHotel;
