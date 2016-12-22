@@ -67,22 +67,19 @@ public class SearchHotel implements SearchHotelBLService {
 		hotelBriefVO = hotelInfoPO.getBriefVO();
 		recommend.add(hotelBriefVO);
 		
-		//找出预定最多的
-		long most = orderPOs.get(0).getorderId();
+		//找出预定最多的,即酒店编号出现次数最多的
 		int hotelId2 = orderPOs.get(0).gethotelId();
 		int c1 = 0;
 		int c2 = 0;
-		int mostIndex = 0;
 		
 		for(int i = 0; i < orderPOs.size(); i++){
 			for(int j = i+1; j < orderPOs.size(); j++){
-				if(orderPOs.get(i).getorderId() == orderPOs.get(j).getorderId()){
+				if(orderPOs.get(i).gethotelId() == orderPOs.get(j).gethotelId()){
 					c1++;
 				}
 				if(c1 > c2){
 					c2 = c1;
-					most = orderPOs.get(i).getorderId();
-					mostIndex = i;
+					hotelId2 = orderPOs.get(i).gethotelId();
 				}
 				c1 = 0;
 			}
@@ -94,20 +91,23 @@ public class SearchHotel implements SearchHotelBLService {
 		//找出次多的
 		//先删除最多的再筛选
 		
-		orderPOs.remove(mostIndex);
-		long secondMost = orderPOs.get(0).getorderId();
+		for(int i = 0 ; i < orderPOs.size(); i++){
+			if(orderPOs.get(i).gethotelId() == hotelId2){
+				orderPOs.remove(i);
+			}
+		}
 		int hotelId3 = orderPOs.get(0).gethotelId();
 		int c3 = 0;
 		int c4 = 0;
 		
 		for(int i = 0; i < orderPOs.size(); i++){
 			for(int j = i+1; j <orderPOs.size(); j++){
-				if(orderPOs.get(i).getorderId() == orderPOs.get(j).getorderId()){
+				if(orderPOs.get(i).gethotelId() == orderPOs.get(j).gethotelId()){
 					c3++;
 				}
 				if(c3 > c4){
 					c4 = c3;
-					most = orderPOs.get(i).getorderId();
+					hotelId3 = orderPOs.get(i).gethotelId();
 				}
 				c3 = 0;
 			}

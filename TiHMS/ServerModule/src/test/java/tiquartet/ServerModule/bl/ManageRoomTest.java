@@ -24,7 +24,7 @@ public class ManageRoomTest{
 	public void testgetRoomList(){
 		room = new ManageRoom();
 		
-		List<RoomVO> roomVOs = room.getRoomList(000201001);
+		List<RoomVO> roomVOs = room.getRoomList(201001);
 
 		RoomPO roomPO = new RoomPO(10, "C001", 6, RoomStatus.空闲, 201001);
 		List<RoomVO> rooms = new ArrayList<RoomVO>();
