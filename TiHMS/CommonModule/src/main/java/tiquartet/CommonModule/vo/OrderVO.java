@@ -42,4 +42,6 @@ public class OrderVO implements Serializable{
 		public String hotelName = "";
 		//房间类型名称
 		public String roomTypeName = "";
+		//联系方式
+		public String phone = "";
 }

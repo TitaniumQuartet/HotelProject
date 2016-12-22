@@ -32,7 +32,7 @@ public class OrderPO implements Serializable{
 	//酒店编号
 	private int hotelId=-1;
 	//酒店名称
-	public String hotelName="";
+	private String hotelName="";
 	//用户编号
 	private int userId=-1;
 	//用户名
@@ -67,6 +67,9 @@ public class OrderPO implements Serializable{
 		this.orderTime=vo.orderTime;
 		this.userId=vo.userId;
 		this.userName=vo.userName;
+		this.roomTypeName=vo.roomTypeName;
+		this.phone=vo.phone;
+		this.hotelName=vo.hotelName;
 	}
 	
 	public OrderPO(){
@@ -81,6 +84,8 @@ public class OrderPO implements Serializable{
 		this.numberOfRoom=preorder.numOfRoom;
 		this.userId=preorder.userID;
 		this.userName=preorder.userName;
+		this.roomTypeName=preorder.roomTypeName;
+		this.phone=preorder.phone;
 	}
 	public OrderPO(long orderId,OrderStatus orderStatus,String latestTime,HashMap<Integer, String> roomMap,int numberOfRoom,int numberOfPeople,int child,String guestRealName,String clientRealName,String hotelName,int userId,String userName,String startTime,String leaveTime,String orderTime,double price,int hotelId,String phone,String roomType){
 		super();
@@ -304,7 +309,12 @@ public class OrderPO implements Serializable{
 		vo.userName=this.userName;
 		vo.orderStatus=this.orderStatus;
 		vo.hotelName=this.hotelName;
+		vo.phone=this.phone;
+		vo.roomMap=this.roomMap;
+		vo.price=this.price;
+		vo.roomTypeName=this.roomTypeName;
 		return vo;
+		
 	}
 	
 }

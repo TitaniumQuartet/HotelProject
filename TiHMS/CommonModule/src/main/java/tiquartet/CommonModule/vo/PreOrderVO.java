@@ -3,7 +3,7 @@ package tiquartet.CommonModule.vo;
 import java.io.Serializable;
 
 public class PreOrderVO implements Serializable{
-	//用户编号
+	 //用户编号
      public int userID = -1;
      //酒店编号
      public int hotelID = -1;
@@ -25,4 +25,6 @@ public class PreOrderVO implements Serializable{
      public String hotelName = "";
      //客房类型名称
      public String roomTypeName = "";
+     //联系方式
+     public String phone = "";
 }
