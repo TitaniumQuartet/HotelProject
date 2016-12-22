@@ -32,6 +32,7 @@ public class OrderDataSqlHelper implements OrderDataHelper{
 		int l=0;
 		l=roomn.length;
 		int[] num = new int[l];
+		System.out.println(l);
 		for(int i=0;i<l;i++){
 			num[i]=Integer.valueOf(roomi[i]);
 			map.put(num[i], roomn[i]);
@@ -89,7 +90,7 @@ public class OrderDataSqlHelper implements OrderDataHelper{
 	 */
 	@Override
 	public OrderPO preOrder(OrderPO preOrder){
-		ResultMessage rMessage=insert(preOrder);
+		ResultMessage rMessage=this.insert(preOrder);
 		long orderId=Long.valueOf(rMessage.message);
 		Connection conn = Connect.getConn();
         String sql="select * from ordertable where orderId = "+ orderId;
@@ -116,16 +117,15 @@ public class OrderDataSqlHelper implements OrderDataHelper{
 	@Override
 	public ResultMessage insert(OrderPO order) {
 		Connection conn = Connect.getConn();
-	    String sql = "insert into ordertable(orderId,orderStatus,latestTime,roomNumber,roomId,numberOfRoom,numberOfPeople,child,guestRealName,clientRealName,hotelName,userId,userName,startTime,leaveTime,orderTime,price,hotelId,phone,roomType) values (null,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+	    String sql = "insert into ordertable(orderStatus,latestTime,roomNumber,roomId,numberOfRoom,numberOfPeople,child,guestRealName,clientRealName,hotelName,userId,userName,startTime,leaveTime,orderTime,price,hotelId,phone,roomType) values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 	    PreparedStatement pstmt;
-	    long orderId=0;
+	    long autoInckey = -1;
 	    try {
-	    	String[] room=order.getroom().split(";");
 	        pstmt = (PreparedStatement) conn.prepareStatement(sql,Statement.RETURN_GENERATED_KEYS);
 	        pstmt.setInt(1,order.getorderStatusAsInt());
 	        pstmt.setString(2, order.getlatestTime());
-	        pstmt.setString(3, room[1]);
-	        pstmt.setString(4, room[0]);
+	        pstmt.setString(3, order.getroomNumber());
+	        pstmt.setString(4, order.getroomId());
 	        pstmt.setInt(5, order.getnumberOfRoom());
 	        pstmt.setInt(6, order.getnumberOfPeople());
 	        pstmt.setInt(7, order.getchild());
@@ -144,7 +144,7 @@ public class OrderDataSqlHelper implements OrderDataHelper{
 	        pstmt.executeUpdate();
 	        ResultSet rs = pstmt.getGeneratedKeys(); //获取结果  	        
 	        if (rs.next()) {
-	        	orderId = rs.getInt(1);//取得ID
+	        	 autoInckey = rs.getLong(1);//取得ID
 	        }
 	        pstmt.close();
 	        conn.close();
@@ -152,7 +152,7 @@ public class OrderDataSqlHelper implements OrderDataHelper{
 	        e.printStackTrace();
 	        return fail;
 	    } 	
-	    return new ResultMessage(true,null,String.valueOf(orderId));
+	    return new ResultMessage(true,null,String.valueOf(autoInckey));
 	}
 
 	/**
@@ -162,12 +162,11 @@ public class OrderDataSqlHelper implements OrderDataHelper{
 	@Override
 	public ResultMessage update(OrderPO order) {
 		Connection conn = Connect.getConn();
-		String[] room=order.getroom().split(";");
 	    String sql = "update ordertable set latestTime='" + order.getlatestTime() +
 	    		"', numberOfRoom=" + order.getnumberOfRoom() +
 	    		", numberOfPeople=" + order.getnumberOfPeople() +
 	    		", child=" + order.getchild() +
-	    		", realName='" + order.getclientRealName() +
+	    		", clientrealName='" + order.getclientRealName() +
 	    		"', hotelId=" + order.gethotelId() +
 	    		", guestRealName='" + order.getguestRealName() +
 	    		"', hotelName='" + order.gethotelName() +
@@ -177,8 +176,8 @@ public class OrderDataSqlHelper implements OrderDataHelper{
 	    		"', leaveTime='" + order.getleaveTime() +
 	    		"', userName='" + order.getuserName() +
 	    		"', userId=" + order.getuserId() +
-	    		", roomNumber='" + room[1] +
-	    		"', roomId='" + room[0] +
+	    		", roomNumber='" + order.getroomNumber() +
+	    		"', roomId='" + order.getroomId() +
 	    		"', orderTime='" + order.getorderTime() +
 	    		"', phone='" + order.getphone() +
 	    		"', roomType='" + order.getRoomTypeName() +
@@ -257,6 +256,7 @@ public class OrderDataSqlHelper implements OrderDataHelper{
 			ResultSet rs = pstmt.executeQuery();
 			while(rs.next()){
 				OrderPO orderpo=createorderpo(rs);
+				
 				orders.add(orderpo);
 			}
 			pstmt.close();
@@ -283,6 +283,7 @@ public class OrderDataSqlHelper implements OrderDataHelper{
 			ResultSet rs = pstmt.executeQuery();
 			while(rs.next()){
 				OrderPO orderpo=createorderpo(rs);
+				System.out.println(orderpo.getorderId());
 				orders.add(orderpo);
 			}
 			pstmt.close();

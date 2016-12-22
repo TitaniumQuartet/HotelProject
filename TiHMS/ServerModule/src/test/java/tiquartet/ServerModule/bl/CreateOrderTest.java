@@ -94,6 +94,7 @@ public class CreateOrderTest{
 		List<Integer> hotelList=manageorder.orderedHotelID(orderInfo.userID);
 		assertEquals((int)hotelList.get(0),orderInfo.hotelID);
 		assertEquals((int)hotelList.get(1),orderInfo1.hotelID);
+		
 	}
 	@Test
 	public void testpreOrder() throws RemoteException{
@@ -112,6 +113,7 @@ public class CreateOrderTest{
 		ResultMessage result1=createorder.preOrder(preorder);
 		assertEquals(result1.result,true);
 	}
+	
 	@Test
 	public void testconfirm() throws RemoteException{
 		PreOrderVO preorder=new PreOrderVO();
@@ -143,4 +145,5 @@ public class CreateOrderTest{
 		assertEquals(result2.result,true);
 		
 	}
+	
 }

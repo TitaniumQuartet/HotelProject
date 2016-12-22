@@ -297,7 +297,7 @@ public class ManageOrder implements ManageOrderBLService {
 			volist.add(polist.get(i).toOrderVO());
 		}
 		if (sort == OrderSort.生成日期升序) {
-			DateFormat format = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+			DateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 			for (int i = 0; i < volist.size(); i++) {
 				for (int j = 0; j < volist.size() - 1; j++) {
 					try {
@@ -314,7 +314,7 @@ public class ManageOrder implements ManageOrderBLService {
 				}
 			}
 		} else if (sort == OrderSort.生成日期降序) {
-			DateFormat format = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+			DateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 			for (int i = 0; i < volist.size(); i++) {
 				for (int j = 0; j < volist.size() - 1; j++) {
 					try {
@@ -331,7 +331,7 @@ public class ManageOrder implements ManageOrderBLService {
 				}
 			}
 		} else if (sort == OrderSort.入住日期升序) {
-			DateFormat format = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+			DateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 			for (int i = 0; i < volist.size(); i++) {
 				for (int j = 0; j < volist.size() - 1; j++) {
 					try {
@@ -348,7 +348,7 @@ public class ManageOrder implements ManageOrderBLService {
 				}
 			}
 		} else if (sort == OrderSort.入住日期降序) {
-			DateFormat format = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+			DateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 			for (int i = 0; i < volist.size(); i++) {
 				for (int j = 0; j < volist.size() - 1; j++) {
 					try {
@@ -407,7 +407,7 @@ public class ManageOrder implements ManageOrderBLService {
 		}
 		// 如果订单为异常则返回错误
 		if (order.getorderStatus() != OrderStatus.异常订单) {
-			DateFormat format=new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+			DateFormat format=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 			Date nowtime=new Date();
 			try {
 				Date orderstartdate=format.parse(order.getstartTime());

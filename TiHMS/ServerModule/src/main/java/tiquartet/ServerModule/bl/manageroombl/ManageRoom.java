@@ -143,7 +143,6 @@ public class ManageRoom implements ManageRoomBLService {
 		for(RoomTypePO roomTypePO: roomTypePOs){
 			if(roomTypePO.getroomTypeId() == roomTypeID){
 				result = roomDataService.deleteType(roomTypePO);
-				System.out.println(roomTypePO.gethotelId());
 			}
 		}
 		

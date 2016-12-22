@@ -59,18 +59,16 @@ public class StrategyDataSqlHelper implements StrategyDataHelper{
 	        	String endTime=rs.getString(9);
 	        	StrategyType strategyType=StrategyType.values()[rs.getInt(10)];
 	        	int numOfRoom=rs.getInt(11);
-	        	double[] memberThreShold;
-	        	double[] memberDiscount;
-	        	if(memberT.length()==0){
-	        		memberThreShold=null;
-	        	}else
+	        	double[] memberThreShold={0,0,0,0,0,0,0,0,0};
+	        	double[] memberDiscount={0,0,0,0,0,0,0,0,0,0};
+	        	if(!(memberT.length()==0)){
 	        		memberThreShold=transform(memberT);
-	        	if(memberD.length()==0){
-	        		memberDiscount=null;
-	        	}else
+	        	}
+	        	if(!(memberD.length()==0)){
 	        		memberDiscount=transform(memberD);
+	        	}
 	        	StrategyPO strategyPO=new StrategyPO(strategyId,strategyIntro,hotelId,discount,circleId, memberThreShold,memberDiscount,startTime,endTime,strategyType,numOfRoom);
-				strategy.add(strategyPO);
+	        	strategy.add(strategyPO);
 			}
 			pstmt.close();
 	        conn.close();

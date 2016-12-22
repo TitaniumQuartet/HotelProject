@@ -22,6 +22,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import javax.imageio.ImageReader;
+
 import tiquartet.CommonModule.blservice.createorderblservice.CreateOrderBLService;
 import tiquartet.CommonModule.util.OrderStatus;
 import tiquartet.CommonModule.util.ResultMessage;
@@ -157,13 +159,14 @@ public class CreateOrder implements CreateOrderBLService {
 		if (credit < 0) {
 			return new ResultMessage(false, "用户信用值低于0", "");
 		}
-		map.put(preOrder.userID, preOrder);
-		OrderPO order = new OrderPO(preOrder);
+		map.put(preOrder.userID, preOrder);	
+		OrderPO order = new OrderPO(preOrder);	
 		order.setorderStatus(OrderStatus.暂时预订);
 		OrderPO preorder = orderdataimpl.preOrder(order);
 		if (preorder != null) {
 			return new ResultMessage(true, "", String.valueOf(preorder.getorderId()));
 		}
+			
 		return new ResultMessage(false, "预定失败", "");
 	}
 

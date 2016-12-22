@@ -146,22 +146,27 @@ public class OrderPO implements Serializable{
 	 * 得到房间号和房间编号组成的字符串.
 	 * @return
 	 */
-	public String getroom(){
+	public String getroomNumber(){
 		String roomn = "";
+		java.util.Iterator<Entry<Integer, String>> i = roomMap.entrySet().iterator();  
+		while(i.hasNext()){ 
+			Map.Entry entry = (Map.Entry) i.next();  
+		    Object val = entry.getValue();		
+		    roomn=roomn + val.toString() + ",";
+		} 
+		return roomn;
+	}
+	
+	public String getroomId(){
 		String roomi = "";
 		java.util.Iterator<Entry<Integer, String>> i = roomMap.entrySet().iterator();  
 		while(i.hasNext()){ 
 			Map.Entry entry = (Map.Entry) i.next();  
 		    Object key = entry.getKey();  
-		    Object val = entry.getValue();
-		    roomn=roomn + key.toString() + ",";
-		    roomi = roomi + val.toString() + ",";
+		    roomi = roomi + key.toString() + ",";
 		}  
-		if(roomi.equals("")){
-			roomi=" ";
-		}
-		String result=roomn + ";" + roomi;
-		return result;
+		
+		return roomi;
 	}
 	
 	public int getnumberOfPeople(){
