@@ -7,9 +7,9 @@ import tiquartet.CommonModule.util.UserType;
 
 public class UserFilterVO implements Serializable{
 	//用户名
-	public String username = null;
+	public String username = "";
 	//真实姓名
-	public String realName = null;
+	public String realName = "";
 	//用户类型
 	public UserType userType;
 	//会员类型

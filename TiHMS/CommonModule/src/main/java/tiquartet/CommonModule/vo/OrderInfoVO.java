@@ -4,21 +4,21 @@ import java.io.Serializable;
 
 public class OrderInfoVO implements Serializable{
    //客户编号
-   public int userID;
+   public int userID = -1;
    //酒店编号
-   public int hotelID;
+   public int hotelID = -1;
    //儿童数量
-   public int kids;
+   public int kids = -1;
    //客户名字
-   public String guestRealName;
+   public String guestRealName = "";
    //最晚订单执行时间
-   public String latestTime;
+   public String latestTime = "";
    //住房人数
-   public int numOfGuest;
+   public int numOfGuest = -1;
    //策略编号
-   public int strategyID;
+   public int strategyID = -1;
    //价格
-   public double price;
+   public double price = -1;
    //订单编号
-   public long orderID;
+   public long orderID = -1;
 }

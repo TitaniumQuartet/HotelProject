@@ -84,7 +84,7 @@ public class ManageOrder implements ManageOrderBLService {
 					e.printStackTrace();
 				}
 			}
-			if (filter.startTime != null) {
+			if (!filter.startTime.equals("")) {
 				DateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 				try {
 					Date startDate = format.parse(filter.startTime);
@@ -97,23 +97,23 @@ public class ManageOrder implements ManageOrderBLService {
 					e.printStackTrace();
 				}
 			}
-			if (filter.hotelName != null) {
+			if (!filter.hotelName.equals("")) {
 				HotelInfoPO hotelinfopo = hoteldataimpl.getHotelInfo(filter.hotelID);
 				if (!hotelinfopo.gethotelName().contains(filter.hotelName)) {
 					continue;
 				}
 			}
-			if (filter.orderState != null) {
+			if (!filter.orderState.equals("")) {
 				if (polist.get(i).getorderStatus() != filter.orderState) {
 					continue;
 				}
 			}
-			if (filter.clientRealName != null) {
+			if (!filter.clientRealName.equals("")) {
 				if (!polist.get(i).getclientRealName().contains(filter.clientRealName)) {
 					continue;
 				}
 			}
-			if (filter.guestRealName != null) {
+			if (!filter.guestRealName.equals("")) {
 				if (!polist.get(i).getguestRealName().contains(filter.guestRealName)) {
 					continue;
 				}
@@ -248,7 +248,7 @@ public class ManageOrder implements ManageOrderBLService {
 					continue;
 				}
 			}
-			if (filter.endTime != null) {
+			if (!filter.endTime.equals("")) {
 				DateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 				try {
 					Date endDate = format.parse(filter.endTime);
@@ -261,7 +261,7 @@ public class ManageOrder implements ManageOrderBLService {
 					e.printStackTrace();
 				}
 			}
-			if (filter.startTime != null) {
+			if (!filter.startTime.equals("")) {
 				DateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 				try {
 					Date startDate = format.parse(filter.startTime);
@@ -274,22 +274,22 @@ public class ManageOrder implements ManageOrderBLService {
 					e.printStackTrace();
 				}
 			}
-			if (filter.orderState != null) {
+			if (!filter.orderState.equals("")) {
 				if (polist.get(i).getorderStatus() != filter.orderState) {
 					continue;
 				}
 			}
-			if (filter.clientRealName != null) {
+			if (!filter.clientRealName.equals("")) {
 				if (!polist.get(i).getclientRealName().contains(filter.clientRealName)) {
 					continue;
 				}
 			}
-			if (filter.guestRealName != null) {
+			if (!filter.guestRealName.equals("")) {
 				if (!polist.get(i).getguestRealName().contains(filter.guestRealName)) {
 					continue;
 				}
 			}
-			if (filter.userName != null) {
+			if (!filter.userName.equals("")) {
 				if (!polist.get(i).getuserName().contains(filter.userName)) {
 					continue;
 				}

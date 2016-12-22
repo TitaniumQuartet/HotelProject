@@ -35,7 +35,7 @@ public class HotelInfoTest {
 	public void testgetHotelDetails() throws RemoteException{
 		HotelDetailsVO hoteldetails=hotelinfo.getHotelDetails(101001,1);
 		assertEquals(hoteldetails.address,"nju");
-		if(hoteldetails.averageg==4.4){
+		if(hoteldetails.averagegrade==4.4){
 			assertEquals(true,true);
 		}else{
 			assertEquals(true,false);

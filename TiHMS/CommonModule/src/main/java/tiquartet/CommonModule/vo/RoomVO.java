@@ -6,14 +6,14 @@ import tiquartet.CommonModule.util.RoomStatus;
 
 public class RoomVO implements Serializable{
 	    //房间编号
-	    public int roomID;
+	    public int roomID = -1;
 	    //房间数量	    
-	    public String roomNum;
+	    public String roomNum = "";
 	    //房间类型
-	    public int roomType;
+	    public int roomType = -1;
 	    //房间状态
 	    public RoomStatus roomStatus;
 	    //酒店编号
-	    public int hotelId;
+	    public int hotelId = -1;
 
 }

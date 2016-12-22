@@ -4,11 +4,11 @@ import java.io.Serializable;
 
 public class OrderStrategyVO implements Serializable{
 	 //订单编号
-     public long orderID;
+     public long orderID = -1;
      //策略介绍
-     public String strategyIntroduce;
+     public String strategyIntroduce = "";
      //订单价格
-     public double orderPrice;
+     public double orderPrice = -1;
      //策略编号
-     public int strategyID;
+     public int strategyID = -1;
 }

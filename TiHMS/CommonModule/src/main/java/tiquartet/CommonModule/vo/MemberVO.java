@@ -6,16 +6,16 @@ import java.sql.Date;
 import tiquartet.CommonModule.util.MemberType;
 
 public class MemberVO implements Serializable{
-	//ÓÃ»§±àºÅ
-	public int userID;
-	//»áÔ±ÀàĞÍ
+	//ï¿½Ã»ï¿½ï¿½ï¿½ï¿½
+	public int userID = -1;
+	//ï¿½ï¿½Ô±ï¿½ï¿½ï¿½ï¿½
 	public MemberType memberType;
-	//ÕæÊµĞÕÃû
-	public String realName;
-	//ÉúÈÕ
-	public Date birthday;
-	//¹«Ë¾Ãû³Æ
-	public String companyName;
-	//»áÔ±µÈ¼¶
-	public int memberRank;
+	//ï¿½ï¿½Êµï¿½ï¿½ï¿½ï¿½
+	public String realName = "";
+	//ï¿½ï¿½ï¿½ï¿½
+	public String birthday = "";
+	//ï¿½ï¿½Ë¾ï¿½ï¿½ï¿½ï¿½
+	public String companyName = "";
+	//ï¿½ï¿½Ô±ï¿½È¼ï¿½
+	public int memberRank = -1;
 }

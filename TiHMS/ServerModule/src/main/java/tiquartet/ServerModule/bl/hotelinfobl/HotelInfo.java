@@ -64,7 +64,7 @@ public class HotelInfo implements HotelInfoBLService {
 			return null;
 		}
 		hoteldetails.address = hp.getaddress();
-		hoteldetails.averageg = hp.getaverageGrade();
+		hoteldetails.averagegrade = hp.getaverageGrade();
 		hoteldetails.circleName = hp.getcircleName();
 		hoteldetails.cityName = hp.getcityName();
 		hoteldetails.hotelID = hp.gethotelId();

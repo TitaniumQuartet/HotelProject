@@ -12,33 +12,33 @@ import tiquartet.CommonModule.util.UserType;
  */
 public class UserVO implements Serializable{
 	//用户编号
-    public int userID;
+    public int userID = -1;
     //用户名
-    public String userName;
+    public String userName = "";
     //用户类型
     public UserType userType;
     //密码
-    public String password;
+    public String password = "";
     //真实姓名
-    public String realName;
+    public String realName = "";
     //联系方式
-    public String phone;
+    public String phone = "";
     //会员类型
     public MemberType memberType;
     //当前信用值
-    public double credit;
+    public double credit= -1;
     //生日
-    public String birthday;
+    public String birthday = "";
     //是否会员
     public boolean isMember;
     //会员等级
-    public int memberLevel;
+    public int memberLevel = -1;
     //公司名称
-    public String company;
+    public String company = "";
     //酒店编号
-    public int hotelID;
+    public int hotelID = -1;
     //是否已登录
-    public boolean login;
+    public boolean login ;
     
     /**
      * 用注册信息建立简单的用户信息值对象.
