@@ -37,7 +37,7 @@ public class SearchHotelTest {
 		HotelBriefVO hotelBriefVO2 = hotelInfoPO2.getBriefVO();
 		hotelBriefVOs.add(hotelBriefVO2);
 		
-		HotelInfoPO hotelInfoPO3 = new HotelInfoPO(000201001, "NumTwo", 5, "nju", "verygood", "wifi", 000201, "xl", 150, 150, 4.7, "nj");
+		HotelInfoPO hotelInfoPO3 = new HotelInfoPO(000201001, "NumTwo", 5, "nju", "verygood", "water", 000201, "xl", 150, 150, 4.7, "nj");
 		HotelBriefVO hotelBriefVO3 = hotelInfoPO3.getBriefVO();
 		hotelBriefVOs.add(hotelBriefVO3);
 		
@@ -53,17 +53,20 @@ public class SearchHotelTest {
 			
 		}
 	}
-	
+
 	@Test
 	public void testgetHotelList(){
 		hotel = new SearchHotel();
 		HotelFilterVO hotelFilterVO = new HotelFilterVO();
 		hotelFilterVO.cityID = 0002;
-		hotelFilterVO.districtID = 01;
+		hotelFilterVO.districtID = 201;
 		hotelFilterVO.highestPrice = 200;
 		hotelFilterVO.lowestPrice = 100;
-		
-		List<HotelBriefVO> hotelBriefVOs = hotel.getHotelList(hotelFilterVO, HotelSort.–«º∂…˝–Ú, 1, 10);
+		hotelFilterVO.lowestStar=1;
+		hotelFilterVO.highestStar=5;
+		hotelFilterVO.lowestGrade=0;
+		hotelFilterVO.highestGrade=5;
+		List<HotelBriefVO> hotelBriefVOs = hotel.getHotelList(hotelFilterVO, HotelSort.ÊòüÁ∫ßÂçáÂ∫è, 1, 10);
 		
 		HotelBriefVO hotelBriefVO = new HotelBriefVO();
 		hotelBriefVO.averageGrade = 4.7;
@@ -75,7 +78,7 @@ public class SearchHotelTest {
 		
 		List<HotelBriefVO> hotelBriefVOs2 = new ArrayList<HotelBriefVO>();
 		hotelBriefVOs2.add(hotelBriefVO);
-		
+		System.out.println(hotelBriefVOs.size());
 		for(int i = 0; i < hotelBriefVOs.size(); i++){
 			assertEquals(hotelBriefVOs.get(i).circleName, hotelBriefVOs2.get(i).circleName);
 			assertEquals(hotelBriefVOs.get(i).cityName, hotelBriefVOs2.get(i).cityName);
@@ -84,7 +87,7 @@ public class SearchHotelTest {
 			assertEquals(hotelBriefVOs.get(i).introduction, hotelBriefVOs2.get(i).introduction);
 		}	
 	}
-	
+
 	@Test
 	public void testgetDistricts(){
 		hotel = new SearchHotel();

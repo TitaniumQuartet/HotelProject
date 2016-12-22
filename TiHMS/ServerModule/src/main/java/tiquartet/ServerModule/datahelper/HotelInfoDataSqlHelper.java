@@ -200,7 +200,7 @@ public class HotelInfoDataSqlHelper implements HotelInfoDataHelper{
 	public List<HotelInfoPO> getHotelList(int districtID) {
 		Connection conn = Connect.getConn();
 		List<HotelInfoPO> hotels=new ArrayList<HotelInfoPO>();
-	    String sql = "SELECT * FROM hotelInfo where districtId =" + districtID;
+	    String sql = "SELECT * FROM hotelInfo where circleId =" + districtID;
 	    PreparedStatement pstmt;
 	    try {
 	        pstmt = (PreparedStatement)conn.prepareStatement(sql);

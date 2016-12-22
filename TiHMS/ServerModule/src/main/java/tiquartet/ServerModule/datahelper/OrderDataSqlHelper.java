@@ -29,7 +29,8 @@ public class OrderDataSqlHelper implements OrderDataHelper{
 		String[] roomn=roomNumber.split(",");
 		String[] roomi=roomId.split(",");
 		HashMap<Integer, String> map=new HashMap<Integer, String>();
-		int l=roomn.length;
+		int l=0;
+		l=roomn.length;
 		int[] num = new int[l];
 		for(int i=0;i<l;i++){
 			num[i]=Integer.valueOf(roomi[i]);
@@ -65,7 +66,11 @@ public class OrderDataSqlHelper implements OrderDataHelper{
 		    int hotelId=rs.getInt(18);	
 		    String phone=rs.getString(19);
 		    String roomType=rs.getString(20);
-		    HashMap<Integer, String> roomMap=transform(roomNumber, roomId);
+		    HashMap<Integer, String> roomMap;
+		    if(roomNumber.length()==0){
+		    	roomMap=new HashMap<Integer, String>();
+		    }else
+		    	roomMap=transform(roomNumber, roomId);
 		    orderpo=new OrderPO(orderId,orderStatus,latestTime,roomMap,numberOfRoom,numberOfPeople,child,guestRealName,clientRealName,hotelName,userId,userName,startTime,leaveTime,orderTime,price,hotelId,phone,roomType);
 	    	return orderpo;
 		}catch (SQLException e) {
@@ -271,7 +276,7 @@ public class OrderDataSqlHelper implements OrderDataHelper{
 	public List<OrderPO> searchByUser(int userID) {
 		Connection conn = Connect.getConn();
 		List<OrderPO> orders=new ArrayList<OrderPO>();
-		String sql="select * from ordertable where userId = " + userID;
+		String sql="select * from ordertable where userId =" + userID;
 		PreparedStatement pstmt;
 		try {
 			pstmt = (PreparedStatement) conn.prepareStatement(sql);

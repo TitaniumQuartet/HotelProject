@@ -56,7 +56,7 @@ public class ManageUserTest {
 	public void testgetUser(){
 		user = new ManageUser();
 		
-		UserPO userPO = new UserPO(1, "Teki", "123456", UserType.客户, "aaa", 0, "1997-05-05", 0, false, null, -1, false, MemberType.非会员, "111");
+		UserPO userPO = new UserPO(1, "Teki", "123456", UserType.客户, "ccc", 0, "1997-05-05", 0, false, null, -1, false, MemberType.非会员, "111");
 		UserVO userVO = userPO.getVO();
 		
 		UserVO userVO2 = user.getUser(1);
@@ -66,11 +66,11 @@ public class ManageUserTest {
 	@Test
 	public void testsearch(){
 		user = new ManageUser();
-		UserFilterVO userFilterVO = new UserFilterVO("Teki", "aaa", UserType.客户, MemberType.非会员);
+		UserFilterVO userFilterVO = new UserFilterVO("Teki", "ccc", UserType.客户, MemberType.非会员);
 		
 		List<UserVO> userVOs = user.search(userFilterVO, UserSort.USERNAMEASCEND , 1, 10);
 		
-		UserPO userPO = new UserPO(1, "Teki", "123456", UserType.客户, "aaa", 0, "1997-05-05", 0, false, null, -1, false, MemberType.非会员, "111");
+		UserPO userPO = new UserPO(1, "Teki", "123456", UserType.客户, "ccc", 0, "1997-05-05", 0, false, null, -1, false, MemberType.非会员, "111");
 		UserVO userVO = userPO.getVO();
 		List<UserVO> users = new ArrayList<UserVO>();
 		users.add(userVO);
@@ -84,7 +84,7 @@ public class ManageUserTest {
 			assertEquals(users.get(i).memberType, userVOs.get(i).memberType);
 			assertEquals(users.get(i).password, userVOs.get(i).password);
 			assertEquals(users.get(i).realName, userVOs.get(i).realName);
-			assertEquals(users.get(i).userID, userVOs.get(i).realName);
+			assertEquals(users.get(i).userID, userVOs.get(i).userID);
 			assertEquals(users.get(i).userName, userVOs.get(i).userName);
 			assertEquals(users.get(i).userType, userVOs.get(i).userType);
 		}
