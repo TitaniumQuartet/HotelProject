@@ -1,5 +1,6 @@
 package tiquartet.ClientModule.ui.clientui;
 
+import java.io.IOException;
 import java.net.URL;
 import java.rmi.RemoteException;
 import java.util.List;
@@ -9,7 +10,9 @@ import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.DatePicker;
@@ -18,7 +21,6 @@ import javafx.scene.control.MenuItem;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
-import tiquartet.ClientModule.ui.customnode.HotelBriefPane;
 import tiquartet.ClientModule.ui.rmiclient.HMSClient;
 import tiquartet.CommonModule.util.HotelSort;
 import tiquartet.CommonModule.vo.HotelBriefVO;
@@ -169,9 +171,20 @@ public class SearchHotelController implements Initializable {
 			pageNumBox.getSelectionModel().select(new Integer(page));;
 			// 设置酒店信息显示
 			scroll.setVmax(num <= 10 ? (num + 1) / 2 : 5);
-			for (int i = page * 10 - 9; i <= page * 10 - 9 + num - 1; i++) {
-				grid.add(new HotelBriefPane(list.get(i - 1)), i - page * 10 + 9,
-						0);
+			try {
+				for (int i = page * 10 - 9; i <= page * 10 - 9 + num - 1; i++) {
+					FXMLLoader loader = new FXMLLoader();
+					loader.setLocation(getClass()
+							.getResource("/fxml/clientui/hotelSearched.fxml"));
+					Parent parent = loader.load();
+					HotelSearchedController controller = loader.getController();
+					controller.searchHotelController = this;
+					grid.add(parent, i - page * 10 + 9, 0);
+					controller.setContent(list.get(i - 1));
+				}
+			} catch (IOException e) {
+				// 界面加载失败
+				e.printStackTrace();
 			}
 		} catch (RemoteException e) {
 			// 网络连接异常

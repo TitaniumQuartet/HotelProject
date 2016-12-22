@@ -17,6 +17,7 @@ import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
+import javafx.scene.control.Toggle;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -152,21 +153,30 @@ public class HotelSearchedController implements Initializable {
 							typeList.addAll(list);
 							showTypes();
 
-							boolean chosen = newValue != null
-									&& radioGroup.getSelectedToggle() != null;
-							contactLabel.setVisible(chosen);
-							contactField.setVisible(chosen);
-							if (chosen)
-								contactField.setText(
-										LoginController.getCurrentUser().phone);
-							createOrderLabel.setVisible(chosen);
 						} catch (RemoteException e) {
 							// 网络异常处理
 							e.printStackTrace();
 						}
 					}
 				});
+		radioGroup.selectedToggleProperty()
+				.addListener(new ChangeListener<Toggle>() {
 
+					@Override
+					public void changed(
+							ObservableValue<? extends Toggle> observable,
+							Toggle oldValue, Toggle newValue) {
+						boolean chosen = newValue != null
+								&& radioGroup.getSelectedToggle() != null;
+						contactLabel.setVisible(chosen);
+						if (chosen && !contactField.isVisible())
+							contactField.setText(
+									LoginController.getCurrentUser().phone);
+						contactField.setVisible(chosen);
+
+						createOrderLabel.setVisible(chosen);
+					}
+				});
 	}
 
 }
