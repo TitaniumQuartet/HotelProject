@@ -8,17 +8,17 @@ import tiquartet.CommonModule.vo.ReviewVO;
 
 public class ReviewPO implements Serializable{
 	//酒店编号
-	private int hotelId;
+	private int hotelId=0;
 	//评分
-	private int score;
+	private int score=0;
 	//评价内容
-	private String review;
+	private String review="";
 	//用户编号
-	private int userId;
+	private int userId=0;
 	//用户名
-	private String userName;
+	private String userName="";
 	//评价时间
-	private String time;
+	private String time="";
 	
 	public ReviewPO(ReviewVO reviewvo){
 		this.hotelId=reviewvo.hotelID;

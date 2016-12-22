@@ -7,29 +7,29 @@ import tiquartet.CommonModule.vo.HotelInfoVO;
 
 public class HotelInfoPO implements Serializable{
 	//酒店编号
-	private int hotelId;
+	private int hotelId=0;
 	//酒店名称
-	private String hotelName;
+	private String hotelName="";
 	//星级
-	private int star;
+	private int star=0;
 	//酒店地址
-	private String address;
+	private String address="";
 	//酒店介绍
-	private String hotelIntroduction;
+	private String hotelIntroduction="";
 	//服务设施介绍
-	private String serviceIntroduction;
+	private String serviceIntroduction="";
 	//商圈编号
-	private int circleId;
+	private int circleId=0;
 	//商圈名字
-	private String circleName;
+	private String circleName="";
 	//最低价格
-	private double lowprice;
+	private double lowprice=0;
 	//最高价格
-	private double highprice;
+	private double highprice=0;
 	//平均评分
-	private double averageGrade;
+	private double averageGrade=0;
 	//城市名称
-	private String cityName;
+	private String cityName="";
 	
 	public HotelInfoPO(){
 		

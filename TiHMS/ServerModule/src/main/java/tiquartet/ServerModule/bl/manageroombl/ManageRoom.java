@@ -137,11 +137,13 @@ public class ManageRoom implements ManageRoomBLService {
 		
 		//获取所有房间类型
 		List<RoomTypePO> roomTypePOs = hotelInfoDataService.getRoomTypes(hotelID);
+		System.out.println(hotelID);
 		//找出对应类型的po
 		ResultMessage result = new ResultMessage(false);
 		for(RoomTypePO roomTypePO: roomTypePOs){
 			if(roomTypePO.getroomTypeId() == roomTypeID){
 				result = roomDataService.deleteType(roomTypePO);
+				System.out.println(roomTypePO.gethotelId());
 			}
 		}
 		

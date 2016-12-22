@@ -7,27 +7,27 @@ import tiquartet.CommonModule.vo.StrategyVO;
 
 public class StrategyPO implements Serializable{
 	//策略编号
-	private int strategyId;
+	private int strategyId=0;
 	//策略介绍
-	private String strategyIntro;
+	private String strategyIntro="";
 	//酒店编号
-	private int  hotelId=-1;	
+	private int  hotelId=0;	
 	//商圈编号
-	private int circleID=-1;
+	private int circleID=0;
 	//折扣比例
-	private double discount;
+	private double discount=0;
 	//门槛上线
-	private double[] memberThreShold=new double[9];
+	private double[] memberThreShold={0,0,0,0,0,0,0,0,0};
 	//会员等级对应折扣
-	private double[] memberDiscount=new double[9];
+	private double[] memberDiscount={0,0,0,0,0,0,0,0,0,0};
 	//折扣策略开始时间
-	private String startTime;
+	private String startTime="";
 	//折扣策略结束时间
-	private String endTime;
+	private String endTime="";
 	//策略类型
-	private StrategyType strategyType;
+	private StrategyType strategyType=StrategyType.TIME;
 	//所需房间数目
-	private int numOfRoom;
+	private int numOfRoom=0;
 	public StrategyPO(){
 		
 	}
@@ -119,7 +119,9 @@ public class StrategyPO implements Serializable{
 	
 	public String getMemberDiscountAsString(){
 		String result="";
-		for(int i=0;i<9;i++){
+		if(memberDiscount[0]==0)
+			return "";
+		for(int i=0;i<memberDiscount.length;i++){
 			result=result+String.valueOf(memberDiscount[i])+",";
 		}
 		result=result+String.valueOf(memberDiscount[9]);
@@ -160,7 +162,9 @@ public class StrategyPO implements Serializable{
 	
 	public String getMemberThresholdAsString(){
 		String result="";
-		for(int i=0;i<8;i++){
+		if(memberThreShold[0]==0)
+			return "";
+		for(int i=0;i<memberThreShold.length-1;i++){
 			result=result+String.valueOf(memberThreShold[i])+",";
 		}
 		result=result+String.valueOf(memberThreShold[8]);

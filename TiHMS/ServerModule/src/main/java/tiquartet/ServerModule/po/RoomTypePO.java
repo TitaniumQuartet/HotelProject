@@ -6,17 +6,17 @@ import tiquartet.CommonModule.vo.RoomTypeVO;
 
 public class RoomTypePO implements Serializable{
 	//房间类型编号
-	private int roomTypeId;
+	private int roomTypeId=0;
 	//房间类型
-	private String roomType;
+	private String roomType="";
 	//房间类型介绍
-	private String typeIntroduction;	
+	private String typeIntroduction="";	
 	//房间价格
-	private double price;
+	private double price=0;
 	//酒店编号
-	private int hotelId;
+	private int hotelId=0;
 	//可预房间数量
-	private int number;
+	private int number=0;
 	
 	public RoomTypePO(){
 		

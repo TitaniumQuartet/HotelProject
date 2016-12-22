@@ -8,48 +8,36 @@ import tiquartet.CommonModule.vo.UserVO;
 
 public class UserPO implements Serializable{
 	//用户编号
-	private int userId;
+	private int userId=0;
 	//用户名
-	private String userName;
+	private String userName="";
 	//密码
-	private String password;
+	private String password="";
 	//用户类型
-	private UserType userType;
+	private UserType userType=UserType.客户;
 	//用户真实姓名
-	private String realName;
+	private String realName="";
 	//联系方式
-	private String phone;
+	private String phone="";
 	//会员类型
-	private MemberType memberType;
+	private MemberType memberType=MemberType.非会员;
 	//当前信用值
-	private double credit;
+	private double credit=0;
 	//生日
-	private String birthday;
+	private String birthday="";
 	//会员等级
-	private int memberLevel;
+	private int memberLevel=0;
 	//是否会员
-	private boolean isMember;
+	private boolean isMember=false;
 	//公司名称（用户为会员）
-	private String company;
+	private String company="";
 	//酒店编号（用户为酒店工作人员时）
-	private int hotelId;
+	private int hotelId=0;
 	//是否已登录
-	private boolean login;
+	private boolean login=false;
 	
 	public UserPO(){
-		this.userId=-1;
-		this.userName=null;
-		this.password=null;
-		this.userType=UserType.客户;
-		this.realName=null;
-		this.credit=0;
-		this.birthday=null;
-		this.memberLevel=-1;
-		this.isMember=false;
-		this.company=null;
-		this.hotelId=-1;
-		this.memberType=MemberType.非会员;
-		this.phone=null;
+		
 	}
 	
 	public UserPO(int userId,String userName,String password,UserType userType,String realName,double credit, String birthday,int memberRank,boolean isMember,String company,int hotelId,boolean login,MemberType memberType,String phone){

@@ -13,9 +13,9 @@ import tiquartet.CommonModule.vo.DistrictVO;
  */
 public class DistrictPO {
 	//Key是cityID，Value是城市名称的HashMap
-	public HashMap<Integer, String> cityMap;
+	public HashMap<Integer, String> cityMap=new HashMap<Integer, String>();
 	//Key是districtID，Value是商圈名称的HashMap
-	public HashMap<Integer, String> districtMap;
+	public HashMap<Integer, String> districtMap=new HashMap<Integer, String>();
 	
 	/**
 	 * 转换为相应的值对象.

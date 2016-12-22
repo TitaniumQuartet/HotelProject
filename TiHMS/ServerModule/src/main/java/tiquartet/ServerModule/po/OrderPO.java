@@ -12,43 +12,43 @@ import tiquartet.CommonModule.vo.PreOrderVO;
 
 public class OrderPO implements Serializable{
 	//订单编号
-	private long orderId;
+	private long orderId=0;
 	//订单状态
-	private OrderStatus orderStatus;
+	private OrderStatus orderStatus=OrderStatus.未执行订单;
 	//最晚订单执行时间
-	private String latestTime;
+	private String latestTime="";
 	//房间数量
-	private int numberOfRoom;
+	private int numberOfRoom=0;
 	//订单中的房间编号与实际房号的映射
 	private HashMap<Integer, String> roomMap=new HashMap<Integer,String>();
 	//入住人数
-	private int numberOfPeople;
+	private int numberOfPeople=0;
 	//有无儿童
-	private int child;
+	private int child=0;
 	//入住人真实姓名
-	private String guestRealName;
+	private String guestRealName="";
 	//订房者真实姓名
-	private String clientRealName;
+	private String clientRealName="";
 	//酒店编号
-	private int hotelId;
+	private int hotelId=0;
 	//酒店名称
-	public String hotelName;
+	public String hotelName="";
 	//用户编号
-	private int userId;
+	private int userId=0;
 	//用户名
-	private String userName;
+	private String userName="";
 	//入住日期
-	private String startTime;
+	private String startTime="";
 	//离店日期
-	private String leaveTime;
+	private String leaveTime="";
 	//订单生成日期
-	private String orderTime;
+	private String orderTime="";
 	//订单价格
-	private double price;
+	private double price=0;
 	//房间类型名称
-	private String roomTypeName;
+	private String roomTypeName="";
 	//联系方式
-	private String phone;
+	private String phone="";
 	
 	public OrderPO(OrderVO vo){
 		this.child=vo.child;

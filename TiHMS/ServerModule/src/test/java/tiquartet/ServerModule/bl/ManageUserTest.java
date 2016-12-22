@@ -157,7 +157,7 @@ public class ManageUserTest {
 		user = new ManageUser();
 		List<UserVO> userVOs = user.marketerList();
 		
-		UserPO userPO = new UserPO(4, "Jerry", "123456789", UserType.网站营销人员, "ddd", -1, null, -1, false, null, -1, false, MemberType.非会员, "444");
+		UserPO userPO = new UserPO(4, "Jerry", "123456789", UserType.网站营销人员, "ddd", -1, "1", -1, false, null, -1, false, MemberType.非会员, "444");
 		List<UserVO> users = new ArrayList<UserVO>();
 		users.add(userPO.getVO());
 		for(int i = 0; i < userVOs.size(); i++){
@@ -169,7 +169,7 @@ public class ManageUserTest {
 			assertEquals(users.get(i).memberType, userVOs.get(i).memberType);
 			assertEquals(users.get(i).password, userVOs.get(i).password);
 			assertEquals(users.get(i).realName, userVOs.get(i).realName);
-			assertEquals(users.get(i).userID, userVOs.get(i).realName);
+			assertEquals(users.get(i).userID, userVOs.get(i).userID);
 			assertEquals(users.get(i).userName, userVOs.get(i).userName);
 			assertEquals(users.get(i).userType, userVOs.get(i).userType);
 		}

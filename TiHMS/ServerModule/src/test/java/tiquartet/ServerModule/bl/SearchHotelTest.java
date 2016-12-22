@@ -74,13 +74,12 @@ public class SearchHotelTest {
 		hotelBriefVO.averageGrade = 4.7;
 		hotelBriefVO.circleName = "xl";
 		hotelBriefVO.cityName = "nj";
-		hotelBriefVO.hotelID = 000201001;
+		hotelBriefVO.hotelID = 201001;
 		hotelBriefVO.hotelName = "NumTwo";
 		hotelBriefVO.introduction = "verygood";
 		
 		List<HotelBriefVO> hotelBriefVOs2 = new ArrayList<HotelBriefVO>();
 		hotelBriefVOs2.add(hotelBriefVO);
-		System.out.println(hotelBriefVOs2.get(0).hotelID);
 		for(int i = 0; i < hotelBriefVOs.size(); i++){
 			assertEquals(hotelBriefVOs.get(i).circleName, hotelBriefVOs2.get(i).circleName);
 			assertEquals(hotelBriefVOs.get(i).cityName, hotelBriefVOs2.get(i).cityName);			

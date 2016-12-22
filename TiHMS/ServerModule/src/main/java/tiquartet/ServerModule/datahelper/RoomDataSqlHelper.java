@@ -110,7 +110,7 @@ public class RoomDataSqlHelper implements RoomDataHelper{
 		List<RoomTypePO> rooms = new ArrayList<RoomTypePO>();//可用房间类型的po列表
 		List<RoomTypePO> allroom=new ArrayList<RoomTypePO>();//所有可用客房
 		Map<Integer, Integer> roomtAn = new HashMap<Integer, Integer>();//可用客房房间类型和数量
-		String sql="select * from ordertable where hotelId =" + hotelID + " AND where state =" + 3;
+		String sql="select * from ordertable where hotelId =" + hotelID + " AND where orderStatus = " + 3;
 		PreparedStatement pstmt;
 		try {
 			pstmt = (PreparedStatement) conn.prepareStatement(sql);

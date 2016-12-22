@@ -7,17 +7,17 @@ import tiquartet.CommonModule.vo.CreditVO;
 
 public class CreditPO implements Serializable {
 	// 变更类型
-	private CreditChange changeType;
+	private CreditChange changeType=CreditChange.订单执行时自动增加信用值;
 	// 变更数额
 	private double change = -1;
 	// 变化后的余额
-	private double balance;
+	private double balance = 0;
 	// 订单编号
-	private long orderId;
+	private long orderId = 0;
 	// 信用记录编号
-	private  long creditRecordId;
+	private  long creditRecordId = 0;
 	// 用户编号
-	private int userID;
+	private int userID = 0;
 
 	public CreditPO() {
 

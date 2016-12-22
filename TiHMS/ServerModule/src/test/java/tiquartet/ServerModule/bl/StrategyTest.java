@@ -25,6 +25,7 @@ public class StrategyTest {
 		vo.hotelID = 101001;
 		vo.strategyType = StrategyType.TIME;
 		ResultMessage result = strategy.addStrategy(vo);
+		
 		assertEquals(result.result, true);
 	}
 

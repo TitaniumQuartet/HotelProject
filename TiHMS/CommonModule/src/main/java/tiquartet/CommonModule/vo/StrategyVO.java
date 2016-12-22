@@ -16,10 +16,10 @@ public class StrategyVO implements Serializable{
      public double discount;
      //策略编号
      public int strategyID;
- 	 //门槛上线
- 	 public double[] memberThreShold;
+     //门槛上线
+ 	 public double[] memberThreShold={0,0,0,0,0,0,0,0,0};
  	 //会员等级对应折扣
- 	 public double[] memberDiscount;
+ 	 public double[] memberDiscount={0,0,0,0,0,0,0,0,0,0};
      //折扣策略开始时间
      public String startTime;
      //折扣策略结束时间
