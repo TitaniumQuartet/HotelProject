@@ -24,13 +24,13 @@ public class UserVO implements Serializable{
     //联系方式
     public String phone = "";
     //会员类型
-    public MemberType memberType;
+    public MemberType memberType = MemberType.非会员;
     //当前信用值
     public double credit= -1;
     //生日
     public String birthday = "";
     //是否会员
-    public boolean isMember;
+    public boolean isMember = false;
     //会员等级
     public int memberLevel = -1;
     //公司名称
@@ -38,7 +38,7 @@ public class UserVO implements Serializable{
     //酒店编号
     public int hotelID = -1;
     //是否已登录
-    public boolean login ;
+    public boolean login = false;
     
     /**
      * 用注册信息建立简单的用户信息值对象.
@@ -53,7 +53,6 @@ public class UserVO implements Serializable{
     	userVO.password = password;
     	userVO.realName = realName;
     	userVO.userType = UserType.客户;
-    	userVO.login = false;
     	return userVO;
     }
 }

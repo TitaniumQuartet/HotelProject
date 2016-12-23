@@ -3,12 +3,14 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.FlowPane?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
@@ -33,7 +35,24 @@
       <Separator layoutX="580.0" layoutY="25.0" orientation="VERTICAL" prefHeight="200.0" AnchorPane.bottomAnchor="25.0" AnchorPane.topAnchor="25.0" />
       <ScrollPane fx:id="scroll" hbarPolicy="ALWAYS" layoutX="853.0" layoutY="25.0" prefHeight="249.0" prefWidth="403.0" vbarPolicy="NEVER" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <content>
-            <HBox fx:id="roomTypeHBox" prefHeight="234.0" prefWidth="403.0" />
+            <HBox fx:id="roomTypeHBox" prefHeight="234.0" prefWidth="403.0">
+               <children>
+                  <FlowPane alignment="CENTER" columnHalignment="CENTER" maxWidth="215.0" minWidth="-Infinity" orientation="VERTICAL" prefHeight="234.0" prefWidth="215.0">
+                     <children>
+                        <RadioButton mnemonicParsing="false" text="豪华双人房">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </RadioButton>
+                        <Label text="￥230">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Label>
+                        <Label maxWidth="-Infinity" prefHeight="109.0" prefWidth="196.0" text="反反复复烦烦烦烦烦烦水水水水水水水水水水水水水水水水水水水烦烦烦烦烦烦烦烦烦" wrapText="true" />
+                     </children>
+                  </FlowPane>
+               </children></HBox>
          </content>
       </ScrollPane>
       <GridPane layoutX="616.0" layoutY="32.0" prefHeight="188.0" prefWidth="200.0">

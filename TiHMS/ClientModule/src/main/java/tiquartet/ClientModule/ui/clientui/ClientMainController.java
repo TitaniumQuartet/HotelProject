@@ -10,10 +10,13 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.FlowPane;
+import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import tiquartet.ClientModule.ui.rmiclient.HMSClient;
 import tiquartet.ClientModule.ui.usermainui.LoginController;
 import tiquartet.CommonModule.util.MemberType;
@@ -52,11 +55,21 @@ public class ClientMainController implements Initializable {
 
 	private Parent modifyPasswordPane = null;
 
-	private Parent HomePage = null;
+	private Parent homePage = null;
 
-	private Parent MyHotelList = null;
+	private Parent myHotelList = null;
 
-	private Parent MyOrderList = null;
+	private Parent myOrderList = null;
+
+	OrderListController orderListController;
+
+	private Parent hotelDetails = null;
+
+	HotelPageController hotelPageController;
+
+	private Parent writeReview;
+
+	ReviewDialogController ReviewDialogController;
 
 	@FXML
 	void goBack1(ActionEvent event) {
@@ -107,11 +120,11 @@ public class ClientMainController implements Initializable {
 	}
 
 	public void showHomePage() {
-		if (HomePage == null) {
+		if (homePage == null) {
 			try {
 				FXMLLoader loader = new FXMLLoader(
 						getClass().getResource("/fxml/clientui/homePage.fxml"));
-				HomePage = loader.load();
+				homePage = loader.load();
 				HomePageController homePageController = loader.getController();
 				// homePageController.setContent();
 			} catch (IOException e) {
@@ -120,21 +133,21 @@ public class ClientMainController implements Initializable {
 			}
 		}
 		mainFlowPane.getChildren().clear();
-		mainFlowPane.getChildren().add(HomePage);
+		mainFlowPane.getChildren().add(homePage);
 	}
 
 	public void showMyHotelList() {
-		if (MyHotelList == null) {
+		if (myHotelList == null) {
 			try {
 				FXMLLoader loader = new FXMLLoader(getClass()
 						.getResource("/fxml/clientui/hotelList.fxml"));
-				MyHotelList = loader.load();
+				myHotelList = loader.load();
 				HotelListController hotelListController = loader
 						.getController();
 				hotelListController.clientMainController = this;
 				hotelListController.setHotelList();
 				mainFlowPane.getChildren().clear();
-				mainFlowPane.getChildren().add(MyHotelList);
+				mainFlowPane.getChildren().add(myHotelList);
 				// 设置返回按钮
 
 			} catch (IOException e) {
@@ -145,17 +158,35 @@ public class ClientMainController implements Initializable {
 	}
 
 	public void showMyOrders() {
-		if (MyOrderList == null) {
+		if (myOrderList == null) {
 			try {
 				FXMLLoader loader = new FXMLLoader(getClass()
 						.getResource("/fxml/clientui/orderList.fxml"));
-				MyOrderList = loader.load();
-				OrderListController orderListController = loader
-						.getController();
+				myOrderList = loader.load();
+				orderListController = loader.getController();
 				orderListController.clientMainController = this;
-				orderListController.enter();
+			} catch (IOException e) {
+				// 界面加载失败
+				e.printStackTrace();
+			}
+		}
+		orderListController.enter();
+		mainFlowPane.getChildren().clear();
+		mainFlowPane.getChildren().add(myHotelList);
+		// 设置返回按钮
+
+	}
+
+	public void showHotelDetails(int hotelID) {
+		if (hotelDetails == null) {
+			try {
+				FXMLLoader loader = new FXMLLoader(getClass()
+						.getResource("/fxml/clientui/hotelPage.fxml"));
+				hotelDetails = loader.load();
+				hotelPageController = loader.getController();
+				hotelPageController.clientMainController = this;
 				mainFlowPane.getChildren().clear();
-				mainFlowPane.getChildren().add(MyHotelList);
+				mainFlowPane.getChildren().add(hotelDetails);
 				// 设置返回按钮
 
 			} catch (IOException e) {
@@ -163,6 +194,25 @@ public class ClientMainController implements Initializable {
 				e.printStackTrace();
 			}
 		}
+	}
+
+	public void showReviewDialog(int hotelID) {
+		if (writeReview == null) {
+			try {
+				FXMLLoader loader = new FXMLLoader(getClass()
+						.getResource("/fxml/clientui/reviewDialog.fxml"));
+				writeReview = loader.load();
+				ReviewDialogController = loader.getController();
+			} catch (IOException e) {
+				// 界面加载失败
+				e.printStackTrace();
+			}
+		}
+		Stage dialog = new Stage(StageStyle.UNDECORATED);
+		dialog.setScene(new Scene(writeReview, 396, 400));
+		ReviewDialogController.reviewDialog = dialog;
+		ReviewDialogController.hotelID = hotelID;
+		dialog.show();
 	}
 
 	public void renewMemberButton() {

@@ -46,6 +46,7 @@ public class HMSServer {
 	 * @return 启动服务器的结果信息
 	 */
 	public ResultMessage init() {
+		System.setProperty("java.rmi.server.hostname","172.28.185.195");
 		
 		try {
 			Registry registry = LocateRegistry.createRegistry(1099);

@@ -36,7 +36,8 @@ public class HotelInfo implements HotelInfoBLService {
 		roomdataimpl = RoomDataImpl.getInstance();
 		manageordercontroller = new ManageOrderController();
 	}
-    //获得酒店简单信息
+    
+	// 获得酒店简单信息
 	public HotelBriefVO getHotelBrief(int hotelID, int userID) throws RemoteException {
 		HotelInfoPO hp = hoteldataimpl.getHotelInfo(hotelID);
 		if (hp == null) {
@@ -86,7 +87,9 @@ public class HotelInfo implements HotelInfoBLService {
 	 * 可用房型
 	 */
 	public List<RoomTypeVO> availableRoomType(PreOrderVO preOrder) throws RemoteException {
-		List<RoomTypePO> polist = roomdataimpl.availableRoomType(preOrder.hotelID, preOrder.startTime, preOrder.leaveTime, preOrder.numOfRoom);
+		List<RoomTypePO> polist;
+		if(preOrder.startTime==null||preOrder.startTime.isEmpty()) polist = hoteldataimpl.getRoomTypes(preOrder.hotelID);
+		else polist = roomdataimpl.availableRoomType(preOrder.hotelID, preOrder.startTime, preOrder.leaveTime, preOrder.numOfRoom);
 		List<RoomTypeVO> volist = new ArrayList<RoomTypeVO>();
 		for (int i = 0; i < polist.size(); i++) {
 			RoomTypeVO rtv = polist.get(i).toRoomTypevo();

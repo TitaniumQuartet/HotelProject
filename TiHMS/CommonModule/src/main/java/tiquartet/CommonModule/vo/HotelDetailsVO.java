@@ -5,7 +5,7 @@ import java.util.List;
 
 public class HotelDetailsVO implements Serializable {
 	// 酒店编号
-	public long hotelID = -1;
+	public int hotelID = -1;
 	// 酒店名字
 	public String hotelName = "";
 	// 酒店星级

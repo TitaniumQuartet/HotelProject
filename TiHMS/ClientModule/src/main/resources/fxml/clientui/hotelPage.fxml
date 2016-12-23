@@ -1,66 +1,205 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="640.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="640.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tiquartet.ClientModule.ui.clientui.HotelPageController">
    <children>
-      <AnchorPane layoutX="573.0" layoutY="115.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="320.0" AnchorPane.leftAnchor="640.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-         <children>
-            <AnchorPane layoutX="11.0" layoutY="-17.0" prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: steelblue;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <SplitPane fx:id="split" dividerPositions="0.5" layoutX="440.0" layoutY="111.0" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="640.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <items>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
                <children>
-                  <Label layoutX="19.0" layoutY="13.0" text="我在酒店的订单" textFill="WHITE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="0.0">
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                  </Label>
-                  <Button fx:id="myOrdersButton" alignment="CENTER" layoutX="514.0" layoutY="2.0" mnemonicParsing="false" onAction="#toMyOrders" style="-fx-background-color: steelblue;" text="&gt;我的全部订单" textFill="WHITE" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                     <font>
-                        <Font name="System Bold" size="18.0" />
-                     </font>
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
-                  </Button>
+                  <AnchorPane layoutX="640.0" prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: steelblue;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <Label layoutX="19.0" layoutY="13.0" text="我在酒店的订单" textFill="WHITE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="0.0">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Button fx:id="myOrdersButton" alignment="CENTER" layoutX="514.0" layoutY="2.0" mnemonicParsing="false" onAction="#toMyOrders" style="-fx-background-color: steelblue;" text="&gt;我的全部订单" textFill="WHITE" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Button>
+                     </children>
+                  </AnchorPane>
+                  <ScrollPane hbarPolicy="NEVER" layoutX="640.0" layoutY="40.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="40.0">
+                     <content>
+                        <FlowPane fx:id="orderFlowPane" orientation="VERTICAL" prefWidth="625.0" prefWrapLength="280.0" />
+                     </content>
+                  </ScrollPane>
                </children>
             </AnchorPane>
-            <ScrollPane hbarPolicy="NEVER" layoutX="108.0" layoutY="73.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="40.0">
-              <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="280.0" prefWidth="640.0" />
-              </content>
-            </ScrollPane>
-         </children>
-      </AnchorPane>
-      <AnchorPane layoutX="583.0" layoutY="125.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="640.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="320.0">
-         <children>
-            <AnchorPane layoutX="11.0" layoutY="-17.0" prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: steelblue;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
                <children>
-                  <Label layoutX="19.0" layoutY="13.0" text="客户评论" textFill="WHITE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="0.0">
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                  </Label>
-                  <Button fx:id="myOrdersButton1" alignment="CENTER" layoutX="514.0" layoutY="2.0" mnemonicParsing="false" onAction="#toMyOrders" style="-fx-background-color: steelblue;" text="&gt;撰写评论" textFill="WHITE" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                     <font>
-                        <Font name="System Bold" size="18.0" />
-                     </font>
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
-                  </Button>
+                  <ScrollPane hbarPolicy="NEVER" layoutX="640.0" layoutY="360.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="40.0">
+                     <content>
+                        <FlowPane fx:id="reviewFlowPane" orientation="VERTICAL" prefWidth="625.0" prefWrapLength="280.0">
+                           <children>
+                              <FlowPane hgap="20.0" maxWidth="-Infinity" prefWidth="625.0" vgap="10.0">
+                                 <children>
+                                    <Label text="GreatestAliveShu">
+                                       <font>
+                                          <Font size="13.0" />
+                                       </font>
+                                    </Label>
+                                    <Label text="评分：10">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <Label text="2016-10-21 12:10:34" />
+                                    <Label prefWidth="605.0" text="436333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333" wrapText="true" />
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                 </padding>
+                              </FlowPane>
+                           </children>
+                        </FlowPane>
+                     </content>
+                  </ScrollPane>
+                  <AnchorPane layoutX="640.0" layoutY="320.0" prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: steelblue;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <Label layoutX="19.0" layoutY="13.0" text="客户评论" textFill="WHITE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="0.0">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Button fx:id="writeReviewButton" alignment="CENTER" layoutX="514.0" layoutY="2.0" mnemonicParsing="false" onAction="#writeReview" style="-fx-background-color: steelblue;" text="&gt;撰写评论" textFill="WHITE" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Button>
+                     </children>
+                  </AnchorPane>
                </children>
             </AnchorPane>
-            <ScrollPane hbarPolicy="NEVER" layoutX="108.0" layoutY="73.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="40.0">
-               <content>
-                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="280.0" prefWidth="640.0" />
-               </content>
-            </ScrollPane>
+        </items>
+      </SplitPane>
+      <FlowPane alignment="BOTTOM_LEFT" layoutX="-287.0" layoutY="73.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="560.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="640.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Label fx:id="hotelNameLabel" text="某个名字的酒店">
+               <font>
+                  <Font size="24.0" />
+               </font>
+               <FlowPane.margin>
+                  <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+               </FlowPane.margin>
+            </Label>
+            <ImageView fx:id="starImage" fitHeight="20.0" fitWidth="130.0" pickOnBounds="true" preserveRatio="true" />
+            <Label fx:id="locationLabel" maxWidth="270.0" prefHeight="15.0" text="某某市，某某商圈" wrapText="true">
+               <FlowPane.margin>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </FlowPane.margin>
+            </Label>
          </children>
-      </AnchorPane>
+      </FlowPane>
+      <ScrollPane layoutX="208.0" layoutY="391.0" prefHeight="250.0" prefWidth="403.0" vbarPolicy="NEVER" AnchorPane.bottomAnchor="80.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="640.0" AnchorPane.topAnchor="320.0">
+         <content>
+            <HBox fx:id="roomTypeHBox">
+               <children>
+                  <FlowPane fx:id="roomTypeFlowPane" alignment="CENTER" columnHalignment="CENTER" maxHeight="-Infinity" maxWidth="215.0" minWidth="-Infinity" orientation="VERTICAL" prefHeight="240.0" prefWidth="215.0" prefWrapLength="240.0">
+                     <children>
+                        <RadioButton mnemonicParsing="false" text="豪华双人房">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </RadioButton>
+                        <Label text="￥230">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Label>
+                        <Label maxWidth="-Infinity" prefHeight="92.0" prefWidth="196.0" text="反反复复烦烦烦烦烦烦水水水水水水水水水水水水水水水水水水水烦烦烦烦烦烦烦烦烦" wrapText="true" />
+                     </children>
+                  </FlowPane>
+               </children>
+            </HBox>
+         </content>
+      </ScrollPane>
+      <ScrollPane hbarPolicy="NEVER" layoutX="39.0" layoutY="73.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="320.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="640.0" AnchorPane.topAnchor="80.0">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefWidth="640.0">
+               <children>
+                  <ImageView fx:id="hotelImage" fitHeight="200.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="10.0" />
+                  <FlowPane layoutX="200.0" orientation="VERTICAL" prefWidth="200.0" prefWrapLength="200.0" vgap="10.0" AnchorPane.leftAnchor="200.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <Label text="酒店简介">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="hotelIntroLabel" prefWidth="420.0" text="具有很高恐惧看韩剧v了家里回来就过来好了好了及控股很快就会改变南京开会回来看过不见客户报价客户客户看看老公和空间关闭即可" wrapText="true">
+                           <font>
+                              <Font size="13.0" />
+                           </font>
+                        </Label>
+                        <Label text="服务设施">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="serviceIntroLabel" prefWidth="420.0" text="具有很高恐惧看韩剧v了家里回来就过来好了好了及控股很快就会改变南京开会回来看过不见客户报价客户客户看看老公和空间关闭即可" wrapText="true">
+                           <font>
+                              <Font size="13.0" />
+                           </font>
+                        </Label>
+                     </children>
+                     <padding>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </padding>
+                  </FlowPane>
+               </children>
+            </AnchorPane>
+        </content>
+      </ScrollPane>
+      <FlowPane alignment="CENTER_LEFT" hgap="10.0" layoutX="76.0" layoutY="451.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="640.0" AnchorPane.topAnchor="560.0">
+         <padding>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </padding>
+         <children>
+            <DatePicker fx:id="inDateBox" editable="false" prefHeight="36.0" prefWidth="130.0" promptText="入住日期">
+               <FlowPane.margin>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </FlowPane.margin></DatePicker>
+            <DatePicker fx:id="outDateBox" editable="false" prefHeight="36.0" prefWidth="130.0" promptText="离店日期" />
+            <Label fx:id="roomNumLabel" text="订房数量">
+               <font>
+                  <Font size="18.0" />
+               </font>
+               <FlowPane.margin>
+                  <Insets left="20.0" />
+               </FlowPane.margin>
+            </Label>
+            <ChoiceBox fx:id="roomNumBox" prefHeight="36.0" prefWidth="64.0" />
+            <Button fx:id="createOrderButton" mnemonicParsing="false" onAction="#onCreateOrder" prefHeight="9.0" prefWidth="103.0" style="-fx-background-color: steelblue;" text="生成订单" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+               <FlowPane.margin>
+                  <Insets left="30.0" />
+               </FlowPane.margin>
+            </Button>
+         </children>
+      </FlowPane>
    </children>
 </AnchorPane>
