@@ -3,6 +3,7 @@ package tiquartet.ServerModule.po;
 import java.io.Serializable;
 
 import tiquartet.CommonModule.vo.HotelBriefVO;
+import tiquartet.CommonModule.vo.HotelDetailsVO;
 import tiquartet.CommonModule.vo.HotelInfoVO;
 
 public class HotelInfoPO implements Serializable{
@@ -33,6 +34,21 @@ public class HotelInfoPO implements Serializable{
 	
 	public HotelInfoPO(){
 		
+	}
+	
+	public HotelInfoPO(HotelDetailsVO hotelInfo){
+		this.address=hotelInfo.address;
+		this.averageGrade=hotelInfo.averagegrade;
+		this.circleName=hotelInfo.circleName;
+		this.cityName=hotelInfo.cityName;
+		this.hotelId=hotelInfo.hotelID;
+		this.hotelIntroduction=hotelInfo.introduction;
+		this.serviceIntroduction=hotelInfo.serviceintro;
+		this.star=hotelInfo.star;
+		this.lowprice=hotelInfo.lowprice;
+		this.highprice=hotelInfo.highprice;
+		this.circleId=hotelInfo.circleID;
+		this.hotelName=hotelInfo.hotelName;
 	}
 	public HotelInfoPO(HotelInfoVO hotelInfovo){
 		this.address=hotelInfovo.address;
@@ -187,4 +203,5 @@ public class HotelInfoPO implements Serializable{
 		hotelBriefVO.introduction = this.hotelIntroduction;
 		return hotelBriefVO;
 	}
+	
 }

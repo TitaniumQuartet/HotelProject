@@ -110,7 +110,7 @@ public class HotelInfo implements HotelInfoBLService {
 	/* 
 	 * 修改酒店信息
 	 */
-	public ResultMessage modifyHotelInfo(HotelInfoVO hotelInfo) throws RemoteException {
+	public ResultMessage modifyHotelInfo(HotelDetailsVO hotelInfo) throws RemoteException {
 		HotelInfoPO hip = new HotelInfoPO(hotelInfo);
 		return hoteldataimpl.update(hip);
 	}

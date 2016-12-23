@@ -42,7 +42,7 @@ public interface HotelInfoBLService extends Remote{
 	 * @return
 	 * @throws RemoteException
 	 */
-	public ResultMessage modifyHotelInfo (HotelInfoVO hotelInfo) throws RemoteException;
+	public ResultMessage modifyHotelInfo (HotelDetailsVO hotelInfo) throws RemoteException;
 	/**返回客户预定过得酒店列表
 	 * @param userID
 	 * @return
