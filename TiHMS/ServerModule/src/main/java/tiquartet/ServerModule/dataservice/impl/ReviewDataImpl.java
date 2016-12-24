@@ -36,11 +36,19 @@ public class ReviewDataImpl implements ReviewDataService{
 	
 	ResultMessage fail=new ResultMessage(false);
 	
+	/**
+	 * 根据hotelID搜索酒店评论.
+	 * @return
+	 */
 	@Override
 	public List<ReviewPO> searchByHotel(int hotelID) {
 		return reviewDataHelper.searchByHotel(hotelID);
 	}
 
+	/**
+	 * 向review数据库中添加一条记录.
+	 * @return
+	 */
 	@Override
 	public ResultMessage insert(ReviewPO review) {
 		return reviewDataHelper.insert(review);

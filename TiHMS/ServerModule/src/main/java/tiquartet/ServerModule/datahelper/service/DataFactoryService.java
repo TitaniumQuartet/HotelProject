@@ -1,5 +1,10 @@
 package tiquartet.ServerModule.datahelper.service;
 
+
+/**
+ * 工厂模式的接口.
+ * @author Teki
+ */
 public interface DataFactoryService {
 	
 

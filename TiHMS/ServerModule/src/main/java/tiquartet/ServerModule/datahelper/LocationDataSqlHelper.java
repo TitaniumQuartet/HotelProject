@@ -11,6 +11,10 @@ import tiquartet.ServerModule.po.DistrictPO;
 
 public class LocationDataSqlHelper implements LocationDataHelper{
 
+	/**
+	 * 返回当前的城市、商圈的编号及名称对应关系.
+	 * @return
+	 */
 	@Override
 	public DistrictPO renewDistrict() {
 		Connection conn = Connect.getConn();
@@ -47,6 +51,10 @@ public class LocationDataSqlHelper implements LocationDataHelper{
 		}
 	}
 
+	/**
+	 * 更新商圈
+	 * @return
+	 */
 	@Override
 	public ResultMessage update(DistrictPO district) {
 		Connection conn = Connect.getConn();

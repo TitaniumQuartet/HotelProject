@@ -269,7 +269,7 @@ public class OrderDataSqlHelper implements OrderDataHelper{
 	}
 
 	/**
-	 * 根据hotelID和userID搜索订单.
+	 * 根据userID搜索订单.
 	 * @return
 	 */
 	@Override

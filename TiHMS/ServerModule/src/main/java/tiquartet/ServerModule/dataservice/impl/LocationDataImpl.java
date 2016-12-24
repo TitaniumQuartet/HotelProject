@@ -33,11 +33,20 @@ public class LocationDataImpl implements LocationDataService{
 	ResultMessage success=new ResultMessage(true);
 	
 	ResultMessage fail=new ResultMessage(false);
+	
+	/**
+	 * 返回当前的城市、商圈的编号及名称对应关系.
+	 * @return
+	 */
 	@Override
 	public DistrictPO renewDistrict() {
 		return locationDataHelper.renewDistrict();
 	}
 
+	/**
+	 * 更新商圈
+	 * @return
+	 */
 	@Override
 	public ResultMessage update(DistrictPO district) {
 		return locationDataHelper.update(district);

@@ -6,6 +6,11 @@ import java.util.Map;
 import tiquartet.CommonModule.util.ResultMessage;
 import tiquartet.ServerModule.po.CreditPO;
 
+
+/**
+ * 对credit数据库的操作的接口.
+ * @author Teki
+ */
 public interface CreditDataHelper {
 	
 	/**

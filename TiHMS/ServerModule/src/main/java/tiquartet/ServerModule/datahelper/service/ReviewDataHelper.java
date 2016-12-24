@@ -9,8 +9,8 @@ import tiquartet.ServerModule.po.ReviewPO;
 public interface ReviewDataHelper {
 
 	/**
-	 * 获得酒店评价
-	 * @param 
+	 * 根据hotelID搜索酒店评论.
+	 * @return
 	 */
 	public List<ReviewPO> searchByHotel (int hotelID);
 	

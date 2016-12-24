@@ -1,6 +1,11 @@
 package tiquartet.ServerModule.datahelper;
 
 import tiquartet.ServerModule.datahelper.service.*;
+
+/**
+ * 工厂模式.
+ * @author Teki
+ */
 public class DataFactory implements DataFactoryService{
 	
 	public OrderDataHelper getOrderDataHelper() {
