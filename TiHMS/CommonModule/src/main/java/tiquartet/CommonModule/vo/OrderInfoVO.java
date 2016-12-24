@@ -5,8 +5,6 @@ import java.io.Serializable;
 public class OrderInfoVO implements Serializable{
    //客户编号
    public int userID = -1;
-   //酒店编号
-   public int hotelID = -1;
    //儿童数量
    public int kids = -1;
    //客户名字

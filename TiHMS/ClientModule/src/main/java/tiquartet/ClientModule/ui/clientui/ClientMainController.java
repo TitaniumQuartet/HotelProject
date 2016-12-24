@@ -3,6 +3,7 @@ package tiquartet.ClientModule.ui.clientui;
 import java.io.IOException;
 import java.net.URL;
 import java.rmi.RemoteException;
+import java.time.LocalDate;
 import java.util.ResourceBundle;
 
 import javafx.event.ActionEvent;
@@ -24,7 +25,7 @@ import tiquartet.CommonModule.util.MemberType;
 public class ClientMainController implements Initializable {
 
 	@FXML
-	private AnchorPane bottomBarPane;
+	private FlowPane bottomBarPane;
 
 	@FXML
 	private Button logoutButton;
@@ -39,10 +40,7 @@ public class ClientMainController implements Initializable {
 	private Button registerMemberButton;
 
 	@FXML
-	private Button backButton1;
-
-	@FXML
-	private Button backButton2;
+	private Button toCreditRecordButton;
 
 	@FXML
 	private AnchorPane topBarPane;
@@ -53,33 +51,35 @@ public class ClientMainController implements Initializable {
 	@FXML
 	private FlowPane mainFlowPane;
 
-	private Parent modifyPasswordPane = null;
+	public Parent modifyPasswordPane = null;
 
-	private Parent homePage = null;
+	public Parent homePage = null;
 
-	private Parent myHotelList = null;
+	public Parent searchHotel;
+	SearchHotelController searchHotelController;
 
-	private Parent myOrderList = null;
+	public Parent myHotelList = null;
 
+	public Parent myOrderList = null;
 	OrderListController orderListController;
 
-	private Parent hotelDetails = null;
-
+	public Parent hotelDetails = null;
 	HotelPageController hotelPageController;
 
-	private Parent writeReview;
+	public Parent writeReview;
+	ReviewDialogController reviewDialogController;
 
-	ReviewDialogController ReviewDialogController;
+	public Parent createOrder;
+	CreateOrderController createOrderController;
 
-	@FXML
-	void goBack1(ActionEvent event) {
+	public Parent memberSignUp;
+	MemberSignUpController memberSignUpController;
 
-	}
+	public Parent clientInfo;
+	ClientInfoController clientInfoController;
 
-	@FXML
-	void goBack2(ActionEvent event) {
-
-	}
+	public Parent creditRecord;
+	CreditRecordController creditRecordController;
 
 	@FXML
 	void onLogout(ActionEvent event) {
@@ -87,6 +87,7 @@ public class ClientMainController implements Initializable {
 			HMSClient.getUserMainBL()
 					.logout(LoginController.getCurrentUser().userID);
 			HMSClient.showScene(HMSClient.loginScene);
+			HMSClient.clientMainController = null;
 		} catch (RemoteException e) {
 			// 网络连接错误
 			e.printStackTrace();
@@ -111,12 +112,17 @@ public class ClientMainController implements Initializable {
 
 	@FXML
 	void toPersonalInfo(ActionEvent event) {
-
+		showClientInfo((Parent) mainFlowPane.getChildren().get(0));
 	}
 
 	@FXML
 	void toRegisterMember(ActionEvent event) {
+		showMemberSignUp((Parent) mainFlowPane.getChildren().get(0));
+	}
 
+	@FXML
+	void toCreditRecord(ActionEvent event) {
+		showCreditRecord((Parent) mainFlowPane.getChildren().get(0));
 	}
 
 	public void showHomePage() {
@@ -177,6 +183,25 @@ public class ClientMainController implements Initializable {
 
 	}
 
+	public void showSearchHotel(int districtID) {
+		if (searchHotel == null) {
+			try {
+				FXMLLoader loader = new FXMLLoader(getClass()
+						.getResource("/fxml/clientui/searchHotel.fxml"));
+				searchHotel = loader.load();
+				searchHotelController = loader.getController();
+			} catch (IOException e) {
+				// 界面加载失败
+				e.printStackTrace();
+			}
+		}
+		searchHotelController.enter(districtID);
+		mainFlowPane.getChildren().clear();
+		mainFlowPane.getChildren().add(searchHotel);
+		// 设置返回按钮
+
+	}
+
 	public void showHotelDetails(int hotelID) {
 		if (hotelDetails == null) {
 			try {
@@ -202,7 +227,7 @@ public class ClientMainController implements Initializable {
 				FXMLLoader loader = new FXMLLoader(getClass()
 						.getResource("/fxml/clientui/reviewDialog.fxml"));
 				writeReview = loader.load();
-				ReviewDialogController = loader.getController();
+				reviewDialogController = loader.getController();
 			} catch (IOException e) {
 				// 界面加载失败
 				e.printStackTrace();
@@ -210,9 +235,83 @@ public class ClientMainController implements Initializable {
 		}
 		Stage dialog = new Stage(StageStyle.UNDECORATED);
 		dialog.setScene(new Scene(writeReview, 396, 400));
-		ReviewDialogController.reviewDialog = dialog;
-		ReviewDialogController.hotelID = hotelID;
+		reviewDialogController.reviewDialog = dialog;
+		reviewDialogController.hotelID = hotelID;
 		dialog.show();
+	}
+
+	public void showCreateOrder(long orderID, LocalDate checkInDate,
+			Parent previousPage) {
+		if (createOrder == null) {
+			try {
+				FXMLLoader loader = new FXMLLoader(getClass()
+						.getResource("/fxml/clientui/createOrder.fxml"));
+				createOrder = loader.load();
+				createOrderController = loader.getController();
+			} catch (IOException e) {
+				// 界面加载失败
+				e.printStackTrace();
+			}
+		}
+		createOrderController.enter(orderID, checkInDate, previousPage);
+		mainFlowPane.getChildren().clear();
+		mainFlowPane.getChildren().add(createOrder);
+	}
+
+	public void showMemberSignUp(Parent previous) {
+		if (memberSignUp == null) {
+			try {
+				FXMLLoader loader = new FXMLLoader(getClass()
+						.getResource("/fxml/clientui/memberSignUp.fxml"));
+				memberSignUp = loader.load();
+				memberSignUpController = loader.getController();
+			} catch (IOException e) {
+				// 界面加载失败
+				e.printStackTrace();
+			}
+		}
+		memberSignUpController.enter(previous);
+		mainFlowPane.getChildren().clear();
+		mainFlowPane.getChildren().add(memberSignUp);
+	}
+
+	public void showClientInfo(Parent previous) {
+		if (clientInfo == null) {
+			try {
+				FXMLLoader loader = new FXMLLoader(getClass()
+						.getResource("/fxml/clientui/clientInfo.fxml"));
+				clientInfo = loader.load();
+				clientInfoController = loader.getController();
+			} catch (IOException e) {
+				// 界面加载失败
+				e.printStackTrace();
+			}
+		}
+		clientInfoController.enter(previous);
+		mainFlowPane.getChildren().clear();
+		mainFlowPane.getChildren().add(clientInfo);
+	}
+
+	public void showCreditRecord(Parent previous) {
+		if (creditRecord == null) {
+			try {
+				FXMLLoader loader = new FXMLLoader(getClass()
+						.getResource("/fxml/clientui/creditRecord.fxml"));
+				creditRecord = loader.load();
+				creditRecordController = loader.getController();
+			} catch (IOException e) {
+				// 界面加载失败
+				e.printStackTrace();
+			}
+		}
+		creditRecordController.enter(previous);
+		mainFlowPane.getChildren().clear();
+		mainFlowPane.getChildren().add(creditRecord);
+	}
+
+	public void showSimply(Parent page) {
+		mainFlowPane.getChildren().clear();
+		mainFlowPane.getChildren().add(page);
 	}
 
 	public void renewMemberButton() {

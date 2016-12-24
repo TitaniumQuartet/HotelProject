@@ -253,14 +253,15 @@ public class ManageUser implements ManageUserBLService {
 		UserPO memberPO = userDataService.getUser(member.userID);
 		memberPO.setmemberRank(member.memberRank);
 		memberPO.setisMember(true);
+		memberPO.setmemberType(member.memberType);
 		//判断用户类型
-		if(member.birthday == null){
-			//会员类型设为企业会员
-			memberPO.setmemberType(MemberType.企业会员);
+		if(member.memberType == MemberType.个人会员){
+			//会员类型为个人会员
+			memberPO.setbirthday(member.birthday);
 		}
-		else if(member.companyName == null){
-			//会员类型设为个人会员
-			memberPO.setmemberType(MemberType.个人会员);
+		else{
+			//会员类型为企业会员
+			memberPO.setcompany(member.companyName);
 		}
 		ResultMessage result = userDataService.update(memberPO);
 

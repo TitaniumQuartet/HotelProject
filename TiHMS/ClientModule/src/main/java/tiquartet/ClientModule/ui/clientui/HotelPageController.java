@@ -11,6 +11,8 @@ import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.DatePicker;
@@ -27,11 +29,13 @@ import tiquartet.ClientModule.ui.customnode.ReviewPane;
 import tiquartet.ClientModule.ui.customnode.RoomTypePane;
 import tiquartet.ClientModule.ui.rmiclient.HMSClient;
 import tiquartet.ClientModule.ui.usermainui.LoginController;
+import tiquartet.CommonModule.util.ResultMessage;
 import tiquartet.CommonModule.vo.HotelDetailsVO;
 import tiquartet.CommonModule.vo.OrderVO;
 import tiquartet.CommonModule.vo.PreOrderVO;
 import tiquartet.CommonModule.vo.ReviewVO;
 import tiquartet.CommonModule.vo.RoomTypeVO;
+import tiquartet.CommonModule.vo.UserVO;
 
 public class HotelPageController implements Initializable {
 
@@ -101,7 +105,36 @@ public class HotelPageController implements Initializable {
 
 	@FXML
 	void onCreateOrder(ActionEvent event) {
-
+		UserVO userVO = LoginController.getCurrentUser();
+		preOrder.clientRealName = userVO.userName;
+		preOrder.hotelID = hotelDetailsVO.hotelID;
+		preOrder.hotelName = hotelDetailsVO.hotelName;
+		preOrder.leaveTime = outDateBox.getValue().toString();
+		preOrder.numOfRoom = roomNumBox.getSelectionModel().getSelectedItem();
+		preOrder.phone = userVO.phone;
+		RoomTypeVO chosen = types
+				.get(group.getToggles().indexOf(group.getSelectedToggle()));
+		preOrder.price = chosen.price
+				* roomNumBox.getSelectionModel().getSelectedItem();
+		preOrder.roomType = chosen.roomTypeId;
+		preOrder.roomTypeName = chosen.roomType;
+		preOrder.startTime = inDateBox.getValue().toString();
+		preOrder.userID = userVO.userID;
+		preOrder.userName = userVO.userName;
+		try {
+			ResultMessage message = HMSClient.getCreateOrderBL()
+					.preOrder(preOrder);
+			if (message.result) {
+				HMSClient.clientMainController.showCreateOrder(
+						Long.parseLong(message.message), inDateBox.getValue(),
+						HMSClient.clientMainController.hotelDetails);
+			} else {
+				Alert alert = new Alert(AlertType.ERROR, message.failInfo);
+				alert.show();
+			}
+		} catch (Exception e) {
+			// 网络连接错误
+		}
 	}
 
 	@FXML
@@ -164,11 +197,19 @@ public class HotelPageController implements Initializable {
 		}
 	}
 
+	/**
+	 * 日期分别默认设为明天和后天.
+	 * 
+	 * @param hotelID
+	 */
 	public void setHotel(int hotelID) {
 		setHotel(hotelID, LocalDate.now().plusDays(1),
 				LocalDate.now().plusDays(2));
 	}
 
+	/**
+	 * 更新房间类型的显示.
+	 */
 	public void setTypes() {
 		try {
 			group.getToggles().clear();

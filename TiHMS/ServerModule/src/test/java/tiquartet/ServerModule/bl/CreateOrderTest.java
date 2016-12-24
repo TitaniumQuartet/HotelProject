@@ -44,7 +44,6 @@ public class CreateOrderTest{
 		orderInfo1.orderID=orderstrategy1.orderID;
 		orderInfo1.price=orderstrategy1.orderPrice;
 		orderInfo1.userID=preorder1.userID;
-		orderInfo1.hotelID=preorder1.hotelID;
 		orderInfo1.numOfGuest=1;
 		orderInfo1.kids=0;
 		orderInfo1.guestRealName="lq";
@@ -61,7 +60,6 @@ public class CreateOrderTest{
 		assertEquals(list1.get(1).orderId,orderInfo1.orderID);
 		List<Integer> hotelList=manageorder.orderedHotelID(orderInfo1.userID);
 		assertEquals((int)hotelList.get(0),101001);
-		assertEquals((int)hotelList.get(1),orderInfo1.hotelID);
 		
 	}
 	@Test
@@ -104,7 +102,6 @@ public class CreateOrderTest{
 		orderInfo.orderID=orderstrategy.orderID;
 		orderInfo.price=orderstrategy.orderPrice;
 		orderInfo.userID=preorder.userID;
-		orderInfo.hotelID=preorder.hotelID;
 		orderInfo.numOfGuest=1;
 		orderInfo.kids=0;
 		orderInfo.guestRealName="lq";

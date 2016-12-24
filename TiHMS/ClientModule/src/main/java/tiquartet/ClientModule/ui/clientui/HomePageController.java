@@ -20,7 +20,6 @@ import tiquartet.ClientModule.ui.customnode.OrderBriefPane;
 import tiquartet.ClientModule.ui.datastorage.DistrictData;
 import tiquartet.ClientModule.ui.rmiclient.HMSClient;
 import tiquartet.ClientModule.ui.usermainui.LoginController;
-import tiquartet.CommonModule.util.HotelSort;
 import tiquartet.CommonModule.util.OrderSort;
 import tiquartet.CommonModule.vo.HotelBriefVO;
 import tiquartet.CommonModule.vo.HotelFilterVO;
@@ -60,20 +59,13 @@ public class HomePageController implements Initializable {
 	@FXML
 	void onSearchHotel(ActionEvent event) {
 		if (districtBox.getSelectionModel().getSelectedIndex() >= 0) {
-			try {
-				HotelFilterVO filterVO = new HotelFilterVO();
-				String districtName = districtBox.getItems().get(
-						districtBox.getSelectionModel().getSelectedIndex());
-				int districtID = DistrictData.districtIDListOfCity(cityID)
-						.get(DistrictData.districtNameListOfCity(cityID)
-								.indexOf(districtName));
-				filterVO.districtID = districtID;
-				List<HotelBriefVO> hotelList = HMSClient.getSearchHotelBL()
-						.getHotelList(filterVO, HotelSort.评分降序, 1, 6);
-			} catch (RemoteException e) {
-				// 处理网络异常
-				e.printStackTrace();
-			}
+			HotelFilterVO filterVO = new HotelFilterVO();
+			String districtName = districtBox.getItems()
+					.get(districtBox.getSelectionModel().getSelectedIndex());
+			int districtID = DistrictData.districtIDListOfCity(cityID)
+					.get(DistrictData.districtNameListOfCity(cityID)
+							.indexOf(districtName));
+			clientMainController.showSearchHotel(districtID);
 		}
 	}
 

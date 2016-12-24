@@ -140,7 +140,9 @@ public class SearchHotelController implements Initializable {
 		refresh();
 	}
 
-	public void enter() {
+	public void enter(int districtID) {
+		filter = new HotelFilterVO();
+		filter.districtID = districtID;
 		sort = null;
 		starBox.getSelectionModel().select(0);
 		rateBox.getSelectionModel().select(0);
@@ -194,6 +196,7 @@ public class SearchHotelController implements Initializable {
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
+		filter = new HotelFilterVO();
 		starBox.getItems().addAll("星级不限", "五星级", "四星级", "三星以下");
 		rateBox.getItems().addAll("评分不限", "评分8-10", "评分6-8", "评分6以下");
 		priceBox.getItems().addAll("价格不限", "￥500以上", "￥300-500", "￥200-300",

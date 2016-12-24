@@ -13,6 +13,8 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Hyperlink;
@@ -27,9 +29,11 @@ import javafx.scene.layout.HBox;
 import tiquartet.ClientModule.ui.customnode.RoomTypePane;
 import tiquartet.ClientModule.ui.rmiclient.HMSClient;
 import tiquartet.ClientModule.ui.usermainui.LoginController;
+import tiquartet.CommonModule.util.ResultMessage;
 import tiquartet.CommonModule.vo.HotelBriefVO;
 import tiquartet.CommonModule.vo.PreOrderVO;
 import tiquartet.CommonModule.vo.RoomTypeVO;
+import tiquartet.CommonModule.vo.UserVO;
 
 public class HotelSearchedController implements Initializable {
 
@@ -71,7 +75,39 @@ public class HotelSearchedController implements Initializable {
 
 	@FXML
 	void onCreateOrder(ActionEvent event) {
-
+		UserVO userVO = LoginController.getCurrentUser();
+		preOrder.clientRealName = userVO.userName;
+		preOrder.hotelID = hotelBriefVO.hotelID;
+		preOrder.hotelName = hotelBriefVO.hotelName;
+		preOrder.leaveTime = searchHotelController.outDateBox.getValue()
+				.toString();
+		preOrder.numOfRoom = roomNumBox.getSelectionModel().getSelectedItem();
+		preOrder.phone = userVO.phone;
+		RoomTypeVO chosen = typeList.get(radioGroup.getToggles()
+				.indexOf(radioGroup.getSelectedToggle()));
+		preOrder.price = chosen.price
+				* roomNumBox.getSelectionModel().getSelectedItem();
+		preOrder.roomType = chosen.roomTypeId;
+		preOrder.roomTypeName = chosen.roomType;
+		preOrder.startTime = searchHotelController.inDateBox.getValue()
+				.toString();
+		preOrder.userID = userVO.userID;
+		preOrder.userName = userVO.userName;
+		try {
+			ResultMessage message = HMSClient.getCreateOrderBL()
+					.preOrder(preOrder);
+			if (message.result) {
+				HMSClient.clientMainController.showCreateOrder(
+						Long.parseLong(message.message),
+						searchHotelController.inDateBox.getValue(),
+						HMSClient.clientMainController.searchHotel);
+			} else {
+				Alert alert = new Alert(AlertType.ERROR, message.failInfo);
+				alert.show();
+			}
+		} catch (Exception e) {
+			// 网络连接错误
+		}
 	}
 
 	public SearchHotelController searchHotelController;

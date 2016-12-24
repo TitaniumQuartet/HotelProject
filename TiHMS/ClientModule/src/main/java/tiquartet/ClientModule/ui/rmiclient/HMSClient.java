@@ -12,6 +12,7 @@ import javafx.stage.Stage;
 import tiquartet.ClientModule.ui.adminui.AdminMainController;
 import tiquartet.ClientModule.ui.clientui.ClientMainController;
 import tiquartet.ClientModule.ui.datastorage.DistrictData;
+import tiquartet.ClientModule.ui.hotelierui.HotelierMainController;
 import tiquartet.CommonModule.blservice.createorderblservice.CreateOrderBLService;
 import tiquartet.CommonModule.blservice.hotelinfoblservice.HotelInfoBLService;
 import tiquartet.CommonModule.blservice.manageorderblservice.ManageOrderBLService;
@@ -52,6 +53,8 @@ public class HMSClient {
 	public static AdminMainController adminMainController;
 
 	public static ClientMainController clientMainController;
+
+	public static HotelierMainController hotelierMainController;
 
 	static public Scene loginScene;
 

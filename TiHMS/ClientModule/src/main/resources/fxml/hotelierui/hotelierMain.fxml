@@ -7,11 +7,27 @@
 <?import javafx.scene.layout.FlowPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tiquartet.ClientModule.ui.clientui.ClientMainController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tiquartet.ClientModule.ui.hotelierui.HotelierMainController">
    <children>
       <FlowPane fx:id="bottomBarPane" alignment="TOP_RIGHT" hgap="20.0" layoutY="757.0" style="-fx-background-color: steelblue;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
          <children>
-            <Button fx:id="registerMemberButton" alignment="CENTER" mnemonicParsing="false" onAction="#toRegisterMember" style="-fx-background-color: steelblue;" text="注册会员" textFill="WHITE">
+            <Button fx:id="registerMemberButton" alignment="CENTER" mnemonicParsing="false" onAction="#toRegisterMember" style="-fx-background-color: steelblue;" text="客房管理" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button fx:id="hotelInfoButton" alignment="CENTER" mnemonicParsing="false" onAction="#toHotelInfo" style="-fx-background-color: steelblue;" text="酒店信息" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button fx:id="toStrategyButton" alignment="CENTER" mnemonicParsing="false" onAction="#toStrategy" style="-fx-background-color: steelblue;" text="优惠策略" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
@@ -20,22 +36,6 @@
                </cursor>
             </Button>
             <Button fx:id="modifyPasswordButton" alignment="CENTER" mnemonicParsing="false" onAction="#onModifyPassword" style="-fx-background-color: steelblue;" text="修改密码" textFill="WHITE">
-               <font>
-                  <Font name="System Bold" size="18.0" />
-               </font>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </Button>
-            <Button fx:id="personalInfoButton" alignment="CENTER" mnemonicParsing="false" onAction="#toPersonalInfo" style="-fx-background-color: steelblue;" text="个人信息" textFill="WHITE">
-               <font>
-                  <Font name="System Bold" size="18.0" />
-               </font>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </Button>
-            <Button fx:id="toCreditRecordButton" alignment="CENTER" mnemonicParsing="false" onAction="#toCreditRecord" style="-fx-background-color: steelblue;" text="信用记录" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
@@ -56,7 +56,8 @@
       <AnchorPane fx:id="topBarPane" layoutX="56.0" layoutY="19.0" prefHeight="120.0" prefWidth="200.0" AnchorPane.bottomAnchor="680.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <ImageView fx:id="topRowView" fitHeight="120.0" fitWidth="1280.0" layoutX="117.0" layoutY="-15.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-         </children></AnchorPane>
+         </children>
+      </AnchorPane>
       <FlowPane fx:id="mainFlowPane" layoutX="157.0" layoutY="185.0" orientation="VERTICAL" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="40.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="120.0" />
    </children>
 </AnchorPane>

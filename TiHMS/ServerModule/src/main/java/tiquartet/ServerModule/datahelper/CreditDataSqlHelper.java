@@ -11,6 +11,7 @@ import java.util.List;
 
 import tiquartet.CommonModule.util.CreditChange;
 import tiquartet.CommonModule.util.ResultMessage;
+import tiquartet.CommonModule.util.StringUtility;
 import tiquartet.ServerModule.datahelper.service.CreditDataHelper;
 import tiquartet.ServerModule.po.CreditPO;
 
@@ -41,7 +42,7 @@ public class CreditDataSqlHelper implements CreditDataHelper{
 	        pstmt.setDouble(3,creditItem.getbalance());
 	        pstmt.setLong(4, creditItem.getorderId());
 	        pstmt.setInt(5, creditItem.getuserID());
-	        pstmt.setString(6, now.toString());
+	        pstmt.setString(6, StringUtility.dateToString(now));
 	        pstmt.executeUpdate();
 	        pstmt.close();
 	        conn.close();

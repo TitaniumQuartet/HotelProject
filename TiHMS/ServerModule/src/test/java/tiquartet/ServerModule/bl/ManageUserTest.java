@@ -121,7 +121,7 @@ public class ManageUserTest {
 		user = new ManageUser();
 		List<CreditVO> creditVOs = user.getCreditRecord(2);
 		
-		CreditPO creditPO = new CreditPO(CreditChange.客户较晚撤销订单时扣除信用值, 10, 90, 1, 1, 2);
+		CreditPO creditPO = new CreditPO(CreditChange.客户较晚撤销订单时扣除信用值, 10, 90, 1, 1, 2, null);
 		List<CreditVO> credits = new ArrayList<CreditVO>();
 		credits.add(creditPO.getVO());
 		
@@ -136,7 +136,7 @@ public class ManageUserTest {
 	@Test
 	public void testaddCreditItem(){
 		user = new ManageUser();
-		CreditPO creditPO = new CreditPO(CreditChange.客户较晚撤销订单时扣除信用值, 10, 90, 1, 1, 2);
+		CreditPO creditPO = new CreditPO(CreditChange.客户较晚撤销订单时扣除信用值, 10, 90, 1, 1, 2, null);
 		CreditVO creditVO = creditPO.getVO();
 		
 		ResultMessage resultMessage = user.addCreditItem(creditVO);
