@@ -23,6 +23,7 @@ import java.util.Map;
 import java.util.Set;
 
 import tiquartet.CommonModule.blservice.createorderblservice.CreateOrderBLService;
+import tiquartet.CommonModule.util.MemberType;
 import tiquartet.CommonModule.util.OrderStatus;
 import tiquartet.CommonModule.util.ResultMessage;
 import tiquartet.CommonModule.util.StrategyType;
@@ -86,9 +87,9 @@ public class CreateOrder implements CreateOrderBLService {
 					orderStrategylist.add(orderstrategy);
 				}
 			} else if (polist.get(i).getStrategyType() == StrategyType.CIRCLE) {
-				if (preorder.hotelID / 1000 != polist.get(i).getCircelID()) {
+				if (preorder.hotelID / 1000 != polist.get(i).getCircelID() && user.getmemberType() == MemberType.个人会员) {
 					double[] memberDiscount = polist.get(i).getMemberDiscount();
-					price = price * memberDiscount[user.getmemberRank()];
+					price = price * memberDiscount[user.getmemberRank() - 1];
 					orderstrategy.orderPrice = price;
 					orderStrategylist.add(orderstrategy);
 				}
@@ -125,10 +126,16 @@ public class CreateOrder implements CreateOrderBLService {
 					e.printStackTrace();
 				}
 
+			} else if (polist.get(i).getStrategyType() == StrategyType.COMPANY) {
+				if (user.getmemberType() == MemberType.企业会员 && user.getcompany().equals(polist.get(i).getcompany())) {
+					price = price * polist.get(i).getdiscount();
+					orderstrategy.orderPrice = price;
+				}
 			} else {
-				if (user.getisMember()) {
+				if (user.getmemberType() == MemberType.个人会员) {
 					double[] memberDiscount = polist.get(i).getMemberDiscount();
 					price = price * memberDiscount[user.getmemberRank() - 1];
+					orderstrategy.orderPrice = price;
 				}
 			}
 
@@ -157,14 +164,14 @@ public class CreateOrder implements CreateOrderBLService {
 		if (credit < 0) {
 			return new ResultMessage(false, "用户信用值低于0", "");
 		}
-		map.put(preOrder.userID, preOrder);	
-		OrderPO order = new OrderPO(preOrder);	
+		map.put(preOrder.userID, preOrder);
+		OrderPO order = new OrderPO(preOrder);
 		order.setorderStatus(OrderStatus.暂时预订);
 		OrderPO preorder = orderdataimpl.preOrder(order);
 		if (preorder != null) {
 			return new ResultMessage(true, "", String.valueOf(preorder.getorderId()));
 		}
-			
+
 		return new ResultMessage(false, "预定失败", "");
 	}
 

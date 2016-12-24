@@ -113,15 +113,15 @@ public class HotelInfoTest {
 	
 	@Test
 	public void testmodifyHotelInfo() throws RemoteException{
-		HotelInfoVO hotelInfo=new HotelInfoVO();
+		HotelDetailsVO hotelInfo=new HotelDetailsVO();
 		hotelInfo.address="nju";
-		hotelInfo.averageGrade=5;
-		hotelInfo.circleId=201;
+		hotelInfo.averagegrade=5;
+		hotelInfo.circleID=201;
 		hotelInfo.cityName="nj";
 		hotelInfo.highprice=200;
 		hotelInfo.hotelID=201001;
-		hotelInfo.hotelIntroduction="verygood";
-		hotelInfo.serviceIntroduction="wifi";
+		hotelInfo.introduction="verygood";
+		hotelInfo.serviceintro="wifi";
 		hotelInfo.hotelName="Numthree";
 		hotelInfo.lowprice=100;
 		hotelInfo.star=4;

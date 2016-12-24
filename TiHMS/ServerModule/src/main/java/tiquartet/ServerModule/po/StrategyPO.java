@@ -5,185 +5,200 @@ import java.io.Serializable;
 import tiquartet.CommonModule.util.StrategyType;
 import tiquartet.CommonModule.vo.StrategyVO;
 
-public class StrategyPO implements Serializable{
-	//策略编号
-	private int strategyId=-1;
-	//策略介绍
-	private String strategyIntro="";
-	//酒店编号
-	private int  hotelId=-1;	
-	//商圈编号
-	private int circleID=-1;
-	//折扣比例
-	private double discount=-1;
-	//门槛上线
-	private double[] memberThreShold={0,0,0,0,0,0,0,0,0};
-	//会员等级对应折扣
-	private double[] memberDiscount={0,0,0,0,0,0,0,0,0,0};
-	//折扣策略开始时间
-	private String startTime="";
-	//折扣策略结束时间
-	private String endTime="";
-	//策略类型
-	private StrategyType strategyType=StrategyType.TIME;
-	//所需房间数目
-	private int numOfRoom=-1;
-	public StrategyPO(){
-		
+public class StrategyPO implements Serializable {
+	// 策略编号
+	private int strategyId = -1;
+	// 策略介绍
+	private String strategyIntro = "";
+	// 酒店编号
+	private int hotelId = -1;
+	// 商圈编号
+	private int circleID = -1;
+	// 折扣比例
+	private double discount = -1;
+	// 门槛上线
+	private double[] memberThreShold = { 0, 0, 0, 0, 0, 0, 0, 0, 0 };
+	// 会员等级对应折扣
+	private double[] memberDiscount = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
+	// 折扣策略开始时间
+	private String startTime = "";
+	// 折扣策略结束时间
+	private String endTime = "";
+	// 策略类型
+	private StrategyType strategyType = StrategyType.TIME;
+	// 所需房间数目
+	private int numOfRoom = -1;
+	// 合作企业
+	private String company = "";
+
+	public StrategyPO() {
+
 	}
-	
-	public StrategyPO(int strategyId,String strategyIntro,int hotelId,double discount,int circleID,double[] memberThreShold,double[] memberDiscount,String startTime,String endTime,StrategyType strategyType,int numOfRoom){
+
+	public StrategyPO(int strategyId, String strategyIntro, int hotelId, double discount, int circleID,
+			double[] memberThreShold, double[] memberDiscount, String startTime, String endTime,
+			StrategyType strategyType, int numOfRoom) {
 		super();
-		this.strategyId=strategyId;
-		this.strategyIntro=strategyIntro;
-		this.hotelId=hotelId;
-		this.discount=discount;
-		this.circleID=circleID;
-		this.memberThreShold=memberThreShold;
-		this.memberDiscount=memberDiscount;
-		this.startTime=startTime;
-		this.endTime=endTime;
-		this.strategyType=strategyType;
-		this.numOfRoom=numOfRoom;
+		this.strategyId = strategyId;
+		this.strategyIntro = strategyIntro;
+		this.hotelId = hotelId;
+		this.discount = discount;
+		this.circleID = circleID;
+		this.memberThreShold = memberThreShold;
+		this.memberDiscount = memberDiscount;
+		this.startTime = startTime;
+		this.endTime = endTime;
+		this.strategyType = strategyType;
+		this.numOfRoom = numOfRoom;
 	}
-	
-	public StrategyPO(StrategyVO vo){
-		this.discount=vo.discount;
-		this.hotelId=vo.hotelID;
-		this.strategyId=vo.strategyID;
-		this.strategyIntro=vo.strategyIntro;
-		this.memberDiscount=vo.memberDiscount;
-		this.memberThreShold=vo.memberThreShold;
-		this.startTime=vo.startTime;
-		this.endTime=vo.endTime;
-		this.strategyType=vo.strategyType;
-		this.circleID=vo.circleID;
-		this.numOfRoom=vo.numOfRoom;
+
+	public StrategyPO(StrategyVO vo) {
+		this.discount = vo.discount;
+		this.hotelId = vo.hotelID;
+		this.strategyId = vo.strategyID;
+		this.strategyIntro = vo.strategyIntro;
+		this.memberDiscount = vo.memberDiscount;
+		this.memberThreShold = vo.memberThreShold;
+		this.startTime = vo.startTime;
+		this.endTime = vo.endTime;
+		this.strategyType = vo.strategyType;
+		this.circleID = vo.circleID;
+		this.numOfRoom = vo.numOfRoom;
+		this.company = vo.company;
 	}
-	public int getstrategyId(){
+
+	public int getstrategyId() {
 		return strategyId;
 	}
-	
-	public void setrstategyId(int strategyId){
-		this.strategyId=strategyId;
+
+	public void setrstategyId(int strategyId) {
+		this.strategyId = strategyId;
 	}
-	
-	public String getstrategyIntro(){
+
+	public String getstrategyIntro() {
 		return strategyIntro;
 	}
-	
-	public void setstrategyIntro(String strategyIntro){
-		this.strategyIntro=strategyIntro;
+
+	public void setstrategyIntro(String strategyIntro) {
+		this.strategyIntro = strategyIntro;
 	}
-	
-	public int gethotelId(){
+
+	public int gethotelId() {
 		return hotelId;
 	}
-	
-	public void sethotelId(int hotelId){
-		this.hotelId=hotelId;
+
+	public void sethotelId(int hotelId) {
+		this.hotelId = hotelId;
 	}
-	
-	public double getdiscount(){
+
+	public double getdiscount() {
 		return discount;
 	}
-	
-	public void setdiscount(double discount){
-		this.discount=discount;
+
+	public void setdiscount(double discount) {
+		this.discount = discount;
 	}
-	
-	public StrategyVO toStrategyvo(){
-		StrategyVO vo=new StrategyVO();
-		vo.discount=this.discount;
-		vo.hotelID=this.hotelId;
-		vo.strategyID=this.strategyId;
-		vo.strategyIntro=this.strategyIntro;
-		vo.memberDiscount=this.memberDiscount;
-		vo.memberThreShold=this.memberThreShold;
-		vo.endTime=this.endTime;
-		vo.startTime=this.startTime;
-		vo.strategyType=this.strategyType;
-		vo.circleID=this.circleID;
-		vo.numOfRoom=this.numOfRoom;
+
+	public StrategyVO toStrategyvo() {
+		StrategyVO vo = new StrategyVO();
+		vo.discount = this.discount;
+		vo.hotelID = this.hotelId;
+		vo.strategyID = this.strategyId;
+		vo.strategyIntro = this.strategyIntro;
+		vo.memberDiscount = this.memberDiscount;
+		vo.memberThreShold = this.memberThreShold;
+		vo.endTime = this.endTime;
+		vo.startTime = this.startTime;
+		vo.strategyType = this.strategyType;
+		vo.circleID = this.circleID;
+		vo.numOfRoom = this.numOfRoom;
+		vo.company = this.company;
 		return vo;
 	}
 
-	
-	public void setMemberDiscount(double[] memberDiscount){
-		this.memberDiscount=memberDiscount;
+	public void setMemberDiscount(double[] memberDiscount) {
+		this.memberDiscount = memberDiscount;
 	}
-	
-	public double[] getMemberDiscount(){
+
+	public double[] getMemberDiscount() {
 		return this.memberDiscount;
 	}
-	
-	public String getMemberDiscountAsString(){
-		String result="";
-		if(memberDiscount[0]==0)
+
+	public String getMemberDiscountAsString() {
+		String result = "";
+		if (memberDiscount[0] == 0)
 			return "";
-		for(int i=0;i<memberDiscount.length;i++){
-			result=result+String.valueOf(memberDiscount[i])+",";
+		for (int i = 0; i < memberDiscount.length; i++) {
+			result = result + String.valueOf(memberDiscount[i]) + ",";
 		}
-		result=result+String.valueOf(memberDiscount[9]);
+		result = result + String.valueOf(memberDiscount[9]);
 		return result;
 	}
-	
-	public void setStartTime(String startTime){
-		this.startTime=startTime;
+
+	public void setStartTime(String startTime) {
+		this.startTime = startTime;
 	}
-	
-	public String getStartTime(){
+
+	public String getStartTime() {
 		return this.startTime;
 	}
-	
-	public void setEndTIme(String endTime){
-		this.endTime=endTime;
+
+	public void setEndTIme(String endTime) {
+		this.endTime = endTime;
 	}
-	
-	public String getEndTime(){
+
+	public String getEndTime() {
 		return this.endTime;
 	}
-	
-	public void setStrategyType(StrategyType strategyType){
-		this.strategyType=strategyType;
+
+	public void setStrategyType(StrategyType strategyType) {
+		this.strategyType = strategyType;
 	}
-	
-	public StrategyType getStrategyType(){
+
+	public StrategyType getStrategyType() {
 		return this.strategyType;
 	}
-	
-	public void setMemberThreshold(double[] memberthreshold){
-		this.memberThreShold=memberthreshold;
+
+	public void setMemberThreshold(double[] memberthreshold) {
+		this.memberThreShold = memberthreshold;
 	}
-	
-	public double[] getMemberThreshold(){
+
+	public double[] getMemberThreshold() {
 		return this.memberThreShold;
 	}
-	
-	public String getMemberThresholdAsString(){
-		String result="";
-		if(memberThreShold[0]==0)
+
+	public String getMemberThresholdAsString() {
+		String result = "";
+		if (memberThreShold[0] == 0)
 			return "";
-		for(int i=0;i<memberThreShold.length-1;i++){
-			result=result+String.valueOf(memberThreShold[i])+",";
+		for (int i = 0; i < memberThreShold.length - 1; i++) {
+			result = result + String.valueOf(memberThreShold[i]) + ",";
 		}
-		result=result+String.valueOf(memberThreShold[8]);
+		result = result + String.valueOf(memberThreShold[8]);
 		return result;
 	}
-    
-	public void setCircleID(int circleID){
-		this.circleID=circleID;
+
+	public void setCircleID(int circleID) {
+		this.circleID = circleID;
 	}
-	
-	public int getCircelID(){
+
+	public int getCircelID() {
 		return this.circleID;
 	}
-	
-	public void setnumOfRoom(int numOfRoom){
-		this.numOfRoom=numOfRoom;		
+
+	public void setnumOfRoom(int numOfRoom) {
+		this.numOfRoom = numOfRoom;
 	}
-	
-	public int getnumOfRoom(){
+
+	public int getnumOfRoom() {
 		return this.numOfRoom;
+	}
+
+	public void setcompany(String company) {
+		this.company = company;
+	}
+
+	public String getcompany() {
+		return this.company;
 	}
 }

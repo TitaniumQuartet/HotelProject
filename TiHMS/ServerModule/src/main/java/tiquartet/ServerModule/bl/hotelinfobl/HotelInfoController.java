@@ -34,7 +34,7 @@ public class HotelInfoController implements HotelInfoBLService{
 		return HotelInfo.reviewHotel(review);
 	}
 	
-	public  ResultMessage modifyHotelInfo (HotelInfoVO hotelInfo)throws RemoteException{
+	public  ResultMessage modifyHotelInfo (HotelDetailsVO hotelInfo)throws RemoteException{
 		//修改酒店信息		
 		return HotelInfo.modifyHotelInfo(hotelInfo);
 	}
