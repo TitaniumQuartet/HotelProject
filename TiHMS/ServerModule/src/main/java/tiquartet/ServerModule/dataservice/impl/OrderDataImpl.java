@@ -106,7 +106,7 @@ public class OrderDataImpl implements OrderDataService{
 	 * @return
 	 */
 	@Override
-	public ResultMessage updateState(int hotelId) {
-		return orderDataHelper.updateState(hotelId);
+	public ResultMessage updateState() {
+		return orderDataHelper.updateState();
 	}
 }

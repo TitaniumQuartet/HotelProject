@@ -322,9 +322,9 @@ public class OrderDataSqlHelper implements OrderDataHelper{
 	 * @return
 	 */
 	@Override
-	public ResultMessage updateState(int hotelId) {
+	public ResultMessage updateState() {
 		Connection conn = Connect.getConn();
-		String sql="select * from ordertable where hotelId = " + hotelId + "AND where orderStatus = " + 3;
+		String sql="select * from ordertable where orderStatus = " + 3;
 		PreparedStatement pstmt;
 		try {
 			pstmt = (PreparedStatement) conn.prepareStatement(sql);
@@ -357,7 +357,7 @@ public class OrderDataSqlHelper implements OrderDataHelper{
 	}
 
 	/**
-	 * 若置为异常订单则扣除信用值.
+	 * 若置为异常订单则改变订单状态.
 	 * @return
 	 */
 	public void changeState(long orderId){

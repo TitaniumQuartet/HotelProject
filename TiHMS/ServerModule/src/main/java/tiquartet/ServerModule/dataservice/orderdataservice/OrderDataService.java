@@ -59,6 +59,6 @@ public interface OrderDataService {
 	 * 判断酒店未执行订单是否过时，若是，则置为异常订单，并扣除信用值.
 	 * @return
 	 */
-	public ResultMessage updateState(int hotelId);
+	public ResultMessage updateState();
 
 }
