@@ -175,7 +175,7 @@ public class UserDataSqlHelper implements UserDataHelper{
 	    		", company='" + userPO.getcompany() +
 	    		"', hotelId=" + userPO.gethotelId() +
 	    		", login=" + userPO.getLogin() +
-	    		", memberType=" + userPO.getmemberType().ordinal() +
+	    		", memberType=" + userPO.getTypeAsInt() +
 	    		", phone='" + userPO.getphone() +
 	            "' where userId=" + userPO.getuserId() ;
 	    PreparedStatement pstmt;
