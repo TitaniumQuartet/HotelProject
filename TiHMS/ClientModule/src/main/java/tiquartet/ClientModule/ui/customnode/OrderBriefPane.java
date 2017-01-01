@@ -10,12 +10,13 @@ public class OrderBriefPane extends AnchorPane {
 
 	public OrderBriefPane(OrderVO orderVO) {
 		super();
-		if(orderVO == null) return;
+		if (orderVO == null)
+			return;
 		Font font18 = new Font(18);
 		Label orderIDLabel = new Label(
-				"订单号：" + String.format("%012d", orderVO.orderId));
+				"订单号：" + String.format("%09d", orderVO.orderId));
 		orderIDLabel.setFont(font18);
-		//应当改成酒店名称
+		// 应当改成酒店名称
 		Hyperlink hotelLink = new Hyperlink(String.valueOf(orderVO.hotelName));
 		hotelLink.setFont(font18);
 		// 应当改成房间类型名称
@@ -24,11 +25,11 @@ public class OrderBriefPane extends AnchorPane {
 				+ orderVO.startTime.substring(0, 10) + "入住，"
 				+ orderVO.leaveTime.substring(0, 10) + "离店");
 		roomLabel.setFont(font18);
-		Label guestLabel = new Label("实际入住："+ orderVO.guestrealName);
+		Label guestLabel = new Label("实际入住：" + orderVO.guestrealName);
 		guestLabel.setFont(font18);
-		Label timeLabel = new Label("于" + orderVO.orderTime+ "下单");
+		Label timeLabel = new Label("于" + orderVO.orderTime + "下单");
 		timeLabel.setFont(font18);
-		Label priceLabel = new Label(String.format("%.2d", orderVO.price) + "  "
+		Label priceLabel = new Label(String.format("%.2f", orderVO.price) + "  "
 				+ orderVO.orderStatus.name());
 		priceLabel.setFont(new Font(24));
 

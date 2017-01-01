@@ -6,16 +6,16 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.MenuButton?>
 <?import javafx.scene.control.MenuItem?>
-<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.FlowPane?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="640.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tiquartet.ClientModule.ui.clientui.SearchHotelController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="640.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tiquartet.ClientModule.ui.marketerui.AbnormalController">
    <children>
       <AnchorPane layoutX="96.0" layoutY="33.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="498.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -57,69 +57,64 @@
                </children>
             </GridPane>
             <GridPane layoutX="45.0" layoutY="15.0" prefHeight="120.0" prefWidth="904.0">
-              <columnConstraints>
-                <ColumnConstraints hgrow="SOMETIMES" maxWidth="234.33334350585938" minWidth="10.0" prefWidth="200.66668701171875" />
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="234.33334350585938" minWidth="10.0" prefWidth="200.66668701171875" />
                   <ColumnConstraints hgrow="SOMETIMES" maxWidth="195.66668701171875" minWidth="10.0" prefWidth="193.33331298828125" />
                   <ColumnConstraints hgrow="SOMETIMES" maxWidth="206.66668701171875" minWidth="10.0" prefWidth="179.0" />
                   <ColumnConstraints hgrow="SOMETIMES" maxWidth="216.66668701171875" minWidth="10.0" prefWidth="182.0" />
                   <ColumnConstraints hgrow="SOMETIMES" maxWidth="216.66668701171875" minWidth="10.0" prefWidth="182.0" />
-              </columnConstraints>
-              <rowConstraints>
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-              </rowConstraints>
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+               </rowConstraints>
                <children>
-                  <ChoiceBox fx:id="starBox" prefHeight="40.0" prefWidth="130.0" />
-                  <ChoiceBox fx:id="priceBox" prefHeight="40.0" prefWidth="130.0" GridPane.columnIndex="2" />
-                  <ChoiceBox fx:id="rateBox" prefHeight="40.0" prefWidth="130.0" GridPane.columnIndex="1" />
+                  <ChoiceBox fx:id="cityBox" prefHeight="40.0" prefWidth="130.0" />
+                  <ChoiceBox fx:id="priceBox" prefHeight="40.0" prefWidth="130.0" GridPane.columnIndex="1" />
                   <TextField fx:id="hotelNameField" maxWidth="-Infinity" prefHeight="36.0" prefWidth="360.0" promptText="酒店名称" GridPane.columnSpan="3" GridPane.rowIndex="1" />
-                  <DatePicker fx:id="inDateBox" editable="false" prefHeight="36.0" prefWidth="130.0" promptText="入住日期" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-                  <DatePicker fx:id="outDateBox" editable="false" prefHeight="36.0" prefWidth="130.0" promptText="离店日期" GridPane.columnIndex="3" GridPane.rowIndex="1" />
-                  <MenuButton mnemonicParsing="false" prefHeight="40.0" prefWidth="130.0" text="选择排序方式" GridPane.columnIndex="3">
-                    <items>
-                      <MenuItem fx:id="priceDescend" mnemonicParsing="false" onAction="#onPriceDescend" text="价格从高到低" />
-                      <MenuItem fx:id="priceAscend" mnemonicParsing="false" onAction="#onPriceAscend" text="价格从低到高" />
-                        <MenuItem fx:id="rateDescend" mnemonicParsing="false" onAction="#onRateDescend" text="评分从高到低" />
-                        <MenuItem fx:id="rateAscend" mnemonicParsing="false" onAction="#onRateAscend" text="评分从低到高" />
-                    </items>
-                  </MenuButton>
+                  <DatePicker fx:id="startDateBox" editable="false" prefHeight="36.0" prefWidth="130.0" promptText="起始日期" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                  <DatePicker fx:id="endDateBox" editable="false" prefHeight="36.0" prefWidth="130.0" promptText="结束日期" GridPane.columnIndex="3" GridPane.rowIndex="1" />
                   <Button fx:id="searchButton" mnemonicParsing="false" onAction="#onSearchClicked" prefHeight="36.0" prefWidth="80.0" text="查找" GridPane.columnIndex="4" GridPane.rowIndex="1">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Button>
+                  <TextField fx:id="guestBox" maxWidth="-Infinity" prefHeight="40.0" prefWidth="130.0" promptText="客人姓名" GridPane.columnIndex="2" />
                </children>
             </GridPane>
-            <Label fx:id="resultLabel" layoutX="904.0" layoutY="97.0" text="找到0个结果">
+            <Label fx:id="resultLabel" layoutX="904.0" layoutY="97.0" text="找到0笔订单">
                <font>
                   <Font size="14.0" />
                </font>
             </Label>
+            <MenuButton layoutX="1036.0" layoutY="25.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="130.0" text="选择排序方式">
+               <items>
+                  <MenuItem fx:id="priceDescend" mnemonicParsing="false" onAction="#onPriceDescend" text="订单总价从高到低" />
+                  <MenuItem fx:id="priceAscend" mnemonicParsing="false" onAction="#onPriceAscend" text="订单总价从低到高" />
+                  <MenuItem fx:id="createAscend" mnemonicParsing="false" onAction="#onCreateDescend" text="预订日期从前到后" />
+                  <MenuItem fx:id="createDescend" mnemonicParsing="false" onAction="#onCreateAscend" text="预订日期从后到前" />
+                  <MenuItem fx:id="checkInAscend" mnemonicParsing="false" onAction="#onCheckInAscend" text="入住日期从前到后" />
+                  <MenuItem fx:id="checkInDescend" mnemonicParsing="false" onAction="#onCheckInDescend" text="入住日期从后到前" />
+               </items>
+            </MenuButton>
          </children>
       </AnchorPane>
       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="540.0" prefWidth="1280.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="142.0">
          <children>
-            <ScrollPane fx:id="scroll" vbarPolicy="ALWAYS" vmax="5.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-               <content>
-                  <GridPane fx:id="grid" prefHeight="2490.0" prefWidth="1265.0">
-                     <columnConstraints>
-                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                     </columnConstraints>
-                     <rowConstraints>
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                     </rowConstraints>
-                  </GridPane>
-               </content>
-            </ScrollPane>
+            <GridPane fx:id="grid" gridLinesVisible="true" prefHeight="464.0" prefWidth="1265.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <children>
+                  <FlowPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" />
+               </children>
+            </GridPane>
          </children>
       </AnchorPane>
    </children>

@@ -106,22 +106,23 @@ public class MemberSignUpController implements Initializable {
 							ObservableValue<? extends Number> observable,
 							Number oldValue, Number newValue) {
 						int index = (Integer) newValue;
-						if (index > -1) {
-							signUpButton.setDisable(true);
-							signUpButton.setVisible(true);
-						}
+
 						if (index == 0) {
 							// 选择个人会员
 							infoLabel.setText("生日");
 							birthdayPicker.setVisible(true);
 							birthdayPicker.setValue(null);
 							companyField.setVisible(false);
+							signUpButton.setDisable(true);
+							signUpButton.setVisible(true);
 						} else if (index == 1) {
 							// 选择企业会员
 							infoLabel.setText("企业名称");
 							birthdayPicker.setVisible(false);
 							companyField.setText("");
 							companyField.setVisible(true);
+							signUpButton.setDisable(true);
+							signUpButton.setVisible(true);
 						}
 					}
 				});
@@ -135,16 +136,14 @@ public class MemberSignUpController implements Initializable {
 							signUpButton.setVisible(false);
 					}
 				});
-		companyField.accessibleTextProperty()
-				.addListener(new ChangeListener<String>() {
-					@Override
-					public void changed(
-							ObservableValue<? extends String> observable,
-							String oldValue, String newValue) {
-						if (!newValue.isEmpty())
-							signUpButton.setDisable(false);
-					}
-				});
+		companyField.textProperty().addListener(new ChangeListener<String>() {
+			@Override
+			public void changed(ObservableValue<? extends String> observable,
+					String oldValue, String newValue) {
+				if (!newValue.isEmpty())
+					signUpButton.setDisable(false);
+			}
+		});
 	}
 
 }

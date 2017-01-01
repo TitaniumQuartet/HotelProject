@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.rmi.RemoteException;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 import javafx.event.ActionEvent;
@@ -81,12 +82,14 @@ public class ClientMainController implements Initializable {
 	public Parent creditRecord;
 	CreditRecordController creditRecordController;
 
+	ArrayList<Button> bottomButtons;
+
 	@FXML
 	void onLogout(ActionEvent event) {
 		try {
 			HMSClient.getUserMainBL()
 					.logout(LoginController.getCurrentUser().userID);
-			HMSClient.showScene(HMSClient.loginScene);
+			HMSClient.switchScene("/fxml/usermainui/login.fxml");
 			HMSClient.clientMainController = null;
 		} catch (RemoteException e) {
 			// 网络连接错误
@@ -132,6 +135,7 @@ public class ClientMainController implements Initializable {
 						getClass().getResource("/fxml/clientui/homePage.fxml"));
 				homePage = loader.load();
 				HomePageController homePageController = loader.getController();
+				homePageController.clientMainController = this;
 				// homePageController.setContent();
 			} catch (IOException e) {
 				// 界面加载失败

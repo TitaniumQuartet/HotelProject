@@ -32,7 +32,7 @@ public class UserMain implements UsermainBLService{
 		}
 		//用户不存在返回空
 		else{
-			return null;
+			return exist;
 		}
     }
 	

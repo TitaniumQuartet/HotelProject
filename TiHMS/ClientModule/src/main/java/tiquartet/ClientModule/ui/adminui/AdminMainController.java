@@ -11,9 +11,9 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.Hyperlink;
-import javafx.scene.control.Alert.AlertType;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import tiquartet.ClientModule.ui.rmiclient.HMSClient;
@@ -22,132 +22,142 @@ import tiquartet.CommonModule.util.ResultMessage;
 
 /**
  * 酒店管理系统管理员的主页面（左边栏及底部）控制器类
+ * 
  * @author greatlyr
  *
  */
-public class AdminMainController implements Initializable{
-	
+public class AdminMainController implements Initializable {
+
 	public Parent searchUserSection;
-	
+
 	public Parent modifyPassword;
-	
+
 	public Parent addHotelSection;
-	
+
 	public Parent filterUser;
-	
+
 	public Parent marketerSection;
-	
+
 	public Parent hotelierSection;
 
-    @FXML
-    private Hyperlink logoutLink;
+	@FXML
+	private Hyperlink logoutLink;
 
-    @FXML
-    private Hyperlink modifyPasswordLink;
+	@FXML
+	private Hyperlink modifyPasswordLink;
 
-    @FXML
-    private ImageView topBarImageView;
+	@FXML
+	private ImageView topBarImageView;
 
-    @FXML
-    private Button hotelierSectionButton;
+	@FXML
+	private Button hotelierSectionButton;
 
-    @FXML
-    private Button searchSectionButton;
+	@FXML
+	private Button searchSectionButton;
 
-    @FXML
-    private Button marketerSectionButton;
+	@FXML
+	private Button marketerSectionButton;
 
-    @FXML
-    private Button addHotelSectionButton;
+	@FXML
+	private Button addHotelSectionButton;
 
-    @FXML
-    private AnchorPane mainPane;
-    
-    public SearchUserSectionController searchUserSectionController;
-    
-    public FilterUserController filterUserController;
+	@FXML
+	private AnchorPane mainPane;
 
-    @FXML
-    void onLogoutClicked(ActionEvent event) {
-    	try {
-			HMSClient.getUserMainBL().logout(LoginController.getCurrentUser().userID);
-			HMSClient.showScene(HMSClient.loginScene);
+	public SearchUserSectionController searchUserSectionController;
+
+	public FilterUserController filterUserController;
+
+	@FXML
+	void onLogoutClicked(ActionEvent event) {
+		try {
+			HMSClient.getUserMainBL()
+					.logout(LoginController.getCurrentUser().userID);
+			HMSClient.switchScene("/fxml/usermainui/login.fxml");
 		} catch (RemoteException e) {
-			//网络连接错误
+			// 网络连接错误
 			e.printStackTrace();
 		}
-    	
-    }
 
-    @FXML
-    void onModifyPassword(ActionEvent event) {
-    	showSection(modifyPassword);
-    }
+	}
 
-    @FXML
-    void toAddHotelSection(ActionEvent event) {
-    	showSection(addHotelSection);
-    }
+	@FXML
+	void onModifyPassword(ActionEvent event) {
+		showSection(modifyPassword);
+	}
 
-    @FXML
-    void toHotelierSection(ActionEvent event) {
-    	showSection(hotelierSection);
-    }
+	@FXML
+	void toAddHotelSection(ActionEvent event) {
+		showSection(addHotelSection);
+	}
 
-    @FXML
-    void toMarketerSection(ActionEvent event) {
-    	showSection(marketerSection);
-    }
+	@FXML
+	void toHotelierSection(ActionEvent event) {
+		showSection(hotelierSection);
+	}
 
-    @FXML
-    void toSearchSection(ActionEvent event) {
-    	showSection(searchUserSection);
-    }
-    
-    /**
-     * 切换界面右侧主要内容.
-     * @param section 要显示的组件
-     * @return
-     */
-    public ResultMessage showSection(Parent section) {
-    	mainPane.getChildren().clear();
+	@FXML
+	void toMarketerSection(ActionEvent event) {
+		showSection(marketerSection);
+	}
+
+	@FXML
+	void toSearchSection(ActionEvent event) {
+		showSection(searchUserSection);
+	}
+
+	/**
+	 * 切换界面右侧主要内容.
+	 * 
+	 * @param section
+	 *            要显示的组件
+	 * @return
+	 */
+	public ResultMessage showSection(Parent section) {
+		mainPane.getChildren().clear();
 		mainPane.getChildren().add(section);
 		return new ResultMessage(true);
-    }
+	}
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-    	try {
-    		FXMLLoader fxmlLoader;
-    		//加载搜索用户组件
-    		fxmlLoader = new FXMLLoader();
-        	fxmlLoader.setLocation(getClass().getResource("/fxml/adminui/searchSection.fxml"));
+		try {
+			FXMLLoader fxmlLoader;
+			// 加载搜索用户组件
+			fxmlLoader = new FXMLLoader();
+			fxmlLoader.setLocation(
+					getClass().getResource("/fxml/adminui/searchSection.fxml"));
 			searchUserSection = fxmlLoader.load();
 			searchUserSectionController = fxmlLoader.getController();
 			searchUserSectionController.adminMainController = this;
-			//加载修改密码组件
+			// 加载修改密码组件
 			fxmlLoader = new FXMLLoader();
-			fxmlLoader.setLocation(getClass().getResource("/fxml/adminui/modifyPassword.fxml"));
+			fxmlLoader.setLocation(getClass()
+					.getResource("/fxml/adminui/modifyPassword.fxml"));
 			modifyPassword = fxmlLoader.load();
-			//加载增加酒店组件
+			// 加载增加酒店组件
 			fxmlLoader = new FXMLLoader();
-			fxmlLoader.setLocation(getClass().getResource("/fxml/adminui/addHotel.fxml"));
+			fxmlLoader.setLocation(
+					getClass().getResource("/fxml/adminui/addHotel.fxml"));
 			addHotelSection = fxmlLoader.load();
-			//加载筛选用户组件
+			// 加载筛选用户组件
 			fxmlLoader = new FXMLLoader();
-			fxmlLoader.setLocation(getClass().getResource("/fxml/adminui/filteruser.fxml"));
+			fxmlLoader.setLocation(
+					getClass().getResource("/fxml/adminui/filteruser.fxml"));
 			filterUser = fxmlLoader.load();
 			filterUserController = fxmlLoader.getController();
-			//加载筛选用户组件
+			// 加载筛选用户组件
 			fxmlLoader = new FXMLLoader();
-			fxmlLoader.setLocation(getClass().getResource("/fxml/adminui/marketerSection.fxml"));
+			fxmlLoader.setLocation(getClass()
+					.getResource("/fxml/adminui/marketerSection.fxml"));
 			marketerSection = fxmlLoader.load();
-			//加载酒店工作人员组件
+			// 加载酒店工作人员组件
 			fxmlLoader = new FXMLLoader();
-			fxmlLoader.setLocation(getClass().getResource("/fxml/adminui/hotelierSection.fxml"));
+			fxmlLoader.setLocation(getClass()
+					.getResource("/fxml/adminui/hotelierSection.fxml"));
 			hotelierSection = fxmlLoader.load();
-			
-			//默认显示搜索用户界面
+
+			// 默认显示搜索用户界面
 			showSection(searchUserSection);
 		} catch (IOException e) {
 			Alert fail = new Alert(AlertType.ERROR, "界面加载失败");

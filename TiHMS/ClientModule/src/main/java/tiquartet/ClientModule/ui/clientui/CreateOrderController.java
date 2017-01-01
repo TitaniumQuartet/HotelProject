@@ -169,7 +169,7 @@ public class CreateOrderController implements Initializable {
 			orderStrategyVO = HMSClient.getCreateOrderBL()
 					.getStrategy(LoginController.getCurrentUser().userID);
 			priceLabel.setText(
-					"￥" + String.format("%.2d", orderStrategyVO.orderPrice));
+					"￥" + String.format("%.2f", orderStrategyVO.orderPrice));
 			strategyIntroLabel.setText(orderStrategyVO.strategyIntroduce);
 		} catch (RemoteException e) {
 			// 网络异常处理

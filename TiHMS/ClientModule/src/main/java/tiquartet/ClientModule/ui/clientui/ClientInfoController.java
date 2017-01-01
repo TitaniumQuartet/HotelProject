@@ -64,7 +64,7 @@ public class ClientInfoController {
 		realNameField.setEditable(false);
 		contactField.setText(userVO.phone);
 		contactField.setEditable(false);
-		creditLabel.setText(String.format("%.2d", userVO.credit));
+		creditLabel.setText(String.format("%.2f", userVO.credit));
 		memberTypeLabel.setText(userVO.memberType.name());
 		memberLevelLabel.setText("VIP" + userVO.memberLevel);
 		memberLevelLabel.setVisible(userVO.memberType != MemberType.非会员);
@@ -99,8 +99,8 @@ public class ClientInfoController {
 			// 开始编辑信息
 			editButton.setText("保存");
 			cancelButton.setText("取消");
-			realNameField.setEditable(false);
-			contactField.setEditable(false);
+			realNameField.setEditable(true);
+			contactField.setEditable(true);
 		} else {
 			// 保存信息
 			UserVO userVO = LoginController.getCurrentUser();

@@ -14,8 +14,9 @@ import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import tiquartet.ClientModule.ui.rmiclient.HMSClient;
-import tiquartet.CommonModule.util.Encryptor;
 import tiquartet.CommonModule.util.ResultMessage;
 import tiquartet.CommonModule.vo.UserVO;
 
@@ -54,6 +55,9 @@ public class SignUpController implements Initializable {
 	@FXML
 	private TextField realNameField;
 
+	@FXML
+	private AnchorPane anchorPane;
+
 	/**
 	 * 取消注册，返回主登录界面.
 	 * 
@@ -80,13 +84,22 @@ public class SignUpController implements Initializable {
 		if (realName.length() == 0)
 			realName = null;
 		UserVO client = UserVO.getClientInstance(newUsernameField.getText(),
-				Encryptor.encript(newPasswordField.getText()), realName);
+				Encryptor.encriptMD5(newPasswordField.getText()), realName);
 		client.credit = 0;
 		try {
-			HMSClient.getManageUserBL().addUser(client);
+			ResultMessage message = HMSClient.getManageUserBL().addUser(client);
+			if (message.result) {
+				ResultMessage resultMessage = HMSClient
+						.switchScene("/fxml/usermainui/login.fxml");
+			}
 		} catch (RemoteException e) {
 			e.printStackTrace();
 		}
+	}
+
+	@FXML
+	void paneClicked(MouseEvent event) {
+		anchorPane.requestFocus();
 	}
 
 	/**

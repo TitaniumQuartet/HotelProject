@@ -1,10 +1,10 @@
 package tiquartet.ServerModule.bl.rmiinit;
 
-import java.rmi.AlreadyBoundException;
 import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 import java.rmi.server.UnicastRemoteObject;
+import java.util.List;
 
 import tiquartet.CommonModule.blservice.createorderblservice.CreateOrderBLService;
 import tiquartet.CommonModule.blservice.hotelinfoblservice.HotelInfoBLService;
@@ -23,6 +23,9 @@ import tiquartet.ServerModule.bl.manageuserbl.ManageUserController;
 import tiquartet.ServerModule.bl.searchhotelbl.SearchHotelController;
 import tiquartet.ServerModule.bl.strategybl.StrategyController;
 import tiquartet.ServerModule.bl.usermainbl.UserMainController;
+import tiquartet.ServerModule.dataservice.impl.OrderDataImpl;
+import tiquartet.ServerModule.dataservice.impl.StrategyDataImpl;
+import tiquartet.ServerModule.po.StrategyPO;
 
 /**
  * 酒店管理系统的服务器类，可建立RMI服务，运行服务器.
@@ -38,6 +41,8 @@ public class HMSServer {
 	public static void main(String[] args){
 		HMSServer server = new HMSServer();
 		server.init();
+		DataThread dataThread=new DataThread();
+		dataThread.start();
 	}
 
 	/**
@@ -46,7 +51,7 @@ public class HMSServer {
 	 * @return 启动服务器的结果信息
 	 */
 	public ResultMessage init() {
-		System.setProperty("java.rmi.server.hostname","172.28.185.195");
+		System.setProperty("java.rmi.server.hostname","127.0.0.1");
 		
 		try {
 			Registry registry = LocateRegistry.createRegistry(1099);
@@ -90,4 +95,19 @@ public class HMSServer {
 		return new ResultMessage(true);
 	}
 
+}
+
+class DataThread extends Thread {
+    public void run() {
+    	OrderDataImpl impl=new OrderDataImpl();
+        while(true){
+            try {
+                sleep(60*1000);
+                impl.updateState();
+            } catch (InterruptedException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
+        }
+    }
 }

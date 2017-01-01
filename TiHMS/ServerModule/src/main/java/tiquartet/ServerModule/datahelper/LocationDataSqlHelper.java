@@ -32,12 +32,12 @@ public class LocationDataSqlHelper implements LocationDataHelper{
 	        	String[] districts=distrcit.split(";");	        	
 	        	String[] cityId=citys[0].split(",");
 	        	String[] cityName=citys[1].split(",");
-	        	for(int i=0;i<citys.length;i++){
+	        	for(int i=0;i<cityName.length;i++){
 	        		cityMap.put(Integer.valueOf(cityId[i]), cityName[i]);
 	        	}
 	        	String[] districtId=districts[0].split(",");
 	        	String[] districtName=districts[1].split(",");
-	        	for(int i=0;i<districts.length;i++){
+	        	for(int i=0;i<districtName.length;i++){
 	        		districtMap.put(Integer.valueOf(districtId[i]), districtName[i]);
 	        	}	        	
 			}

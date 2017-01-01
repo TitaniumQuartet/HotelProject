@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="620.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tiquartet.ClientModule.ui.marketerui.HomePageController">
+   <children>
+      <Separator layoutX="183.0" layoutY="249.0" prefWidth="200.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="200.0" />
+      <GridPane focusTraversable="true" layoutX="349.0" layoutY="262.0">
+         <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+         </rowConstraints>
+         <children>
+            <FlowPane fx:id="searchPane1" focusTraversable="true" prefWrapLength="0.0">
+               <GridPane.margin>
+                  <Insets />
+               </GridPane.margin>
+               <children>
+                  <TextField fx:id="field1" alignment="CENTER" promptText="订单号">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </TextField>
+               </children>
+               <padding>
+                  <Insets bottom="40.0" left="40.0" right="40.0" top="40.0" />
+               </padding>
+            </FlowPane>
+            <FlowPane fx:id="searchPane2" focusTraversable="true" prefWrapLength="0.0" GridPane.columnIndex="1">
+               <children>
+                  <TextField fx:id="field2" alignment="CENTER" promptText="预订客户用户名">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </TextField>
+               </children>
+               <padding>
+                  <Insets bottom="40.0" left="40.0" right="40.0" top="40.0" />
+               </padding>
+            </FlowPane>
+            <FlowPane fx:id="searchPane3" focusTraversable="true" prefWrapLength="0.0" GridPane.rowIndex="1">
+               <children>
+                  <TextField fx:id="field3" alignment="CENTER" promptText="预订客户姓名">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </TextField>
+               </children>
+               <padding>
+                  <Insets bottom="40.0" left="40.0" right="40.0" top="40.0" />
+               </padding>
+            </FlowPane>
+            <FlowPane fx:id="searchPane4" focusTraversable="true" prefWrapLength="0.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+               <children>
+                  <TextField fx:id="field4" alignment="CENTER" promptText="入住客人姓名">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </TextField>
+               </children>
+               <padding>
+                  <Insets bottom="40.0" left="40.0" right="40.0" top="40.0" />
+               </padding>
+            </FlowPane>
+         </children>
+      </GridPane>
+      <Button fx:id="searchOrderButton" layoutX="673.0" layoutY="313.0" mnemonicParsing="false" onAction="#onSearchOrder" onMouseEntered="#searchButtonEntered" onMouseExited="#searchButtonExited" prefHeight="150.0" prefWidth="150.0" style="-fx-background-image: url(&quot;../../image/clientui/search1.png&quot;);" />
+      <Label layoutX="105.0" layoutY="310.0" text="查找异常订单">
+         <font>
+            <Font size="36.0" />
+         </font>
+      </Label>
+      <Button fx:id="unexecutedTodayButton" layoutX="113.0" layoutY="518.0" mnemonicParsing="false" onAction="#onUnexecutedToday" style="-fx-background-color: steelblue;" text="今日未执行订单" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Button>
+      <Label layoutX="169.0" layoutY="93.0" text="信用充值">
+         <font>
+            <Font size="36.0" />
+         </font>
+      </Label>
+      <TextField fx:id="usernameField" alignment="CENTER" layoutX="389.0" layoutY="92.0" promptText="用户名">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="creditField" alignment="CENTER" layoutX="783.0" layoutY="92.0" prefHeight="48.0" prefWidth="165.0" promptText="充值额度">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </TextField>
+      <Button fx:id="creditButton" layoutX="1028.0" layoutY="92.0" mnemonicParsing="false" onAction="#onCreditRecharge" style="-fx-background-color: steelblue;" text="充值" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>

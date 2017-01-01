@@ -14,8 +14,8 @@ import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.image.ImageView;
 import tiquartet.ClientModule.ui.rmiclient.HMSClient;
+import tiquartet.ClientModule.ui.usermainui.Encryptor;
 import tiquartet.ClientModule.ui.usermainui.LoginController;
-import tiquartet.CommonModule.util.Encryptor;
 import tiquartet.CommonModule.util.ResultMessage;
 import tiquartet.CommonModule.vo.UserVO;
 
@@ -68,7 +68,7 @@ public class ModifyPasswordController implements Initializable{
     	//保存旧的密码
     	String oldCode = current.password;
     	try {
-    		String codeEncrypted = Encryptor.encript(newPasswordField.getText());
+    		String codeEncrypted = Encryptor.encriptMD5(newPasswordField.getText());
         	current.password = codeEncrypted;
 			ResultMessage message = HMSClient.getManageUserBL().update(LoginController.getCurrentUser());
 			if(!message.result){
@@ -106,7 +106,7 @@ public class ModifyPasswordController implements Initializable{
     		currentPasswordSign.setVisible(false);
     		currentPasswordTick.setVisible(false);
     	}
-    	else if(Encryptor.encript(code).equals(LoginController.getCurrentUser().password)){
+    	else if(Encryptor.encriptMD5(code).equals(LoginController.getCurrentUser().password)){
     		currentPasswordSign.setVisible(false);
     		currentPasswordTick.setVisible(true);
     		currentLegit = true;

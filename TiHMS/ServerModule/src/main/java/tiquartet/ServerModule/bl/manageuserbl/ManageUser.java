@@ -48,7 +48,7 @@ public class ManageUser implements ManageUserBLService {
 		
 		//获得po
 		UserPO userPO = userDataService.accurateSearch(username);
-		
+		if(userPO==null) return null;
 		//po转vo
 		UserVO userVO = userPO.getVO();
 		

@@ -65,4 +65,22 @@ public class StringUtility {
 				return null;
 		}
 	}
+	
+	public static String strategyName(StrategyType type){
+		switch (type) {
+			case BIRTHDAY :
+				return "生日特惠";
+			case CIRCLE :
+				return "会员特定商圈专属特惠";
+			case COMPANY :
+				return "合作企业客户特惠";
+			case ROOMNUM :
+				return "特定日期入住特惠";
+			case TIME :
+				return "生日特惠";
+			default :
+				return "折扣策略";
+			
+		}
+	}
 }

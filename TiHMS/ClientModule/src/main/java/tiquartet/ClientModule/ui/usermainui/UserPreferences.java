@@ -17,7 +17,7 @@ public class UserPreferences {
 		UserVO userVO = new UserVO();
 		userVO.userName = preferences.get("name", null);
 		userVO.password = preferences.get("info", null);
-		if(userVO.userName==null||userVO.password==null) userVO = null;
+		if(userVO.userName==null||userVO.password==null||userVO.userName.isEmpty()||userVO.password.isEmpty()) userVO = null;
 		return userVO;
 	}
 }

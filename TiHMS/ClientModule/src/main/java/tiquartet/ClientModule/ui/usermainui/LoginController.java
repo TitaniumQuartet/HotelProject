@@ -19,8 +19,9 @@ import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import tiquartet.ClientModule.ui.rmiclient.HMSClient;
-import tiquartet.CommonModule.util.Encryptor;
 import tiquartet.CommonModule.util.ResultMessage;
 import tiquartet.CommonModule.util.UserInfoUtility;
 import tiquartet.CommonModule.util.UserType;
@@ -54,6 +55,9 @@ public class LoginController implements Initializable {
 	@FXML
 	private Label loginWarningLabel;
 
+	@FXML
+	private AnchorPane anchorPane;
+
 	/**
 	 * 点击主登录界面的登录按钮触发.
 	 * 
@@ -65,7 +69,7 @@ public class LoginController implements Initializable {
 		try {
 			ResultMessage resultMessage = HMSClient.getUserMainBL().login(
 					usernameField.getText(),
-					Encryptor.encript(passwordField.getText()));
+					Encryptor.encriptMD5(passwordField.getText()));
 			if (!resultMessage.result) {
 				// 登录失败
 				loginWarningLabel.setText("用户名或密码输入错误");
@@ -76,7 +80,7 @@ public class LoginController implements Initializable {
 				UserPreferences.setLoginPref(usernameField.getText(),
 						passwordField.getText());
 			else
-				UserPreferences.setLoginPref(null, null);
+				UserPreferences.setLoginPref("", "");
 			currentUser = HMSClient.getManageUserBL()
 					.accurateSearch(usernameField.getText());
 			/*
@@ -85,18 +89,23 @@ public class LoginController implements Initializable {
 			if (currentUser.userType == UserType.网站管理员) {
 				FXMLLoader loader = new FXMLLoader(
 						getClass().getResource("/fxml/adminui/adminMain.fxml"));
-				HMSClient.adminMainController = loader.getController();
 				HMSClient.showScene(new Scene(loader.load(), 1280, 800));
+				HMSClient.adminMainController = loader.getController();
 			} else if (currentUser.userType == UserType.客户) {
 				FXMLLoader loader = new FXMLLoader(getClass()
 						.getResource("/fxml/clientui/clientMain.fxml"));
-				HMSClient.clientMainController = loader.getController();
 				HMSClient.showScene(new Scene(loader.load(), 1280, 800));
+				HMSClient.clientMainController = loader.getController();
 			} else if (currentUser.userType == UserType.酒店工作人员) {
 				FXMLLoader loader = new FXMLLoader(getClass()
 						.getResource("/fxml/hotelierui/hotelierMain.fxml"));
-				HMSClient.hotelierMainController = loader.getController();
 				HMSClient.showScene(new Scene(loader.load(), 1280, 800));
+				HMSClient.hotelierMainController = loader.getController();
+			} else if (currentUser.userType == UserType.网站营销人员) {
+				FXMLLoader loader = new FXMLLoader(getClass()
+						.getResource("/fxml/hotelierui/marketerMain.fxml"));
+				HMSClient.showScene(new Scene(loader.load(), 1280, 800));
+				HMSClient.marketerMainController = loader.getController();
 			}
 		} catch (RemoteException | NullPointerException e) {
 			// 网络异常处理
@@ -124,6 +133,11 @@ public class LoginController implements Initializable {
 		if (!resultMessage.result) {
 			// 界面加载失败的提示
 		}
+	}
+
+	@FXML
+	void paneClicked(MouseEvent event) {
+		anchorPane.requestFocus();
 	}
 
 	/**

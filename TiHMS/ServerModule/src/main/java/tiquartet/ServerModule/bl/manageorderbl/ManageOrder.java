@@ -107,7 +107,7 @@ public class ManageOrder implements ManageOrderBLService {
 					continue;
 				}
 			}
-			if (!filter.orderState.equals("")) {
+			if (filter.orderState!=null) {
 				if (polist.get(i).getorderStatus() != filter.orderState) {
 					continue;
 				}
@@ -281,7 +281,7 @@ public class ManageOrder implements ManageOrderBLService {
 					e.printStackTrace();
 				}
 			}
-			if (!filter.orderState.equals("")) {
+			if (filter.orderState!=null) {
 				if (polist.get(i).getorderStatus() != filter.orderState) {
 					continue;
 				}

@@ -19,7 +19,7 @@ import javafx.scene.control.Tooltip;
 import javafx.scene.image.ImageView;
 import tiquartet.ClientModule.ui.datastorage.DistrictData;
 import tiquartet.ClientModule.ui.rmiclient.HMSClient;
-import tiquartet.CommonModule.util.Encryptor;
+import tiquartet.ClientModule.ui.usermainui.Encryptor;
 import tiquartet.CommonModule.util.ResultMessage;
 import tiquartet.CommonModule.util.UserInfoUtility;
 import tiquartet.CommonModule.util.UserType;
@@ -69,7 +69,7 @@ public class AddHotelController implements Initializable {
 			if(message.result){
 				UserVO hotelier = new UserVO();
 				hotelier.userName = usernameField.getText();
-				hotelier.password = Encryptor.encript(passwordField.getText());
+				hotelier.password = Encryptor.encriptMD5(passwordField.getText());
 				hotelier.userType = UserType.酒店工作人员;
 				hotelier.login = false;
 				hotelier.hotelID = Integer.parseInt(message.message);

@@ -84,7 +84,7 @@ public class CreditRecordController implements Initializable {
 					public ObservableValue<String> call(
 							CellDataFeatures<CreditVO, String> param) {
 						return new SimpleStringProperty(
-								String.format("%.2d", param.getValue().change));
+								String.format("%.2f", param.getValue().change));
 					}
 				});
 		balanceColumn.setCellValueFactory(
@@ -92,7 +92,7 @@ public class CreditRecordController implements Initializable {
 					@Override
 					public ObservableValue<String> call(
 							CellDataFeatures<CreditVO, String> param) {
-						return new SimpleStringProperty(String.format("%.2d",
+						return new SimpleStringProperty(String.format("%.2f",
 								param.getValue().balance));
 					}
 				});

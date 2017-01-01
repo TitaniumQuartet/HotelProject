@@ -221,4 +221,5 @@ public class UserPO implements Serializable{
 		userVO.isMember=this.isMember;
 		return userVO;
 	}
+	
 }

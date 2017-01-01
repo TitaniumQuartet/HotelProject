@@ -145,7 +145,7 @@ public class UserDataSqlHelper implements UserDataHelper{
 	        pstmt.setString(9, user.getcompany());  
 	        pstmt.setInt(10, user.gethotelId());  
 	        pstmt.setBoolean(11, user.getLogin());
-	        pstmt.setInt(12, user.getmemberType().ordinal());
+	        pstmt.setInt(12, user.getmemberType()==null?0:user.getmemberType().ordinal());
 	        pstmt.setString(13, user.getphone());
 	        pstmt.executeUpdate();
 	        pstmt.close();
@@ -175,7 +175,7 @@ public class UserDataSqlHelper implements UserDataHelper{
 	    		", company='" + userPO.getcompany() +
 	    		"', hotelId=" + userPO.gethotelId() +
 	    		", login=" + userPO.getLogin() +
-	    		", memberType=" + userPO.getTypeAsInt() +
+	    		", memberType=" + userPO.getmemberType().ordinal() +
 	    		", phone='" + userPO.getphone() +
 	            "' where userId=" + userPO.getuserId() ;
 	    PreparedStatement pstmt;

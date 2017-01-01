@@ -13,6 +13,7 @@ import tiquartet.ClientModule.ui.adminui.AdminMainController;
 import tiquartet.ClientModule.ui.clientui.ClientMainController;
 import tiquartet.ClientModule.ui.datastorage.DistrictData;
 import tiquartet.ClientModule.ui.hotelierui.HotelierMainController;
+import tiquartet.ClientModule.ui.marketerui.MarketerMainController;
 import tiquartet.CommonModule.blservice.createorderblservice.CreateOrderBLService;
 import tiquartet.CommonModule.blservice.hotelinfoblservice.HotelInfoBLService;
 import tiquartet.CommonModule.blservice.manageorderblservice.ManageOrderBLService;
@@ -56,6 +57,8 @@ public class HMSClient {
 
 	public static HotelierMainController hotelierMainController;
 
+	public static MarketerMainController marketerMainController;
+
 	static public Scene loginScene;
 
 	static public Scene signUpScene;
@@ -70,7 +73,12 @@ public class HMSClient {
 	public static void main(String[] args) {
 		HMSClient client = new HMSClient();
 		client.init();
-		// client.loadData();
+		try {
+			DistrictData.updateData(searchHotelBLSkel.getDistricts());
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		Application.launch(ClientApp.class, args);
 	}
 

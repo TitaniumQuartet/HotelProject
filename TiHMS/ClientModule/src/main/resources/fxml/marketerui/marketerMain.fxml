@@ -7,26 +7,10 @@
 <?import javafx.scene.layout.FlowPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tiquartet.ClientModule.ui.hotelierui.HotelierMainController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tiquartet.ClientModule.ui.marketerui.MarketerMainController">
    <children>
       <FlowPane fx:id="bottomBarPane" alignment="TOP_RIGHT" hgap="20.0" layoutY="757.0" style="-fx-background-color: steelblue;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
          <children>
-            <Button fx:id="roomButton" alignment="CENTER" mnemonicParsing="false" onAction="#toRoom" onMouseEntered="#bottomEntered" onMouseExited="#bottomExited" prefHeight="60.0" style="-fx-background-color: steelblue;" text="客房管理" textFill="WHITE">
-               <font>
-                  <Font name="System Bold" size="24.0" />
-               </font>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </Button>
-            <Button fx:id="hotelInfoButton" alignment="CENTER" mnemonicParsing="false" onAction="#toHotelInfo" onMouseEntered="#bottomEntered" onMouseExited="#bottomExited" prefHeight="60.0" style="-fx-background-color: steelblue;" text="酒店信息" textFill="WHITE">
-               <font>
-                  <Font name="System Bold" size="24.0" />
-               </font>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </Button>
             <Button fx:id="toStrategyButton" alignment="CENTER" mnemonicParsing="false" onAction="#toStrategy" onMouseEntered="#bottomEntered" onMouseExited="#bottomExited" prefHeight="60.0" style="-fx-background-color: steelblue;" text="优惠策略" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="24.0" />

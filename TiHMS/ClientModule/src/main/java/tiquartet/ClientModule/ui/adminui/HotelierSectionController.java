@@ -26,7 +26,7 @@ import javafx.scene.image.ImageView;
 import javafx.util.Callback;
 import tiquartet.ClientModule.ui.datastorage.DistrictData;
 import tiquartet.ClientModule.ui.rmiclient.HMSClient;
-import tiquartet.CommonModule.util.Encryptor;
+import tiquartet.ClientModule.ui.usermainui.Encryptor;
 import tiquartet.CommonModule.util.ResultMessage;
 import tiquartet.CommonModule.util.UserInfoUtility;
 import tiquartet.CommonModule.vo.UserVO;
@@ -110,7 +110,7 @@ public class HotelierSectionController implements Initializable {
 		if(modifyButton.getText().equals("确认")){
 			String oldCode = currentSelected.password;
 			try {
-				currentSelected.password = Encryptor.encript(passwordField.getText());
+				currentSelected.password = Encryptor.encriptMD5(passwordField.getText());
 				ResultMessage message = HMSClient.getManageUserBL().update(currentSelected);
 				if(message.result){
 					Alert success = new Alert(AlertType.INFORMATION, currentSelected.userName+"的密码修改成功！");
