@@ -95,8 +95,8 @@ public class HotelierMainController implements Initializable {
 	void toHotelInfo(ActionEvent event) {
 		if (hotelInfoPage == null) {
 			try {
-				FXMLLoader loader = new FXMLLoader(
-						getClass().getResource("/fxml/adminui/hotelInfo.fxml"));
+				FXMLLoader loader = new FXMLLoader(getClass()
+						.getResource("/fxml/hotelierui/hotelInfo.fxml"));
 				hotelInfoPage = loader.load();
 				HotelInfoController hotelInfoController = loader
 						.getController();
@@ -115,8 +115,8 @@ public class HotelierMainController implements Initializable {
 	void toRoom(ActionEvent event) {
 		if (roomTypePage == null) {
 			try {
-				FXMLLoader loader = new FXMLLoader(
-						getClass().getResource("/fxml/adminui/roomType.fxml"));
+				FXMLLoader loader = new FXMLLoader(getClass()
+						.getResource("/fxml/hotelierui/roomType.fxml"));
 				roomTypePage = loader.load();
 				RoomTypeController roomTypeController = loader.getController();
 				roomTypeController
@@ -135,7 +135,7 @@ public class HotelierMainController implements Initializable {
 		if (strategy == null) {
 			try {
 				FXMLLoader loader = new FXMLLoader(getClass()
-						.getResource("/fxml/adminui/hotelStrategy.fxml"));
+						.getResource("/fxml/hotelierui/hotelStrategy.fxml"));
 				strategy = loader.load();
 				HotelStrategyController hotelStrategyController = loader
 						.getController();
@@ -230,6 +230,7 @@ public class HotelierMainController implements Initializable {
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
+		showHomePage();
 	}
 
 }

@@ -209,6 +209,12 @@ public class HomePageController implements Initializable {
 	public void initialize(URL location, ResourceBundle resources) {
 		smallSearchImage = new Image(getClass()
 				.getResourceAsStream("/image/hotelierui/search1.png"));
+		bigSearchImage = new Image(getClass()
+				.getResource("/image/hotelierui/search.png").toExternalForm());
+		searchOrderButton.setBackground(
+				new Background(new BackgroundImage(smallSearchImage,
+						BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT,
+						BackgroundPosition.CENTER, BackgroundSize.DEFAULT)));
 	}
 
 }

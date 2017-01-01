@@ -61,10 +61,10 @@ public class StrategyDataSqlHelper implements StrategyDataHelper{
 	        	int numOfRoom=rs.getInt(11);
 	        	double[] memberThreShold={0,0,0,0,0,0,0,0,0};
 	        	double[] memberDiscount={0,0,0,0,0,0,0,0,0,0};
-	        	if(!(memberT.length()==0)){
+	        	if(memberT!=null&&!(memberT.length()==0)){
 	        		memberThreShold=transform(memberT);
 	        	}
-	        	if(!(memberD.length()==0)){
+	        	if(memberD!=null&&!(memberD.length()==0)){
 	        		memberDiscount=transform(memberD);
 	        	}
 	        	StrategyPO strategyPO=new StrategyPO(strategyId,strategyIntro,hotelId,discount,circleId, memberThreShold,memberDiscount,startTime,endTime,strategyType,numOfRoom);
@@ -86,7 +86,7 @@ public class StrategyDataSqlHelper implements StrategyDataHelper{
 	@Override
 	public ResultMessage insert(StrategyPO strategy) {
 		Connection conn = Connect.getConn();
-	    String sql = "insert into strategy(strategyId,strategyIntro,hotelId,discount,circleId,startTime,endTime,strategyType,numOfRoom) values(null,?,?,?,?,?,?,?,?)";
+	    String sql = "insert into strategy(strategyIntro,hotelId,discount,circleId,startTime,endTime,strategyType,numOfRoom,memberThreShold,memberDiscount) values(?,?,?,?,?,?,?,?,?,?)";
 	    PreparedStatement pstmt;
 	    try {
 	        pstmt = (PreparedStatement) conn.prepareStatement(sql);
@@ -94,12 +94,13 @@ public class StrategyDataSqlHelper implements StrategyDataHelper{
 	        pstmt.setInt(2,strategy.gethotelId());
 	        pstmt.setDouble(3, strategy.getdiscount());
 	        pstmt.setInt(4,strategy.getCircelID());
-	      //  pstmt.setString(5, strategy.getMemberThresholdAsString());
-	        //pstmt.setString(6, strategy.getMemberDiscountAsString());
+	      
 	        pstmt.setString(5, strategy.getStartTime());
 	        pstmt.setString(6, strategy.getEndTime());
 	        pstmt.setInt(7,strategy.getStrategyType().ordinal());
 	        pstmt.setInt(8,strategy.getnumOfRoom());
+	        pstmt.setString(9, strategy.getMemberThresholdAsString());
+	        pstmt.setString(10, strategy.getMemberDiscountAsString());
 	        pstmt.executeUpdate();
 	        pstmt.close();
 	        conn.close();

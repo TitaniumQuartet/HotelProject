@@ -40,6 +40,8 @@ public class AdminMainController implements Initializable {
 
 	public Parent hotelierSection;
 
+	public Parent clientInfo;
+
 	@FXML
 	private Hyperlink logoutLink;
 

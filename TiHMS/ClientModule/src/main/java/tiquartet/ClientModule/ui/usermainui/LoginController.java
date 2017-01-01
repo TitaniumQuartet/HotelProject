@@ -35,7 +35,7 @@ import tiquartet.CommonModule.vo.UserVO;
  */
 public class LoginController implements Initializable {
 
-	private static UserVO currentUser = null;
+	public static UserVO currentUser = null;
 
 	@FXML
 	private CheckBox rememberBox;
@@ -103,7 +103,7 @@ public class LoginController implements Initializable {
 				HMSClient.hotelierMainController = loader.getController();
 			} else if (currentUser.userType == UserType.网站营销人员) {
 				FXMLLoader loader = new FXMLLoader(getClass()
-						.getResource("/fxml/hotelierui/marketerMain.fxml"));
+						.getResource("/fxml/marketerui/marketerMain.fxml"));
 				HMSClient.showScene(new Scene(loader.load(), 1280, 800));
 				HMSClient.marketerMainController = loader.getController();
 			}

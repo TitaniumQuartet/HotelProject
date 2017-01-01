@@ -77,6 +77,7 @@ public class HotelInfo implements HotelInfoBLService {
 		hoteldetails.hotelName = hp.gethotelName();
 		hoteldetails.serviceintro = hp.getserviceIntroduction();
 		hoteldetails.star = hp.getstar();
+		hoteldetails.reviewList=new ArrayList<>();
 		List<ReviewPO> list = reviewdataservice.searchByHotel(hotelID);
 		for (int i = 0; i < list.size(); i++) {
 			ReviewVO rv = new ReviewVO();

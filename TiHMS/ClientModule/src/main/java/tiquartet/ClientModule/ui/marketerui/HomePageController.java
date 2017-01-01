@@ -84,6 +84,7 @@ public class HomePageController implements Initializable {
 						.getOrderByID(Long.parseLong(field1.getText()));
 				if (vo == null) {
 					Alert alert = new Alert(AlertType.ERROR, "订单号错误");
+					alert.show();
 				}
 				flowPane.getChildren().add(new OrderDetailsPane(vo));
 				HMSClient.hotelierMainController.showSimply(flowPane);
@@ -117,8 +118,8 @@ public class HomePageController implements Initializable {
 					alert.show();
 				}
 				ResultMessage message = HMSClient.getManageUserBL()
-						.creditRecharge(userVO.userID,
-								Double.parseDouble(creditField.getText()));
+						.creditRecharge(userVO.userID, 100.0
+								* Double.parseDouble(creditField.getText()));
 				if (message.result) {
 					Alert alert = new Alert(AlertType.INFORMATION,
 							"已成功给用户" + userVO.userName + "," + userVO.realName
@@ -168,5 +169,11 @@ public class HomePageController implements Initializable {
 	public void initialize(URL location, ResourceBundle resources) {
 		smallSearchImage = new Image(getClass()
 				.getResourceAsStream("/image/hotelierui/search1.png"));
+		bigSearchImage = new Image(getClass()
+				.getResource("/image/hotelierui/search.png").toExternalForm());
+		searchOrderButton.setBackground(
+				new Background(new BackgroundImage(smallSearchImage,
+						BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT,
+						BackgroundPosition.CENTER, BackgroundSize.DEFAULT)));
 	}
 }

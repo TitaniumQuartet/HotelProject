@@ -51,6 +51,11 @@ public class StringUtility {
 		return calendar;
 	}
 	
+	/**
+	 * 返回该用户类型的中文名.
+	 * @param type
+	 * @return
+	 */
 	public static String valueOf(UserType type){
 		switch(type){
 			case 客户 :
@@ -66,7 +71,12 @@ public class StringUtility {
 		}
 	}
 	
-	public static String strategyName(StrategyType type){
+	/**
+	 * 返回该策略类型的中文名.
+	 * @param type
+	 * @return
+	 */
+	public static String strategyName(StrategyType type,int hotelID){
 		switch (type) {
 			case BIRTHDAY :
 				return "生日特惠";
@@ -77,10 +87,15 @@ public class StringUtility {
 			case ROOMNUM :
 				return "特定日期入住特惠";
 			case TIME :
-				return "生日特惠";
+				if(hotelID==0) return "特定日期范围预订折扣";
+				else return "特定日期范围住宿折扣";
 			default :
 				return "折扣策略";
 			
 		}
+	}
+	
+	public static String strategyName(StrategyType type){
+		return strategyName(type,1);
 	}
 }

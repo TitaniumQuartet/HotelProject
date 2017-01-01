@@ -1,20 +1,5 @@
 package tiquartet.ServerModule.bl.createorderbl;
 
-import tiquartet.CommonModule.vo.PreOrderVO;
-import tiquartet.ServerModule.dataservice.impl.OrderDataImpl;
-import tiquartet.ServerModule.dataservice.impl.RoomDataImpl;
-import tiquartet.ServerModule.dataservice.impl.StrategyDataImpl;
-import tiquartet.ServerModule.dataservice.impl.UserDataImpl;
-import tiquartet.ServerModule.dataservice.orderdataservice.OrderDataService;
-import tiquartet.ServerModule.dataservice.roomdataservice.RoomDataService;
-import tiquartet.ServerModule.dataservice.strategydataservice.StrategyDataService;
-import tiquartet.ServerModule.dataservice.userdataservice.UserDataService;
-import tiquartet.ServerModule.po.OrderPO;
-import tiquartet.ServerModule.po.StrategyPO;
-import tiquartet.ServerModule.po.UserPO;
-import tiquartet.CommonModule.vo.OrderInfoVO;
-import tiquartet.CommonModule.vo.OrderStrategyVO;
-
 import java.rmi.RemoteException;
 import java.text.DateFormat;
 import java.text.ParseException;
@@ -31,6 +16,20 @@ import tiquartet.CommonModule.util.MemberType;
 import tiquartet.CommonModule.util.OrderStatus;
 import tiquartet.CommonModule.util.ResultMessage;
 import tiquartet.CommonModule.util.StrategyType;
+import tiquartet.CommonModule.vo.OrderInfoVO;
+import tiquartet.CommonModule.vo.OrderStrategyVO;
+import tiquartet.CommonModule.vo.PreOrderVO;
+import tiquartet.ServerModule.dataservice.impl.OrderDataImpl;
+import tiquartet.ServerModule.dataservice.impl.RoomDataImpl;
+import tiquartet.ServerModule.dataservice.impl.StrategyDataImpl;
+import tiquartet.ServerModule.dataservice.impl.UserDataImpl;
+import tiquartet.ServerModule.dataservice.orderdataservice.OrderDataService;
+import tiquartet.ServerModule.dataservice.roomdataservice.RoomDataService;
+import tiquartet.ServerModule.dataservice.strategydataservice.StrategyDataService;
+import tiquartet.ServerModule.dataservice.userdataservice.UserDataService;
+import tiquartet.ServerModule.po.OrderPO;
+import tiquartet.ServerModule.po.StrategyPO;
+import tiquartet.ServerModule.po.UserPO;
 
 public class CreateOrder implements CreateOrderBLService {
 
@@ -70,7 +69,8 @@ public class CreateOrder implements CreateOrderBLService {
 			}
 		}
 		UserPO user = userdataservice.getUser(userID);
-		List<StrategyPO> polist = strategydataservice.searchByHotel(preorder.hotelID);
+		List<StrategyPO> polist = strategydataservice
+				.searchByHotel(preorder.hotelID);
 		List<StrategyPO> polist1 = strategydataservice.searchByHotel(0);
 		polist.addAll(polist1);
 		List<OrderStrategyVO> orderStrategylist = new ArrayList<OrderStrategyVO>();
@@ -91,19 +91,22 @@ public class CreateOrder implements CreateOrderBLService {
 					orderStrategylist.add(orderstrategy);
 				}
 			} else if (polist.get(i).getStrategyType() == StrategyType.CIRCLE) {
-				if (preorder.hotelID / 1000 != polist.get(i).getCircelID() && user.getmemberType() == MemberType.个人会员) {
+				if (preorder.hotelID / 1000 != polist.get(i).getCircelID()
+						&& user.getmemberType() == MemberType.个人会员) {
 					double[] memberDiscount = polist.get(i).getMemberDiscount();
 					price = price * memberDiscount[user.getmemberRank() - 1];
 					orderstrategy.orderPrice = price;
 					orderStrategylist.add(orderstrategy);
 				}
-			} else if (polist.get(i).getStrategyType() == StrategyType.ROOMNUM) {
+			} else if (polist.get(i)
+					.getStrategyType() == StrategyType.ROOMNUM) {
 				DateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 				Date nowdate = new Date();
 				try {
 					Date startdate = format.parse(polist.get(i).getStartTime());
 					Date enddate = format.parse(polist.get(i).getEndTime());
-					if (preorder.numOfRoom >= polist.get(i).getnumOfRoom() && startdate.before(nowdate)
+					if (preorder.numOfRoom >= polist.get(i).getnumOfRoom()
+							&& startdate.before(nowdate)
 							&& enddate.after(nowdate)) {
 						price = price * polist.get(i).getdiscount();
 						orderstrategy.orderPrice = price;
@@ -120,7 +123,17 @@ public class CreateOrder implements CreateOrderBLService {
 				try {
 					Date startdate = format.parse(polist.get(i).getStartTime());
 					Date enddate = format.parse(polist.get(i).getEndTime());
-					if (startdate.before(nowdate) && enddate.after(nowdate)) {
+					Date inDate = format.parse(order.getstartTime());
+					Date outDate = format.parse(order.getleaveTime());
+					if (polist.get(i).gethotelId() == 0
+							&& startdate.before(nowdate)
+							&& enddate.after(nowdate)) {
+						price = price * polist.get(i).getdiscount();
+						orderstrategy.orderPrice = price;
+						orderStrategylist.add(orderstrategy);
+					} else if (polist.get(i).gethotelId() != 0
+							&& (!startdate.after(inDate))
+							&& (!enddate.before(outDate))) {
 						price = price * polist.get(i).getdiscount();
 						orderstrategy.orderPrice = price;
 						orderStrategylist.add(orderstrategy);
@@ -130,8 +143,10 @@ public class CreateOrder implements CreateOrderBLService {
 					e.printStackTrace();
 				}
 
-			} else if (polist.get(i).getStrategyType() == StrategyType.COMPANY) {
-				if (user.getmemberType() == MemberType.企业会员 && user.getcompany().equals(polist.get(i).getcompany())) {
+			} else if (polist.get(i)
+					.getStrategyType() == StrategyType.COMPANY) {
+				if (user.getmemberType() == MemberType.企业会员 && user.getcompany()
+						.equals(polist.get(i).getcompany())) {
 					price = price * polist.get(i).getdiscount();
 					orderstrategy.orderPrice = price;
 				}
@@ -147,7 +162,8 @@ public class CreateOrder implements CreateOrderBLService {
 		// 取最小价格的策略
 		OrderStrategyVO nowOrderStrategy = orderStrategylist.get(0);
 		for (int i = 0; i < orderStrategylist.size(); i++) {
-			if (orderStrategylist.get(i).orderPrice < nowOrderStrategy.orderPrice) {
+			if (orderStrategylist
+					.get(i).orderPrice < nowOrderStrategy.orderPrice) {
 				nowOrderStrategy = orderStrategylist.get(i);
 			}
 		}
@@ -164,7 +180,8 @@ public class CreateOrder implements CreateOrderBLService {
 		if (!userdataservice.getCreditBalance(preOrder.userID).result) {
 			return userdataservice.getCreditBalance(preOrder.userID);
 		}
-		double credit = Double.parseDouble(userdataservice.getCreditBalance(preOrder.userID).message);
+		double credit = Double.parseDouble(
+				userdataservice.getCreditBalance(preOrder.userID).message);
 		if (credit < 0) {
 			return new ResultMessage(false, "用户信用值低于0", "");
 		}
@@ -173,7 +190,8 @@ public class CreateOrder implements CreateOrderBLService {
 		order.setorderStatus(OrderStatus.暂时预订);
 		OrderPO preorder = orderdataservice.preOrder(order);
 		if (preorder != null) {
-			return new ResultMessage(true, "", String.valueOf(preorder.getorderId()));
+			return new ResultMessage(true, "",
+					String.valueOf(preorder.getorderId()));
 		}
 
 		return new ResultMessage(false, "预定失败", "");

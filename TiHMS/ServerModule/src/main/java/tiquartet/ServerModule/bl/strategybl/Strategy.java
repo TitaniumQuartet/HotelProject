@@ -28,6 +28,7 @@ public class Strategy{
 	//根据酒店编号搜索策略
 	public List<StrategyVO> searchByHotel(int hotelID)throws RemoteException{
 		List<StrategyPO> polist=StrategyDataImpl.getInstance().searchByHotel(hotelID);
+		if(polist==null||polist.isEmpty()) return new ArrayList<StrategyVO>();
 		List<StrategyVO> volist=new ArrayList<StrategyVO>();
 		for(int i=0;i<polist.size();i++){
 			StrategyVO vo=polist.get(i).toStrategyvo();			

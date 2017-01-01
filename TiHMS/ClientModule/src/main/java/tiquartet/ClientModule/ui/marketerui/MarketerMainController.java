@@ -1,11 +1,14 @@
 package tiquartet.ClientModule.ui.marketerui;
 
 import java.io.IOException;
+import java.net.URL;
 import java.rmi.RemoteException;
+import java.util.ResourceBundle;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.image.ImageView;
@@ -20,7 +23,7 @@ import tiquartet.ClientModule.ui.rmiclient.HMSClient;
 import tiquartet.ClientModule.ui.usermainui.LoginController;
 import tiquartet.CommonModule.vo.OrderFilterVO;
 
-public class MarketerMainController {
+public class MarketerMainController implements Initializable {
 
 	@FXML
 	private FlowPane bottomBarPane;
@@ -96,7 +99,7 @@ public class MarketerMainController {
 		if (strategy == null) {
 			try {
 				FXMLLoader loader = new FXMLLoader(getClass()
-						.getResource("/fxml/adminui/hotelStrategy.fxml"));
+						.getResource("/fxml/hotelierui/hotelStrategy.fxml"));
 				strategy = loader.load();
 				HotelStrategyController hotelStrategyController = loader
 						.getController();
@@ -156,6 +159,11 @@ public class MarketerMainController {
 		}
 		mainFlowPane.getChildren().clear();
 		mainFlowPane.getChildren().add(unexecuted);
+	}
+
+	@Override
+	public void initialize(URL location, ResourceBundle resources) {
+		showHomePage();
 	}
 
 }

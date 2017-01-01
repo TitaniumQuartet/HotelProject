@@ -66,7 +66,8 @@ public class ClientInfoController {
 		contactField.setEditable(false);
 		creditLabel.setText(String.format("%.2f", userVO.credit));
 		memberTypeLabel.setText(userVO.memberType.name());
-		memberLevelLabel.setText("VIP" + userVO.memberLevel);
+		memberLevelLabel.setText("会员等级");
+		memberLevelValue.setText("VIP" + userVO.memberLevel);
 		memberLevelLabel.setVisible(userVO.memberType != MemberType.非会员);
 		memberLevelValue.setVisible(userVO.memberType != MemberType.非会员);
 		memberInfoLabel.setVisible(userVO.memberType != MemberType.非会员);

@@ -101,6 +101,7 @@ public class HotelInfoController implements Initializable {
 			hotelDetailsVO = HMSClient.getHotelInfoBL().getHotelDetails(
 					LoginController.getCurrentUser().hotelID,
 					LoginController.getCurrentUser().userID);
+			System.out.println(hotelDetailsVO.hotelID);
 			starBox.getSelectionModel().select(hotelDetailsVO.star);
 			starBox.setDisable(true);
 			addressField.setText(hotelDetailsVO.address);
@@ -112,7 +113,7 @@ public class HotelInfoController implements Initializable {
 
 			modifyButton.setVisible(true);
 			modifyButton.setText("修改");
-			cancelButton.setVisible(false);
+			cancelButton.setVisible(true);
 			cancelButton.setText("返回");
 		} catch (RemoteException e) {
 			// 网络异常处理

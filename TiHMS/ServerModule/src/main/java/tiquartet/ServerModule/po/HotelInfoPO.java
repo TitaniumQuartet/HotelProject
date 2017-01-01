@@ -4,7 +4,6 @@ import java.io.Serializable;
 
 import tiquartet.CommonModule.vo.HotelBriefVO;
 import tiquartet.CommonModule.vo.HotelDetailsVO;
-import tiquartet.CommonModule.vo.HotelInfoVO;
 
 public class HotelInfoPO implements Serializable{
 	//酒店编号
@@ -37,6 +36,7 @@ public class HotelInfoPO implements Serializable{
 	}
 	
 	public HotelInfoPO(HotelDetailsVO hotelInfo){
+		this.hotelId=hotelInfo.hotelID;
 		this.address=hotelInfo.address;
 		this.averageGrade=hotelInfo.averagegrade;
 		this.circleName=hotelInfo.circleName;
@@ -50,20 +50,7 @@ public class HotelInfoPO implements Serializable{
 		this.circleId=hotelInfo.circleID;
 		this.hotelName=hotelInfo.hotelName;
 	}
-	public HotelInfoPO(HotelInfoVO hotelInfovo){
-		this.address=hotelInfovo.address;
-		this.highprice=hotelInfovo.highprice;
-		this.circleId=hotelInfovo.circleId;
-		this.circleName=hotelInfovo.circleName;
-		this.circleName=hotelInfovo.cityName;
-		this.averageGrade=hotelInfovo.averageGrade;
-		this.hotelId=hotelInfovo.hotelID;
-		this.hotelIntroduction=hotelInfovo.hotelIntroduction;
-		this.hotelName=hotelInfovo.hotelName;
-		this.lowprice=hotelInfovo.lowprice;
-		this.serviceIntroduction=hotelInfovo.serviceIntroduction;
-		this.star=hotelInfovo.star;
-	}
+	
 	public HotelInfoPO(int hotelId,String hotelName,int star,String address,String introduction,String service,int circleId,String circleName,double lowprice,double highprice,double averageGrade,String cityName){
 		super();
 		this.hotelId=hotelId;
@@ -174,22 +161,6 @@ public class HotelInfoPO implements Serializable{
 	
 	public String getcityName(){
 		return this.cityName;
-	}
-	public HotelInfoVO toHotelInfoVO(){
-		HotelInfoVO vo=new HotelInfoVO();
-		vo.address=this.address;
-		vo.averageGrade=this.averageGrade;
-		vo.circleId=this.circleId;
-		vo.circleName=this.circleName;
-		vo.cityName=this.cityName;
-		vo.hotelID=this.hotelId;
-		vo.hotelIntroduction=this.hotelIntroduction;
-		vo.hotelName=this.hotelName;
-		vo.lowprice=this.lowprice;
-		vo.serviceIntroduction=this.serviceIntroduction;
-		vo.star=this.star;
-		vo.highprice=this.highprice;
-		return vo;
 	}
 	
 	public HotelBriefVO getBriefVO(){

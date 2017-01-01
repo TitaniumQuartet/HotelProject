@@ -130,6 +130,9 @@ public class MarketerSectionController implements Initializable {
 		confirmPasswordField.setVisible(true);
 		addMarketerButton.setText("确认");
 		addMarketerButton.setDisable(true);
+		usernameTick.setVisible(false);
+		passwordTick.setVisible(false);
+		confirmPasswordTick.setVisible(false);
 	}
 
 	/**
@@ -145,6 +148,9 @@ public class MarketerSectionController implements Initializable {
 		realNameField.setVisible(false);
 		passwordField.setVisible(false);
 		confirmPasswordField.setVisible(false);
+		usernameTick.setVisible(false);
+		passwordTick.setVisible(false);
+		confirmPasswordTick.setVisible(false);
 		addMarketerButton.setText("增加人员");
 	}
 
@@ -160,13 +166,16 @@ public class MarketerSectionController implements Initializable {
 					.checkUserName(usernameField.getText())
 					&& HMSClient.getUserMainBL()
 							.isUnregistered(usernameField.getText());
-			usernameTick.setVisible(usernameValid);
+			usernameTick.setVisible(
+					usernameValid && !usernameField.getText().isEmpty());
 			boolean passwordValid = UserInfoUtility
 					.checkPassword(passwordField.getText());
-			passwordTick.setVisible(passwordValid);
+			passwordTick.setVisible(
+					passwordValid && !passwordField.getText().isEmpty());
 			boolean confirmValid = confirmPasswordField.getText()
 					.equals(passwordField.getText()) && passwordValid;
-			confirmPasswordTick.setVisible(confirmValid);
+			confirmPasswordTick.setVisible(
+					confirmValid && !confirmPasswordField.getText().isEmpty());
 
 			if (usernameValid && passwordValid && confirmValid) {
 				addMarketerButton.setDisable(false);

@@ -74,6 +74,8 @@ public class MemberSignUpController implements Initializable {
 						LoginController.getCurrentUser().userName + "注册"
 								+ memberVO.memberType.name() + "成功！");
 				cancel.show();
+				LoginController.currentUser = HMSClient.getManageUserBL()
+						.accurateSearch(LoginController.currentUser.userName);
 				HMSClient.clientMainController.showSimply(previous);
 				HMSClient.clientMainController.renewMemberButton();
 			} else {
@@ -110,6 +112,7 @@ public class MemberSignUpController implements Initializable {
 						if (index == 0) {
 							// 选择个人会员
 							infoLabel.setText("生日");
+							infoLabel.setVisible(true);
 							birthdayPicker.setVisible(true);
 							birthdayPicker.setValue(null);
 							companyField.setVisible(false);
@@ -118,6 +121,7 @@ public class MemberSignUpController implements Initializable {
 						} else if (index == 1) {
 							// 选择企业会员
 							infoLabel.setText("企业名称");
+							infoLabel.setVisible(true);
 							birthdayPicker.setVisible(false);
 							companyField.setText("");
 							companyField.setVisible(true);
@@ -133,7 +137,7 @@ public class MemberSignUpController implements Initializable {
 							ObservableValue<? extends LocalDate> observable,
 							LocalDate oldValue, LocalDate newValue) {
 						if (newValue != null)
-							signUpButton.setVisible(false);
+							signUpButton.setDisable(false);
 					}
 				});
 		companyField.textProperty().addListener(new ChangeListener<String>() {

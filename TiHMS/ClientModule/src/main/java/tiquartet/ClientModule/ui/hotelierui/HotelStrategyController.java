@@ -9,6 +9,8 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.input.MouseEvent;
@@ -99,6 +101,15 @@ public class HotelStrategyController implements Initializable {
 			}
 		}
 		if (vo != null) {
+			vo.discount = 1;
+			try {
+				HMSClient.getStrategyBL().addStrategy(vo);
+			} catch (RemoteException e) {
+				// 网络异常处理
+				Alert alert = new Alert(AlertType.ERROR, "策略添加失败");
+				alert.show();
+				e.printStackTrace();
+			}
 			flowPane.getChildren().add(0, new StrategyPane(vo));
 		}
 	}
@@ -108,7 +119,7 @@ public class HotelStrategyController implements Initializable {
 		if (LoginController.getCurrentUser().userType == UserType.酒店工作人员) {
 			HMSClient.hotelierMainController.showSimply(previous);
 		} else {
-
+			HMSClient.marketerMainController.showHomePage();
 		}
 	}
 
