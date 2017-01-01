@@ -5,24 +5,25 @@ import java.rmi.RemoteException;
 import java.util.ArrayList;
 import tiquartet.CommonModule.vo.StrategyVO;
 import tiquartet.ServerModule.dataservice.impl.StrategyDataImpl;
+import tiquartet.ServerModule.dataservice.strategydataservice.StrategyDataService;
 import tiquartet.ServerModule.po.StrategyPO;
 import tiquartet.CommonModule.util.ResultMessage;
 
 public class Strategy{
 	
-	StrategyDataImpl strategydataimpl;
+	StrategyDataService strategydataservice;
 	public Strategy(){
-		strategydataimpl=StrategyDataImpl.getInstance();
+		strategydataservice=StrategyDataImpl.getInstance();
 	}
 	//增加策略
 	public ResultMessage addStrategy(StrategyVO strategyvo)throws RemoteException{
 		StrategyPO po=new StrategyPO(strategyvo);		
-		return strategydataimpl.insert(po);
+		return strategydataservice.insert(po);
 	}
 	//删除策略
 	public ResultMessage deleteStrategy(int strategyID)throws RemoteException{
 		
-		return strategydataimpl.delete(strategyID);
+		return strategydataservice.delete(strategyID);
 	}
 	//根据酒店编号搜索策略
 	public List<StrategyVO> searchByHotel(int hotelID)throws RemoteException{
@@ -37,7 +38,7 @@ public class Strategy{
 	
 	public ResultMessage modifyStrategy(StrategyVO strategyvo)throws RemoteException{
 		StrategyPO po=new StrategyPO(strategyvo);
-		return strategydataimpl.update(po);
+		return strategydataservice.update(po);
 	}
 	
 }

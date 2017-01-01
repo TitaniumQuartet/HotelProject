@@ -4,9 +4,12 @@ import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.List;
 
+import tiquartet.ServerModule.dataservice.hotelinfodataservice.HotelInfoDataService;
 import tiquartet.ServerModule.dataservice.impl.HotelInfoDataImpl;
 import tiquartet.ServerModule.dataservice.impl.ReviewDataImpl;
 import tiquartet.ServerModule.dataservice.impl.RoomDataImpl;
+import tiquartet.ServerModule.dataservice.reviewdataservice.ReviewDataService;
+import tiquartet.ServerModule.dataservice.roomdataservice.RoomDataService;
 import tiquartet.ServerModule.po.HotelInfoPO;
 import tiquartet.ServerModule.po.ReviewPO;
 import tiquartet.ServerModule.po.RoomTypePO;
@@ -25,21 +28,21 @@ import tiquartet.CommonModule.vo.OrderNumVO;
  *
  */
 public class HotelInfo implements HotelInfoBLService {
-	HotelInfoDataImpl hoteldataimpl;
-	ReviewDataImpl reviewdataimpl;
-	RoomDataImpl roomdataimpl;
+	HotelInfoDataService hoteldataservice;
+	ReviewDataService reviewdataservice;
+	RoomDataService roomdataservice;
 	ManageOrderController manageordercontroller;
 
 	public HotelInfo() {
-		hoteldataimpl = HotelInfoDataImpl.getInstance();
-		reviewdataimpl = ReviewDataImpl.getInstance();
-		roomdataimpl = RoomDataImpl.getInstance();
+		hoteldataservice = HotelInfoDataImpl.getInstance();
+		reviewdataservice = ReviewDataImpl.getInstance();
+		roomdataservice = RoomDataImpl.getInstance();
 		manageordercontroller = new ManageOrderController();
 	}
     
 	// 获得酒店简单信息
 	public HotelBriefVO getHotelBrief(int hotelID, int userID) throws RemoteException {
-		HotelInfoPO hp = hoteldataimpl.getHotelInfo(hotelID);
+		HotelInfoPO hp = hoteldataservice.getHotelInfo(hotelID);
 		if (hp == null) {
 			return null;
 		}
@@ -60,7 +63,7 @@ public class HotelInfo implements HotelInfoBLService {
 	 */
 	public HotelDetailsVO getHotelDetails(int hotelID, int userID) throws RemoteException {
 		HotelDetailsVO hoteldetails = new HotelDetailsVO();
-		HotelInfoPO hp = hoteldataimpl.getHotelInfo(hotelID);
+		HotelInfoPO hp = hoteldataservice.getHotelInfo(hotelID);
 		if (hp == null) {
 			return null;
 		}
@@ -74,7 +77,7 @@ public class HotelInfo implements HotelInfoBLService {
 		hoteldetails.hotelName = hp.gethotelName();
 		hoteldetails.serviceintro = hp.getserviceIntroduction();
 		hoteldetails.star = hp.getstar();
-		List<ReviewPO> list = reviewdataimpl.searchByHotel(hotelID);
+		List<ReviewPO> list = reviewdataservice.searchByHotel(hotelID);
 		for (int i = 0; i < list.size(); i++) {
 			ReviewVO rv = new ReviewVO();
 			rv = list.get(i).toReviewvo();
@@ -88,8 +91,8 @@ public class HotelInfo implements HotelInfoBLService {
 	 */
 	public List<RoomTypeVO> availableRoomType(PreOrderVO preOrder) throws RemoteException {
 		List<RoomTypePO> polist;
-		if(preOrder.startTime==null||preOrder.startTime.isEmpty()) polist = hoteldataimpl.getRoomTypes(preOrder.hotelID);
-		else polist = roomdataimpl.availableRoomType(preOrder.hotelID, preOrder.startTime, preOrder.leaveTime, preOrder.numOfRoom);
+		if(preOrder.startTime==null||preOrder.startTime.isEmpty()) polist = hoteldataservice.getRoomTypes(preOrder.hotelID);
+		else polist = roomdataservice.availableRoomType(preOrder.hotelID, preOrder.startTime, preOrder.leaveTime, preOrder.numOfRoom);
 		List<RoomTypeVO> volist = new ArrayList<RoomTypeVO>();
 		for (int i = 0; i < polist.size(); i++) {
 			RoomTypeVO rtv = polist.get(i).toRoomTypevo();
@@ -104,7 +107,7 @@ public class HotelInfo implements HotelInfoBLService {
 	 */
 	public ResultMessage reviewHotel(ReviewVO review) throws RemoteException {
 		ReviewPO reviewpo = new ReviewPO(review);
-		return reviewdataimpl.insert(reviewpo);
+		return reviewdataservice.insert(reviewpo);
 	}
     
 	/* 
@@ -112,7 +115,7 @@ public class HotelInfo implements HotelInfoBLService {
 	 */
 	public ResultMessage modifyHotelInfo(HotelDetailsVO hotelInfo) throws RemoteException {
 		HotelInfoPO hip = new HotelInfoPO(hotelInfo);
-		return hoteldataimpl.update(hip);
+		return hoteldataservice.update(hip);
 	}
     
 	/* 
