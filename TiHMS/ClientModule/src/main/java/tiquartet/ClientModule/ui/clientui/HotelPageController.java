@@ -99,7 +99,7 @@ public class HotelPageController implements Initializable {
 
 	PreOrderVO preOrder;
 
-	ToggleGroup group;
+	ToggleGroup group = new ToggleGroup();
 
 	List<RoomTypeVO> types;
 

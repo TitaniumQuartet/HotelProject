@@ -165,13 +165,17 @@ public class SearchHotelController implements Initializable {
 			pageNumBox.setDisable(total <= 10);
 			lastPageButton.setDisable(page < 2);
 			nextPageButton.setDisable(page * 10 >= total);
+			if (total == 0)
+				return;
 			if (total > 10) {
 				pageNumBox.getItems().clear();
 				for (int i = 1; i <= Math.ceil(total / 10.0); i++)
 					pageNumBox.getItems().add(i);
 			}
-			pageNumBox.getSelectionModel().select(new Integer(page));;
+			pageNumBox.getSelectionModel().select(new Integer(page));
 			// 设置酒店信息显示
+			if (total <= 10)
+				num = total;
 			scroll.setVmax(num <= 10 ? (num + 1) / 2 : 5);
 			try {
 				for (int i = page * 10 - 9; i <= page * 10 - 9 + num - 1; i++) {
@@ -181,7 +185,7 @@ public class SearchHotelController implements Initializable {
 					Parent parent = loader.load();
 					HotelSearchedController controller = loader.getController();
 					controller.searchHotelController = this;
-					grid.add(parent, i - page * 10 + 9, 0);
+					grid.add(parent, 0, i - page * 10 + 9);
 					controller.setContent(list.get(i - 1));
 				}
 			} catch (IOException e) {

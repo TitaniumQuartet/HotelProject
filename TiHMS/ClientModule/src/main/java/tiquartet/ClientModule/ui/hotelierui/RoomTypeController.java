@@ -170,6 +170,11 @@ public class RoomTypeController implements Initializable {
 					nameField.setEditable(false);
 					priceField.setEditable(false);
 					introArea.setEditable(false);
+					modifyButton.setText("修改");
+					deleteButton.setText("");
+				} else {
+					Alert error = new Alert(AlertType.ERROR, "修改客房类型信息失败");
+					error.show();
 				}
 			} catch (RemoteException e) {
 				// 网络异常处理

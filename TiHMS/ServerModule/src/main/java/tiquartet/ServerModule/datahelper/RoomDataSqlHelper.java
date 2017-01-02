@@ -293,7 +293,7 @@ public class RoomDataSqlHelper implements RoomDataHelper {
 	 */
 	public void updateLow(double price, int hotelId) {
 		Connection conn = Connect.getConn();
-		String sql = "select from hotelInfo where hotelId =" + hotelId;
+		String sql = "select* from hotelInfo where hotelId =" + hotelId;
 		PreparedStatement pstmt;
 		try {
 			pstmt = (PreparedStatement) conn.prepareStatement(sql);
@@ -306,23 +306,23 @@ public class RoomDataSqlHelper implements RoomDataHelper {
 				if (rs.getInt(9) == -1) {
 					PreparedStatement pstmt1 = (PreparedStatement) conn
 							.prepareStatement(sqll);
-					pstmt.executeUpdate();
+					pstmt1.executeUpdate();
 				} else {
 					if (rs.getDouble(9) > price) {
 						PreparedStatement pstmt1 = (PreparedStatement) conn
 								.prepareStatement(sqll);
-						pstmt.executeUpdate();
+						pstmt1.executeUpdate();
 					}
 				}
 				if (rs.getDouble(10) == -1) {
 					PreparedStatement pstmt1 = (PreparedStatement) conn
 							.prepareStatement(sqlll);
-					pstmt.executeUpdate();
+					pstmt1.executeUpdate();
 				} else {
 					if (rs.getDouble(10) < price) {
 						PreparedStatement pstmt1 = (PreparedStatement) conn
 								.prepareStatement(sqlll);
-						pstmt.executeUpdate();
+						pstmt1.executeUpdate();
 					}
 				}
 

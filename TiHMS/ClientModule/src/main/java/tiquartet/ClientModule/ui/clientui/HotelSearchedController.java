@@ -121,10 +121,7 @@ public class HotelSearchedController implements Initializable {
 	ToggleGroup radioGroup = new ToggleGroup();
 
 	void showTypes() {
-		for (Node node : roomTypeHBox.getChildren()) {
-			RoomTypePane pane = (RoomTypePane) node;
-			pane.button.setToggleGroup(null);
-		}
+		radioGroup.getToggles().clear();
 		roomTypeHBox.getChildren().clear();
 		for (RoomTypeVO vo : typeList) {
 			roomTypeHBox.getChildren().add(new RoomTypePane(vo));
@@ -138,19 +135,24 @@ public class HotelSearchedController implements Initializable {
 	public void setContent(HotelBriefVO briefVO) {
 		hotelBriefVO = briefVO;
 		hotelNameLabel.setText(briefVO.hotelName);
-		starImage.setImage(
-				new Image("/image/clientui/" + briefVO.star + "star.jpg"));
+		if (briefVO.star > 0)
+			starImage.setImage(
+					new Image("/image/clientui/" + briefVO.star + "star.jpg"));
 		rateLabel.setText(String.format("%.1f", briefVO.averageGrade));
+		if (briefVO.averageGrade == -1)
+			rateLabel.setText("暂无评价");
 		introLabel.setText(briefVO.introduction);
 		orderNumLabel.setText("我共有" + briefVO.numOfAllOrder + "笔订单，已执行"
 				+ briefVO.numOfExecutedOrder + "笔");
 		contactLabel.setVisible(false);
 		contactField.setVisible(false);
 		createOrderLabel.setDisable(true);
-		preOrder.startTime = searchHotelController.inDateBox.getValue()
-				.toString();
-		preOrder.leaveTime = searchHotelController.outDateBox.getValue()
-				.toString();
+		if (searchHotelController.inDateBox.getValue() != null)
+			preOrder.startTime = searchHotelController.inDateBox.getValue()
+					.toString();
+		if (searchHotelController.outDateBox.getValue() != null)
+			preOrder.leaveTime = searchHotelController.outDateBox.getValue()
+					.toString();
 		preOrder.hotelID = hotelBriefVO.hotelID;
 		preOrder.numOfRoom = 1;
 		preOrder.userID = LoginController.getCurrentUser().userID;
@@ -179,10 +181,14 @@ public class HotelSearchedController implements Initializable {
 							ObservableValue<? extends Number> observable,
 							Number oldValue, Number newValue) {
 						try {
-							preOrder.startTime = searchHotelController.inDateBox
-									.getValue().toString();
-							preOrder.leaveTime = searchHotelController.outDateBox
-									.getValue().toString();
+							if (searchHotelController.inDateBox
+									.getValue() != null)
+								preOrder.startTime = searchHotelController.inDateBox
+										.getValue().toString();
+							if (searchHotelController.outDateBox
+									.getValue() != null)
+								preOrder.leaveTime = searchHotelController.outDateBox
+										.getValue().toString();
 							preOrder.hotelID = hotelBriefVO.hotelID;
 							preOrder.numOfRoom = (Integer) newValue;
 							List<RoomTypeVO> list = HMSClient.getHotelInfoBL()

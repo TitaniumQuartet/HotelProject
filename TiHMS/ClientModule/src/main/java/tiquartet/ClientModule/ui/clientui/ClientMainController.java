@@ -216,6 +216,7 @@ public class ClientMainController implements Initializable {
 				hotelPageController.clientMainController = this;
 				mainFlowPane.getChildren().clear();
 				mainFlowPane.getChildren().add(hotelDetails);
+				hotelPageController.setHotel(hotelID);
 				// 设置返回按钮
 
 			} catch (IOException e) {
