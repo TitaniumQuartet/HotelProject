@@ -42,9 +42,8 @@ public class UserDataSqlHelper implements UserDataHelper {
 			boolean login = rs.getBoolean(12);
 			MemberType memberType = MemberType.values()[rs.getInt(13)];
 			String phone = rs.getString(14);
-			userpo = new UserPO(userId, userName, password, userType, realName,
-					credit, birthday, memberRank, isMember, company, hotelId,
-					login, memberType, phone);
+			userpo = new UserPO(userId, userName, password, userType, realName, credit, birthday, memberRank, isMember,
+					company, hotelId, login, memberType, phone);
 			return userpo;
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -105,10 +104,8 @@ public class UserDataSqlHelper implements UserDataHelper {
 				pass = rs.getString(3);
 				login = rs.getBoolean(12);
 			}
-			if (username.equals(name) && password.equals(pass)
-					&& login == false) {// 若登陆成功，修改login的值为真.
-				String sqll = "update user set login =" + 1
-						+ " where username = '" + username + "'";
+			if (username.equals(name) && password.equals(pass) && login == false) {// 若登陆成功，修改login的值为真.
+				String sqll = "update user set login =" + 1 + " where username = '" + username + "'";
 				pstmt = (PreparedStatement) conn.prepareStatement(sqll);
 				pstmt.executeUpdate();
 				pstmt.close();
@@ -156,9 +153,7 @@ public class UserDataSqlHelper implements UserDataHelper {
 			pstmt.setString(9, user.getcompany());
 			pstmt.setInt(10, user.gethotelId());
 			pstmt.setBoolean(11, user.getLogin());
-			pstmt.setInt(12, user.getmemberType() == null
-					? 0
-					: user.getmemberType().ordinal());
+			pstmt.setInt(12, user.getmemberType() == null ? 0 : user.getmemberType().ordinal());
 			pstmt.setString(13, user.getphone());
 			pstmt.executeUpdate();
 			pstmt.close();
@@ -178,20 +173,21 @@ public class UserDataSqlHelper implements UserDataHelper {
 	@Override
 	public ResultMessage update(UserPO userPO) {
 		Connection conn = Connect.getConn();
-		String sql = "update user set userName='" + userPO.getuserName()
-				+ "', password='" + userPO.getpassword() + "', userType="
-				+ userPO.getTypeAsInt() + ", realName='" + userPO.getrealName()
-				+ "', credit=" + userPO.getcredit() + ", birthday='"
-				+ userPO.getbirthday() + "', memberRank="
-				+ userPO.getmemberRank() + ", isMember=" + userPO.getisMember()
-				+ ", company='" + userPO.getcompany() + "', hotelId="
-				+ userPO.gethotelId() + ", login=" + userPO.getLogin()
-				+ ", memberType=" + userPO.getmemberType().ordinal()
-				+ ", phone='" + userPO.getphone() + "' where userId="
+		String sql = "update user set userName='" + userPO.getuserName() + "', password='" + userPO.getpassword()
+				+ "', userType=" + userPO.getTypeAsInt() + ", realName='" + userPO.getrealName() + "', credit="
+				+ userPO.getcredit() + ", birthday='" + userPO.getbirthday() + "', memberRank=" + userPO.getmemberRank()
+				+ ", isMember=" + userPO.getisMember() + ", company='" + userPO.getcompany() + "', hotelId="
+				+ userPO.gethotelId() + ", login=" + userPO.getLogin() + ", memberType="
+				+ userPO.getmemberType().ordinal() + ", phone='" + userPO.getphone() + "' where userId="
 				+ userPO.getuserId();
 		PreparedStatement pstmt;
 		try {
 			pstmt = (PreparedStatement) conn.prepareStatement(sql);
+			pstmt.executeUpdate();
+			int memberRank = memberRank(userPO.getcredit(), userPO.getmemberRank());
+			String sqll = "update user set credit=" + userPO.getcredit() + ", memberRank=" + memberRank
+					+ " where userId = " + userPO.getuserId();
+			pstmt = (PreparedStatement) conn.prepareStatement(sqll);
 			pstmt.executeUpdate();
 			pstmt.close();
 			conn.close();
@@ -208,13 +204,11 @@ public class UserDataSqlHelper implements UserDataHelper {
 	 * @return
 	 */
 	@Override
-	public List<UserPO> searchUser(String username, String realName,
-			UserType type) {
+	public List<UserPO> searchUser(String username, String realName, UserType type) {
 		Connection conn = Connect.getConn();
 		List<UserPO> users = new ArrayList<UserPO>();
-		String sql = "select * from user where realName REGEXP '" + realName
-				+ "' AND userName REGEXP '" + username + "' AND userType ='"
-				+ type.ordinal() + "'";
+		String sql = "select * from user where realName REGEXP '" + realName + "' AND userName REGEXP '" + username
+				+ "' AND userType ='" + type.ordinal() + "'";
 		PreparedStatement pstmt;
 		try {
 			pstmt = (PreparedStatement) conn.prepareStatement(sql);
@@ -248,8 +242,7 @@ public class UserDataSqlHelper implements UserDataHelper {
 			double credit = 0;
 			if (rs.next())
 				credit = rs.getDouble(6);
-			ResultMessage result = new ResultMessage(true, null,
-					String.valueOf(credit));
+			ResultMessage result = new ResultMessage(true, null, String.valueOf(credit));
 			pstmt.close();
 			conn.close();
 			return result;
@@ -293,8 +286,7 @@ public class UserDataSqlHelper implements UserDataHelper {
 				rank = memberlevel.length + 1;
 			} else {
 				for (int i = 1; i < memberlevel.length; i++) {
-					if (credit <= memberlevel[i]
-							&& credit > memberlevel[i - 1]) {
+					if (credit <= memberlevel[i] && credit > memberlevel[i - 1]) {
 						rank = i + 1;
 						break;
 					}
@@ -324,8 +316,8 @@ public class UserDataSqlHelper implements UserDataHelper {
 				memberRank = rs.getInt(8);
 			}
 			memberRank = memberRank(credit, memberRank);
-			String sqll = "update user set credit=" + credit + ", memberRank="
-					+ memberRank + " where userId = " + userID;
+			String sqll = "update user set credit=" + credit + ", memberRank=" + memberRank + " where userId = "
+					+ userID;
 			pstmt = (PreparedStatement) conn.prepareStatement(sqll);
 			pstmt.executeUpdate();
 			pstmt.close();
@@ -400,14 +392,12 @@ public class UserDataSqlHelper implements UserDataHelper {
 			while (rs.next()) {
 				int hotelId = rs.getInt(11);
 				if (districtID != -1) {
-					if (hotelId >= districtID * 1000
-							&& hotelId < (districtID + 1) * 1000) {
+					if (hotelId >= districtID * 1000 && hotelId < (districtID + 1) * 1000) {
 						UserPO userpo = createuserpo(rs);
 						users.add(userpo);
 					}
 				} else {
-					if (hotelId > cityID * 100000
-							&& hotelId < (cityID + 1) * 100000) {
+					if (hotelId > cityID * 100000 && hotelId < (cityID + 1) * 100000) {
 						UserPO userpo = createuserpo(rs);
 						users.add(userpo);
 					}
